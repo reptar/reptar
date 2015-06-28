@@ -1,3 +1,3 @@
-# yarn
+# whee
 
-spin your own yarn
+the blogging platform that makes you go *wheeeeeeeeeee*
