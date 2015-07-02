@@ -10,6 +10,8 @@
     "modules": true
   },
   "rules": {
+    "max-len": [2, 80, 2],
+    "no-underscore-dangle": 0,
     "handle-callback-err": 0,
     "no-bitwise": 1,
     "camelcase": 0,
@@ -23,7 +25,7 @@
     "strict": [2, "global"],
     "no-debugger": 2,
     "no-dupe-keys": 2,
-    "no-empty": 2,
+    "no-empty": 0,
     "no-extra-boolean-cast": 0,
     "no-extra-parens": 0,
     "no-extra-semi": 2,
