@@ -13,11 +13,11 @@ site:
 
 # Where things are
 path:
-  root:        .
+  source:      ./../whee-blog
   destination: ./_site
-  source:      ./_posts/2015
+  posts:       ./_posts/2015
   plugins:     ./_plugins
-  templates:   ./_templates
+  layouts:     ./_layouts
   data_source: ./_data
   collections: null
 
@@ -47,8 +47,8 @@ whitelist: []
 gems:      []
 
 # Conversion
-markdown:    kramdown
-highlighter: rouge
+markdown:    remarkable
+highlighter: highlight.js
 lsi:         false
 excerpt_separator: "\n\n"
 

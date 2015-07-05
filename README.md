@@ -6,7 +6,7 @@ the blogging platform that makes you go *wheeeeeeeeeee*
 
 - [x] custom permalink structure
 - [x] template renderer
-  - [x] support custom tags/filters in nunjucks
+  - [ ] support custom tags/filters in nunjucks
   - [x] add highlight.js to template renderer for code highlighting
 - [ ] pagination support, with customizable size
 - [ ] tag page support
