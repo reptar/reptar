@@ -17,10 +17,19 @@ path:
   destination: ./_site
   posts:       ./_posts/2015
   plugins:     ./_plugins
-  layouts:     ./_layouts
   data_source: ./_data
   collections: null
 
+# Theme
+theme:
+  name:        ""
+  source:      ./_themes
+  layouts:     ./_layouts
+  includes:    ./_includes
+  css:         ./css/main.css
+  js:          ./js/main.js
+
+# Default values
 defaults:
   -
     scope:
