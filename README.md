@@ -1,4 +1,4 @@
-# whee
+# yarn
 
 the blogging platform that makes you go *wheeeeeeeeeee*
 
