@@ -18,16 +18,26 @@ path:
   posts:       ./_posts/2015
   plugins:     ./_plugins
   data_source: ./_data
-  collections: null
+  themes:      ./_themes
 
-# Theme
-theme:
-  name:        ""
-  source:      ./_themes
-  layouts:     ./_layouts
-  includes:    ./_includes
-  css:         ./css/main.css
-  js:          ./js/main.js
+# Types of content.
+types:
+  _default:
+    path: './'
+    layout: 'page'
+    permalink: '/test/:title/'
+  posts:
+    path: ./_posts/2015
+    layout: 'post'
+    permalink: '/:title/'
+  tags:
+    metadata: 'tags'
+    layout: 'tags'
+    permalink: '/tag/:tag/'
+    permalink_pagination: '/tag/:tag/:page/'
+
+# What is the current theme.
+theme: 'default'
 
 # Default values
 defaults:
