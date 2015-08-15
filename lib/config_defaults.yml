@@ -15,26 +15,31 @@ site:
 path:
   source:      ./../yarn-blog
   destination: ./_site
-  posts:       ./_posts/2015
   plugins:     ./_plugins
   data_source: ./_data
   themes:      ./_themes
 
-# Types of content.
-types:
-  _default:
-    path: './'
-    layout: 'page'
-    permalink: '/test/:title/'
-  posts:
+# Collections of content.
+collections:
+  default:
+    path: ./
+    layout: page
+  post:
     path: ./_posts/2015
-    layout: 'post'
-    permalink: '/:title/'
-  tags:
-    metadata: 'tags'
-    layout: 'tags'
-    permalink: '/tag/:tag/'
-    permalink_pagination: '/tag/:tag/:page/'
+    layout: post
+    sort:
+      key: date
+      order: descending
+    page_size: 6
+    permalink:       /:title/
+    permalink_index: /index.html
+    permalink_page:  /page/:page/
+  tag:
+    metadata: tags
+    layout: tags
+    page_size: 6
+    permalink_index: /tag/:metadata/
+    permalink_page:  /tag/:metadata/:page/
 
 # What is the current theme.
 theme: 'default'
@@ -53,7 +58,12 @@ include:      [".htaccess"]
 exclude:      []
 keep_files:   [".git", ".svn"]
 encoding:     "utf-8"
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+markdown_extension:
+  - markdown
+  - mkdown
+  - mkdn
+  - mkd
+  - md
 
 # Filtering Content
 show_drafts: null

@@ -2,14 +2,42 @@
 
 the blogging platform that makes you go *wheeeeeeeeeee*
 
+## layout of blog files
+
+```
+yarn-blog/
+  posts/
+    2014
+    2015
+      file.md
+  pages/
+    about.md
+    contact.md
+  _themes/
+    default/
+      theme.yaml
+      layouts/
+        default.html
+        post.html
+        post-paginated.html
+        page.html
+        page-paginated.html
+        metadata-tags.html
+        metadata-tags-paginated.html
+      includes/
+        header.html
+        footer.html
+      static/
+```
+
 ## todo
 
 - [x] custom permalink structure
-- [x] template renderer
+- [x] pagination support, with customizable size
+- [x] tag page support
+- [ ] template renderer of all types/collections
   - [ ] support custom tags/filters in nunjucks
   - [x] add highlight.js to template renderer for code highlighting
-- [ ] pagination support, with customizable size
-- [ ] tag page support
 - [ ] allow any values in `site` key in yaml file to be injected into every page under the `site` property
 - [ ] asset management
   - [ ] less/sass -> -> autoprefixr -> css
@@ -30,3 +58,6 @@ the blogging platform that makes you go *wheeeeeeeeeee*
   - [ ] build blog
   - [ ] serve mode
   - [ ] watch mode
+
+http://validatejs.org/
+https://github.com/Level/levelup
