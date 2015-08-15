@@ -15,6 +15,12 @@ describe('Utils', function() {
       }), '/banana/banana/');
     });
 
+    it('handles permalink with no interpolation', function() {
+      assert.equal(utils.interpolatePermalink('/index.html', {
+        title: 'banana'
+      }), '/index.html');
+    });
+
     it(`throws if it can't find value to interpolate in permalink`, function() {
       assert.throws(() => {
         utils.interpolatePermalink('/:title/:unknown/', {
