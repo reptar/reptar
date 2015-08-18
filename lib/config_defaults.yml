@@ -39,6 +39,9 @@ collections:
   tag:
     metadata: tags
     layout: tags
+    sort:
+      key: date
+      order: descending
     pagination:
       layout: index
       size: 6
