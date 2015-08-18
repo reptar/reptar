@@ -27,19 +27,23 @@ collections:
   post:
     path: ./_posts/2015
     layout: post
+    permalink: /:title/
     sort:
       key: date
       order: descending
-    page_size: 6
-    permalink:       /:title/
-    permalink_index: /index.html
-    permalink_page:  /page/:page/
+    pagination:
+      layout: index
+      size: 6
+      permalink_index: /index.html
+      permalink_page:  /page/:page/
   tag:
     metadata: tags
     layout: tags
-    page_size: 6
-    permalink_index: /tag/:metadata/
-    permalink_page:  /tag/:metadata/:page/
+    pagination:
+      layout: index
+      size: 6
+      permalink_index: /tag/:metadata/
+      permalink_page:  /tag/:metadata/:page/
 
 # What is the current theme.
 theme: 'default'
