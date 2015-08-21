@@ -2,34 +2,6 @@
 
 the blogging platform that makes you go *wheeeeeeeeeee*
 
-## layout of blog files
-
-```
-yarn-blog/
-  posts/
-    2014
-    2015
-      file.md
-  pages/
-    about.md
-    contact.md
-  _themes/
-    default/
-      theme.yaml
-      layouts/
-        default.html
-        post.html
-        post-paginated.html
-        page.html
-        page-paginated.html
-        metadata-tags.html
-        metadata-tags-paginated.html
-      includes/
-        header.html
-        footer.html
-      static/
-```
-
 ## todo
 
 - [x] custom permalink structure
