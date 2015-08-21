@@ -51,13 +51,8 @@ collections:
 # What is the current theme.
 theme: 'default'
 
-# Default values
-defaults:
-  -
-    scope:
-      path: "_posts" # an empty string here means all files in the project
-    values:
-      layout: "post"
+# If we should remove the compile destination folder before writing.
+clean_destination: true
 
 # Handling Reading
 safe:         false
@@ -93,11 +88,6 @@ detach:  false
 port:    4000
 host:    127.0.0.1
 baseurl: "" # does not include hostname
-
-# Outputting
-permalink:     /:title/
-paginate_path: /page:num
-timezone:      null
 
 quiet:    false
 
