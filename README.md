@@ -35,10 +35,10 @@ yarn-blog/
 - [x] custom permalink structure
 - [x] pagination support, with customizable size
 - [x] tag page support
-- [ ] template renderer of all types/collections
+- [x] template renderer of all types/collections
   - [ ] support custom tags/filters in nunjucks
   - [x] add highlight.js to template renderer for code highlighting
-- [ ] allow any values in `site` key in yaml file to be injected into every page under the `site` property
+- [x] allow any values in `site` key in yaml file to be injected into every page under the `site` property
 - [ ] asset management
   - [ ] less/sass -> -> autoprefixr -> css
   - [ ] js -> uglify
@@ -46,10 +46,10 @@ yarn-blog/
   - [ ] concatenate all assets
   - [ ] html minifier
   - [ ] hash file contents to allow for unique built file  
-- [ ] option `clean` that allows deleting destination folder before building
+- [x] option `clean` that allows deleting destination folder before building
 - [ ] support auto excerpts of posts for use in index pages
 - [ ] word count plugin to allow for estimating time to read a page
-- [ ] rss feed support
+- [x] rss feed support
 - [ ] plugin support
   - [ ] first plugin is the `json/posts.json` file used in hswolff.com
 - [ ] cli
