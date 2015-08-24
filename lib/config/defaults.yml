@@ -1,22 +1,17 @@
-# Site settings
+# Site settings.
 site:
-  title: Your awesome title
-  email: your-email@domain.com
+  title: My Yarn Title
+  email: your-yarn@email.com
   description: > # this means to ignore newlines until "baseurl:"
-    Write an awesome description for your new site here. You can edit this
-    line in _config.yml. It will appear in your document head meta (for
-    Google search results) and in your feed.xml site description.
+    Your website's description goes here.
   baseurl: "" # the subpath of your site, e.g. /blog
   url: "http://yourdomain.com" # the base hostname & protocol for your site
-  twitter_username: jekyllrb
-  github_username:  jekyll
 
-# Where things are
+# Where things are.
 path:
   source:      ./../yarn-blog
   destination: ./_site
   plugins:     ./_plugins
-  data_source: ./_data
   themes:      ./_themes
 
 # Collections of content.
@@ -54,12 +49,7 @@ theme: 'default'
 # If we should remove the compile destination folder before writing.
 clean_destination: false
 
-# Handling Reading
-safe:         false
-include:      [".htaccess"]
-exclude:      []
-keep_files:   [".git", ".svn"]
-encoding:     "utf-8"
+# What we should recognize as a markdown file.
 markdown_extension:
   - markdown
   - mkdown
@@ -75,24 +65,20 @@ unpublished: false
 
 # Plugins
 whitelist: []
-gems:      []
 
-# Conversion
+# Conversion.
 markdown:    remarkable
 highlighter: highlight.js
-lsi:         false
-excerpt_separator: "\n\n"
 
-# Serving
+# Markdown Processor.
+remarkable:
+  preset:       'commonmark'
+  highlight:    true
+
+# Serving.
 detach:  false
 port:    4000
 host:    127.0.0.1
 baseurl: "" # does not include hostname
 
 quiet:    false
-
-# Markdown Processors
-remarkable:
-  preset:       'commonmark'
-  highlight:    true
-
