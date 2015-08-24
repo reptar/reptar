@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "description": "a blogging platform that makes you say whee",
   "main": "index.js",
+  "bin": {
+    "yarn": "./bin/index.js"
+  },
   "scripts": {
+    "preversion": "babel lib --out-dir lib-es5 && cp lib/config/defaults.yml lib-es5/config/defaults.yml",
     "test": "mocha --recursive --compilers js:babel/register --reporter spec $(find test -name '*.spec.js')",
     "lint": "eslint ."
   },
