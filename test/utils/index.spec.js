@@ -1,7 +1,8 @@
 const assert = require('assert');
-const utils = require('../lib/utils');
+const utils = require('../../lib/utils/index.js');
 
-describe('Utils', function() {
+describe('utils/index', function() {
+
   describe('interpolatePermalink', function() {
     it('handles simple interpolations', function() {
       assert.equal(utils.interpolatePermalink('/:title/', {

@@ -4,8 +4,7 @@
   "description": "a blogging platform that makes you say whee",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel/register --reporter spec",
-    "test:watch": "mocha --compilers js:babel/register --reporter mocha-osx-reporter -w",
+    "test": "mocha --recursive --compilers js:babel/register --reporter spec $(find test -name '*.spec.js')",
     "lint": "eslint ."
   },
   "repository": {
