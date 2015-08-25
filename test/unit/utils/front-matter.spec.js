@@ -1,8 +1,7 @@
-const assert = require('assert');
+const assert = require('chai').assert;
 const frontMatter = require('../../../lib/utils/front-matter.js');
 
 const fixture = require('../../fixture');
-
 
 describe('utils/front-matter', function() {
 

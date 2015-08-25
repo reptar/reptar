@@ -1,4 +1,4 @@
-const assert = require('assert');
+const assert = require('chai').assert;
 const utils = require('../../../lib/utils/index.js');
 
 describe('utils/index', function() {
