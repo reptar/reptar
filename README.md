@@ -1,6 +1,6 @@
 # yarn
 
-the blogging platform that makes you go *wheeeeeeeeeee*
+spin your own yarn
 
 ## todo
 

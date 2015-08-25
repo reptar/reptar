@@ -1,6 +1,6 @@
 const assert = require('assert');
 
-const yarn = require('../index.js');
+const yarn = require('../../index.js');
 
 describe.skip('cli', function() {
   describe('new', function() {

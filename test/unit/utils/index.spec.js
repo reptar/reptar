@@ -1,5 +1,5 @@
 const assert = require('assert');
-const utils = require('../../lib/utils/index.js');
+const utils = require('../../../lib/utils/index.js');
 
 describe('utils/index', function() {
 

@@ -1,7 +1,7 @@
 const assert = require('assert');
 
 var logger = require('winston');
-const Yarn = require('../index.js');
+const Yarn = require('../../index.js');
 
 describe.skip('Yarn', function() {
   it('should return -1 when the value is not present', function(done) {

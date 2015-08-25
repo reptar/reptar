@@ -1,7 +1,7 @@
 const assert = require('assert');
-const frontMatter = require('../../lib/utils/front-matter.js');
+const frontMatter = require('../../../lib/utils/front-matter.js');
 
-const stub = require('../stub');
+const fixture = require('../../fixture');
 
 
 describe('utils/front-matter', function() {
@@ -9,8 +9,8 @@ describe('utils/front-matter', function() {
   describe('parse', function() {
     it('correctly takes a string and produces a json object', function() {
       assert.deepEqual(
-        frontMatter.parse(stub.frontmatterString),
-        stub.frontmatterJSON
+        frontMatter.parse(fixture.frontmatterString),
+        fixture.frontmatterJSON
       );
     });
   });
@@ -19,10 +19,10 @@ describe('utils/front-matter', function() {
     it('correctly takes json object and produces a string', function() {
       assert.equal(
         frontMatter.stringify(
-          stub.frontmatterJSON.content,
-          stub.frontmatterJSON.data
+          fixture.frontmatterJSON.content,
+          fixture.frontmatterJSON.data
         ),
-        stub.frontmatterString + '\n'
+        fixture.frontmatterString + '\n'
       );
     });
   });
