@@ -2,37 +2,13 @@ const assert = require('chai').assert;
 const sinon = require('sinon');
 const cloneDeep = require('lodash/lang/cloneDeep');
 
+const fixture = require('../../fixture');
+
 const Collection = require('../../../lib/collection/index.js');
 const CollectionPagination = require('../../../lib/collection/pagination.js');
 const CollectionPage = require('../../../lib/collection/page.js');
 
 describe('collection/index Collection', () => {
-
-  // Fixtures.
-  let metadataKey = 'soMeta';
-  let filesFixture = [
-    {
-      id: 'Coffee',
-      data: {
-        some: 'data',
-        [metadataKey]: 'norman'
-      }
-    },
-    {
-      id: 'All',
-      data: {
-        good: 'morning',
-        [metadataKey]: ['norman', 'rockwell']
-      }
-    },
-    {
-      id: 'Bagels',
-      data: {
-        happy: 'wednesday',
-        [metadataKey]: null
-      }
-    }
-  ];
 
   let sandbox;
   beforeEach(() => {
@@ -111,7 +87,7 @@ describe('collection/index Collection', () => {
     it('is false when Collection has metadata', () => {
       let instance = new Collection('name');
       instance.metadata = 'dummy/path';
-      instance.metadata = 'metadataKey';
+      instance.metadata = 'fixture.collectionMetadataKey';
 
       assert.equal(instance.isFileExcluded(), false);
       assert.equal(instance.isFileExcluded({}), false);
@@ -282,7 +258,7 @@ describe('collection/index Collection', () => {
         sandbox.spy(Collection, 'sortFiles');
         assert.isUndefined(instance.files);
 
-        let files = cloneDeep(filesFixture);
+        let files = cloneDeep(fixture.collectionFiles);
         assert.deepEqual(instance.populate(files), instance);
         assert.equal(instance.createCollectionPages.calledOnce, true);
         assert.equal(Collection.sortFiles.calledOnce, true);
@@ -303,7 +279,7 @@ describe('collection/index Collection', () => {
         sandbox.spy(Collection, 'sortFiles');
         assert.isUndefined(instance.files);
 
-        let files = cloneDeep(filesFixture);
+        let files = cloneDeep(fixture.collectionFiles);
         assert.deepEqual(instance.populate(files), instance);
         assert.equal(instance.createCollectionPages.calledOnce, true);
         assert.equal(Collection.sortFiles.calledOnce, true);
@@ -324,14 +300,14 @@ describe('collection/index Collection', () => {
     describe('with metadata', () => {
       it('adds files to collection', () => {
         let instance = new Collection('name');
-        instance.metadata = metadataKey;
+        instance.metadata = fixture.collectionMetadataKey;
         sinon.stub(instance, 'createCollectionPages').returns(sinon.spy());
         sinon.stub(instance, 'isFileInCollection').returns(true);
         sandbox.spy(Collection, 'sortFiles');
         assert.isUndefined(instance.files);
         assert.isUndefined(instance.metadataFiles);
 
-        let files = cloneDeep(filesFixture);
+        let files = cloneDeep(fixture.collectionFiles);
         assert.deepEqual(instance.populate(files), instance);
         assert.equal(instance.createCollectionPages.calledOnce, true);
         assert.equal(Collection.sortFiles.called, false);
@@ -361,14 +337,14 @@ describe('collection/index Collection', () => {
 
       it('does not add files to collection', () => {
         let instance = new Collection('name');
-        instance.metadata = metadataKey;
+        instance.metadata = fixture.collectionMetadataKey;
         sinon.stub(instance, 'createCollectionPages').returns(sinon.spy());
         sinon.stub(instance, 'isFileInCollection').returns(false);
         sandbox.spy(Collection, 'sortFiles');
         assert.isUndefined(instance.files);
         assert.isUndefined(instance.metadataFiles);
 
-        let files = cloneDeep(filesFixture);
+        let files = cloneDeep(fixture.collectionFiles);
         assert.deepEqual(instance.populate(files), instance);
         assert.equal(instance.createCollectionPages.calledOnce, true);
         assert.equal(Collection.sortFiles.called, false);
@@ -408,7 +384,7 @@ describe('collection/index Collection', () => {
     describe('with path', () => {
       it('adds files to collection', () => {
         let instance = new Collection('name');
-        instance.files = cloneDeep(filesFixture);
+        instance.files = cloneDeep(fixture.collectionFiles);
         instance.pagination.size = pageSize;
         instance.pagination.permalinkIndex = 'index.html';
         instance.pagination.permalinkPage = '/page.html';
@@ -457,9 +433,9 @@ describe('collection/index Collection', () => {
 
     describe('with metadata', () => {
       it('adds files to collection', () => {
-        let files = cloneDeep(filesFixture);
+        let files = cloneDeep(fixture.collectionFiles);
         let instance = new Collection('name');
-        instance.metadata = metadataKey;
+        instance.metadata = fixture.collectionMetadataKey;
         instance.pagination.size = pageSize;
         instance.pagination.permalinkIndex = 'index.html';
         instance.pagination.permalinkPage = '/page/:metadata/:page.html';
@@ -534,7 +510,7 @@ describe('collection/index Collection', () => {
   describe('sortFiles', () => {
     it('sorts files according to config', () => {
       assert.ok(true);
-      let files = cloneDeep(filesFixture);
+      let files = cloneDeep(fixture.collectionFiles);
       let sortConfig = {
         key: 'id',
         order: 'descending'
