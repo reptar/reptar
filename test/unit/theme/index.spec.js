@@ -1,6 +1,6 @@
 const assert = require('assert');
 
-const Theme = require('../../lib/theme/index');
+const Theme = require('../../../lib/theme/index');
 
 describe.skip('Theme', function() {
   describe('new', function() {
