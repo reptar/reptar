@@ -19,6 +19,9 @@ spin your own yarn
   - [ ] html minifier
   - [x] hash file contents to allow for unique built file  
 - [x] option `clean` that allows deleting destination folder before building
+- [ ] add ability to filter what posts are shown in a collection
+  - [ ] configure if drafts should be rendered
+  - [ ] configure if future posts should be rendered
 - [ ] support auto excerpts of posts for use in index pages
 - [ ] word count plugin to allow for estimating time to read a page
 - [x] rss feed support
