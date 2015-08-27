@@ -44,3 +44,19 @@ exports.collectionFiles = function() {
     ]
   );
 };
+
+exports.configDefault = function() {
+  return cloneDeep(
+    {
+      site: {
+        title: 'Good Morning GitHub'
+      },
+      path: {
+        source: './source/',
+        destination: './destination/',
+        plugins: './plugins/',
+        themes: './themes/',
+      }
+    }
+  );
+};
