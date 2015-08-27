@@ -30,12 +30,12 @@ spin your own yarn
   - [ ] build blog
   - [ ] serve mode
   - [ ] watch mode
-
-http://validatejs.org/
-https://github.com/Level/levelup
+- [ ] web interface / dashboard (https://github.com/Level/levelup ?)
 
 
 # Debug
 
 write to file:
+```
 require('./utils/log').info(this.data)
+```
