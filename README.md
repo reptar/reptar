@@ -35,6 +35,12 @@ spin your own yarn
   - [ ] watch mode
 - [ ] web interface / dashboard (https://github.com/Level/levelup ?)
 
+tech debt
+
+- [ ] move to toml instead of yaml
+- [ ] refactor utils/ folder to not be a dumping ground. e.g. template.js + markdown.js to FileRenderer.js
+- [ ] switch to ES6 modules
+
 
 # Debug
 
