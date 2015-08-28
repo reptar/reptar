@@ -25,21 +25,24 @@ exports.collectionFiles = function() {
         data: {
           some: 'data',
           [exports.collectionMetadataKey]: 'norman'
-        }
+        },
+        collectionNames: {add: function(){}}
       },
       {
         id: 'All',
         data: {
           good: 'morning',
           [exports.collectionMetadataKey]: ['norman', 'rockwell']
-        }
+        },
+        collectionNames: {add: function(){}}
       },
       {
         id: 'Bagels',
         data: {
           happy: 'wednesday',
           [exports.collectionMetadataKey]: null
-        }
+        },
+        collectionNames: {add: function(){}}
       }
     ]
   );
