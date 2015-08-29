@@ -1,7 +1,7 @@
 {
   "name": "yarn",
   "version": "0.1.0",
-  "description": "a blogging platform that makes you say whee",
+  "description": "spin your own yarn",
   "main": "index.js",
   "bin": {
     "yarn": "./bin/index.js"
@@ -11,15 +11,15 @@
     "test": "mocha --recursive --compilers js:babel/register --reporter spec test/unit",
     "lint": "eslint ."
   },
-  "repository": {
-    "type": "git",
-    "url": "github.com/hswolff/yarn.git"
-  },
+  "repository": "yarnjs/yarn",
   "keywords": [
     "blog",
-    "blogging"
+    "blogging",
+    "static",
+    "static site",
+    "static site generator"
   ],
-  "author": "Harry Wolff",
+  "author": "Harry Wolff <hello@hswolff.com> (http://hswolff.com/)",
   "license": "MIT",
   "dependencies": {
     "babel-runtime": "^5.8.20",
