@@ -26,7 +26,8 @@ exports.collectionFiles = function() {
           some: 'data',
           [exports.collectionMetadataKey]: 'norman'
         },
-        collectionNames: {add: function(){}}
+        collectionNames: {add: function(){}},
+        destination: './destination/path'
       },
       {
         id: 'All',
@@ -34,7 +35,8 @@ exports.collectionFiles = function() {
           good: 'morning',
           [exports.collectionMetadataKey]: ['norman', 'rockwell']
         },
-        collectionNames: {add: function(){}}
+        collectionNames: {add: function(){}},
+        destination: './destination/path'
       },
       {
         id: 'Bagels',
@@ -42,7 +44,8 @@ exports.collectionFiles = function() {
           happy: 'wednesday',
           [exports.collectionMetadataKey]: null
         },
-        collectionNames: {add: function(){}}
+        collectionNames: {add: function(){}},
+        destination: './destination/path'
       }
     ]
   );

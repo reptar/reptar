@@ -1,17 +1,22 @@
 const assert = require('chai').assert;
 const sinon = require('sinon');
+const fs = require('fs-extra');
 
 const fixture = require('../../fixture');
 
 const Collection = require('../../../lib/collection/index.js');
 const CollectionPagination = require('../../../lib/collection/pagination.js');
 const CollectionPage = require('../../../lib/collection/page.js');
+const PluginAPI = require('../../../lib/plugin/api.js');
+const Plugin = require('../../../lib/plugin/index.js');
 
 describe('collection/index Collection', () => {
 
   let sandbox;
   beforeEach(() => {
     sandbox = sinon.sandbox.create();
+
+    Plugin._reset();
   });
 
   afterEach(() => {
@@ -500,9 +505,148 @@ describe('collection/index Collection', () => {
     });
   });
 
-  describe('write', () => {
-    it('TODO', () => {
-      assert.ok(true);
+  describe('writeFile', () => {
+    it('calls all functions in expected order', async (done) => {
+      let renderContent = 'hello world';
+
+      let instance = new Collection('name');
+      instance.files = fixture.collectionFiles().map(file => {
+        file.render = sinon.spy(() => {
+          return renderContent;
+        });
+        return file;
+      });
+
+      sandbox.stub(Collection, '_writeToFileSystem').returns(sinon.spy());
+
+      let file = instance.files[0];
+      let beforeSpy = sinon.spy();
+      let afterSpy = sinon.spy((val) => val);
+      PluginAPI.event.file.beforeRender(beforeSpy);
+      PluginAPI.event.file.afterRender(afterSpy);
+
+      try {
+        await instance.writeFile(file, {});
+      } catch (e) {
+        console.log(e);
+      }
+
+      assert.equal(beforeSpy.callCount, 1);
+      assert.ok(beforeSpy.calledWith(file));
+
+      assert.equal(file.render.callCount, 1);
+      assert.ok(file.render.calledWith(instance.layout, {}));
+
+      assert.equal(afterSpy.callCount, 1);
+      assert.ok(afterSpy.calledWith(renderContent));
+
+      assert.equal(Collection._writeToFileSystem.callCount, 1);
+      assert.ok(
+        Collection._writeToFileSystem.calledWith(
+          file.destination,
+          renderContent
+        )
+      );
+
+      assert.ok(beforeSpy.calledBefore(file.render));
+      assert.ok(file.render.calledBefore(afterSpy));
+      assert.ok(afterSpy.calledBefore(Collection._writeToFileSystem));
+
+      done();
+    });
+  });
+
+  describe('writeCollectionPage', () => {
+    it('calls all functions in expected order', async (done) => {
+      let renderContent = 'hello world';
+      let layout = 'layout.html';
+      let collectionPage = {
+        destination: './path/to/destination',
+        render: sinon.spy(() => {
+          return renderContent;
+        })
+      };
+
+      let instance = new Collection('name');
+      instance.pagination = {
+        layout: layout
+      };
+
+      sandbox.stub(Collection, '_writeToFileSystem').returns(sinon.spy());
+
+      let beforeSpy = sinon.spy();
+      let afterSpy = sinon.spy((val) => val);
+      PluginAPI.event.page.beforeRender(beforeSpy);
+      PluginAPI.event.page.afterRender(afterSpy);
+
+      try {
+        await instance.writeCollectionPage(collectionPage, {});
+      } catch (e) {
+        console.log(e);
+      }
+
+      assert.equal(beforeSpy.callCount, 1);
+      assert.ok(beforeSpy.calledWith(collectionPage));
+
+      assert.equal(collectionPage.render.callCount, 1);
+      assert.ok(collectionPage.render.calledWith(layout, {}));
+
+      assert.equal(afterSpy.callCount, 1);
+      assert.ok(afterSpy.calledWith(renderContent));
+
+      assert.equal(Collection._writeToFileSystem.callCount, 1);
+      assert.ok(
+        Collection._writeToFileSystem.calledWith(
+          collectionPage.destination,
+          renderContent
+        )
+      );
+
+      assert.ok(beforeSpy.calledBefore(collectionPage.render));
+      assert.ok(collectionPage.render.calledBefore(afterSpy));
+      assert.ok(afterSpy.calledBefore(Collection._writeToFileSystem));
+
+      done();
+    });
+  });
+
+  describe('_writeToFileSystem', () => {
+    it('calls all functions in expected order', async (done) => {
+      sandbox.stub(fs, 'outputFileAsync').returns(sinon.spy());
+
+      let path = './path/to/write/file';
+      let content = 'this is the excellent content';
+
+      let beforeSpy = sinon.spy();
+      let afterSpy = sinon.spy((val) => val);
+      PluginAPI.event.collection.beforeWrite(beforeSpy);
+      PluginAPI.event.collection.afterWrite(afterSpy);
+
+      try {
+        await Collection._writeToFileSystem(path, content);
+      } catch (e) {
+        console.log(e);
+      }
+
+      let fileSystemFile = {
+        path,
+        content
+      };
+
+      assert.equal(beforeSpy.callCount, 1);
+      assert.ok(beforeSpy.calledWith(fileSystemFile));
+
+      assert.equal(fs.outputFileAsync.callCount, 1);
+      assert.ok(fs.outputFileAsync.calledWith(path, content, 'utf8'));
+
+      assert.equal(afterSpy.callCount, 1);
+      assert.ok(afterSpy.calledWith(fileSystemFile));
+
+      assert.ok(beforeSpy.calledBefore(fs.outputFileAsync));
+      assert.ok(fs.outputFileAsync.calledBefore(afterSpy));
+      assert.ok(afterSpy.calledBefore(Collection._writeToFileSystem));
+
+      done();
     });
   });
 
