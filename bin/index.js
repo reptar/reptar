@@ -8,9 +8,10 @@ var Yarn = require('../lib');
 logger.profile('yarn');
 
 var yarn = new Yarn();
-yarn.readFiles();
-yarn.writeFiles().then(function() {
-  logger.profile('yarn');
+yarn.readFiles()
+  .then(yarn.writeFiles.bind(yarn))
+  .then(function() {
+    logger.profile('yarn');
 
-  process.exit(0);
-});
+    process.exit(0);
+  });
