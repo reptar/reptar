@@ -1,0 +1,49 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "ecmaFeatures": {
+    "modules": true
+  },
+  "rules": {
+    "max-len": [2, 80, 2],
+    "no-underscore-dangle": 0,
+    "handle-callback-err": 0,
+    "no-bitwise": 1,
+    "camelcase": 0,
+    "wrap-iife": [2, "inside"],
+    "no-use-before-define": 1,
+    "new-cap": 2,
+    "no-caller": 2,
+    "no-trailing-spaces": 2,
+    "dot-notation": 0,
+    "quotes": [1, "single"],
+    "strict": [2, "global"],
+    "no-debugger": 2,
+    "no-dupe-keys": 2,
+    "no-empty": 0,
+    "no-extra-boolean-cast": 0,
+    "no-extra-parens": 0,
+    "no-extra-semi": 2,
+    "no-func-assign": 2,
+    "no-invalid-regexp": 2,
+    "no-irregular-whitespace": 2,
+    "quote-props": 0,
+    "no-sparse-arrays": 2,
+    "no-unreachable": 2,
+    "valid-jsdoc": [2, {
+      "requireReturn": false,
+      "requireReturnDescription": false
+    }],
+    "semi": 2,
+    "curly": 2,
+    "eqeqeq": 2,
+    "indent": [2, 2],
+    "no-unused-vars": 2,
+    "no-undef": 2
+  }
+}

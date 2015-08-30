@@ -1,0 +1,90 @@
+# Site settings.
+site:
+  title: My Yarn Title
+  email: your-yarn@email.com
+  description: > # this means to ignore newlines until "baseurl:"
+    Your website's description goes here.
+  baseurl: "" # the subpath of your site, e.g. /blog
+  url: "http://yourdomain.com" # the base hostname & protocol for your site
+
+# Where things are.
+path:
+  source:      ./../yarn-blog
+  destination: ./_site
+  plugins:     ./_plugins
+  themes:      ./_themes
+
+# Collections of content.
+collections:
+  default:
+    path: ./
+    layout: page
+  post:
+    path: ./_posts
+    layout: post
+    permalink: /:title/
+    sort:
+      key: date
+      order: descending
+    pagination:
+      layout: index
+      size: 6
+      permalink_index: /index.html
+      permalink_page:  /page/:page/
+  tag:
+    metadata: tags
+    layout: tags
+    sort:
+      key: date
+      order: descending
+    pagination:
+      layout: index
+      size: 6
+      permalink_index: /tag/:metadata/
+      permalink_page:  /tag/:metadata/:page/
+
+# What is the current theme.
+theme: 'default'
+
+# If we should remove the compile destination folder before writing.
+clean_destination: false
+
+# What we should recognize as a markdown file.
+markdown_extension:
+  - markdown
+  - mkdown
+  - mkdn
+  - mkd
+  - md
+
+# Filtering Content
+show_drafts: null
+limit_posts: 0
+future:      true
+unpublished: false
+
+# Conversion.
+markdown:    remarkable
+highlighter: highlight.js
+
+# Markdown Processor.
+remarkable:
+  preset:       'commonmark'
+  highlight:    true
+
+# Serving.
+port:    8080
+host:    127.0.0.1
+baseurl: "" # does not include hostname
+
+quiet:    false
+
+plugins:
+  html-minifier:
+    enabled: true
+    options:
+      collapseWhitespace: true
+      collapseBooleanAttributes: true
+      removeAttributeQuotes: true
+  excerpt:
+    enabled: true
