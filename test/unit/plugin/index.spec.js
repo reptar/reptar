@@ -34,17 +34,42 @@ describe('plugin/index Plugin', function() {
   });
 
   describe('processEventHandlers', function() {
-    it('can invoke handlers when none exist', async () => {
-      let eventArg = 'hey man';
-      let newVal;
-      try {
-        newVal = await Plugin.processEventHandlers('bogus', eventArg);
-      } catch (e) {
-        console.log(e);
-      }
+    describe('can invoke handlers when none exist', () => {
+      it('with one passed argument', async () => {
+        let eventArg = 'hey man';
+        let newVal;
+        try {
+          newVal = await Plugin.processEventHandlers('bogus', eventArg);
+        } catch (e) {
+          console.log(e);
+        }
 
-      assert.equal(newVal, eventArg);
-    });
+        assert.deepEqual(newVal, eventArg);
+      });
+
+      it('with multiple passed arguments', async () => {
+        let eventArgs = [
+          'the chicken',
+          'is',
+          5
+        ];
+
+        let newVal;
+        try {
+          newVal = await Plugin.processEventHandlers(
+            'bogus',
+            eventArgs[0],
+            eventArgs[1],
+            eventArgs[2]
+          );
+        } catch (e) {
+          console.log(e);
+        }
+
+        assert.deepEqual(newVal, eventArgs);
+      });
+
+    })
 
     it('can invoke handlers sequentionally', async () => {
       let noopFunc = sinon.spy(() => {
