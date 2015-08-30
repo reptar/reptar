@@ -68,8 +68,7 @@ describe('plugin/index Plugin', function() {
 
         assert.deepEqual(newVal, eventArgs);
       });
-
-    })
+    });
 
     it('can invoke handlers sequentionally', async () => {
       let noopFunc = sinon.spy(() => {
@@ -126,6 +125,18 @@ describe('plugin/index Plugin', function() {
       assert.equal(trailingNoopFn.callCount, 1);
 
       assert.equal(newVal, handlerValue * handlerValue);
+    });
+  });
+
+  describe('loadFromPackageJson', () => {
+    it('TODO', () => {
+
+    });
+  });
+
+  describe('loadFromDirectory', () => {
+    it('TODO', () => {
+
     });
   });
 });

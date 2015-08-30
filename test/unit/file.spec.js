@@ -64,7 +64,6 @@ describe('file File', () => {
 
     assert.deepEqual(instance.data, {
       content: markdown.render(fixture.frontmatterJSON.content),
-      excerpt: 'excerpt goes here',
       title: fixture.frontmatterJSON.data.title,
       url: instance.permalink
     });

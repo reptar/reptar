@@ -7,8 +7,8 @@ const fixture = require('../../fixture');
 const Collection = require('../../../lib/collection/index.js');
 const CollectionPagination = require('../../../lib/collection/pagination.js');
 const CollectionPage = require('../../../lib/collection/page.js');
-const PluginAPI = require('../../../lib/plugin/api.js');
 const Plugin = require('../../../lib/plugin/index.js');
+const PluginAPI = Plugin.API;
 
 describe('collection/index Collection', () => {
 

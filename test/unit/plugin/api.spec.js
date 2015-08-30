@@ -4,7 +4,7 @@ const sinon = require('sinon');
 const template = require('../../../lib/utils/template.js');
 const Plugin = require('../../../lib/plugin/index.js');
 
-const PluginAPI = require('../../../lib/plugin/api.js');
+const PluginAPI = Plugin.API;
 
 describe('plugin/api PluginAPI', function() {
   beforeEach(() => {
