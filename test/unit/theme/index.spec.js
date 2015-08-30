@@ -4,7 +4,7 @@ const Theme = require('../../../lib/theme/index');
 
 describe.skip('Theme', function() {
   describe('new', function() {
-    it('should scaffold a new blog', async function(done) {
+    it('should scaffold a new blog', async function() {
       assert.equal(5, 5, 'They did it.');
       let theme = new Theme();
       theme.update();
@@ -17,7 +17,6 @@ describe.skip('Theme', function() {
 
       }
       console.log('again');
-      done();
     });
   });
 });

@@ -506,7 +506,7 @@ describe('collection/index Collection', () => {
   });
 
   describe('writeFile', () => {
-    it('calls all functions in expected order', async (done) => {
+    it('calls all functions in expected order', async () => {
       let renderContent = 'hello world';
 
       let instance = new Collection('name');
@@ -551,13 +551,11 @@ describe('collection/index Collection', () => {
       assert.ok(beforeSpy.calledBefore(file.render));
       assert.ok(file.render.calledBefore(afterSpy));
       assert.ok(afterSpy.calledBefore(Collection._writeToFileSystem));
-
-      done();
     });
   });
 
   describe('writeCollectionPage', () => {
-    it('calls all functions in expected order', async (done) => {
+    it('calls all functions in expected order', async () => {
       let renderContent = 'hello world';
       let layout = 'layout.html';
       let collectionPage = {
@@ -605,13 +603,11 @@ describe('collection/index Collection', () => {
       assert.ok(beforeSpy.calledBefore(collectionPage.render));
       assert.ok(collectionPage.render.calledBefore(afterSpy));
       assert.ok(afterSpy.calledBefore(Collection._writeToFileSystem));
-
-      done();
     });
   });
 
   describe('_writeToFileSystem', () => {
-    it('calls all functions in expected order', async (done) => {
+    it('calls all functions in expected order', async () => {
       sandbox.stub(fs, 'outputFileAsync').returns(sinon.spy());
 
       let path = './path/to/write/file';
@@ -645,8 +641,6 @@ describe('collection/index Collection', () => {
       assert.ok(beforeSpy.calledBefore(fs.outputFileAsync));
       assert.ok(fs.outputFileAsync.calledBefore(afterSpy));
       assert.ok(afterSpy.calledBefore(Collection._writeToFileSystem));
-
-      done();
     });
   });
 
