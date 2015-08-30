@@ -34,20 +34,19 @@ describe('plugin/index Plugin', function() {
   });
 
   describe('processEventHandlers', function() {
-    it('can invoke handlers when none exist', async (done) => {
+    it('can invoke handlers when none exist', async () => {
+      let eventArg = 'hey man';
       let newVal;
       try {
-        newVal = await Plugin.processEventHandlers('bogus');
+        newVal = await Plugin.processEventHandlers('bogus', eventArg);
       } catch (e) {
         console.log(e);
       }
 
-      assert.isUndefined(newVal);
-
-      done();
+      assert.equal(newVal, eventArg);
     });
 
-    it('can invoke handlers sequentionally', async (done) => {
+    it('can invoke handlers sequentionally', async () => {
       let noopFunc = sinon.spy(() => {
         // noop
       });
@@ -102,8 +101,6 @@ describe('plugin/index Plugin', function() {
       assert.equal(trailingNoopFn.callCount, 1);
 
       assert.equal(newVal, handlerValue * handlerValue);
-
-      done();
     });
   });
 });

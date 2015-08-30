@@ -22,10 +22,10 @@ describe('plugin/api PluginAPI', function() {
     let beforeSpy = sinon.spy();
     PluginAPI.event.file.beforeRender(beforeSpy);
 
-    assert.isArray(Plugin._handlers[Plugin.Events.file.beforeRender]);
-    assert.lengthOf(Plugin._handlers[Plugin.Events.file.beforeRender], 1);
+    assert.isArray(Plugin._handlers[Plugin.Event.file.beforeRender]);
+    assert.lengthOf(Plugin._handlers[Plugin.Event.file.beforeRender], 1);
     assert.deepEqual(
-      Plugin._handlers[Plugin.Events.file.beforeRender][0],
+      Plugin._handlers[Plugin.Event.file.beforeRender][0],
       beforeSpy
     );
     assert.equal(beforeSpy.called, false);
@@ -34,14 +34,14 @@ describe('plugin/api PluginAPI', function() {
     PluginAPI.event.file.afterRender(afterSpy);
     PluginAPI.event.file.afterRender(afterSpy);
 
-    assert.isArray(Plugin._handlers[Plugin.Events.file.afterRender]);
-    assert.lengthOf(Plugin._handlers[Plugin.Events.file.afterRender], 2);
+    assert.isArray(Plugin._handlers[Plugin.Event.file.afterRender]);
+    assert.lengthOf(Plugin._handlers[Plugin.Event.file.afterRender], 2);
     assert.deepEqual(
-      Plugin._handlers[Plugin.Events.file.afterRender][0],
+      Plugin._handlers[Plugin.Event.file.afterRender][0],
       afterSpy
     );
     assert.deepEqual(
-      Plugin._handlers[Plugin.Events.file.afterRender][1],
+      Plugin._handlers[Plugin.Event.file.afterRender][1],
       afterSpy
     );
     assert.equal(afterSpy.called, false);
