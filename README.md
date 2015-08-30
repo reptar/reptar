@@ -1,6 +1,20 @@
 # yarn
 
+[![NPM version](https://badge.fury.io/js/yarnjs.svg)](http://badge.fury.io/js/yarnjs)
+
 spin your own yarn
+
+a static site generator.
+
+## status
+
+still WIP. check out #todo section to see progress.
+
+## install
+
+`npm install -g yarnjs`
+
+`yarn`
 
 ## todo
 
