@@ -42,6 +42,8 @@ describe('collection/index Collection', () => {
       assert.isUndefined(instance.metadata);
       assert.isUndefined(instance.layout);
       assert.isUndefined(instance.permalink);
+      assert.equal(instance.static, false);
+      assert.isUndefined(instance.staticDestination);
       assert.isUndefined(instance.sort.key);
       assert.isUndefined(instance.sort.order);
       assert.instanceOf(instance.pagination, CollectionPagination);
