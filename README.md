@@ -33,27 +33,28 @@ still WIP. check out #todo section to see progress.
   - [x] html minifier
   - [x] hash file contents to allow for unique built file  
 - [x] option `clean` that allows deleting destination folder before building
+- [x] rss feed support
+- [ ] break up Collection.js to support multiple type of collections (FileCollection, MetadataCollection, StaticCollection)
+- [ ] move to toml instead of yaml
+- [ ] refactor utils/ folder to not be a dumping ground. e.g. template.js + markdown.js to FileRenderer.js
+- [ ] switch to ES6 modules
+- [x] plugin support
+  - [x] support auto excerpts of posts for use in index pages
+  - [ ] first plugin is the `json/posts.json` file used in hswolff.com
+  - [ ] word count plugin to allow for estimating time to read a page
 - [ ] add ability to filter what posts are shown in a collection
   - [ ] configure if drafts should be rendered
   - [ ] configure if future posts should be rendered
-- [x] support auto excerpts of posts for use in index pages
-- [ ] word count plugin to allow for estimating time to read a page
-- [x] rss feed support
-- [x] plugin support
-  - [ ] first plugin is the `json/posts.json` file used in hswolff.com
+- [ ] support caching of files, only re-writing files that were changed
 - [ ] cli
   - [ ] scaffold new blog
   - [ ] new post
   - [ ] build blog
   - [ ] serve mode
   - [ ] watch mode
+    - [ ] support progressive updates
+- [ ] create default theme
 - [ ] web interface / dashboard (https://github.com/Level/levelup ?)
-
-tech debt
-
-- [ ] move to toml instead of yaml
-- [ ] refactor utils/ folder to not be a dumping ground. e.g. template.js + markdown.js to FileRenderer.js
-- [ ] switch to ES6 modules
 
 
 # Debug
