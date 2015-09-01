@@ -1,19 +1,15 @@
 const assert = require('chai').assert;
 const sinon = require('sinon');
-const fs = require('fs-extra');
 
 const fixture = require('../../../fixture');
 
 const Plugin = require('../../../../lib/plugin/index.js');
-const PluginAPI = Plugin.API;
-const CollectionPagination = require('../../../../lib/collection/pagination.js');
 const CollectionPage = require('../../../../lib/collection/page.js');
 
 const CollectionBase = require('../../../../lib/collection/base.js');
 const FileSystemCollection = require(
   '../../../../lib/collection/type/file-system.js'
 );
-const MetadataCollection = require('../../../../lib/collection/type/metadata.js');
 
 describe('collection/type/file-system FileSystemCollection', () => {
 
