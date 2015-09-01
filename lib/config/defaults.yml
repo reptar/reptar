@@ -36,12 +36,11 @@ collections:
       permalink_page:  /page/:page/
   tag:
     metadata: tags
-    layout: tags
     sort:
       key: date
       order: descending
     pagination:
-      layout: index
+      layout: tag
       size: 6
       permalink_index: /tag/:metadata/
       permalink_page:  /tag/:metadata/:page/
