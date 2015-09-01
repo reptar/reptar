@@ -46,6 +46,7 @@ still WIP. check out #todo section to see progress.
 - [ ] add ability to filter what posts are shown in a collection
   - [ ] configure if drafts should be rendered
   - [ ] configure if future posts should be rendered
+- [ ] add config.yaml validation so people are warned early if their config is wrong
 - [ ] support caching of files, only re-writing files that were changed
 - [ ] cli
   - [ ] scaffold new blog
