@@ -1,15 +1,14 @@
-const assert = require('chai').assert;
-const sinon = require('sinon');
+import {assert} from 'chai';
+import sinon from 'sinon';
 
-const fixture = require('../../../fixture');
+import fixture from '../../../fixture';
 
-const Plugin = require('../../../../lib/plugin/index.js');
-const CollectionPage = require('../../../../lib/collection/page.js');
+import Plugin from '../../../../lib/plugin/index.js';
+import CollectionPage from '../../../../lib/collection/page.js';
 
-const CollectionBase = require('../../../../lib/collection/base.js');
-const FileSystemCollection = require(
-  '../../../../lib/collection/type/file-system.js'
-);
+import CollectionBase from '../../../../lib/collection/base.js';
+import FileSystemCollection
+  from '../../../../lib/collection/type/file-system.js';
 
 describe('collection/type/file-system FileSystemCollection', () => {
 

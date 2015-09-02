@@ -35,7 +35,6 @@ still WIP. check out #todo section to see progress.
 - [x] option `clean` that allows deleting destination folder before building
 - [x] rss feed support
 - [x] break up Collection.js to support multiple type of collections (FileSystemCollection, MetadataCollection, StaticCollection)
-- [ ] move to toml instead of yaml
 - [ ] refactor utils/ folder to not be a dumping ground. e.g. template.js + markdown.js to FileRenderer.js
 - [ ] switch to ES6 modules
 - [x] plugin support
@@ -46,6 +45,7 @@ still WIP. check out #todo section to see progress.
 - [ ] add ability to filter what posts are shown in a collection
   - [ ] configure if drafts should be rendered
   - [ ] configure if future posts should be rendered
+- [ ] move to toml instead of yaml
 - [ ] add config.yaml validation so people are warned early if their config is wrong
 - [ ] support caching of files, only re-writing files that were changed
 - [ ] cli

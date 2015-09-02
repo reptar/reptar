@@ -1,12 +1,12 @@
-const assert = require('chai').assert;
-const sinon = require('sinon');
-const path = require('path');
-const {EventEmitter} = require('events');
-const each = require('lodash/collection/each');
+import {assert} from 'chai';
+import sinon from 'sinon';
+import path from 'path';
+import {EventEmitter} from 'events';
+import each from 'lodash/collection/each';
 
-const fixture = require('../../fixture');
+import fixture from '../../fixture';
 
-const {Config, EVENTS} = require('../../../lib/config/index.js');
+import {Config, EVENTS} from '../../../lib/config/index.js';
 
 describe('config/index Config', () => {
 

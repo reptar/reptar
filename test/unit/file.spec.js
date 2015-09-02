@@ -1,13 +1,13 @@
-const assert = require('chai').assert;
-const sinon = require('sinon');
-const fs = require('fs');
+import {assert} from 'chai';
+import sinon from 'sinon';
+import fs from 'fs';
 
-const fixture = require('../fixture');
+import fixture from '../fixture';
 
-const markdown = require('../../lib/utils/markdown.js');
+import markdown from '../../lib/utils/markdown.js';
 markdown.configure();
 
-const File = require('../../lib/file.js');
+import File from '../../lib/file.js';
 
 describe('file File', () => {
   let filePath = '/not/a/real/path';

@@ -1,13 +1,13 @@
-const assert = require('chai').assert;
-const sinon = require('sinon');
-const fs = require('fs-extra');
+import {assert} from 'chai';
+import sinon from 'sinon';
+import fs from 'fs-extra';
 
-const fixture = require('../../fixture');
+import fixture from '../../fixture';
 
-const Plugin = require('../../../lib/plugin/index.js');
+import Plugin from '../../../lib/plugin/index.js';
 const PluginAPI = Plugin.API;
 
-const CollectionBase = require('../../../lib/collection/base.js');
+import CollectionBase from '../../../lib/collection/base.js';
 
 describe('collection/index CollectionBase', () => {
 

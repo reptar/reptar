@@ -1,9 +1,9 @@
-const assert = require('chai').assert;
-const sinon = require('sinon');
+import {assert} from 'chai';
+import sinon from 'sinon';
 
-const fixture = require('../../fixture');
+import fixture from '../../fixture';
 
-const CollectionPage = require('../../../lib/collection/page.js');
+import CollectionPage from '../../../lib/collection/page.js';
 
 describe('collection/page CollectionPage', () => {
 

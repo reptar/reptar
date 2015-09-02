@@ -1,4 +1,4 @@
-const assert = require('chai').assert;
+import {assert} from 'chai';
 const utils = require('../../../lib/utils/index.js');
 
 describe('utils/index', function() {

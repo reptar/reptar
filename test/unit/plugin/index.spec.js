@@ -1,8 +1,8 @@
-const assert = require('chai').assert;
-const sinon = require('sinon');
-const Promise = require('bluebird');
+import {assert} from 'chai';
+import sinon from 'sinon';
+import Promise from 'bluebird';
 
-const Plugin = require('../../../lib/plugin/index.js');
+import Plugin from '../../../lib/plugin/index.js';
 
 describe('plugin/index Plugin', function() {
   let handlerName = 'test:handler';

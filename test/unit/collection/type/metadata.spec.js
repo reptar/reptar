@@ -1,15 +1,14 @@
-const assert = require('chai').assert;
-const sinon = require('sinon');
+import {assert} from 'chai';
+import sinon from 'sinon';
 
-const fixture = require('../../../fixture');
+import fixture from '../../../fixture';
 
-const Plugin = require('../../../../lib/plugin/index.js');
-const CollectionPage = require('../../../../lib/collection/page.js');
+import Plugin from '../../../../lib/plugin/index.js';
+import CollectionPage from '../../../../lib/collection/page.js';
 
-const CollectionBase = require('../../../../lib/collection/base.js');
-const MetadataCollection = require(
-  '../../../../lib/collection/type/metadata.js'
-);
+import CollectionBase from '../../../../lib/collection/base.js';
+import MetadataCollection from
+  '../../../../lib/collection/type/metadata.js';
 
 describe('collection/index CollectionBase', () => {
 

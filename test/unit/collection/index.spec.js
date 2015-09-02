@@ -1,11 +1,10 @@
-const assert = require('chai').assert;
+import {assert} from 'chai';
 
-const FileSystemCollection = require(
-  '../../../lib/collection/type/file-system.js'
-);
-const MetadataCollection = require('../../../lib/collection/type/metadata.js');
-const StaticCollection = require('../../../lib/collection/type/static.js');
-const Collection = require('../../../lib/collection/index.js');
+import FileSystemCollection from
+  '../../../lib/collection/type/file-system.js';
+import MetadataCollection from '../../../lib/collection/type/metadata.js';
+import StaticCollection from '../../../lib/collection/type/static.js';
+import * as Collection from '../../../lib/collection/index.js';
 
 describe('collection/index CollectionBase', () => {
 

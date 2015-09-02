@@ -1,8 +1,8 @@
-const assert = require('chai').assert;
-const sinon = require('sinon');
+import {assert} from 'chai';
+import sinon from 'sinon';
 
-const template = require('../../../lib/utils/template.js');
-const Plugin = require('../../../lib/plugin/index.js');
+import template from '../../../lib/utils/template.js';
+import Plugin from '../../../lib/plugin/index.js';
 
 const PluginAPI = Plugin.API;
 

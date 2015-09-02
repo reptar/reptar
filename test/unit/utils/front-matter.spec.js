@@ -1,4 +1,4 @@
-const assert = require('chai').assert;
+import {assert} from 'chai';
 const frontMatter = require('../../../lib/utils/front-matter.js');
 
 const fixture = require('../../fixture');
