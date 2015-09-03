@@ -54,7 +54,7 @@ describe('collection/index CollectionBase', () => {
     });
   });
 
-  describe('writeFile', () => {
+  describe('renderAndWriteFile', () => {
     it('calls all functions in expected order', async () => {
       let renderContent = 'hello world';
 
@@ -75,7 +75,13 @@ describe('collection/index CollectionBase', () => {
       PluginAPI.event.file.afterRender(afterSpy);
 
       try {
-        await instance.writeFile(file, {});
+        await CollectionBase.renderAndWriteFile(
+          file,
+          file.layout,
+          {},
+          Plugin.Event.file.beforeRender,
+          Plugin.Event.file.afterRender
+        );
       } catch (e) {
         console.log(e);
       }
@@ -99,58 +105,6 @@ describe('collection/index CollectionBase', () => {
 
       assert.ok(beforeSpy.calledBefore(file.render));
       assert.ok(file.render.calledBefore(afterSpy));
-      assert.ok(afterSpy.calledBefore(CollectionBase.writeToFileSystem));
-    });
-  });
-
-  describe('writeCollectionPage', () => {
-    it('calls all functions in expected order', async () => {
-      let renderContent = 'hello world';
-      let layout = 'layout.html';
-      let collectionPage = {
-        destination: './path/to/destination',
-        render: sinon.spy(() => {
-          return renderContent;
-        })
-      };
-
-      let instance = new CollectionBase('name');
-      instance.pagination = {
-        layout: layout
-      };
-
-      sandbox.stub(CollectionBase, 'writeToFileSystem').returns(sinon.spy());
-
-      let beforeSpy = sinon.spy();
-      let afterSpy = sinon.spy((val) => val);
-      PluginAPI.event.page.beforeRender(beforeSpy);
-      PluginAPI.event.page.afterRender(afterSpy);
-
-      try {
-        await instance.writeCollectionPage(collectionPage, {});
-      } catch (e) {
-        console.log(e);
-      }
-
-      assert.equal(beforeSpy.callCount, 1);
-      assert.ok(beforeSpy.calledWith(collectionPage));
-
-      assert.equal(collectionPage.render.callCount, 1);
-      assert.ok(collectionPage.render.calledWith(layout, {}));
-
-      assert.equal(afterSpy.callCount, 1);
-      assert.ok(afterSpy.calledWith(renderContent));
-
-      assert.equal(CollectionBase.writeToFileSystem.callCount, 1);
-      assert.ok(
-        CollectionBase.writeToFileSystem.calledWith(
-          collectionPage.destination,
-          renderContent
-        )
-      );
-
-      assert.ok(beforeSpy.calledBefore(collectionPage.render));
-      assert.ok(collectionPage.render.calledBefore(afterSpy));
       assert.ok(afterSpy.calledBefore(CollectionBase.writeToFileSystem));
     });
   });
