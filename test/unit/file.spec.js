@@ -4,7 +4,7 @@ import fs from 'fs';
 
 import fixture from '../fixture';
 
-import markdown from '../../lib/utils/markdown.js';
+import * as markdown from '../../lib/render/markdown.js';
 markdown.configure();
 
 import File from '../../lib/file.js';

@@ -35,8 +35,8 @@ still WIP. check out #todo section to see progress.
 - [x] option `clean` that allows deleting destination folder before building
 - [x] rss feed support
 - [x] break up Collection.js to support multiple type of collections (FileSystemCollection, MetadataCollection, StaticCollection)
-- [ ] refactor utils/ folder to not be a dumping ground. e.g. template.js + markdown.js to FileRenderer.js
-- [ ] switch to ES6 modules
+- [x] refactor utils/ folder to not be a dumping ground. e.g. template.js + markdown.js to FileRenderer.js
+- [x] switch to ES6 modules
 - [x] plugin support
   - [x] support auto excerpts of posts for use in index pages
   - [ ] first plugin is the `json/posts.json` file used in hswolff.com

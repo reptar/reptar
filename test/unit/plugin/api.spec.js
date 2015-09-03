@@ -1,7 +1,7 @@
 import {assert} from 'chai';
 import sinon from 'sinon';
 
-import template from '../../../lib/utils/template.js';
+import * as template from '../../../lib/render/template.js';
 import Plugin from '../../../lib/plugin/index.js';
 
 const PluginAPI = Plugin.API;

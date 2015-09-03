@@ -1,4 +1,4 @@
-const cloneDeep = require('lodash/lang/cloneDeep');
+import cloneDeep from 'lodash/lang/cloneDeep';
 
 exports.frontmatterString =
 `---

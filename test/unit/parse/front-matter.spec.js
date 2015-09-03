@@ -1,9 +1,9 @@
 import {assert} from 'chai';
-const frontMatter = require('../../../lib/utils/front-matter.js');
+import * as frontMatter from '../../../lib/parse/front-matter.js';
 
-const fixture = require('../../fixture');
+import fixture from '../../fixture';
 
-describe('utils/front-matter', function() {
+describe('parse/front-matter', function() {
 
   describe('parse', function() {
     it('correctly takes a string and produces a json object', function() {
