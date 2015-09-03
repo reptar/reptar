@@ -39,7 +39,7 @@ describe('collection/index CollectionBase', () => {
       assert.equal(instance.name, 'name');
       assert.isUndefined(instance.path);
       assert.isUndefined(instance.metadata);
-      assert.isUndefined(instance.layout);
+      assert.isUndefined(instance.template);
       assert.isUndefined(instance.permalink);
       assert.isUndefined(instance.static);
       assert.isUndefined(instance.staticDestination);
@@ -77,7 +77,7 @@ describe('collection/index CollectionBase', () => {
       try {
         await CollectionBase.renderAndWriteFile(
           file,
-          file.layout,
+          file.template,
           {},
           Plugin.Event.file.beforeRender,
           Plugin.Event.file.afterRender
@@ -90,7 +90,7 @@ describe('collection/index CollectionBase', () => {
       assert.ok(beforeSpy.calledWith(file));
 
       assert.equal(file.render.callCount, 1);
-      assert.ok(file.render.calledWith(instance.layout, {}));
+      assert.ok(file.render.calledWith(instance.template, {}));
 
       assert.equal(afterSpy.callCount, 1);
       assert.ok(afterSpy.calledWith(renderContent));

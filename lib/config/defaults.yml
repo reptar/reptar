@@ -18,19 +18,19 @@ path:
 collections:
   default:
     path: ./
-    layout: page
+    template: page
   images:
     path: ./images
     static: true
   post:
     path: ./_posts
-    layout: post
+    template: post
     permalink: /:title/
     sort:
       key: date
       order: descending
     pagination:
-      layout: index
+      template: index
       size: 6
       permalink_index: /
       permalink_page:  /page/:page/
@@ -40,7 +40,7 @@ collections:
       key: date
       order: descending
     pagination:
-      layout: tag
+      template: tag
       size: 6
       permalink_index: /tag/:metadata/
       permalink_page:  /tag/:metadata/:page/
