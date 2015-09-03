@@ -16,20 +16,35 @@ describe('collection/page CollectionPage', () => {
     sandbox.restore();
   });
 
+  let collectionPageData = {
+    page: 2,
+
+    // How many pages in the collection.
+    total_pages: 3,
+
+    // Posts displayed per page
+    per_page: 1,
+
+    // Total number of posts
+    total: 3
+  };
+
   describe('constructor', () => {
-    it('can create an instance', () => {
-      assert.ok(new CollectionPage());
+    it('throws an error if it doesn\'t get expected values', () => {
+      assert.throws(() => {
+        new CollectionPage();
+      }, /as a number/);
     });
 
     it('causes calculateDestination to be called', () => {
       sandbox.spy(CollectionPage.prototype, 'calculateDestination');
 
-      let instance = new CollectionPage();
+      let instance = new CollectionPage([], 'template', collectionPageData);
       assert.ok(instance.calculateDestination.calledOnce);
     });
 
     it('saves passed in values', () => {
-      let data = {};
+      let data = collectionPageData;
       let permalink = 'hello';
       let files = fixture.collectionFiles();
 
