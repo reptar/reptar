@@ -220,7 +220,8 @@ describe('collection/type/file-system FileSystemCollection', () => {
     it('can set exclude paths', () => {
       let instance = new FileSystemCollection('name');
       assert.isUndefined(instance.path);
-      assert.isUndefined(instance.excludePaths);
+      assert.isArray(instance.excludePaths);
+      assert.lengthOf(instance.excludePaths, 0);
 
       instance._setExcludePaths(Array.from(excludeCollections));
       assert.deepEqual(instance.excludePaths, excludePaths);
@@ -229,7 +230,8 @@ describe('collection/type/file-system FileSystemCollection', () => {
     it('does not add its own path to the exclude path array', () => {
       let instance = new FileSystemCollection('name');
       instance.path = excludePaths[0];
-      assert.isUndefined(instance.excludePaths);
+      assert.isArray(instance.excludePaths);
+      assert.lengthOf(instance.excludePaths, 0);
 
       instance._setExcludePaths(Array.from(excludeCollections));
       assert.deepEqual(instance.excludePaths, [excludePaths[1]]);
@@ -258,7 +260,8 @@ describe('collection/type/file-system FileSystemCollection', () => {
     it('is false when no excludePaths are set', () => {
       let instance = new FileSystemCollection('name');
       instance.path = '/dummy/path';
-      assert.isUndefined(instance.excludePaths);
+      assert.isArray(instance.excludePaths);
+      assert.lengthOf(instance.excludePaths, 0);
 
       assert.equal(instance._isFileExcluded(), false);
       assert.equal(instance._isFileExcluded({}), false);

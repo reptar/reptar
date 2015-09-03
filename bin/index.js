@@ -14,4 +14,8 @@ yarn.readFiles()
     logger.profile('yarn');
 
     process.exit(0);
+  })
+  .catch(function(e) {
+    console.log(e.stack);
+    throw e;
   });

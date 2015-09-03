@@ -42,9 +42,9 @@ still WIP. check out #todo section to see progress.
   - [ ] first plugin is the `json/posts.json` file used in hswolff.com
   - [ ] word count plugin to allow for estimating time to read a page
   - [ ] allow for the creation of external asset processors
-- [ ] add ability to filter what posts are shown in a collection
-  - [ ] configure if drafts should be rendered
-  - [ ] configure if future posts should be rendered
+- [x] add ability to filter what posts are shown in a collection
+  - [x] configure if drafts should be rendered
+  - [x] configure if future posts should be rendered
 - [ ] move to toml instead of yaml
 - [ ] add config.yaml validation so people are warned early if their config is wrong
 - [ ] support caching of files, only re-writing files that were changed

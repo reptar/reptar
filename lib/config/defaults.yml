@@ -26,6 +26,11 @@ collections:
     path: ./_posts
     template: post
     permalink: /:title/
+    filter:
+      metadata:
+        draft: true
+      future_date:
+        key: date
     sort:
       key: date
       order: descending
@@ -39,6 +44,11 @@ collections:
     sort:
       key: date
       order: descending
+    filter:
+      metadata:
+        draft: true
+      future_dates:
+        key: date
     pagination:
       template: tag
       size: 6
@@ -58,12 +68,6 @@ markdown_extension:
   - mkdn
   - mkd
   - md
-
-# Filtering Content
-show_drafts: null
-limit_posts: 0
-future:      true
-unpublished: false
 
 # Conversion.
 markdown:    remarkable

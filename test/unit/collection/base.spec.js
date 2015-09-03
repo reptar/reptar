@@ -54,6 +54,50 @@ describe('collection/index CollectionBase', () => {
     });
   });
 
+  describe('isFiltered', () => {
+    it('returns if a file in collection is filtered', () => {
+      let instance = new CollectionBase('name');
+      let file = {
+        data: {}
+      };
+
+      assert.equal(instance.isFiltered(file), false);
+
+      instance.filter = {
+        metadata: {
+          draft: true
+        }
+      };
+
+      assert.equal(instance.isFiltered(file), false);
+
+      file.data.draft = true;
+
+      assert.equal(instance.isFiltered(file), true);
+
+      instance.filter = {
+        metadata: {
+          draft: true
+        },
+        future_date: undefined
+      };
+
+      assert.equal(instance.isFiltered(file), true);
+
+      file.data.date = Date.now() + 5000;
+
+      assert.equal(instance.isFiltered(file), true);
+
+      file.data.draft = false;
+
+      assert.equal(instance.isFiltered(file), true);
+
+      instance.filter = {};
+
+      assert.equal(instance.isFiltered(file), false);
+    });
+  });
+
   describe('renderAndWriteFile', () => {
     it('calls all functions in expected order', async () => {
       let renderContent = 'hello world';
