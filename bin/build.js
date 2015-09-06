@@ -7,7 +7,7 @@ module.exports = function() {
 
   var yarn = new Yarn();
   yarn.readFiles()
-    .then(yarn.writeFiles.bind(yarn))
+    .then(yarn.build.bind(yarn))
     .then(function() {
       logger.profile('yarn');
 
