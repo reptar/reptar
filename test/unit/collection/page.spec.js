@@ -33,30 +33,40 @@ describe('collection/page CollectionPage', () => {
     it('throws an error if it doesn\'t get expected values', () => {
       assert.throws(() => {
         new CollectionPage();
-      }, /as a number/);
+      }, /ID as a string.$/);
+
+      assert.throws(() => {
+        new CollectionPage('idHere');
+      }, /index.$/);
     });
 
-    it('causes calculateDestination to be called', () => {
-      sandbox.spy(CollectionPage.prototype, 'calculateDestination');
+    it('creates a unique id', () => {
+      let id = 'idHere';
+      let index = 4;
 
-      let instance = new CollectionPage([], 'template', collectionPageData);
-      assert.ok(instance.calculateDestination.calledOnce);
+      let instance = new CollectionPage(id, index);
+
+      assert.equal(instance.id, `${id}:${index}`);
+      assert.equal(instance._collectionId, id);
+      assert.equal(instance._index, index);
+      assert.equal(instance.data.page, index + 1);
     });
+  });
 
+  describe('setData', () => {
     it('saves passed in values', () => {
       let data = collectionPageData;
-      let permalink = 'hello';
-      let files = fixture.collectionFiles();
+      data.files = fixture.collectionFiles();
 
-      let instance = new CollectionPage(
-        files,
-        permalink,
-        data
-      );
+      let instance = new CollectionPage('id', 2);
+      instance.permalink = 'ok';
+
+      instance.setData(data);
+
+      data.files = data.files.map(file => file.data);
+      data.url = instance.permalink;
 
       assert.deepEqual(instance.data, data);
-      assert.deepEqual(instance.permalink, permalink);
-      assert.deepEqual(instance.data.files, files.map(file => file.data));
     });
   });
 
