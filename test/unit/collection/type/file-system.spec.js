@@ -137,7 +137,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
   });
 
   describe('_createCollectionPages', () => {
-    it('adds files to collectionpages', () => {
+    it('adds files to collectionPages', () => {
       let pageSize = 1;
 
       let instance = new FileSystemCollection('name');

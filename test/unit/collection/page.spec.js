@@ -56,22 +56,40 @@ describe('collection/page CollectionPage', () => {
   describe('setData', () => {
     it('saves passed in values', () => {
       let data = collectionPageData;
-      data.files = fixture.collectionFiles();
+      let files = fixture.collectionFiles();
 
       let instance = new CollectionPage('id', 2);
       instance.permalink = 'ok';
 
       instance.setData(data);
+      instance.setFiles(files);
 
-      data.files = data.files.map(file => file.data);
+      data.files = files.map(file => file.data);
       data.url = instance.permalink;
 
       assert.deepEqual(instance.data, data);
     });
   });
 
-  it('TODO: calculateDestination', () => {
-    assert.ok('TODO');
-  });
+  describe('setFiles', () => {
+    it('adds pageId information to each file.', () => {
+      let files = fixture.collectionFiles().map(file => {
+        file.pageIds = new Set();
+        return file;
+      });
 
+      let instance = new CollectionPage('id', 2);
+      instance.permalink = 'ok';
+
+      files.forEach(file => {
+        assert.notOk(file.pageIds.has(instance.id));
+      });
+
+      instance.setFiles(files);
+
+      files.forEach(file => {
+        assert.ok(file.pageIds.has(instance.id));
+      });
+    });
+  });
 });

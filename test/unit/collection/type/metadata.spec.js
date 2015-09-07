@@ -10,7 +10,7 @@ import CollectionBase from '../../../../lib/collection/base.js';
 import MetadataCollection from
   '../../../../lib/collection/type/metadata.js';
 
-describe('collection/index CollectionBase', () => {
+describe('collection/type/metadata MetadataCollection', () => {
 
   let sandbox;
   beforeEach(() => {
@@ -142,7 +142,7 @@ describe('collection/index CollectionBase', () => {
     });
 
     let pageSize = 1;
-    it('adds files to collectionpages', () => {
+    it('adds files to collectionPages', () => {
       let files = fixture.collectionFiles();
       let instance = new MetadataCollection('name');
       instance.metadata = fixture.collectionMetadataKey;
