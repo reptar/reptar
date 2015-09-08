@@ -45,19 +45,22 @@ still WIP. check out #todo section to see progress.
 - [x] add ability to filter what posts are shown in a collection
   - [x] configure if drafts should be rendered
   - [x] configure if future posts should be rendered
-- [ ] [move to toml instead of yaml...maybe - which looks best?](https://gist.github.com/hswolff/86d92f44e385b302716f)
-- [ ] add config.yaml validation so people are warned early if their config is wrong
-- [ ] support caching of files, only re-writing files that were changed
 - [ ] cli
   - [ ] scaffold new blog
   - [ ] new post
-  - [ ] build blog
-  - [ ] serve mode
-  - [ ] watch mode
-    - [ ] support progressive updates
+  - [x] build blog
+  - [x] serve mode
+  - [ ] watch mode (progressive updates)
+    - [x] handle when a file changes
+    - [ ] handle when a new file is added
+    - [ ] handle when a file is removed
+    - [ ] handle when theme file changes/added/removed
   - [ ] other? [inspiration from hugo](http://gohugo.io/commands/)
+- [ ] add config.yaml validation so people are warned early if their config is wrong
 - [ ] create default theme
+- [ ] support caching of files, only re-writing files that were changed
 - [ ] web interface / dashboard (https://github.com/Level/levelup ?)
+- [ ] [move to toml instead of yaml...maybe - which looks best?](https://gist.github.com/hswolff/86d92f44e385b302716f)
 - [ ] [switch to npm module for slugifying titles?](https://github.com/dodo/node-slug)
 
 
