@@ -8,7 +8,9 @@
   },
   "scripts": {
     "preversion": "babel lib --out-dir lib-es5 && cp lib/config/defaults.yml lib-es5/config/defaults.yml",
-    "test": "mocha --recursive --compilers js:babel/register --reporter spec test/unit",
+    "test": "mocha --recursive --compilers js:babel/register --reporter spec",
+    "test:unit": "npm test -- test/unit",
+    "test:e2e": "npm test -- test/e2e",
     "lint": "eslint ."
   },
   "repository": "yarnjs/yarn",
@@ -26,6 +28,7 @@
     "babelify": "^6.3.0",
     "bluebird": "^2.9.34",
     "browserify": "^11.0.1",
+    "chokidar": "^1.0.5",
     "fs-extra": "^0.24.0",
     "glob": "^5.0.14",
     "gray-matter": "^2.0.1",

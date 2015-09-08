@@ -4,7 +4,9 @@ import path from 'path';
 
 import Yarn from '../../lib/index.js';
 
-describe('index Yarn', () => {
+describe('Yarn watches for updates', function() {
+  this.timeout(5000);
+
   let sandbox;
   beforeEach(() => {
     sandbox = sinon.sandbox.create();
@@ -15,6 +17,7 @@ describe('index Yarn', () => {
   });
 
   describe('writeFile', () => {
+
     it('is a noop if an invalid path is given', async () => {
       let instance = new Yarn(path.resolve(__dirname, '../../scaffold'));
       await instance.readFiles();
