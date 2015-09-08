@@ -39,28 +39,22 @@ describe('file File', () => {
     });
   });
 
-  it('calculateDestination', () => {
+  it('_calculateDestination', () => {
     it('called when permalink set', () => {
-      sandbox.spy(File.prototype, 'calculateDestination');
+      sandbox.spy(File.prototype, '_calculateDestination');
 
       let instance = new File(filePath);
-      assert.equal(instance.calculateDestination.called, false);
+      assert.equal(instance._calculateDestination.called, false);
 
       instance.permalink = 'whee';
 
-      assert.ok(instance.calculateDestination.calledOnce);
-    });
-  });
-
-  describe('render', () => {
-    it('TODO', () => {
-      assert.ok(true);
+      assert.ok(instance._calculateDestination.calledOnce);
     });
   });
 
   it('has all proper values on its data object', () => {
     let instance = new File(filePath);
-    instance.permalink = 'whee';
+    instance.setPermalink('whee');
 
     assert.deepEqual(instance.data, {
       content: markdown.render(fixture.frontmatterJSON.content),
