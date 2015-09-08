@@ -58,6 +58,7 @@ still WIP. check out #todo section to see progress.
   - [ ] other? [inspiration from hugo](http://gohugo.io/commands/)
 - [ ] add config.yaml validation so people are warned early if their config is wrong
 - [ ] create default theme
+- [ ] Documentation.
 - [ ] support caching of files, only re-writing files that were changed
 - [ ] web interface / dashboard (https://github.com/Level/levelup ?)
 - [ ] [move to toml instead of yaml...maybe - which looks best?](https://gist.github.com/hswolff/86d92f44e385b302716f)
