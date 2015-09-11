@@ -62,7 +62,7 @@ describe('collection/type/metadata MetadataCollection', () => {
     it('adds files to collection', () => {
       let instance = new MetadataCollection('name');
       instance.metadata = fixture.collectionMetadataKey;
-      sinon.stub(instance, '_createCollectionPages').returns(sinon.spy());
+      sinon.stub(instance, 'createCollectionPages').returns(sinon.spy());
       sinon.stub(instance, '_isFileInCollection').returns(true);
       sandbox.spy(CollectionBase, 'sortFiles');
       assert.isUndefined(instance.files);
@@ -70,7 +70,7 @@ describe('collection/type/metadata MetadataCollection', () => {
 
       let files = fixture.collectionFiles();
       assert.deepEqual(instance.populate(files), instance);
-      assert.equal(instance._createCollectionPages.calledOnce, true);
+      assert.equal(instance.createCollectionPages.calledOnce, true);
       assert.equal(CollectionBase.sortFiles.called, false);
 
       assert.isUndefined(instance.files);
@@ -99,7 +99,7 @@ describe('collection/type/metadata MetadataCollection', () => {
     it('does not add files to collection', () => {
       let instance = new MetadataCollection('name');
       instance.metadata = fixture.collectionMetadataKey;
-      sinon.stub(instance, '_createCollectionPages').returns(sinon.spy());
+      sinon.stub(instance, 'createCollectionPages').returns(sinon.spy());
       sinon.stub(instance, '_isFileInCollection').returns(false);
       sandbox.spy(CollectionBase, 'sortFiles');
       assert.isUndefined(instance.files);
@@ -107,7 +107,7 @@ describe('collection/type/metadata MetadataCollection', () => {
 
       let files = fixture.collectionFiles();
       assert.deepEqual(instance.populate(files), instance);
-      assert.equal(instance._createCollectionPages.calledOnce, true);
+      assert.equal(instance.createCollectionPages.calledOnce, true);
       assert.equal(CollectionBase.sortFiles.called, false);
 
       assert.isUndefined(instance.files);
@@ -126,19 +126,19 @@ describe('collection/type/metadata MetadataCollection', () => {
   });
 
 
-  describe('_createCollectionPages', () => {
+  describe('createCollectionPages', () => {
     it('returns early if no pagination permalinks are set', () => {
       let instance = new MetadataCollection('name');
-      assert.equal(instance._createCollectionPages(), false);
+      assert.equal(instance.createCollectionPages(), false);
 
       instance.pagination = {};
       instance.pagination.permalinkIndex = 'index.html';
       instance.pagination.permalinkPage = undefined;
-      assert.equal(instance._createCollectionPages(), false);
+      assert.equal(instance.createCollectionPages(), false);
 
       instance.pagination.permalinkIndex = undefined;
       instance.pagination.permalinkPage = '/page.html';
-      assert.equal(instance._createCollectionPages(), false);
+      assert.equal(instance.createCollectionPages(), false);
     });
 
     let pageSize = 1;
@@ -152,13 +152,13 @@ describe('collection/type/metadata MetadataCollection', () => {
       instance.pagination.permalinkPage = '/page/:metadata/:page.html';
       assert.lengthOf(instance.pages, 0);
       assert.isUndefined(instance.metadataFiles);
-      sinon.spy(instance, '_createCollectionPages');
+      sinon.spy(instance, 'createCollectionPages');
       sandbox.spy(CollectionBase, 'sortFiles');
 
       // Use instance.populate so we have proper instance.metadataFiles
       // structure.
       instance.populate(files);
-      assert.ok(instance._createCollectionPages.returned(true));
+      assert.ok(instance.createCollectionPages.returned(true));
 
       assert.isObject(instance.metadataFiles);
       assert.equal(CollectionBase.sortFiles.callCount, 3);

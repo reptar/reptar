@@ -92,14 +92,14 @@ describe('collection/type/file-system FileSystemCollection', () => {
       let instance = new FileSystemCollection('name');
       instance.path = 'ok';
       instance.permalink = '/my/:permalink';
-      sinon.stub(instance, '_createCollectionPages').returns(sinon.spy());
+      sinon.stub(instance, 'createCollectionPages').returns(sinon.spy());
       sinon.stub(instance, '_isFileInCollection').returns(true);
       sandbox.spy(CollectionBase, 'sortFiles');
       assert.isUndefined(instance.files);
 
       let files = fixture.collectionFiles();
       assert.deepEqual(instance.populate(files), instance);
-      assert.equal(instance._createCollectionPages.calledOnce, true);
+      assert.equal(instance.createCollectionPages.calledOnce, true);
       assert.equal(CollectionBase.sortFiles.calledOnce, true);
       assert.isUndefined(instance.metadataFiles);
 
@@ -113,14 +113,14 @@ describe('collection/type/file-system FileSystemCollection', () => {
       let instance = new FileSystemCollection('name');
       instance.path = 'ok';
       instance.permalink = '/my/:permalink';
-      sinon.stub(instance, '_createCollectionPages').returns(sinon.spy());
+      sinon.stub(instance, 'createCollectionPages').returns(sinon.spy());
       sinon.stub(instance, '_isFileInCollection').returns(false);
       sandbox.spy(CollectionBase, 'sortFiles');
       assert.isUndefined(instance.files);
 
       let files = fixture.collectionFiles();
       assert.deepEqual(instance.populate(files), instance);
-      assert.equal(instance._createCollectionPages.calledOnce, true);
+      assert.equal(instance.createCollectionPages.calledOnce, true);
       assert.equal(CollectionBase.sortFiles.calledOnce, true);
 
       files.forEach((file)=> {
@@ -136,7 +136,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
     });
   });
 
-  describe('_createCollectionPages', () => {
+  describe('createCollectionPages', () => {
     it('adds files to collectionPages', () => {
       let pageSize = 1;
 
@@ -148,7 +148,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
       instance.pagination.permalinkPage = '/page.html';
       assert.lengthOf(instance.pages, 0);
 
-      assert.equal(instance._createCollectionPages(), true);
+      assert.equal(instance.createCollectionPages(), true);
 
       assert.lengthOf(instance.pages, 3);
 
@@ -189,19 +189,19 @@ describe('collection/type/file-system FileSystemCollection', () => {
     });
   });
 
-  describe('_createCollectionPages', () => {
+  describe('createCollectionPages', () => {
     it('returns early if no pagination permalinks are set', () => {
       let instance = new FileSystemCollection('name');
-      assert.equal(instance._createCollectionPages(), false);
+      assert.equal(instance.createCollectionPages(), false);
 
       instance.pagination = {};
       instance.pagination.permalinkIndex = 'index.html';
       instance.pagination.permalinkPage = undefined;
-      assert.equal(instance._createCollectionPages(), false);
+      assert.equal(instance.createCollectionPages(), false);
 
       instance.pagination.permalinkIndex = undefined;
       instance.pagination.permalinkPage = '/page.html';
-      assert.equal(instance._createCollectionPages(), false);
+      assert.equal(instance.createCollectionPages(), false);
     });
   });
 
