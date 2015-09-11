@@ -16,8 +16,7 @@ describe('Yarn watches for updates', function() {
     sandbox.restore();
   });
 
-  describe('writeFile', () => {
-
+  describe('can re-render html when a file changes', () => {
     it('is a noop if an invalid path is given', async () => {
       let instance = new Yarn(path.resolve(__dirname, '../../scaffold'));
       await instance.readFiles();
@@ -28,19 +27,19 @@ describe('Yarn watches for updates', function() {
       sinon.spy(postCollection, 'writePage');
 
       // Run function.
-      await instance.writeFile();
+      await instance.fileChanged();
 
       assert.equal(postCollection.writeFile.called, false);
       assert.equal(postCollection.writePage.called, false);
 
       // Run function.
-      await instance.writeFile('random spam');
+      await instance.fileChanged('random spam');
 
       assert.equal(postCollection.writeFile.called, false);
       assert.equal(postCollection.writePage.called, false);
     });
 
-    it('can discretely update a file', async () => {
+    it('will re-write individual file and collection html', async () => {
       let instance = new Yarn(path.resolve(__dirname, '../../scaffold'));
       await instance.readFiles();
 
@@ -55,7 +54,7 @@ describe('Yarn watches for updates', function() {
       sinon.spy(postCollection, 'writePage');
 
       // Run function.
-      await instance.writeFile(postFile.path);
+      await instance.fileChanged(postFile.path);
 
       assert.equal(postFile.updateDataFromFileSystem.calledOnce, true);
       assert.ok(postCollection.writeFile.calledWith(postFile, instance.data));

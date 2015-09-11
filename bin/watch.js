@@ -14,17 +14,24 @@ module.exports = function() {
       throw e;
     });
 
-  chokidar.watch([
+  var watcher = chokidar.watch([
     config.path.source
   ], {
     ignored: [
       config.path.destination
     ]
-  }).on('change', function(path) {
-    logger.info('File changed at: ' + path);
-    logger.info('Rebuilding...');
-    yarn.writeFile(path).then(function() {
-      logger.info('\tdone!');
+  });
+
+  // Wait for watcher to be ready before registering other watchers.
+  watcher.on('ready', function() {
+
+    watcher.on('change', function(path) {
+      logger.info('File changed at: ' + path);
+      logger.info('Rebuilding...');
+      yarn.fileChanged(path).then(function() {
+        logger.info('\tdone!');
+      });
     });
+
   });
 };
