@@ -40,5 +40,13 @@ module.exports = function() {
         logger.info('\tdone!');
       });
     });
+
+    watcher.on('unlink', function(path) {
+      logger.info('File removed at: ' + path);
+      logger.info('Rebuilding...');
+      yarn.fileRemoved(path).then(function() {
+        logger.info('\tdone!');
+      });
+    });
   });
 };
