@@ -33,5 +33,12 @@ module.exports = function() {
       });
     });
 
+    watcher.on('add', function(path) {
+      logger.info('File added at: ' + path);
+      logger.info('Rebuilding...');
+      yarn.fileAdded(path).then(function() {
+        logger.info('\tdone!');
+      });
+    });
   });
 };
