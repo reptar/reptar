@@ -23,6 +23,7 @@ var argv = yargs
     }
   )
   .command('build', 'build your site')
+  .command('clean', 'cleans destination folder')
   .command('serve', 'serve your site with http-server')
   .command('watch', 'build, serve, and watch for file changes')
   .help('help')
