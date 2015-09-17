@@ -52,8 +52,8 @@ still WIP. check out #todo section to see progress.
   - [x] serve mode
   - [ ] watch mode (progressive updates)
     - [x] handle when a file changes
-    - [ ] handle when a new file is added
-    - [ ] handle when a file is removed
+    - [x] handle when a new file is added
+    - [x] handle when a file is removed
     - [ ] handle when theme file changes/added/removed
   - [ ] other? [inspiration from hugo](http://gohugo.io/commands/)
 - [ ] add config.yaml validation so people are warned early if their config is wrong
