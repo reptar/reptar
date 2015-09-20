@@ -42,9 +42,13 @@ if (argv._.length === 0) {
     var commandHandler = require(commandPath);
     commandHandler(argv);
   } catch (e) {
-    logger.warn('Unknown command: ' + command);
-    console.log('');
-    yargs.showHelp();
+    if (e.code === 'MODULE_NOT_FOUND') {
+      logger.warn('Unknown command: ' + command);
+      console.log('');
+      yargs.showHelp();
+    } else {
+      logger.error(e);
+    }
   }
 } else {
   logger.warn('Unknown command: ' + argv._.join(' '));
