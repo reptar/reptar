@@ -18,6 +18,8 @@ module.exports = function() {
     config.path.source
   ], {
     ignored: [
+      config.path.plugins,
+      config.path.themes,
       config.path.destination
     ]
   });
@@ -47,6 +49,23 @@ module.exports = function() {
       yarn.fileRemoved(path).then(function() {
         logger.info('\tdone!');
       });
+    });
+  });
+
+  // Handle when theme files change and re-build entire source to reflect new
+  // theme changes.
+  var themeWatcher = chokidar.watch([
+    config.path.themes
+  ]);
+  themeWatcher.on('ready', function() {
+
+    themeWatcher.on('change', function(path) {
+      logger.info('Theme file changed at: ' + path);
+      logger.info('Rebuilding...');
+      yarn.readTheme()
+        .then(function() {
+          return yarn.build();
+        });
     });
   });
 };
