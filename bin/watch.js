@@ -6,8 +6,18 @@ module.exports = function() {
 
   var Yarn = require('../lib');
   var config = require('../lib/config');
+  var Render = require('../lib/render');
+
 
   var yarn = new Yarn();
+
+  Render.configureTemplate({
+    paths: [
+      yarn.theme.config.path.templates
+    ],
+    cacheTemplates: true
+  });
+
   yarn.readFiles()
     .catch(function(e) {
       console.log(e.stack);
