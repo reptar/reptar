@@ -9,6 +9,11 @@ import Yarn from '../../lib/index.js';
 describe('Yarn watches for updates', function() {
   this.timeout(5000);
 
+  const pathToScaffold = path.resolve(
+    __dirname,
+    '../../node_modules/yarn-scaffold'
+  );
+
   let sandbox;
   beforeEach(() => {
     sandbox = sinon.sandbox.create();
@@ -29,7 +34,7 @@ describe('Yarn watches for updates', function() {
 
   describe('can re-render html when a file changes', () => {
     it('is a noop if an invalid path is given', async () => {
-      let instance = new Yarn(path.resolve(__dirname, '../../scaffold'));
+      let instance = new Yarn(pathToScaffold);
       await instance.readFiles();
 
       let postCollection = instance.collections.post;
@@ -51,7 +56,7 @@ describe('Yarn watches for updates', function() {
     });
 
     it('will re-write individual file and collection html', async () => {
-      let instance = new Yarn(path.resolve(__dirname, '../../scaffold'));
+      let instance = new Yarn(pathToScaffold);
       await instance.readFiles();
 
       let postCollection = instance.collections.post;
@@ -82,7 +87,7 @@ describe('Yarn watches for updates', function() {
 
   describe('handles when a file is added to the project', () => {
     it('is a noop if file path already exists', async () => {
-      let instance = new Yarn(path.resolve(__dirname, '../../scaffold'));
+      let instance = new Yarn(pathToScaffold);
       await instance.readFiles();
 
       let postCollection = instance.collections.post;
@@ -107,7 +112,7 @@ describe('Yarn watches for updates', function() {
     });
 
     it('will re-render when a file is added', async () => {
-      let instance = new Yarn(path.resolve(__dirname, '../../scaffold'));
+      let instance = new Yarn(pathToScaffold);
       await instance.readFiles();
 
       let postCollection = instance.collections.post;
@@ -148,7 +153,7 @@ describe('Yarn watches for updates', function() {
 
   describe('handles when a file is removed from project', () => {
     it('is a noop if file path does not exist', async () => {
-      let instance = new Yarn(path.resolve(__dirname, '../../scaffold'));
+      let instance = new Yarn(pathToScaffold);
       await instance.readFiles();
 
       let postCollection = instance.collections.post;
@@ -173,7 +178,7 @@ describe('Yarn watches for updates', function() {
     });
 
     it('will re-render when a file is removed', async () => {
-      let instance = new Yarn(path.resolve(__dirname, '../../scaffold'));
+      let instance = new Yarn(pathToScaffold);
       await instance.readFiles();
 
       let postCollection = instance.collections.post;

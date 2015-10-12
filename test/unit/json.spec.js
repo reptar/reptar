@@ -11,7 +11,7 @@ describe('json JSON', function() {
 
       assert.sameMembers(
         Array.from(plugins),
-        ['yarn-excerpt', 'yarn-html-minifier']
+        ['yarn-excerpt', 'yarn-html-minifier', 'yarn-scaffold']
       );
     });
   });
