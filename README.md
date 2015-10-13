@@ -46,7 +46,7 @@ still WIP. check out #todo section to see progress.
   - [x] configure if drafts should be rendered
   - [x] configure if future posts should be rendered
 - [ ] cli
-  - [ ] scaffold new blog
+  - [x] scaffold new blog
   - [ ] new post
   - [x] build blog
   - [x] serve mode
@@ -57,7 +57,7 @@ still WIP. check out #todo section to see progress.
     - [x] handle when theme file changes/added/removed
   - [ ] other? [inspiration from hugo](http://gohugo.io/commands/)
 - [ ] add config.yaml validation so people are warned early if their config is wrong
-- [ ] create default theme
+- [x] create default theme
 - [ ] Documentation.
 - [ ] support caching of files, only re-writing files that were changed
 - [ ] web interface / dashboard (https://github.com/Level/levelup ?)
