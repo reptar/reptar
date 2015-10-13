@@ -12,7 +12,7 @@ still WIP. check out #todo section to see progress.
 
 ## install
 
-`npm install -g yarnjs`
+`npm install -g yarn-cli`
 
 `yarn`
 
@@ -64,10 +64,3 @@ still WIP. check out #todo section to see progress.
 - [ ] [move to toml instead of yaml...maybe - which looks best?](https://gist.github.com/hswolff/86d92f44e385b302716f)
 - [ ] [switch to npm module for slugifying titles?](https://github.com/dodo/node-slug)
 
-
-# Debug
-
-write to file:
-```
-require('./utils/log').info(this.data)
-```
