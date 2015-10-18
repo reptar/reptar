@@ -24,15 +24,36 @@ module.exports = function init() {
 
     var scaffoldSource = path.join(__dirname, '../node_modules/yarn-scaffold');
 
+    // Copy scaffold project.
     try {
       fs.copySync(scaffoldSource, destination);
     } catch (e) {
       logger.error('Unable to initialize a new yarn site.');
     }
 
+    // Create our package.json file. Grab the existing dependencies from the
+    // scaffold package.json and create our clean new one.
+    try {
+      var scaffoldJson = require(path.join(destination, 'package.json'));
+
+      var packageJsonData = {
+        main: 'my-yarn-site',
+        dependencies: scaffoldJson.dependencies
+      };
+
+      var packageJsonPath = path.join(destination, 'package.json');
+      fs.outputFileSync(packageJsonPath, JSON.stringify(packageJsonData));
+    } catch (e) {
+      logger.error('Unable to create package.json files.');
+    }
+
+    // Remove un-needed files.
     [
       '_site',
-      'node_modules'
+      'node_modules',
+      'images/.gitkeep',
+      '.npmignore',
+      'README.md'
     ].forEach(function(dir) {
       var rmDir = path.join(destination, dir);
 
