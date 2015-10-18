@@ -52,7 +52,7 @@ module.exports = function init() {
         cwd: destination
       });
     } catch (e) {
-      logger.warn('Unable to fun `npm install`');
+      logger.warn('Unable to run `npm install`');
     }
 
     npmInstallProc.on('close', function() {
