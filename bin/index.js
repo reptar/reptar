@@ -25,13 +25,20 @@ var argv = yargs
   .command('clean', 'cleans destination folder')
   .command('serve', 'serve your site with http-server')
   .command('watch', 'build, serve, and watch for file changes')
+  .option('version', {
+    description: 'installed version',
+    boolean: true
+  })
   .help('help')
   .default('help')
   .argv;
 
 console.log('yarn\n');
 
-if (argv._.length === 0) {
+if (argv.version) {
+  var packageJson = require(path.resolve(__dirname, '../package.json'));
+  console.log(packageJson.version);
+} else if (argv._.length === 0) {
   yargs.showHelp('log');
   process.exit(0);
 } else if (argv._.length === 1) {
