@@ -4,11 +4,11 @@
   "description": "spin your own yarn",
   "main": "./dist/lib/index.js",
   "bin": {
-    "yarn": "./dist/bin/index.js"
+    "yarn": "./dist-bin/index.js"
   },
   "scripts": {
-    "compile": "babel lib --out-dir dist/lib && babel bin --out-dir dist/bin",
-    "prepublish": "npm run compile && cp lib/config/defaults.yml dist/lib/config/defaults.yml",
+    "compile": "babel lib --out-dir dist-lib && babel bin --out-dir dist-bin",
+    "prepublish": "npm run compile && cp lib/config/defaults.yml dist-lib/config/defaults.yml",
     "test": "mocha --recursive --compilers js:babel/register --reporter spec",
     "test:unit": "npm test -- test/unit",
     "test:e2e": "npm test -- test/e2e",
