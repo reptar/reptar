@@ -6,8 +6,7 @@ logger.cli({
   colorize: true
 });
 
-require('babel/register');
-// require('babel/polyfill');
+require('babel/polyfill');
 
 var yargs = require('yargs');
 var argv = yargs

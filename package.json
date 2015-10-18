@@ -2,12 +2,13 @@
   "name": "yarnjs",
   "version": "0.5.0",
   "description": "spin your own yarn",
-  "main": "index.js",
+  "main": "./dist/lib/index.js",
   "bin": {
-    "yarn": "./bin/index.js"
+    "yarn": "./dist/bin/index.js"
   },
   "scripts": {
-    "preversion": "babel lib --out-dir lib-es5 && cp lib/config/defaults.yml lib-es5/config/defaults.yml",
+    "compile": "babel lib --out-dir dist/lib && babel bin --out-dir dist/bin",
+    "prepublish": "npm run compile && cp lib/config/defaults.yml dist/lib/config/defaults.yml",
     "test": "mocha --recursive --compilers js:babel/register --reporter spec",
     "test:unit": "npm test -- test/unit",
     "test:e2e": "npm test -- test/e2e",
