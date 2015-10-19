@@ -36,7 +36,15 @@ var argv = yargs
 console.log('yarn\n');
 
 if (argv.version) {
-  var packageJson = require(path.resolve(__dirname, '../package.json'));
+  var packageJson;
+  try {
+    packageJson = require(path.resolve(__dirname, '../package.json'));
+  } catch (e) {
+    // If we're working with compiled code the package.json is a directory
+    // higher.
+    packageJson = require(path.resolve(__dirname, '../../package.json'));
+  }
+
   console.log(packageJson.version);
 } else if (argv._.length === 0) {
   yargs.showHelp('log');
