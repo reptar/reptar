@@ -28,7 +28,7 @@ module.exports = function init() {
     try {
       fs.copySync(scaffoldSource, destination);
     } catch (e) {
-      logger.error('Unable to copy scaffold contents into new new yarn site.');
+      logger.error('Unable to copy scaffold contents into new yarn site.');
       logger.error(e);
     }
 
