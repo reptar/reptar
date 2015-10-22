@@ -22,7 +22,7 @@ module.exports = function init() {
       process.exit(1);
     }
 
-    var scaffoldSource = path.join(__dirname, '../node_modules/yarn-scaffold');
+    var scaffoldSource = require('yarn-scaffold');
 
     // Copy scaffold project.
     try {
