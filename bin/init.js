@@ -28,7 +28,8 @@ module.exports = function init() {
     try {
       fs.copySync(scaffoldSource, destination);
     } catch (e) {
-      logger.error('Unable to initialize a new yarn site.');
+      logger.error('Unable to copy scaffold contents into new new yarn site.');
+      logger.error(e);
     }
 
     // Create our package.json file. Grab the existing dependencies from the
@@ -44,7 +45,8 @@ module.exports = function init() {
       var packageJsonPath = path.join(destination, 'package.json');
       fs.outputFileSync(packageJsonPath, JSON.stringify(packageJsonData));
     } catch (e) {
-      logger.error('Unable to create package.json files.');
+      logger.error('Unable to create package.json file.');
+      logger.error(e);
     }
 
     // Remove un-needed files.
@@ -53,6 +55,7 @@ module.exports = function init() {
       'node_modules',
       'images/.gitkeep',
       '.npmignore',
+      'scaffold.js',
       'README.md'
     ].forEach(function(dir) {
       var rmDir = path.join(destination, dir);
