@@ -3,9 +3,6 @@
   "version": "0.5.10",
   "description": "spin your own yarn",
   "main": "./dist/lib/index.js",
-  "bin": {
-    "yarn": "./dist/bin/index.js"
-  },
   "scripts": {
     "compile": "babel lib --out-dir dist/lib && babel bin --out-dir dist/bin",
     "prepublish": "npm run compile && cp lib/config/defaults.yml dist/lib/config/defaults.yml",

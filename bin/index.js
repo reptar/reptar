@@ -6,8 +6,6 @@ logger.cli({
   colorize: true
 });
 
-require('babel/polyfill');
-
 var yargs = require('yargs');
 var argv = yargs
   .command('init', 'scaffold a new yarn site')
