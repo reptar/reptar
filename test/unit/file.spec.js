@@ -39,16 +39,27 @@ describe('file File', () => {
     });
   });
 
-  it('_calculateDestination', () => {
+  describe('_calculateDestination', () => {
     it('called when permalink set', () => {
       sandbox.spy(File.prototype, '_calculateDestination');
 
       let instance = new File(filePath);
-      assert.equal(instance._calculateDestination.called, false);
-
-      instance.permalink = 'whee';
 
       assert.ok(instance._calculateDestination.calledOnce);
+    });
+
+    it('allows custom file url property', () => {
+      const permalinkValue = 'whee';
+      let instance = new File(filePath);
+      instance.setPermalink(permalinkValue);
+
+      assert.equal(instance.url, permalinkValue);
+
+      const customPermalinkValue = 'customPermalinkValue';
+      instance.data.url = customPermalinkValue;
+      instance.setPermalink(permalinkValue);
+
+      assert.equal(instance.url, customPermalinkValue);
     });
   });
 
@@ -58,8 +69,9 @@ describe('file File', () => {
 
     assert.deepEqual(instance.data, {
       content: markdown.render(fixture.frontmatterJSON.content),
-      title: fixture.frontmatterJSON.data.title,
-      url: instance.permalink
+      title: fixture.frontmatterJSON.data.title
     });
+
+    assert.strictEqual(instance.url, instance.permalink);
   });
 });
