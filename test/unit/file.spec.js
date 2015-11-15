@@ -51,27 +51,37 @@ describe('file File', () => {
     it('allows custom file url property', () => {
       const permalinkValue = 'whee';
       let instance = new File(filePath);
+
+      // Should use filePath when no file url or permalink is et.
+      assert.equal(instance.data.url, filePath);
+      assert.equal(instance.url, undefined);
+
+      // Should use permalink value when no url is set.
       instance.setPermalink(permalinkValue);
+      assert.equal(instance.data.url, permalinkValue);
+      assert.equal(instance.url, undefined);
 
-      assert.equal(instance.url, permalinkValue);
-
+      // Should use File url if set.
       const customPermalinkValue = 'customPermalinkValue';
-      instance.data.url = customPermalinkValue;
+      instance.url = customPermalinkValue;
       instance.setPermalink(permalinkValue);
-
+      assert.equal(instance.data.url, customPermalinkValue);
       assert.equal(instance.url, customPermalinkValue);
     });
   });
 
   it('has all proper values on its data object', () => {
     let instance = new File(filePath);
+
+    assert.strictEqual(instance.url, undefined);
+    assert.equal(instance.data.url, filePath);
+
     instance.setPermalink('whee');
 
     assert.deepEqual(instance.data, {
       content: markdown.render(fixture.frontmatterJSON.content),
-      title: fixture.frontmatterJSON.data.title
+      title: fixture.frontmatterJSON.data.title,
+      url: instance.permalink
     });
-
-    assert.strictEqual(instance.url, instance.permalink);
   });
 });
