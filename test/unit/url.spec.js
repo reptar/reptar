@@ -47,15 +47,6 @@ describe('url Url', function() {
     });
   });
 
-  describe('stringToSlug', function() {
-    it('correctly makes a string into a slug', function() {
-      assert.equal(
-        Url.stringToSlug('?  ? Did you, uh, do that on purpose?   !'),
-        'did-you-uh-do-that-on-purpose'
-      );
-    });
-  });
-
   describe('makeUrlFileSystemSafe', function() {
     it('appends index.html to a url that has no file extension', function() {
       assert.equal(Url.makeUrlFileSystemSafe('/my-beautiful-html-permalink'),
