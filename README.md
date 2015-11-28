@@ -4,4 +4,10 @@
 
 spin your own yarn.  (a static site generator)
 
-## [view website for documentation](http://yarnjs.github.io/)
+---
+
+Looking for documentation? [Go to the website.](http://yarnjs.github.io/)
+
+Looking to hack on yarn? [Go to DEVELOPMENT.md.](development.md)
+
+Looking for contributions guidelines? [Go to CONTRIBUTING.md.](contributing.md)
