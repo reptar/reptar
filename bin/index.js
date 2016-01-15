@@ -5,7 +5,6 @@ var logger = require('winston');
 logger.cli({
   colorize: true
 });
-var cliPlugins = require('./plugins');
 
 var yargs = require('yargs');
 var argv = yargs
@@ -25,7 +24,6 @@ var argv = yargs
   .command('serve', 'serve your site with http-server')
   .command('watch', 'build, serve, and watch for file changes')
   .option('version', {
-    alias: 'v',
     description: 'installed version',
     boolean: true
   })
@@ -33,13 +31,6 @@ var argv = yargs
   .default('help')
   .argv;
 
-// cliPlugins(yargs);
-yargs.command('testo', 'ok', function(yargs) {
-  console.log('SEWET');
-  console.log(yargs.argv);
-});
-argv = yargs.argv;
-console.log(argv);
 console.log('yarn\n');
 
 if (argv.version) {
