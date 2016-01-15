@@ -24,6 +24,7 @@ var argv = yargs
   .command('serve', 'serve your site with http-server')
   .command('watch', 'build, serve, and watch for file changes')
   .option('version', {
+    alias: 'v',
     description: 'installed version',
     boolean: true
   })
