@@ -3,7 +3,7 @@ import sinon from 'sinon';
 
 import fixture from '../../../fixture';
 
-import isEmpty from 'lodash/lang/isEmpty';
+import isEmpty from 'lodash/isEmpty';
 
 import Plugin from '../../../../lib/plugin/index.js';
 import CollectionPage from '../../../../lib/collection/page.js';

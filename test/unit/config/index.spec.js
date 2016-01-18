@@ -2,7 +2,7 @@ import {assert} from 'chai';
 import sinon from 'sinon';
 import path from 'path';
 import {EventEmitter} from 'events';
-import each from 'lodash/collection/each';
+import each from 'lodash/each';
 
 import fixture from '../../fixture';
 

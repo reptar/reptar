@@ -1,4 +1,4 @@
-import cloneDeep from 'lodash/lang/cloneDeep';
+import cloneDeep from 'lodash/cloneDeep';
 
 exports.frontmatterString =
 `---
