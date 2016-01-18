@@ -31,9 +31,9 @@ describe('config/index Config', () => {
       assert.instanceOf(instance, EventEmitter);
       assert.isObject(instance._raw);
 
-      assert.ok(instance.loadLocal.calledOnce);
-      assert.ok(instance.update.calledOnce);
-      assert.ok(Config.defaultConfig.calledOnce);
+      assert.notOk(instance.loadLocal.calledOnce);
+      assert.notOk(instance.update.calledOnce);
+      assert.notOk(Config.defaultConfig.calledOnce);
     });
   });
 
