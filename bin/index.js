@@ -2,6 +2,7 @@
 
 var path = require('path');
 var logger = require('winston');
+var findUp = require('find-up');
 logger.cli({
   colorize: true
 });
@@ -37,11 +38,11 @@ console.log('yarn\n');
 if (argv.version) {
   var packageJson;
   try {
-    packageJson = require(path.resolve(__dirname, '../package.json'));
+    packageJson = require(findUp.sync('package.json', {
+      cwd: __dirname
+    }));
   } catch (e) {
-    // If we're working with compiled code the package.json is a directory
-    // higher.
-    packageJson = require(path.resolve(__dirname, '../../package.json'));
+    // noop
   }
 
   console.log(packageJson.version);
