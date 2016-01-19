@@ -9,7 +9,7 @@ const PluginAPI = Plugin.API;
 
 import CollectionBase from '../../../lib/collection/base.js';
 
-describe('collection/index CollectionBase', () => {
+describe('collection/base CollectionBase', () => {
 
   let sandbox;
   beforeEach(() => {
@@ -142,7 +142,7 @@ describe('collection/index CollectionBase', () => {
       assert.equal(CollectionBase.writeToFileSystem.callCount, 1);
       assert.ok(
         CollectionBase.writeToFileSystem.calledWith(
-          file.destination,
+          file,
           renderContent
         )
       );
@@ -157,7 +157,9 @@ describe('collection/index CollectionBase', () => {
     it('calls all functions in expected order', async () => {
       sandbox.stub(fs, 'outputFileAsync').returns(sinon.spy());
 
-      let path = './path/to/write/file';
+      let mockFile = {
+        destination: './path/to/write/file'
+      };
       let content = 'this is the excellent content';
 
       let beforeSpy = sinon.spy();
@@ -166,24 +168,23 @@ describe('collection/index CollectionBase', () => {
       PluginAPI.event.collection.afterWrite(afterSpy);
 
       try {
-        await CollectionBase.writeToFileSystem(path, content);
+        await CollectionBase.writeToFileSystem(mockFile, content);
       } catch (e) {
         console.log(e);
       }
 
-      let fileSystemFile = {
-        path,
-        content
-      };
-
       assert.equal(beforeSpy.callCount, 1);
-      assert.ok(beforeSpy.calledWith(fileSystemFile));
+      assert.ok(beforeSpy.calledWith(mockFile, content));
 
       assert.equal(fs.outputFileAsync.callCount, 1);
-      assert.ok(fs.outputFileAsync.calledWith(path, content, 'utf8'));
+      assert.ok(fs.outputFileAsync.calledWith(
+        mockFile.destination,
+        content,
+        'utf8'
+      ));
 
       assert.equal(afterSpy.callCount, 1);
-      assert.ok(afterSpy.calledWith(fileSystemFile));
+      assert.ok(afterSpy.calledWith(mockFile, content));
 
       assert.ok(beforeSpy.calledBefore(fs.outputFileAsync));
       assert.ok(fs.outputFileAsync.calledBefore(afterSpy));

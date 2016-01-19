@@ -6,7 +6,7 @@ import MetadataCollection from '../../../lib/collection/type/metadata.js';
 import StaticCollection from '../../../lib/collection/type/static.js';
 import * as Collection from '../../../lib/collection/index.js';
 
-describe('collection/index CollectionBase', () => {
+describe('collection/index', () => {
 
   describe('create', () => {
     it('creates the right Collection class', () => {

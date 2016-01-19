@@ -93,7 +93,7 @@ describe('plugin/index Plugin', function() {
       try {
         newVal = await Plugin.processEventHandlers(handlerName, handlerValue);
       } catch (e) {
-        console.log(e);
+        throw e;
       }
 
       assert.equal(noopFunc.callCount, 1);
@@ -125,6 +125,83 @@ describe('plugin/index Plugin', function() {
       assert.equal(trailingNoopFn.callCount, 1);
 
       assert.equal(newVal, handlerValue * handlerValue);
+    });
+
+    it('invokes handlers with multiple arguments', async () => {
+      let blankReturnFn = sinon.spy(() => {
+        return;
+      });
+
+      Plugin.addEventHandler(handlerName, blankReturnFn);
+
+      assert.isArray(Plugin._handlers[handlerName]);
+      assert.lengthOf(Plugin._handlers[handlerName], 1);
+
+      let argValue1 = {foo: 'bar'};
+      let argValue2 = 'a wonderful world';
+      let processedEventValue;
+
+      try {
+        processedEventValue = await Plugin.processEventHandlers(
+          handlerName,
+          argValue1,
+          argValue2
+        );
+      } catch (e) {
+        console.log(e);
+      }
+
+      assert.equal(blankReturnFn.callCount, 1);
+      assert.ok(blankReturnFn.calledWith(argValue1, argValue2));
+
+      assert.equal(argValue1, processedEventValue[0]);
+      assert.equal(argValue2, processedEventValue[1]);
+    });
+
+    describe('throws when plugin handlers', () => {
+      it('return only part of the arguments given', (done) => {
+        let eventHandlerFn = sinon.spy((arg1, arg2) => {
+          return arg2;
+        });
+
+        Plugin.addEventHandler(handlerName, eventHandlerFn);
+
+        assert.isArray(Plugin._handlers[handlerName]);
+        assert.lengthOf(Plugin._handlers[handlerName], 1);
+
+        let argValue1 = {foo: 'bar'};
+        let argValue2 = 'a wonderful world';
+
+        Plugin.processEventHandlers(
+          handlerName,
+          argValue1,
+          argValue2
+        ).catch(() => {
+          done();
+        });
+      });
+
+      it('returns arguments in wrong order given', (done) => {
+        let eventHandlerFn = sinon.spy((arg1, arg2) => {
+          return [arg2, arg1];
+        });
+
+        Plugin.addEventHandler(handlerName, eventHandlerFn);
+
+        assert.isArray(Plugin._handlers[handlerName]);
+        assert.lengthOf(Plugin._handlers[handlerName], 1);
+
+        let argValue1 = {foo: 'bar'};
+        let argValue2 = 'a wonderful world';
+
+        Plugin.processEventHandlers(
+          handlerName,
+          argValue1,
+          argValue2
+        ).catch(() => {
+          done();
+        });
+      });
     });
   });
 
