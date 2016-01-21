@@ -1,6 +1,8 @@
 # yarn
 
-[![NPM version](https://badge.fury.io/js/yarnjs.svg)](http://badge.fury.io/js/yarnjs)
+[![npm version][npm-badge]][npm-url]
+[![Build Status][travis-badge]][travis-url]
+[![Coverage Status][coveralls-badge]][coveralls-url]
 
 spin your own yarn.  (a static site generator)
 
