@@ -1,7 +1,7 @@
-var child_process = require('child_process');
+import child_process from 'child_process';
+import config from '../lib/config';
 
-module.exports = function() {
-  var config = require('../lib/config');
+export default function() {
   config.setRoot(config.findLocalDir());
 
   var destination = config.path.destination || './_site';
@@ -14,4 +14,4 @@ module.exports = function() {
   ], {
     stdio: 'inherit'
   });
-};
+}

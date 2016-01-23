@@ -1,14 +1,28 @@
 #!/usr/bin/env node
 
-var path = require('path');
-var logger = require('winston');
-var findUp = require('find-up');
+import logger from 'winston';
 logger.cli({
   colorize: true
 });
+import findUp from 'find-up';
+import yargs from 'yargs';
 
-var yargs = require('yargs');
-var argv = yargs
+import build from './build';
+import newFile from './new';
+import watch from './watch';
+import clean from './clean';
+import init from './init';
+import serve from './serve';
+const commands = {
+  build,
+  new: newFile,
+  watch,
+  clean,
+  init,
+  serve,
+};
+
+yargs
   .command('init', 'scaffold a new yarn site')
   .command('new', 'create new content')
   .command('build', 'build your site')
@@ -21,38 +35,33 @@ var argv = yargs
     boolean: true
   })
   .help('help')
-  .default('help')
-  .argv;
+  .default('help');
+
+let argv = yargs.argv;
 
 console.log('yarn\n');
 
 if (argv.version) {
-  var packageJson;
+  let packageJson;
   try {
     packageJson = require(findUp.sync('package.json', {
       cwd: __dirname
     }));
-  } catch (e) {
-    // noop
-  }
+  } catch (e) { /* noop */ }
 
   console.log(packageJson.version);
 } else if (argv._.length === 0) {
   yargs.showHelp('log');
   process.exit(0);
 } else {
-  var command = argv._[0];
-  var commandPath = path.resolve(__dirname, command);
-  try {
-    var commandHandler = require(commandPath);
+  let command = argv._[0];
+  let commandHandler = commands[command];
+
+  if (!commandHandler) {
+    logger.warn('Unknown command: ' + argv._.join(' '));
+    console.log('');
+    yargs.showHelp();
+  } else {
     commandHandler(argv);
-  } catch (e) {
-    if (e.code === 'MODULE_NOT_FOUND') {
-      logger.warn('Unknown command: ' + argv._.join(' '));
-      console.log('');
-      yargs.showHelp();
-    } else {
-      logger.error(e);
-    }
   }
 }

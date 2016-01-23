@@ -1,10 +1,10 @@
-var fs = require('fs-extra');
-var logger = require('winston');
-var path = require('path');
-var inquirer = require('inquirer');
-var child_process = require('child_process');
+import fs from 'fs-extra';
+import logger from 'winston';
+import path from 'path';
+import inquirer from 'inquirer';
+import child_process from 'child_process';
 
-module.exports = function init() {
+export default function init() {
   var destination = process.cwd();
 
   var questions = [
@@ -83,4 +83,4 @@ module.exports = function init() {
       logger.info('New yarn site created at ' + destination);
     });
   });
-};
+}

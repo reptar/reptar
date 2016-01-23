@@ -1,8 +1,7 @@
-var logger = require('winston');
+import logger from 'winston';
+import Yarn from '../lib';
 
-var Yarn = require('../lib');
-
-module.exports = function() {
+export default function() {
   logger.profile('yarn');
 
   var yarn = new Yarn();
@@ -17,4 +16,4 @@ module.exports = function() {
       console.log(e.stack);
       throw e;
     });
-};
+}

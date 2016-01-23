@@ -1,9 +1,10 @@
-const logger = require('winston');
-const isNil = require('lodash/isNil');
-const path = require('path');
-const fs = require('fs-extra');
-const inquirer = require('inquirer');
-const Url = require('../lib/url');
+import logger from 'winston';
+import isNil from 'lodash/isNil';
+import path from 'path';
+import fs from 'fs-extra';
+import inquirer from 'inquirer';
+import config from '../lib/config';
+import Url from '../lib/url';
 
 let newTypes = {
   file: {
@@ -25,7 +26,7 @@ date: ${data.date.toISOString()}
   },
 };
 
-module.exports = function(args) {
+export default function(args) {
   let newTypeKey = args._[1];
   let newType = newTypes[newTypeKey];
   if (isNil(newType)) {
@@ -35,7 +36,6 @@ module.exports = function(args) {
     process.exit(0);
   }
 
-  var config = require('../lib/config');
   config.setRoot(config.findLocalDir());
 
   function promptHandler(data) {
@@ -53,4 +53,4 @@ module.exports = function(args) {
   }
 
   inquirer.prompt(newType.prompts, promptHandler);
-};
+}

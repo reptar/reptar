@@ -1,13 +1,12 @@
-var logger = require('winston');
-var chokidar = require('chokidar');
+import logger from 'winston';
+import Yarn from '../lib';
+import chokidar from 'chokidar';
+import serve from './serve';
+import config from '../lib/config';
+import Render from '../lib/render';
 
-module.exports = function() {
-  require('./serve')();
-
-  var Yarn = require('../lib');
-  var config = require('../lib/config');
-  var Render = require('../lib/render');
-
+export default function() {
+  serve();
 
   var yarn = new Yarn();
 
@@ -78,4 +77,4 @@ module.exports = function() {
         });
     });
   });
-};
+}
