@@ -1,9 +1,12 @@
-import {assert} from 'chai';
+import assert from 'power-assert';
 import sinon from 'sinon';
 
 import fixture from '../../../fixture';
 
 import isEmpty from 'lodash/isEmpty';
+import isUndefined from 'lodash/isUndefined';
+import isArray from 'lodash/isArray';
+import isObject from 'lodash/isObject';
 
 import Plugin from '../../../../lib/plugin/index.js';
 import CollectionPage from '../../../../lib/collection/page.js';
@@ -98,14 +101,14 @@ describe('collection/type/file-system FileSystemCollection', () => {
       sinon.stub(instance, 'createCollectionPages').returns(sinon.spy());
       sinon.stub(instance, '_isFileInCollection').returns(true);
       sandbox.spy(CollectionBase, 'sortFiles');
-      assert.isObject(instance.files);
+      assert(isObject(instance.files));
 
       let files = fixture.collectionFiles();
       assert.deepEqual(instance.populate(files), instance);
       assert.equal(instance.addFile.callCount, 3);
       assert.equal(instance.createCollectionPages.calledOnce, true);
       assert.equal(CollectionBase.sortFiles.calledOnce, false);
-      assert.isUndefined(instance.metadataFiles);
+      assert(isUndefined(instance.metadataFiles));
 
       files.forEach((file, index)=> {
         assert.equal(file.permalink, instance.permalink);
@@ -121,7 +124,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
       sinon.stub(instance, 'createCollectionPages').returns(sinon.spy());
       sinon.stub(instance, '_isFileInCollection').returns(false);
       sandbox.spy(CollectionBase, 'sortFiles');
-      assert.isObject(instance.files);
+      assert(isObject(instance.files));
 
       let files = fixture.collectionFiles();
       assert.deepEqual(instance.populate(files), instance);
@@ -130,14 +133,14 @@ describe('collection/type/file-system FileSystemCollection', () => {
       assert.equal(CollectionBase.sortFiles.calledOnce, false);
 
       files.forEach((file)=> {
-        assert.isUndefined(file.permalink);
+        assert(isUndefined(file.permalink));
       });
 
-      assert.isUndefined(instance.metadataFiles);
+      assert(isUndefined(instance.metadataFiles));
       assert.equal(isEmpty(instance.files), true);
 
-      assert.isArray(instance.data.files);
-      assert.lengthOf(instance.data.files, 0);
+      assert(isArray(instance.data.files));
+      assert.equal(instance.data.files.length, 0);
     });
   });
 
@@ -157,17 +160,17 @@ describe('collection/type/file-system FileSystemCollection', () => {
       sinon.spy(instance, 'createPage');
       sinon.spy(instance, '_linkPages');
       sandbox.spy(CollectionBase, 'sortFiles');
-      assert.lengthOf(instance.pages, 0);
+      assert.equal(instance.pages.length, 0);
 
       assert.equal(instance.createCollectionPages(), true);
 
-      assert.lengthOf(instance.pages, 3);
+      assert.equal(instance.pages.length, 3);
       assert.equal(instance.createPage.callCount, 3);
       assert.equal(instance._linkPages.calledOnce, true);
       assert.equal(CollectionBase.sortFiles.calledOnce, true);
 
       instance.pages.forEach((page, index) => {
-        assert.instanceOf(page, CollectionPage);
+        assert(page instanceof CollectionPage);
         assert.deepEqual(page.data.files, [instance.files[index].data]);
 
         let expectedPermalink = index === 0 ?
@@ -181,8 +184,8 @@ describe('collection/type/file-system FileSystemCollection', () => {
         assert.equal(page.data.total, filesArray.length);
 
         if (index === 0) {
-          assert.isUndefined(page.data.prev);
-          assert.isUndefined(page.data.prev_link);
+          assert(isUndefined(page.data.prev));
+          assert(isUndefined(page.data.prev_link));
         } else {
           let previous = instance.pages[index - 1];
           assert.equal(page.data.prev, previous.data.page);
@@ -190,8 +193,8 @@ describe('collection/type/file-system FileSystemCollection', () => {
         }
 
         if (index === (instance.pages.length - 1)) {
-          assert.isUndefined(page.data.next);
-          assert.isUndefined(page.data.next_link);
+          assert(isUndefined(page.data.next));
+          assert(isUndefined(page.data.next_link));
         } else {
           let next = instance.pages[index + 1];
           assert.equal(page.data.next, next.data.page);
@@ -236,9 +239,9 @@ describe('collection/type/file-system FileSystemCollection', () => {
 
     it('can set exclude paths', () => {
       let instance = new FileSystemCollection('name');
-      assert.isUndefined(instance.path);
-      assert.isArray(instance.excludePaths);
-      assert.lengthOf(instance.excludePaths, 0);
+      assert(isUndefined(instance.path));
+      assert(isArray(instance.excludePaths));
+      assert.equal(instance.excludePaths.length, 0);
 
       instance._setExcludePaths(Array.from(excludeCollections));
       assert.deepEqual(instance.excludePaths, excludePaths);
@@ -247,8 +250,8 @@ describe('collection/type/file-system FileSystemCollection', () => {
     it('does not add its own path to the exclude path array', () => {
       let instance = new FileSystemCollection('name');
       instance.path = excludePaths[0];
-      assert.isArray(instance.excludePaths);
-      assert.lengthOf(instance.excludePaths, 0);
+      assert(isArray(instance.excludePaths));
+      assert.equal(instance.excludePaths.length, 0);
 
       instance._setExcludePaths(Array.from(excludeCollections));
       assert.deepEqual(instance.excludePaths, [excludePaths[1]]);
@@ -258,7 +261,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
   describe('_isFileExcluded', () => {
     it('is false when FileSystemCollection has no path', () => {
       let instance = new FileSystemCollection('name');
-      assert.isUndefined(instance.path);
+      assert(isUndefined(instance.path));
 
       assert.equal(instance._isFileExcluded(), false);
       assert.equal(instance._isFileExcluded({}), false);
@@ -277,8 +280,8 @@ describe('collection/type/file-system FileSystemCollection', () => {
     it('is false when no excludePaths are set', () => {
       let instance = new FileSystemCollection('name');
       instance.path = '/dummy/path';
-      assert.isArray(instance.excludePaths);
-      assert.lengthOf(instance.excludePaths, 0);
+      assert(isArray(instance.excludePaths));
+      assert.equal(instance.excludePaths.length, 0);
 
       assert.equal(instance._isFileExcluded(), false);
       assert.equal(instance._isFileExcluded({}), false);

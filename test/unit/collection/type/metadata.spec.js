@@ -1,5 +1,7 @@
-import {assert} from 'chai';
+import assert from 'power-assert';
 import sinon from 'sinon';
+import isUndefined from 'lodash/isUndefined';
+import isEqual from 'lodash/isEqual';
 
 import fixture from '../../../fixture';
 
@@ -65,35 +67,35 @@ describe('collection/type/metadata MetadataCollection', () => {
       sinon.stub(instance, 'createCollectionPages').returns(sinon.spy());
       sinon.stub(instance, '_isFileInCollection').returns(true);
       sandbox.spy(CollectionBase, 'sortFiles');
-      assert.isUndefined(instance.files);
-      assert.isUndefined(instance.metadataFiles);
+      assert(isUndefined(instance.files));
+      assert(isUndefined(instance.metadataFiles));
 
       let files = fixture.collectionFiles();
       assert.deepEqual(instance.populate(files), instance);
       assert.equal(instance.createCollectionPages.calledOnce, true);
       assert.equal(CollectionBase.sortFiles.called, false);
 
-      assert.isUndefined(instance.files);
-      assert.isObject(instance.metadataFiles);
+      assert(isUndefined(instance.files));
+      assert(typeof instance.metadataFiles === 'object');
 
       assert.equal(
         Object.keys(instance.metadataFiles).length,
         files.length
       );
 
-      assert.lengthOf(instance.metadataFiles['norman'], 2);
-      assert.lengthOf(instance.metadataFiles['rockwell'], 1);
-      assert.lengthOf(instance.metadataFiles['null'], 1);
+      assert.equal(instance.metadataFiles['norman'].length, 2);
+      assert.equal(instance.metadataFiles['rockwell'].length, 1);
+      assert.equal(instance.metadataFiles['null'].length, 1);
 
-      assert.sameMembers(
+      assert(isEqual(
         instance.metadataFiles['norman'],
         [files[0], files[1]]
-      );
+      ));
 
-      assert.sameMembers(
+      assert(isEqual(
         Object.keys(instance.metadataFiles),
         Object.keys(instance.data.metadata)
-      );
+      ));
     });
 
     it('does not add files to collection', () => {
@@ -102,16 +104,16 @@ describe('collection/type/metadata MetadataCollection', () => {
       sinon.stub(instance, 'createCollectionPages').returns(sinon.spy());
       sinon.stub(instance, '_isFileInCollection').returns(false);
       sandbox.spy(CollectionBase, 'sortFiles');
-      assert.isUndefined(instance.files);
-      assert.isUndefined(instance.metadataFiles);
+      assert(isUndefined(instance.files));
+      assert(isUndefined(instance.metadataFiles));
 
       let files = fixture.collectionFiles();
       assert.deepEqual(instance.populate(files), instance);
       assert.equal(instance.createCollectionPages.calledOnce, true);
       assert.equal(CollectionBase.sortFiles.called, false);
 
-      assert.isUndefined(instance.files);
-      assert.isObject(instance.metadataFiles);
+      assert(isUndefined(instance.files));
+      assert(typeof instance.metadataFiles === 'object');
 
       assert.equal(
         Object.keys(instance.metadataFiles).length,
@@ -150,8 +152,8 @@ describe('collection/type/metadata MetadataCollection', () => {
       instance.pagination.size = pageSize;
       instance.pagination.permalinkIndex = 'index.html';
       instance.pagination.permalinkPage = '/page/:metadata/:page.html';
-      assert.lengthOf(instance.pages, 0);
-      assert.isUndefined(instance.metadataFiles);
+      assert.equal(instance.pages.length, 0);
+      assert(isUndefined(instance.metadataFiles));
       sinon.spy(instance, 'createCollectionPages');
       sandbox.spy(CollectionBase, 'sortFiles');
 
@@ -160,9 +162,9 @@ describe('collection/type/metadata MetadataCollection', () => {
       instance.populate(files);
       assert.ok(instance.createCollectionPages.returned(true));
 
-      assert.isObject(instance.metadataFiles);
+      assert(typeof instance.metadataFiles === 'object');
       assert.equal(CollectionBase.sortFiles.callCount, 3);
-      assert.lengthOf(instance.pages, 4);
+      assert.equal(instance.pages.length, 4);
 
       instance.pages.forEach((page, realIndex) => {
         // Since we have two files with same tag, they're in multiple pages.
@@ -182,7 +184,7 @@ describe('collection/type/metadata MetadataCollection', () => {
 
         let files = instance.metadataFiles[page.data.metadata];
 
-        assert.instanceOf(page, CollectionPage);
+        assert(page instanceof CollectionPage);
 
         assert.deepEqual(page.data.files, [files[index].data]);
 
@@ -192,18 +194,18 @@ describe('collection/type/metadata MetadataCollection', () => {
         assert.equal(page.data.total, files.length);
 
         if (index === 0) {
-          assert.isUndefined(page.data.prev);
-          assert.isUndefined(page.data.prev_link);
+          assert(isUndefined(page.data.prev));
+          assert(isUndefined(page.data.prev_link));
         } else {
-          assert.isUndefined(page.data.next);
-          assert.isUndefined(page.data.next_link);
+          assert(isUndefined(page.data.next));
+          assert(isUndefined(page.data.next_link));
 
           let previous = instance.pages[index - 1];
           assert.equal(page.data.prev, previous.data.page);
           assert.equal(page.data.prev_link, previous.data.url);
 
-          assert.isUndefined(page.data.next);
-          assert.isUndefined(page.data.next_link);
+          assert(isUndefined(page.data.next));
+          assert(isUndefined(page.data.next_link));
         }
 
         assert.deepEqual(instance.data.pages[realIndex], page.data);

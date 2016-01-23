@@ -1,4 +1,4 @@
-import {assert} from 'chai';
+import assert from 'power-assert';
 
 import metadata from '../../../../lib/collection/filter/metadata.js';
 

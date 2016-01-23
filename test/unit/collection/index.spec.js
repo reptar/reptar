@@ -1,4 +1,4 @@
-import {assert} from 'chai';
+import assert from 'power-assert';
 
 import FileSystemCollection from
   '../../../lib/collection/type/file-system.js';
@@ -10,15 +10,15 @@ describe('collection/index', () => {
 
   describe('create', () => {
     it('creates the right Collection class', () => {
-      assert.instanceOf(Collection.create('name', {}), FileSystemCollection);
+      assert(Collection.create('name', {}) instanceof FileSystemCollection);
 
-      assert.instanceOf(Collection.create('name', {
+      assert(Collection.create('name', {
         metadata: 'whee'
-      }), MetadataCollection);
+      }) instanceof MetadataCollection);
 
-      assert.instanceOf(Collection.create('name', {
+      assert(Collection.create('name', {
         static: true
-      }), StaticCollection);
+      }) instanceof StaticCollection);
     });
   });
 });

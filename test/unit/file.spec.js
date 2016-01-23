@@ -1,4 +1,4 @@
-import {assert} from 'chai';
+import assert from 'power-assert';
 import sinon from 'sinon';
 import fs from 'fs';
 

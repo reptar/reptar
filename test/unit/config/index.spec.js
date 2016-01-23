@@ -1,4 +1,4 @@
-import {assert} from 'chai';
+import assert from 'power-assert';
 import sinon from 'sinon';
 import path from 'path';
 import {EventEmitter} from 'events';
@@ -28,12 +28,12 @@ describe('config/index Config', () => {
       let instance = new Config();
 
       assert.ok(instance);
-      assert.instanceOf(instance, EventEmitter);
-      assert.isObject(instance._raw);
+      assert(instance instanceof EventEmitter);
+      assert(typeof instance._raw === 'object');
 
-      assert.notOk(instance.loadLocal.calledOnce);
-      assert.notOk(instance.update.calledOnce);
-      assert.notOk(Config.defaultConfig.calledOnce);
+      assert(instance.loadLocal.calledOnce === false);
+      assert(instance.update.calledOnce === false);
+      assert(Config.defaultConfig.calledOnce === false);
     });
   });
 
@@ -94,7 +94,7 @@ describe('config/index Config', () => {
 
   describe('defaultConfig', () => {
     it('returns an object', () => {
-      assert.isObject(Config.defaultConfig());
+      assert(typeof Config.defaultConfig() === 'object');
     });
   });
 });

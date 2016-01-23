@@ -1,6 +1,9 @@
-import {assert} from 'chai';
+import assert from 'power-assert';
 import sinon from 'sinon';
 import fs from 'fs-extra';
+import isUndefined from 'lodash/isUndefined';
+import isArray from 'lodash/isArray';
+import isObject from 'lodash/isObject';
 
 import fixture from '../../fixture';
 
@@ -37,20 +40,20 @@ describe('collection/base CollectionBase', () => {
       let instance = new CollectionBase('name');
 
       assert.equal(instance.name, 'name');
-      assert.isUndefined(instance.path);
-      assert.isUndefined(instance.metadata);
-      assert.isUndefined(instance.template);
-      assert.isUndefined(instance.permalink);
-      assert.isUndefined(instance.static);
-      assert.isUndefined(instance.staticDestination);
-      assert.isUndefined(instance.sort);
-      assert.isUndefined(instance.pagination);
-      assert.isUndefined(instance.files);
-      assert.isUndefined(instance.excludePaths);
-      assert.isUndefined(instance.metadataFiles);
-      assert.isArray(instance.pages);
-      assert.lengthOf(instance.pages, 0);
-      assert.isObject(instance.data);
+      assert(isUndefined(instance.path));
+      assert(isUndefined(instance.metadata));
+      assert(isUndefined(instance.template));
+      assert(isUndefined(instance.permalink));
+      assert(isUndefined(instance.static));
+      assert(isUndefined(instance.staticDestination));
+      assert(isUndefined(instance.sort));
+      assert(isUndefined(instance.pagination));
+      assert(isUndefined(instance.files));
+      assert(isUndefined(instance.excludePaths));
+      assert(isUndefined(instance.metadataFiles));
+      assert(isArray(instance.pages));
+      assert.equal(instance.pages.length, 0);
+      assert(isObject(instance.data));
     });
   });
 

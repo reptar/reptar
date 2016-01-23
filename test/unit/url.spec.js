@@ -1,4 +1,4 @@
-import {assert} from 'chai';
+import assert from 'power-assert';
 import Url from '../../lib/url.js';
 
 describe('url Url', function() {

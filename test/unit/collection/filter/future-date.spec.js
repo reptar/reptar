@@ -1,4 +1,4 @@
-import {assert} from 'chai';
+import assert from 'power-assert';
 
 import futureDate from '../../../../lib/collection/filter/future-date.js';
 

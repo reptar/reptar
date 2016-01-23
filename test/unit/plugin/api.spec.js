@@ -1,4 +1,5 @@
-import {assert} from 'chai';
+import assert from 'power-assert';
+import isArray from 'lodash/isArray';
 import sinon from 'sinon';
 
 import * as template from '../../../lib/render/template.js';
@@ -22,8 +23,8 @@ describe('plugin/api PluginAPI', function() {
     let beforeSpy = sinon.spy();
     PluginAPI.event.file.beforeRender(beforeSpy);
 
-    assert.isArray(Plugin._handlers[Plugin.Event.file.beforeRender]);
-    assert.lengthOf(Plugin._handlers[Plugin.Event.file.beforeRender], 1);
+    assert(isArray(Plugin._handlers[Plugin.Event.file.beforeRender]));
+    assert.equal(Plugin._handlers[Plugin.Event.file.beforeRender].length, 1);
     assert.deepEqual(
       Plugin._handlers[Plugin.Event.file.beforeRender][0],
       beforeSpy
@@ -34,8 +35,8 @@ describe('plugin/api PluginAPI', function() {
     PluginAPI.event.file.afterRender(afterSpy);
     PluginAPI.event.file.afterRender(afterSpy);
 
-    assert.isArray(Plugin._handlers[Plugin.Event.file.afterRender]);
-    assert.lengthOf(Plugin._handlers[Plugin.Event.file.afterRender], 2);
+    assert(isArray(Plugin._handlers[Plugin.Event.file.afterRender]));
+    assert.equal(Plugin._handlers[Plugin.Event.file.afterRender].length, 2);
     assert.deepEqual(
       Plugin._handlers[Plugin.Event.file.afterRender][0],
       afterSpy

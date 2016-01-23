@@ -1,4 +1,4 @@
-import {assert} from 'chai';
+import assert from 'power-assert';
 import * as frontMatter from '../../../lib/parse/front-matter.js';
 
 import fixture from '../../fixture';

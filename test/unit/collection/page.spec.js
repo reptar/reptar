@@ -1,4 +1,4 @@
-import {assert} from 'chai';
+import assert from 'power-assert';
 import sinon from 'sinon';
 
 import fixture from '../../fixture';
@@ -84,7 +84,7 @@ describe('collection/page CollectionPage', () => {
       instance.permalink = 'ok';
 
       files.forEach(file => {
-        assert.notOk(file.pageIds.has(instance.id));
+        assert(!file.pageIds.has(instance.id));
       });
 
       instance.setFiles(files);
