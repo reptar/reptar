@@ -3,6 +3,8 @@ import sinon from 'sinon';
 
 import fixture from '../../fixture';
 
+import Url from '../../../lib/url';
+
 import CollectionPage from '../../../lib/collection/page.js';
 
 describe('collection/page CollectionPage', () => {
@@ -65,7 +67,7 @@ describe('collection/page CollectionPage', () => {
       instance.setFiles(files);
 
       data.files = files.map(file => file.data);
-      data.url = instance.permalink;
+      data.url = Url.makePretty(Url.makeUrlFileSystemSafe(instance.permalink));
 
       assert.deepEqual(instance.data, data);
     });

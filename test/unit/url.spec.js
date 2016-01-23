@@ -56,11 +56,43 @@ describe('url Url', function() {
       assert.equal(Url.makeUrlFileSystemSafe('/my-beautiful-html-permalink/'),
         '/my-beautiful-html-permalink/index.html'
       );
+
+      assert.equal(Url.makeUrlFileSystemSafe('my-beautiful-html-permalink'),
+        '/my-beautiful-html-permalink/index.html'
+      );
     });
 
     it('does not append index.html to a url that does not need it', function() {
       assert.equal(Url.makeUrlFileSystemSafe('/html/goes-here.html'),
         '/html/goes-here.html'
+      );
+    });
+  });
+
+  describe('makePretty', function() {
+    it('works', function() {
+      let url = '/html/goes-here.html';
+      assert.equal(
+        Url.makePretty(url),
+        url
+      );
+
+      url = '/my/beautiful-dream';
+      assert.equal(
+        Url.makePretty(url),
+        url
+      );
+
+      url = '/have-you-got-a-minute/';
+      assert.equal(
+        Url.makePretty(url + 'index.html'),
+        url
+      );
+
+      url = '/no-time-to-wasteindex.html';
+      assert.equal(
+        Url.makePretty(url),
+        url
       );
     });
   });

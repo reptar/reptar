@@ -4,6 +4,7 @@ import fs from 'fs';
 
 import fixture from '../fixture';
 
+import Url from '../../lib/url';
 import * as markdown from '../../lib/render/markdown.js';
 markdown.configure();
 
@@ -53,19 +54,25 @@ describe('file File', () => {
       let instance = new File(filePath);
 
       // Should use filePath when no file url or permalink is et.
-      assert.equal(instance.data.url, filePath);
+      assert.equal(instance.data.url, Url.makePretty(
+        Url.makeUrlFileSystemSafe(filePath)
+      ));
       assert.equal(instance.url, undefined);
 
       // Should use permalink value when no url is set.
       instance.setPermalink(permalinkValue);
-      assert.equal(instance.data.url, permalinkValue);
+      assert.equal(instance.data.url, Url.makePretty(
+        Url.makeUrlFileSystemSafe(permalinkValue)
+      ));
       assert.equal(instance.url, undefined);
 
       // Should use File url if set.
       const customPermalinkValue = 'customPermalinkValue';
       instance.url = customPermalinkValue;
       instance.setPermalink(permalinkValue);
-      assert.equal(instance.data.url, customPermalinkValue);
+      assert.equal(instance.data.url, Url.makePretty(
+        Url.makeUrlFileSystemSafe(customPermalinkValue)
+      ));
       assert.equal(instance.url, customPermalinkValue);
     });
   });
@@ -74,14 +81,18 @@ describe('file File', () => {
     let instance = new File(filePath);
 
     assert.strictEqual(instance.url, undefined);
-    assert.equal(instance.data.url, filePath);
+    assert.equal(instance.data.url, Url.makePretty(
+      Url.makeUrlFileSystemSafe(filePath)
+    ));
 
     instance.setPermalink('whee');
 
     assert.deepEqual(instance.data, {
       content: markdown.render(fixture.frontmatterJSON.content),
       title: fixture.frontmatterJSON.data.title,
-      url: instance.permalink
+      url: Url.makePretty(
+        Url.makeUrlFileSystemSafe(instance.permalink)
+      )
     });
   });
 });
