@@ -97,6 +97,8 @@ server:
 
 quiet:    false
 
+new_file_permalink: '/_posts/:date|YYYY-:date|MM-:date|D-:title.md'
+
 plugins:
   html-minifier:
     enabled: false

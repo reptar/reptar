@@ -10,16 +10,7 @@ logger.cli({
 var yargs = require('yargs');
 var argv = yargs
   .command('init', 'scaffold a new yarn site')
-  .command('new', 'create new content (post, page, etc.)',
-    function (yargs) {
-      argv = yargs.option('type', {
-        description: 'what type of new content to create',
-        default: 'post'
-      })
-      .help('help')
-      .argv;
-    }
-  )
+  .command('new', 'create new content')
   .command('build', 'build your site')
   .command('clean', 'cleans destination folder')
   .command('serve', 'serve your site with http-server')
@@ -49,7 +40,7 @@ if (argv.version) {
 } else if (argv._.length === 0) {
   yargs.showHelp('log');
   process.exit(0);
-} else if (argv._.length === 1) {
+} else {
   var command = argv._[0];
   var commandPath = path.resolve(__dirname, command);
   try {
@@ -57,15 +48,11 @@ if (argv.version) {
     commandHandler(argv);
   } catch (e) {
     if (e.code === 'MODULE_NOT_FOUND') {
-      logger.warn('Unknown command: ' + command);
+      logger.warn('Unknown command: ' + argv._.join(' '));
       console.log('');
       yargs.showHelp();
     } else {
       logger.error(e);
     }
   }
-} else {
-  logger.warn('Unknown command: ' + argv._.join(' '));
-  console.log('');
-  yargs.showHelp();
 }
