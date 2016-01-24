@@ -35,7 +35,7 @@ describe('Yarn watches for updates', function() {
   describe('can re-render html when a file changes', () => {
     it('is a noop if an invalid path is given', async () => {
       let instance = new Yarn(pathToScaffold);
-      await instance.readFiles();
+      await instance.loadState();
 
       let postCollection = instance.collections.post;
 
@@ -57,7 +57,7 @@ describe('Yarn watches for updates', function() {
 
     it('will re-write individual file and collection html', async () => {
       let instance = new Yarn(pathToScaffold);
-      await instance.readFiles();
+      await instance.loadState();
 
       let postCollection = instance.collections.post;
       let postPage = postCollection.pages[0];
@@ -88,7 +88,7 @@ describe('Yarn watches for updates', function() {
   describe('handles when a file is added to the project', () => {
     it('is a noop if file path already exists', async () => {
       let instance = new Yarn(pathToScaffold);
-      await instance.readFiles();
+      await instance.loadState();
 
       let postCollection = instance.collections.post;
       let postFile;
@@ -113,7 +113,7 @@ describe('Yarn watches for updates', function() {
 
     it('will re-render when a file is added', async () => {
       let instance = new Yarn(pathToScaffold);
-      await instance.readFiles();
+      await instance.loadState();
 
       let postCollection = instance.collections.post;
       let postFile;
@@ -154,7 +154,7 @@ describe('Yarn watches for updates', function() {
   describe('handles when a file is removed from project', () => {
     it('is a noop if file path does not exist', async () => {
       let instance = new Yarn(pathToScaffold);
-      await instance.readFiles();
+      await instance.loadState();
 
       let postCollection = instance.collections.post;
       let postFile;
@@ -179,7 +179,7 @@ describe('Yarn watches for updates', function() {
 
     it('will re-render when a file is removed', async () => {
       let instance = new Yarn(pathToScaffold);
-      await instance.readFiles();
+      await instance.loadState();
 
       let postCollection = instance.collections.post;
       let postFile;
@@ -202,7 +202,7 @@ describe('Yarn watches for updates', function() {
       fs.writeFileSync(copiedFile.path, copiedFile.rawContent, 'utf8');
 
       // Re-read files with added file already present.
-      await instance.readFiles();
+      await instance.loadState();
 
       let fileRemoved;
       each(postCollection.files, (file) => {

@@ -17,7 +17,7 @@ export default function() {
     cacheTemplates: true
   });
 
-  yarn.readFiles()
+  yarn.loadState()
     .catch(function(e) {
       console.log(e.stack);
       throw e;

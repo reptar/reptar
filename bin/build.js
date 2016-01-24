@@ -5,7 +5,7 @@ export default function() {
   logger.profile('yarn');
 
   var yarn = new Yarn();
-  yarn.readFiles()
+  yarn.loadState()
     .then(yarn.build.bind(yarn))
     .then(function() {
       logger.profile('yarn');
