@@ -6,7 +6,9 @@ import each from 'lodash/each';
 
 import fixture from '../../fixture';
 
-import {Config, EVENTS} from '../../../lib/config/index.js';
+import Config, {
+  EVENTS
+} from '../../../lib/config/index.js';
 
 describe('config/index Config', () => {
 

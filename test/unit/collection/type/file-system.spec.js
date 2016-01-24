@@ -2,12 +2,16 @@ import assert from 'power-assert';
 import sinon from 'sinon';
 
 import fixture from '../../../fixture';
+import {
+  getPathToScaffold,
+} from '../../../utils';
 
 import isEmpty from 'lodash/isEmpty';
 import isUndefined from 'lodash/isUndefined';
 import isArray from 'lodash/isArray';
 import isObject from 'lodash/isObject';
 
+import Config from '../../../../lib/config/index.js';
 import Plugin from '../../../../lib/plugin/index.js';
 import CollectionPage from '../../../../lib/collection/page.js';
 
@@ -16,6 +20,8 @@ import FileSystemCollection
   from '../../../../lib/collection/type/file-system.js';
 
 describe('collection/type/file-system FileSystemCollection', () => {
+  let config = Config.create(getPathToScaffold());
+  let getConfig = () => config;
 
   let sandbox;
   beforeEach(() => {
@@ -148,7 +154,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
     it('adds files to collectionPages', () => {
       let pageSize = 1;
 
-      let instance = new FileSystemCollection('name');
+      let instance = new FileSystemCollection('name', undefined, getConfig);
       let filesArray = fixture.collectionFiles();
       filesArray.forEach((file, index) => {
         instance.files[index] = file;
@@ -238,7 +244,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
     const excludePaths = excludeCollections.map(coll => coll.path);
 
     it('can set exclude paths', () => {
-      let instance = new FileSystemCollection('name');
+      let instance = new FileSystemCollection('name', undefined, getConfig);
       assert(isUndefined(instance.path));
       assert(isArray(instance.excludePaths));
       assert.equal(instance.excludePaths.length, 0);
@@ -248,7 +254,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
     });
 
     it('does not add its own path to the exclude path array', () => {
-      let instance = new FileSystemCollection('name');
+      let instance = new FileSystemCollection('name', undefined, getConfig);
       instance.path = excludePaths[0];
       assert(isArray(instance.excludePaths));
       assert.equal(instance.excludePaths.length, 0);

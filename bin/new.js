@@ -3,7 +3,7 @@ import isNil from 'lodash/isNil';
 import path from 'path';
 import fs from 'fs-extra';
 import inquirer from 'inquirer';
-import config from '../lib/config';
+import Config from '../lib/config';
 import Url from '../lib/url';
 
 let newTypes = {
@@ -36,7 +36,7 @@ export default function(args) {
     process.exit(0);
   }
 
-  config.setRoot(config.findLocalDir());
+  let config = Config.create();
 
   function promptHandler(data) {
     // Set date to now.

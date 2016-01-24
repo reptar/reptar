@@ -2,6 +2,9 @@ import assert from 'power-assert';
 import Url from '../../lib/url.js';
 
 describe('url Url', function() {
+  Url.setSlugOptions({
+    lower: true
+  });
 
   describe('interpolatePermalink', function() {
     it('handles simple interpolations', function() {

@@ -4,7 +4,11 @@ import isUndefined from 'lodash/isUndefined';
 import isEqual from 'lodash/isEqual';
 
 import fixture from '../../../fixture';
+import {
+  getPathToScaffold,
+} from '../../../utils';
 
+import Config from '../../../../lib/config/index.js';
 import Plugin from '../../../../lib/plugin/index.js';
 import CollectionPage from '../../../../lib/collection/page.js';
 
@@ -13,6 +17,8 @@ import MetadataCollection from
   '../../../../lib/collection/type/metadata.js';
 
 describe('collection/type/metadata MetadataCollection', () => {
+  let config = Config.create(getPathToScaffold());
+  let getConfig = () => config;
 
   let sandbox;
   beforeEach(() => {
@@ -130,7 +136,7 @@ describe('collection/type/metadata MetadataCollection', () => {
 
   describe('createCollectionPages', () => {
     it('returns early if no pagination permalinks are set', () => {
-      let instance = new MetadataCollection('name');
+      let instance = new MetadataCollection('name', undefined, getConfig);
       assert.equal(instance.createCollectionPages(), false);
 
       instance.pagination = {};
@@ -146,7 +152,7 @@ describe('collection/type/metadata MetadataCollection', () => {
     let pageSize = 1;
     it('adds files to collectionPages', () => {
       let files = fixture.collectionFiles();
-      let instance = new MetadataCollection('name');
+      let instance = new MetadataCollection('name', undefined, getConfig);
       instance.metadata = fixture.collectionMetadataKey;
       instance.pagination = {};
       instance.pagination.size = pageSize;

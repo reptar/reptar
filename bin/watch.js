@@ -2,13 +2,13 @@ import logger from 'winston';
 import Yarn from '../lib';
 import chokidar from 'chokidar';
 import serve from './serve';
-import config from '../lib/config';
 import Render from '../lib/render';
 
 export default function() {
   serve();
 
-  var yarn = new Yarn();
+  let yarn = new Yarn();
+  let config = yarn.getConfig();
 
   Render.configureTemplate({
     paths: [

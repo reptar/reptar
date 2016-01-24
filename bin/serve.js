@@ -1,8 +1,8 @@
 import child_process from 'child_process';
-import config from '../lib/config';
+import Config from '../lib/config';
 
 export default function() {
-  config.setRoot(config.findLocalDir());
+  let config = Config.create();
 
   var destination = config.path.destination || './_site';
 

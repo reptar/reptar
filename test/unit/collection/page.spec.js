@@ -2,12 +2,18 @@ import assert from 'power-assert';
 import sinon from 'sinon';
 
 import fixture from '../../fixture';
+import {
+  getPathToScaffold,
+} from '../../utils';
 
+import Config from '../../../lib/config';
 import Url from '../../../lib/url';
 
 import CollectionPage from '../../../lib/collection/page.js';
 
 describe('collection/page CollectionPage', () => {
+  let config = Config.create(getPathToScaffold());
+  let getConfig = () => config;
 
   let sandbox;
   beforeEach(() => {
@@ -61,6 +67,7 @@ describe('collection/page CollectionPage', () => {
       let files = fixture.collectionFiles();
 
       let instance = new CollectionPage('id', 2);
+      instance.setGetConfig(getConfig);
       instance.permalink = 'ok';
 
       instance.setData(data);
