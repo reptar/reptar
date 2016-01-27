@@ -1,4 +1,4 @@
-import logger from 'winston';
+import log from '../lib/log';
 import isNil from 'lodash/isNil';
 import path from 'path';
 import fs from 'fs-extra';
@@ -30,8 +30,8 @@ export default function(args) {
   let newTypeKey = args._[1];
   let newType = newTypes[newTypeKey];
   if (isNil(newType)) {
-    logger.warn(`Unknown new type: '${newTypeKey}'.`);
-    logger.warn(`Only support new types ` +
+    log.warn(`Unknown new type: '${newTypeKey}'.`);
+    log.warn(`Only support new types ` +
       `[${Object.keys(newTypes).join(', ')}].`);
     process.exit(0);
   }
@@ -49,7 +49,7 @@ export default function(args) {
     // Write file!
     fs.outputFileSync(absolutePath, fileContent, 'utf8');
 
-    logger.info(`New ${newTypeKey} created at ${absolutePath}`);
+    log.info(`New ${newTypeKey} created at ${absolutePath}`);
   }
 
   inquirer.prompt(newType.prompts, promptHandler);

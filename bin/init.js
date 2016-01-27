@@ -1,5 +1,5 @@
 import fs from 'fs-extra';
-import logger from 'winston';
+import log from '../lib/log';
 import path from 'path';
 import inquirer from 'inquirer';
 import child_process from 'child_process';
@@ -28,8 +28,8 @@ export default function init() {
     try {
       fs.copySync(scaffoldSource, destination);
     } catch (e) {
-      logger.error('Unable to copy scaffold contents into new yarn site.');
-      logger.error(e);
+      log.error('Unable to copy scaffold contents into new yarn site.');
+      log.error(e);
     }
 
     // Create our package.json file. Grab the existing dependencies from the
@@ -45,8 +45,8 @@ export default function init() {
       var packageJsonPath = path.join(destination, 'package.json');
       fs.outputFileSync(packageJsonPath, JSON.stringify(packageJsonData));
     } catch (e) {
-      logger.error('Unable to create package.json file.');
-      logger.error(e);
+      log.error('Unable to create package.json file.');
+      log.error(e);
     }
 
     // Remove un-needed files.
@@ -76,11 +76,11 @@ export default function init() {
         cwd: destination
       });
     } catch (e) {
-      logger.warn('Unable to run `npm install`');
+      log.warn('Unable to run `npm install`');
     }
 
     npmInstallProc.on('close', function() {
-      logger.info('New yarn site created at ' + destination);
+      log.info('New yarn site created at ' + destination);
     });
   });
 }

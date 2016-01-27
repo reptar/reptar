@@ -1,14 +1,16 @@
-import logger from 'winston';
+import log from '../lib/log';
 import Yarn from '../lib';
 
 export default function() {
-  logger.profile('yarn');
+  const id = log.startActivity('building');
+  console.log('');
 
   var yarn = new Yarn();
   yarn.loadState()
     .then(yarn.build.bind(yarn))
     .then(function() {
-      logger.profile('yarn');
+      console.log('');
+      log.endActivity(id);
 
       process.exit(0);
     })

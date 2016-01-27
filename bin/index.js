@@ -1,11 +1,8 @@
 #!/usr/bin/env node
 
-import logger from 'winston';
-logger.cli({
-  colorize: true
-});
 import findUp from 'find-up';
 import yargs from 'yargs';
+import log from '../lib/log';
 
 import build from './build';
 import newFile from './new';
@@ -58,7 +55,7 @@ if (argv.version) {
   let commandHandler = commands[command];
 
   if (!commandHandler) {
-    logger.warn('Unknown command: ' + argv._.join(' '));
+    log.warn('Unknown command: ' + argv._.join(' '));
     console.log('');
     yargs.showHelp();
   } else {

@@ -1,4 +1,4 @@
-import logger from 'winston';
+import log from '../lib/log';
 import Yarn from '../lib';
 import chokidar from 'chokidar';
 import serve from './serve';
@@ -37,26 +37,26 @@ export default function() {
   watcher.on('ready', function() {
 
     watcher.on('change', function(path) {
-      logger.info('File changed at: ' + path);
-      logger.info('Rebuilding...');
+      log.info('File changed at: ' + path);
+      log.info('Rebuilding...');
       yarn.fileChanged(path).then(function() {
-        logger.info('\tdone!');
+        log.info('\tdone!');
       });
     });
 
     watcher.on('add', function(path) {
-      logger.info('File added at: ' + path);
-      logger.info('Rebuilding...');
+      log.info('File added at: ' + path);
+      log.info('Rebuilding...');
       yarn.fileAdded(path).then(function() {
-        logger.info('\tdone!');
+        log.info('\tdone!');
       });
     });
 
     watcher.on('unlink', function(path) {
-      logger.info('File removed at: ' + path);
-      logger.info('Rebuilding...');
+      log.info('File removed at: ' + path);
+      log.info('Rebuilding...');
       yarn.fileRemoved(path).then(function() {
-        logger.info('\tdone!');
+        log.info('\tdone!');
       });
     });
   });
@@ -69,8 +69,8 @@ export default function() {
   themeWatcher.on('ready', function() {
 
     themeWatcher.on('change', function(path) {
-      logger.info('Theme file changed at: ' + path);
-      logger.info('Rebuilding...');
+      log.info('Theme file changed at: ' + path);
+      log.info('Rebuilding...');
       yarn.readTheme()
         .then(function() {
           return yarn.build();
