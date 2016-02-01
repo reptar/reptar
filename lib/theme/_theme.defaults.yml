@@ -1,0 +1,41 @@
+# The name of the theme.
+# This is what's matched against the theme value in the `_config.yml` file.
+name: 'thread'
+
+# Configure where the theme finds things.
+path:
+  # Where templates are found.
+  templates:   ./templates
+  # Where theme plugins are found.
+  plugins:     ./plugins
+  # Where the theme should write its assets.
+  # This path is relative to the root of the site's destination value.
+  # So if site.path.destination is './foo' and the path destination is './'
+  # then the theme will write its assets to `./foo`.
+  destination: ./
+
+# What assets need to be processed for the theme.
+# Each key here will be accessible from the top level {{theme}} variable in
+# templates.
+assets:
+  css:
+    # The input file.
+    source: ./css/main.less
+    # What processor to use.
+    processor:
+      name: less
+      hash: true
+      # Plugins to configure for this processor.
+      plugins:
+        autoprefixer:
+          browsers: ["last 2 versions"]
+        clean-css:
+
+  js:
+    source: ./js/main.js
+    processor:
+      hash: true
+      name: browserify
+      plugins:
+        babelify:
+        uglifyify:
