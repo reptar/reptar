@@ -1,4 +1,7 @@
 # Site settings.
+# This is where you can put site-wide settings.
+# Any values placed here are globally accessible
+# from any template context via the `site` key.
 site:
   title: My Yarn Title
   email: your-yarn@email.com
@@ -8,6 +11,10 @@ site:
   url: "http://yourdomain.com" # the base hostname & protocol for your site
 
 # Where things are.
+# If you have a unique layout for your site and want to
+# change where Yarn looks for certain files you can change
+# them here. All files are relative to where the `_config.yml`
+# is found.
 path:
   source:      ./
   destination: ./_site
@@ -16,9 +23,12 @@ path:
 
 # Individual File configuration.
 file:
+  # What key from a File's frontmatter Yarn should use
+  # as the property to grab the URL of the file from.
   url_key: url
 
-# Collections of content.
+# This is where you configure your collections of content.
+# For more details refer to the Collections documentation.
 collections:
   default:
     path: ./
@@ -62,13 +72,14 @@ collections:
       permalink_index: /tag/:metadata/
       permalink_page:  /tag/:metadata/:page/
 
-# What is the current theme.
+# Current theme.
+# What theme your Yarn site should use when building your site.
 theme: 'default'
 
 # If we should remove the compile destination folder before writing.
 clean_destination: false
 
-# What we should recognize as a markdown file.
+# What file extensions we should recognize as a markdown file.
 markdown_extension:
   - markdown
   - mkdown
@@ -77,19 +88,23 @@ markdown_extension:
   - md
 
 # Slug options.
+# Options passed to node-slug
 slug:
   lower: true
 
 # Conversion.
+# What markdown conversion tool we should use.
 markdown:    remarkable
 highlighter: highlight.js
 
 # Markdown Processor.
+# This lets you customize the markdown processor defined above.
 remarkable:
   preset:       'commonmark'
   highlight:    true
 
 # Serving.
+# When running `yarn serve` what settings should be used.
 server:
   port:    8080
   host:    127.0.0.1
@@ -97,8 +112,10 @@ server:
 
 quiet:    false
 
+# Where files created via `yarn new` should be placed.
 new_file_permalink: '/_posts/:date|YYYY-:date|MM-:date|D-:title.md'
 
+# What plugins you want enabled and what configuration settings they should have.
 plugins:
   html-minifier:
     enabled: false
