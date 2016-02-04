@@ -117,7 +117,7 @@ describe('collection/base CollectionBase', () => {
 
       let file = instance.files[0];
       let beforeSpy = sinon.spy();
-      let afterSpy = sinon.spy((val) => val);
+      let afterSpy = sinon.spy((val, val2) => [val, val2]);
       PluginAPI.event.file.beforeRender(beforeSpy);
       PluginAPI.event.file.afterRender(afterSpy);
 
@@ -140,7 +140,7 @@ describe('collection/base CollectionBase', () => {
       assert.ok(file.render.calledWith(instance.template, {}));
 
       assert.equal(afterSpy.callCount, 1);
-      assert.ok(afterSpy.calledWith(renderContent));
+      assert.ok(afterSpy.calledWith(file, renderContent));
 
       assert.equal(CollectionBase.writeToFileSystem.callCount, 1);
       assert.ok(
