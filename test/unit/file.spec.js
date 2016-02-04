@@ -43,7 +43,7 @@ describe('file File', () => {
       assert.equal(instance.rawContent, fixture.frontmatterString);
       assert.ok(instance.checksum);
       assert.ok(instance.data, fixture.frontmatterJSON.data);
-      assert.ok(instance.content, fixture.frontmatterJSON.content);
+      assert.ok(instance.data.content, fixture.frontmatterJSON.content);
     });
   });
 
@@ -95,7 +95,7 @@ describe('file File', () => {
     instance.setPermalink('whee');
 
     assert.deepEqual(instance.data, {
-      content: markdown.render(fixture.frontmatterJSON.content),
+      content: fixture.frontmatterJSON.content,
       title: fixture.frontmatterJSON.data.title,
       url: Url.makePretty(
         Url.makeUrlFileSystemSafe(instance.permalink)
