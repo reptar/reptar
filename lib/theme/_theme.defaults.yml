@@ -4,8 +4,9 @@ name: 'thread'
 
 # Configure where the theme finds things.
 path:
-  # Where templates are found.
-  templates:   ./templates
+  # Where templates are found. Can be an array of directories.
+  templates:
+    - ./templates
   # Where theme plugins are found.
   plugins:     ./plugins
   # Where the theme should write its assets.

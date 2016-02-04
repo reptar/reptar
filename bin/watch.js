@@ -11,9 +11,7 @@ export default function() {
   let config = yarn.getConfig();
 
   Render.configureTemplate({
-    paths: [
-      yarn.theme.config.path.templates
-    ],
+    paths: yarn.theme.config.path.templates,
     cacheTemplates: true
   });
 
