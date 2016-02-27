@@ -2,7 +2,7 @@
 
 ## Development
 
-Refer to [DEVELOPMENT.md](development.md) for docs on how to develop yarn.
+Refer to [DEVELOPMENT.md](DEVELOPMENT.md) for docs on how to develop yarn.
 
 ## Tests
 
