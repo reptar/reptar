@@ -26,6 +26,10 @@ yargs
   .command('clean', 'cleans destination folder')
   .command('serve', 'serve your site with http-server')
   .command('watch', 'build, serve, and watch for file changes')
+  .option('verbose', {
+    description: 'log out additional log information',
+    boolean: true
+  })
   .option('version', {
     alias: 'v',
     description: 'installed version',
@@ -37,6 +41,10 @@ yargs
 let argv = yargs.argv;
 
 console.log('yarn\n');
+
+if (argv.verbose) {
+  log.setLogLevel('verbose');
+}
 
 if (argv.version) {
   let packageJson;
