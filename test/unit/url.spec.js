@@ -25,7 +25,7 @@ describe('url Url', function() {
       }), '/index.html');
     });
 
-    it(`throws if it can't find value to interpolate in permalink`, function() {
+    it('throw if it can\'t find value to interpolate in permalink', function() {
       assert.throws(() => {
         Url.interpolatePermalink('/:title/:unknown/', {
           title: 'banana'
