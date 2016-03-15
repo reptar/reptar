@@ -25,7 +25,6 @@ describe('config/index Config', () => {
     it('can create an instance', () => {
       sandbox.spy(Config.prototype, 'loadLocal');
       sandbox.spy(Config.prototype, 'update');
-      sandbox.spy(Config, 'defaultConfig');
 
       let instance = new Config();
 
@@ -35,14 +34,12 @@ describe('config/index Config', () => {
 
       assert(instance.loadLocal.calledOnce === false);
       assert(instance.update.calledOnce === false);
-      assert(Config.defaultConfig.calledOnce === false);
     });
   });
 
   describe('update', () => {
     it('calculates paths correctly', () => {
       sandbox.stub(Config.prototype, 'update').returns();
-      sandbox.stub(Config, 'defaultConfig').returns({});
 
       let root = '/root/';
 
