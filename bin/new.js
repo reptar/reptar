@@ -30,8 +30,8 @@ export default function(args) {
   let newTypeKey = args._[1];
   let newType = newTypes[newTypeKey];
   if (isNil(newType)) {
-    log.warn(`Unknown new type: '${newTypeKey}'.`);
-    log.warn(`Only support new types [${Object.keys(newTypes).join(', ')}].`);
+    log.error(`Unknown new type: '${newTypeKey}'.`);
+    log.error(`Only support new types [${Object.keys(newTypes).join(', ')}].`);
     process.exit(0);
   }
 
