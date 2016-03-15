@@ -4,11 +4,9 @@ import Config from '../lib/config';
 export default function() {
   let config = Config.create();
 
-  var destination = config.path.destination || './_site';
-
   child_process.spawn('http-server', [
-    destination,
-    '-p ' + (config.server.port || 8080),
+    config.get('path.destination'),
+    '-p ' + config.get('server.port'),
     '-d',
     '-c-1'
   ], {

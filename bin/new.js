@@ -41,9 +41,12 @@ export default function(args) {
     // Set date to now.
     data.date = new Date();
 
-    let filePath = Url.interpolatePermalink(config.new_file_permalink, data);
+    let filePath = Url.interpolatePermalink(
+      config.get('new_file_permalink'),
+      data
+    );
     let fileContent = newType.template(data);
-    let absolutePath = path.join(config.path.source, filePath);
+    let absolutePath = path.join(config.get('path.source'), filePath);
 
     // Write file!
     fs.outputFileSync(absolutePath, fileContent, 'utf8');

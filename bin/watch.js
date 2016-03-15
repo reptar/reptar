@@ -9,6 +9,7 @@ export default function() {
 
   let yarn = new Yarn();
   let config = yarn.getConfig();
+  const configPath = config.get('path');
 
   Render.configureTemplate({
     paths: yarn.theme.config.path.templates,
@@ -22,12 +23,12 @@ export default function() {
     });
 
   var watcher = chokidar.watch([
-    config.path.source
+    configPath.source
   ], {
     ignored: [
-      config.path.plugins,
-      config.path.themes,
-      config.path.destination
+      configPath.plugins,
+      configPath.themes,
+      configPath.destination
     ]
   });
 
@@ -62,7 +63,7 @@ export default function() {
   // Handle when theme files change and re-build entire source to reflect new
   // theme changes.
   var themeWatcher = chokidar.watch([
-    config.path.themes
+    configPath.themes
   ]);
   themeWatcher.on('ready', function() {
 
