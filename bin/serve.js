@@ -1,10 +1,16 @@
 import child_process from 'child_process';
+import path from 'path';
 import Config from '../lib/config';
 
 export default function() {
-  let config = Config.create();
+  const config = Config.create();
 
-  child_process.spawn('http-server', [
+  const httpServerPath = path.resolve(
+    __dirname,
+    '../node_modules/.bin/http-server'
+  );
+
+  child_process.spawn(httpServerPath, [
     config.get('path.destination'),
     '-p ' + config.get('server.port'),
     '-d',
