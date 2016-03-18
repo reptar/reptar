@@ -2,7 +2,7 @@ import log from '../lib/log';
 import Yarn from '../lib';
 
 export default function() {
-  const id = log.startActivity('building');
+  const id = log.startActivity('building\t\t');
   console.log('');
 
   var yarn = new Yarn();
