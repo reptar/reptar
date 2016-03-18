@@ -1,8 +1,7 @@
-import path from 'path';
+import sinon from 'sinon';
 
-export function getPathToScaffold() {
-  return path.resolve(
-    __dirname,
-    '../node_modules/yarn-scaffold'
-  );
+export function createMockConfig() {
+  return {
+    get: sinon.stub().returns(''),
+  };
 }

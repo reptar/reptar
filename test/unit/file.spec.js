@@ -4,10 +4,9 @@ import fs from 'fs';
 
 import fixture from '../fixture';
 import {
-  getPathToScaffold,
+  createMockConfig,
 } from '../utils';
 
-import Config from '../../lib/config';
 import Url from '../../lib/url';
 import * as markdown from '../../lib/render/markdown.js';
 markdown.configure();
@@ -17,7 +16,7 @@ import File from '../../lib/file.js';
 describe('file File', () => {
   let filePath = '/not/a/real/path';
 
-  let config = Config.create(getPathToScaffold());
+  let config = createMockConfig();
   let getConfig = () => config;
 
   let sandbox;

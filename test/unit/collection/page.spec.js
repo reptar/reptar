@@ -3,16 +3,15 @@ import sinon from 'sinon';
 
 import fixture from '../../fixture';
 import {
-  getPathToScaffold,
+  createMockConfig,
 } from '../../utils';
 
-import Config from '../../../lib/config';
 import Url from '../../../lib/url';
 
 import CollectionPage from '../../../lib/collection/page.js';
 
 describe('collection/page CollectionPage', () => {
-  let config = Config.create(getPathToScaffold());
+  let config = createMockConfig();
   let getConfig = () => config;
 
   let sandbox;

@@ -3,7 +3,7 @@ import sinon from 'sinon';
 
 import fixture from '../../../fixture';
 import {
-  getPathToScaffold,
+  createMockConfig,
 } from '../../../utils';
 
 import isEmpty from 'lodash/isEmpty';
@@ -11,7 +11,6 @@ import isUndefined from 'lodash/isUndefined';
 import isArray from 'lodash/isArray';
 import isObject from 'lodash/isObject';
 
-import Config from '../../../../lib/config/index.js';
 import Plugin from '../../../../lib/plugin/index.js';
 import CollectionPage from '../../../../lib/collection/page.js';
 
@@ -20,7 +19,7 @@ import FileSystemCollection
   from '../../../../lib/collection/type/file-system.js';
 
 describe('collection/type/file-system FileSystemCollection', () => {
-  let config = Config.create(getPathToScaffold());
+  let config = createMockConfig();
   let getConfig = () => config;
 
   let sandbox;

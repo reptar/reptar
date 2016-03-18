@@ -5,10 +5,9 @@ import isEqual from 'lodash/isEqual';
 
 import fixture from '../../../fixture';
 import {
-  getPathToScaffold,
+  createMockConfig,
 } from '../../../utils';
 
-import Config from '../../../../lib/config/index.js';
 import Plugin from '../../../../lib/plugin/index.js';
 import CollectionPage from '../../../../lib/collection/page.js';
 
@@ -17,7 +16,7 @@ import MetadataCollection from
   '../../../../lib/collection/type/metadata.js';
 
 describe('collection/type/metadata MetadataCollection', () => {
-  let config = Config.create(getPathToScaffold());
+  let config = createMockConfig();
   let getConfig = () => config;
 
   let sandbox;
