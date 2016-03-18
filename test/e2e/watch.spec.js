@@ -11,6 +11,9 @@ import fs from 'fs';
 
 import Yarn from '../../lib/index.js';
 
+import log from '../../lib/log.js';
+log.setSilent(true);
+
 describe('Yarn watches for updates', function() {
   this.timeout(5000);
 
