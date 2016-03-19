@@ -29,8 +29,8 @@ exports.collectionFiles = function() {
         setPermalink: function(val) {
           this.permalink = val;
         },
-        collectionIds: {add: function(){}},
-        pageIds: {add: function(){}},
+        collections: {add: function(){}},
+        collectionPages: {add: function(){}},
         destination: './destination/path'
       },
       {
@@ -42,8 +42,8 @@ exports.collectionFiles = function() {
         setPermalink: function(val) {
           this.permalink = val;
         },
-        collectionIds: {add: function(){}},
-        pageIds: {add: function(){}},
+        collections: {add: function(){}},
+        collectionPages: {add: function(){}},
         destination: './destination/path'
       },
       {
@@ -55,8 +55,8 @@ exports.collectionFiles = function() {
         setPermalink: function(val) {
           this.permalink = val;
         },
-        collectionIds: {add: function(){}},
-        pageIds: {add: function(){}},
+        collections: {add: function(){}},
+        collectionPages: {add: function(){}},
         destination: './destination/path'
       }
     ]

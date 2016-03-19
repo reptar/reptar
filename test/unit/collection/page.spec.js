@@ -82,7 +82,7 @@ describe('collection/page CollectionPage', () => {
   describe('setFiles', () => {
     it('adds pageId information to each file.', () => {
       let files = fixture.collectionFiles().map(file => {
-        file.pageIds = new Set();
+        file.collectionPages = new Set();
         return file;
       });
 
@@ -90,13 +90,13 @@ describe('collection/page CollectionPage', () => {
       instance.permalink = 'ok';
 
       files.forEach(file => {
-        assert(!file.pageIds.has(instance.id));
+        assert(!file.collectionPages.has(instance));
       });
 
       instance.setFiles(files);
 
       files.forEach(file => {
-        assert.ok(file.pageIds.has(instance.id));
+        assert.ok(file.collectionPages.has(instance));
       });
     });
   });
