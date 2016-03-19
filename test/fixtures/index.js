@@ -68,9 +68,6 @@ async function yarnNpmFilePaths() {
   const yarnRootPath = path.join(__dirname, '../../');
   let npmModules = getYarnPackageNames(yarnRootPath);
 
-  // Hack to include dependency of yarn-theme-thread.
-  npmModules.push('yarn-theme-thread');
-
   let allPaths = [];
   for (let i = 0; i < npmModules.length; i++) {
     const modulePaths = await getAllFilePaths(path.join(
