@@ -18,9 +18,9 @@ describe('Yarn watches for updates', function() {
   this.timeout(5000);
 
   let sandbox;
-  beforeEach(() => {
+  beforeEach(async () => {
     sandbox = sinon.sandbox.create();
-    mockSimpleSite();
+    await mockSimpleSite();
   });
 
   afterEach(() => {

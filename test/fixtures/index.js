@@ -1,6 +1,31 @@
+import reduce from 'lodash/reduce';
 import mockFs from 'mock-fs';
-import fs from 'fs';
+import fs from 'fs-extra';
 import path from 'path';
+import {
+  getYarnPackageNames,
+} from '../../lib/json.js';
+
+/**
+ * Recursively walk a directory and return all File paths found inside.
+ * @param {string} directory Absolute directory path.
+ * @return {Array.<string>}
+ */
+function getAllFilePaths(directory) {
+  let filePaths = [];
+
+  return new Promise((resolve) => {
+    fs.walk(directory)
+      .on('data', function(item) {
+        if (item.stats.isFile()) {
+          filePaths.push(item.path);
+        }
+      })
+      .on('end', function() {
+        resolve(filePaths);
+      });
+  });
+}
 
 export function restoreMockFs() {
   return mockFs.restore();
@@ -12,16 +37,13 @@ export function restoreMockFs() {
  * @param {Object} options Additional options.
  * @param {Function} options.mapKey Can provide a function to map the key in
  *   the returned object.
- * @param {string} optoins.rootDir Where we should resolve files from.
  * @return {Object.<string,string>} Mapping of paths to contents.
  */
 function mirrorPathsToContent(paths, options = {}) {
   const mapKey = options.mapKey || ((x) => x);
-  const rootDir = options.rootDir || __dirname;
 
-  return paths.reduce((result, currentPath) => {
-    const fullPath = path.resolve(rootDir, currentPath);
-    result[mapKey(currentPath)] = fs.readFileSync(fullPath, 'utf8');
+  return paths.reduce((result, fullPath) => {
+    result[mapKey(fullPath)] = fs.readFileSync(fullPath, 'utf8');
     return result;
   }, {});
 }
@@ -34,38 +56,63 @@ function coreYarnFiles() {
   return mirrorPathsToContent([
     'lib/config/defaults.yml',
     '.babelrc',
-  ], {
-    rootDir: path.resolve(__dirname, '../../')
-  });
+    'package.json',
+  ].map(p => path.resolve(__dirname, '../../', p)));
+}
+
+/**
+ * Get all needed node_module file paths of npm modules we need to mock.
+ * @return {Array.<string>} [description]
+ */
+async function yarnNpmFilePaths() {
+  const yarnRootPath = path.join(__dirname, '../../');
+  let npmModules = getYarnPackageNames(yarnRootPath);
+
+  // Hack to include dependency of yarn-theme-thread.
+  npmModules.push('yarn-theme-thread');
+
+  let allPaths = [];
+  for (let i = 0; i < npmModules.length; i++) {
+    const modulePaths = await getAllFilePaths(path.join(
+      yarnRootPath,
+      'node_modules',
+      npmModules[i]
+    ));
+    allPaths = allPaths.concat(modulePaths);
+  }
+
+  return allPaths;
 }
 
 /**
  * Mock a simple Yarn site.
  * @return {Object}
  */
-export function mockSimpleSite() {
-  const mocks = mirrorPathsToContent([
-    'simple/_config.yml',
-    'simple/package.json',
-    'simple/about.md',
-    'simple/_posts/my-first-yarn.md',
-  ]);
-
-  const themeOne = mirrorPathsToContent([
-    'themes/one/_theme.yml',
-    'themes/one/package.json',
-    'themes/one/css/main.less',
-    'themes/one/js/main.js',
-    'themes/one/templates/_loop.html',
-    'themes/one/templates/base.html',
-    'themes/one/templates/page.html',
-    'themes/one/templates/tag.html',
-    'themes/one/templates/_pagination.html',
-    'themes/one/templates/index.html',
-    'themes/one/templates/post.html',
-  ], {
+export async function mockSimpleSite() {
+  const filePaths = await getAllFilePaths(path.join(__dirname, 'simple'));
+  const mocks = mirrorPathsToContent(filePaths, {
     mapKey: (currentPath) => {
-      return currentPath.replace('themes/one', 'simple/_themes/one');
+      return currentPath.replace(`${__dirname}/`, '');
+    }
+  });
+
+  const themePaths = await getAllFilePaths(path.join(__dirname, 'themes/one'));
+  const themeOne = mirrorPathsToContent(themePaths, {
+    mapKey: (currentPath) => {
+      return currentPath.replace(
+        path.join(__dirname, 'themes/one'),
+        'simple/_themes/one'
+      );
+    }
+  });
+
+  const npmPaths = await yarnNpmFilePaths();
+  const npmMocks = mirrorPathsToContent(npmPaths, {
+    msapKey: (currentPath) => {
+      return currentPath.replace(
+        /(.*)node_modules/,
+        'node_modules'
+      );
     }
   });
 
@@ -73,6 +120,7 @@ export function mockSimpleSite() {
     ...mocks,
     ...themeOne,
     ...coreYarnFiles(),
+    ...npmMocks,
   };
 
   mockFs(allMocks);
@@ -86,4 +134,39 @@ export function mockSimpleSite() {
  */
 export function getPathToSimpleMock() {
   return 'simple';
+}
+
+/**
+ * Get all the expected output for the simple blog with the 'one' theme.
+ * The keys are written relatively.
+ * @return {Object.<string,string>}
+ */
+export async function getSimpleOneOutput() {
+  const simpleOneOutputDir = path.join(__dirname, 'output/simple-one/');
+  const filePaths = await getAllFilePaths(simpleOneOutputDir);
+  const simpleOne = mirrorPathsToContent(filePaths, {
+    mapKey: (currentPath) => {
+      return currentPath.replace(
+        simpleOneOutputDir,
+        ''
+      );
+    }
+  });
+  return simpleOne;
+}
+
+/**
+ * Given an object with file paths as keys and the file contents as the value
+ * this will return a new object that only contains file paths that are files,
+ * i.e. they end in '.json' or '.html'.
+ * @param {Object.<string,string>} files Files.
+ * @return {Object.<string,string>}
+ */
+export function filterOnlyFiles(files) {
+  return reduce(files, (result, fileContent, filePath) => {
+    if (filePath.match(/\.(html)/)) {
+      result[filePath] = fileContent;
+    }
+    return result;
+  }, {});
 }
