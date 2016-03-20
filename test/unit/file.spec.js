@@ -8,8 +8,8 @@ import {
 } from '../utils';
 
 import Url from '../../lib/url';
-import * as markdown from '../../lib/render/markdown.js';
-markdown.configure();
+import {configureMarkdownEngine} from '../../lib/markdown.js';
+configureMarkdownEngine();
 
 import File from '../../lib/file.js';
 

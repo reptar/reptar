@@ -2,7 +2,7 @@ import assert from 'power-assert';
 import isArray from 'lodash/isArray';
 import sinon from 'sinon';
 
-import * as template from '../../../lib/render/template.js';
+import {addTemplateFilter} from '../../../lib/template.js';
 import Plugin from '../../../lib/plugin/index.js';
 
 const PluginAPI = Plugin.API;
@@ -15,7 +15,7 @@ describe('plugin/api PluginAPI', function() {
   it('provides a proxy to template.addFilter method', function() {
     assert.deepEqual(
       PluginAPI.template.addFilter,
-      template.addFilter
+      addTemplateFilter
     );
   });
 

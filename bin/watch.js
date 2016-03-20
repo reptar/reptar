@@ -2,7 +2,9 @@ import log from '../lib/log';
 import Yarn from '../lib';
 import chokidar from 'chokidar';
 import serve from './serve';
-import Render from '../lib/render';
+import {
+  configureTemplateEngine,
+} from '../lib/template';
 
 export default function() {
   serve();
@@ -11,7 +13,7 @@ export default function() {
   let config = yarn.getConfig();
   const configPath = config.get('path');
 
-  Render.configureTemplate({
+  configureTemplateEngine({
     paths: yarn.theme.config.path.templates,
     cacheTemplates: true
   });
