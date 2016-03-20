@@ -1,6 +1,5 @@
 import assert from 'power-assert';
 import sinon from 'sinon';
-import fs from 'fs-extra';
 import isUndefined from 'lodash/isUndefined';
 import isArray from 'lodash/isArray';
 import isObject from 'lodash/isObject';
@@ -8,7 +7,6 @@ import isObject from 'lodash/isObject';
 import fixture from '../../fixture';
 
 import Plugin from '../../../lib/plugin/index.js';
-const PluginAPI = Plugin.API;
 
 import CollectionBase from '../../../lib/collection/base.js';
 
@@ -98,100 +96,6 @@ describe('collection/base CollectionBase', () => {
       instance.filter = {};
 
       assert.equal(instance.isFiltered(file), false);
-    });
-  });
-
-  describe('renderAndWriteFile', () => {
-    it('calls all functions in expected order', async () => {
-      let renderContent = 'hello world';
-
-      let instance = new CollectionBase('name');
-      instance.files = fixture.collectionFiles().map(file => {
-        file.render = sinon.spy(() => {
-          return renderContent;
-        });
-        return file;
-      });
-
-      sandbox.stub(CollectionBase, 'writeToFileSystem').returns(sinon.spy());
-
-      let file = instance.files[0];
-      let beforeSpy = sinon.spy();
-      let afterSpy = sinon.spy((val, val2) => [val, val2]);
-      PluginAPI.event.file.beforeRender(beforeSpy);
-      PluginAPI.event.file.afterRender(afterSpy);
-
-      try {
-        await CollectionBase.renderAndWriteFile(
-          file,
-          file.template,
-          {},
-          Plugin.Event.file.beforeRender,
-          Plugin.Event.file.afterRender
-        );
-      } catch (e) {
-        console.log(e);
-      }
-
-      assert.equal(beforeSpy.callCount, 1);
-      assert.ok(beforeSpy.calledWith(file));
-
-      assert.equal(file.render.callCount, 1);
-      assert.ok(file.render.calledWith(instance.template, {}));
-
-      assert.equal(afterSpy.callCount, 1);
-      assert.ok(afterSpy.calledWith(file, renderContent));
-
-      assert.equal(CollectionBase.writeToFileSystem.callCount, 1);
-      assert.ok(
-        CollectionBase.writeToFileSystem.calledWith(
-          file,
-          renderContent
-        )
-      );
-
-      assert.ok(beforeSpy.calledBefore(file.render));
-      assert.ok(file.render.calledBefore(afterSpy));
-      assert.ok(afterSpy.calledBefore(CollectionBase.writeToFileSystem));
-    });
-  });
-
-  describe('writeToFileSystem', () => {
-    it('calls all functions in expected order', async () => {
-      sandbox.stub(fs, 'outputFileAsync').returns(sinon.spy());
-
-      let mockFile = {
-        destination: './path/to/write/file'
-      };
-      let content = 'this is the excellent content';
-
-      let beforeSpy = sinon.spy();
-      let afterSpy = sinon.spy((val) => val);
-      PluginAPI.event.collection.beforeWrite(beforeSpy);
-      PluginAPI.event.collection.afterWrite(afterSpy);
-
-      try {
-        await CollectionBase.writeToFileSystem(mockFile, content);
-      } catch (e) {
-        console.log(e);
-      }
-
-      assert.equal(beforeSpy.callCount, 1);
-      assert.ok(beforeSpy.calledWith(mockFile, content));
-
-      assert.equal(fs.outputFileAsync.callCount, 1);
-      assert.ok(fs.outputFileAsync.calledWith(
-        mockFile.destination,
-        content,
-        'utf8'
-      ));
-
-      assert.equal(afterSpy.callCount, 1);
-      assert.ok(afterSpy.calledWith(mockFile, content));
-
-      assert.ok(beforeSpy.calledBefore(fs.outputFileAsync));
-      assert.ok(fs.outputFileAsync.calledBefore(afterSpy));
-      assert.ok(afterSpy.calledBefore(CollectionBase.writeToFileSystem));
     });
   });
 
