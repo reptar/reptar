@@ -44,7 +44,7 @@ export default function(args) {
     let filePath = Url.interpolatePermalink(
       config.get('new_file_permalink'),
       data
-    );
+    ).toLowerCase();
     let fileContent = newType.template(data);
     let absolutePath = path.join(config.get('path.source'), filePath);
 
