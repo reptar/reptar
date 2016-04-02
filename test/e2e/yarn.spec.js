@@ -38,7 +38,6 @@ describe('yarn Yarn', function() {
   it('instantiates correctly', function() {
     sandbox.spy(Yarn.prototype, 'updateConfig');
     sandbox.spy(Config.prototype, 'setRoot');
-    sandbox.spy(Config.prototype, 'on');
     sandbox.spy(Theme.prototype, 'setGetConfig');
 
     let instance = new Yarn({

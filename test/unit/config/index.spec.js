@@ -1,7 +1,6 @@
 import assert from 'power-assert';
 import sinon from 'sinon';
 import path from 'path';
-import {EventEmitter} from 'events';
 import each from 'lodash/each';
 
 import fixture from '../../fixture';
@@ -27,7 +26,6 @@ describe('config/index Config', () => {
       let instance = new Config();
 
       assert.ok(instance);
-      assert(instance instanceof EventEmitter);
       assert(typeof instance._raw === 'object');
 
       assert(instance.loadLocal.calledOnce === false);
@@ -43,7 +41,6 @@ describe('config/index Config', () => {
 
       let instance = new Config();
       instance._root = root;
-      sinon.spy(instance, 'emit');
 
       // Restore original update so we can actual test its behavior.
       instance.update.restore();
