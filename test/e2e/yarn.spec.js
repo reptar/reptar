@@ -12,9 +12,7 @@ import {
 import fs from 'fs-extra';
 
 import Yarn from '../../lib/index.js';
-import Config, {
-  EVENTS,
-} from '../../lib/config/index.js';
+import Config from '../../lib/config/index.js';
 import Theme from '../../lib/theme/index.js';
 
 import log from '../../lib/log.js';
@@ -38,7 +36,7 @@ describe('yarn Yarn', function() {
   });
 
   it('instantiates correctly', function() {
-    sandbox.spy(Yarn.prototype, 'configUpdated');
+    sandbox.spy(Yarn.prototype, 'updateConfig');
     sandbox.spy(Config.prototype, 'setRoot');
     sandbox.spy(Config.prototype, 'on');
     sandbox.spy(Theme.prototype, 'setGetConfig');
@@ -46,12 +44,10 @@ describe('yarn Yarn', function() {
     let instance = new Yarn({
       rootPath: getPathToSimpleMock()
     });
-    assert.equal(instance.configUpdated.callCount, 1);
+    assert.equal(instance.updateConfig.callCount, 1);
 
     assert(instance.config instanceof Config);
     assert.equal(instance.config.setRoot.callCount, 1);
-    assert.equal(instance.config.on.callCount, 1);
-    assert(instance.config.on.calledWith(EVENTS.CONFIG_UPDATED));
 
     assert(instance.theme instanceof Theme);
     assert.equal(instance.theme.setGetConfig.callCount, 1);

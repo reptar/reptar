@@ -6,9 +6,7 @@ import each from 'lodash/each';
 
 import fixture from '../../fixture';
 
-import Config, {
-  EVENTS
-} from '../../../lib/config/index.js';
+import Config from '../../../lib/config/index.js';
 
 describe('config/index Config', () => {
 
@@ -85,9 +83,6 @@ describe('config/index Config', () => {
       each(instance.path, (val, key) => {
         assert.equal(instance.path[key], instance._raw.path[key]);
       });
-
-      assert.ok(instance.emit.calledOnce);
-      assert.ok(instance.emit.calledWith(EVENTS.CONFIG_UPDATED));
     });
   });
 
