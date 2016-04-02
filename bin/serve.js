@@ -1,13 +1,12 @@
 import child_process from 'child_process';
-import path from 'path';
+import Url from '../lib/url';
 import Config from '../lib/config';
 
 export default function(options) {
   const config = Config.create();
 
-  const httpServerPath = path.resolve(
-    __dirname,
-    '../node_modules/.bin/http-server'
+  const httpServerPath = Url.pathFromRoot(
+    './node_modules/.bin/http-server'
   );
 
   child_process.spawn(httpServerPath, [
