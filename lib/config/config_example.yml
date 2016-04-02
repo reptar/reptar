@@ -112,6 +112,10 @@ server:
 
 quiet:    false
 
+# Only build files that have changed.
+# This is a performance improvement to the time it takes to build your site.
+incremental: true
+
 # Where files created via `yarn new` should be placed.
 new_file_permalink: '/_posts/:date|YYYY-:date|MM-:date|D-:title.md'
 

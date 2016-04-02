@@ -43,7 +43,9 @@ describe('yarn Yarn', function() {
     sandbox.spy(Config.prototype, 'on');
     sandbox.spy(Theme.prototype, 'setGetConfig');
 
-    let instance = new Yarn(getPathToSimpleMock());
+    let instance = new Yarn({
+      rootPath: getPathToSimpleMock()
+    });
     assert.equal(instance.configUpdated.callCount, 1);
 
     assert(instance.config instanceof Config);
@@ -64,7 +66,9 @@ describe('yarn Yarn', function() {
     sandbox.spy(fs, 'outputFileAsync');
 
     // Build site.
-    let instance = new Yarn(getPathToSimpleMock());
+    let instance = new Yarn({
+      rootPath: getPathToSimpleMock()
+    });
     await instance.loadState();
     await instance.build();
 

@@ -1,11 +1,11 @@
 import log from '../lib/log';
 import Yarn from '../lib';
 
-export default function() {
+export default function(options) {
   const id = log.startActivity('building\t\t\t');
   console.log('');
 
-  var yarn = new Yarn();
+  var yarn = new Yarn(options);
   yarn.loadState()
     .then(yarn.build.bind(yarn))
     .then(function() {

@@ -26,6 +26,11 @@ yargs
   .command('clean', 'cleans destination folder')
   .command('serve', 'serve your site with http-server')
   .command('watch', 'build, serve, and watch for file changes')
+  .option('incremental', {
+    description: 'only build files that have changed',
+    boolean: true,
+    default: true
+  })
   .option('verbose', {
     description: 'log out additional log information',
     boolean: true
