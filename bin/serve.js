@@ -2,7 +2,7 @@ import child_process from 'child_process';
 import path from 'path';
 import Config from '../lib/config';
 
-export default function() {
+export default function(options) {
   const config = Config.create();
 
   const httpServerPath = path.resolve(
@@ -16,6 +16,6 @@ export default function() {
     '-d',
     '-c-1'
   ], {
-    stdio: 'inherit'
+    stdio: options.showOutput !== false ? 'inherit' : 'ignore'
   });
 }
