@@ -12,6 +12,7 @@ import {
 import fs from 'fs-extra';
 
 import Yarn from '../../lib/index.js';
+import cache from '../../lib/cache.js';
 import Config from '../../lib/config/index.js';
 import Theme from '../../lib/theme/index.js';
 
@@ -28,6 +29,9 @@ describe('yarn Yarn', function() {
     simpleOneOutput = await getSimpleOneOutput();
     simpleOneOutput = filterOnlyFiles(simpleOneOutput);
     await mockSimpleSite();
+
+    // Don't actually save cache to file system.
+    sandbox.stub(cache, 'save');
   });
 
   afterEach(() => {
