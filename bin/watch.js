@@ -1,3 +1,5 @@
+import activity from 'activity-logger';
+import debounce from 'lodash/debounce';
 import log from '../lib/log';
 import Yarn from '../lib';
 import chokidar from 'chokidar';
@@ -7,64 +9,70 @@ import {
 } from '../lib/template';
 
 export default function() {
-  serve();
+  log.setSilent(true);
+  serve({
+    showOutput: false
+  });
 
-  let yarn = new Yarn();
-  let config = yarn.getConfig();
-  const configPath = config.get('path');
+  const startActivity = activity.start('Starting watching of files.');
 
+  const yarn = new Yarn({
+    incremental: true
+  });
+  const configPath = yarn.getConfig().get('path');
+
+  // Turn off caching of templates.
   configureTemplateEngine({
     paths: yarn.theme.config.path.templates,
-    cacheTemplates: true
+    noCache: true
   });
 
   yarn.loadState()
     .catch(function(e) {
-      console.log(e.stack);
+      log.error(e.stack);
       throw e;
     });
 
-  var watcher = chokidar.watch([
+  const watcher = chokidar.watch([
     configPath.source
   ], {
     ignored: [
-      configPath.plugins,
-      configPath.themes,
-      configPath.destination
+      '.git/**/*',
+      `${configPath.plugins}/**/*`,
+      `${configPath.themes}/**/*`,
+      `${configPath.destination}/**/*`
     ]
   });
 
   // Wait for watcher to be ready before registering other watchers.
   watcher.on('ready', function() {
+    activity.end(startActivity);
 
-    watcher.on('change', function(path) {
-      log.info('File changed at: ' + path);
-      log.info('Rebuilding...');
-      yarn.fileChanged(path).then(function() {
-        log.info('\tdone!');
-      });
-    });
+    console.log('');
+    log.info('Ready...\n');
 
-    watcher.on('add', function(path) {
-      log.info('File added at: ' + path);
-      log.info('Rebuilding...');
-      yarn.fileAdded(path).then(function() {
-        log.info('\tdone!');
-      });
-    });
+    function handleFsChange(event, path) {
+      log.info('Change detected at: ' + path);
+      const id = activity.start('Rebuilding...');
 
-    watcher.on('unlink', function(path) {
-      log.info('File removed at: ' + path);
-      log.info('Rebuilding...');
-      yarn.fileRemoved(path).then(function() {
-        log.info('\tdone!');
+      yarn.readFiles(path).then(function() {
+        return yarn.build();
+      }).then(() => {
+        activity.end(id);
+
+        const date = new Date();
+        log.info('\t\tdone! (' + date.toISOString() + ')');
+        console.log('');
       });
-    });
+    }
+
+    // Watch for all fs events.
+    watcher.on('all', debounce(handleFsChange, 100));
   });
 
   // Handle when theme files change and re-build entire source to reflect new
   // theme changes.
-  var themeWatcher = chokidar.watch([
+  const themeWatcher = chokidar.watch([
     configPath.themes
   ]);
   themeWatcher.on('ready', function() {
