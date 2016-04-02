@@ -1,12 +1,11 @@
+import Promise from 'bluebird';
 import activity from 'activity-logger';
 import debounce from 'lodash/debounce';
 import log from '../lib/log';
+import { YAML } from '../lib/constants';
 import Yarn from '../lib';
 import chokidar from 'chokidar';
 import serve from './serve';
-import {
-  configureTemplateEngine,
-} from '../lib/template';
 
 export default function() {
   log.setSilent(true);
@@ -14,17 +13,14 @@ export default function() {
     showOutput: false
   });
 
-  const startActivity = activity.start('Starting watching of files.');
+  const startActivity = activity.start('Starting watching files.');
 
   const yarn = new Yarn({
-    incremental: true
-  });
-  const configPath = yarn.getConfig().get('path');
+    // Turn on incremental building.
+    incremental: true,
 
-  // Turn off caching of templates.
-  configureTemplateEngine({
-    paths: yarn.theme.config.path.templates,
-    noCache: true
+    // Turn off caching of templates.
+    noTemplateCache: true
   });
 
   yarn.loadState()
@@ -32,6 +28,8 @@ export default function() {
       log.error(e.stack);
       throw e;
     });
+
+  const configPath = yarn.getConfig().get('path');
 
   const watcher = chokidar.watch([
     configPath.source
@@ -55,7 +53,17 @@ export default function() {
       log.info('Change detected at: ' + path);
       const id = activity.start('Rebuilding...');
 
-      yarn.readFiles(path).then(function() {
+      let promise;
+      // If `_config.yml` changed then re-load from fs.
+      if (path.indexOf(YAML.CONFIG) > -1) {
+        promise = yarn.reload();
+      } else {
+        promise = Promise.resolve();
+      }
+
+      promise.then(function() {
+        return yarn.readFiles(path);
+      }).then(function() {
         return yarn.build();
       }).then(() => {
         activity.end(id);
