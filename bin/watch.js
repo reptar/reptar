@@ -34,13 +34,17 @@ export default function() {
   const watcher = chokidar.watch([
     configPath.source
   ], {
-    ignored: [
-      '.git/**/*',
-      `${configPath.plugins}/**/*`,
-      `${configPath.themes}/**/*`,
-      `${configPath.destination}/**/*`
-    ]
+    atomic: true,
   });
+
+  function shouldIgnorePath(path) {
+    return [
+      '/.git/', // ignore .git directory.
+      configPath.plugins,
+      configPath.themes,
+      configPath.destination
+    ].some(configPath => path.indexOf(configPath) > -1);
+  }
 
   // Wait for watcher to be ready before registering other watchers.
   watcher.on('ready', function() {
@@ -50,7 +54,12 @@ export default function() {
     log.info('Ready...\n');
 
     function handleFsChange(event, path) {
+      if (shouldIgnorePath(path)) {
+        return;
+      }
+
       log.info('Change detected at: ' + path);
+
       const id = activity.start('Rebuilding...');
 
       let promise;
@@ -75,7 +84,7 @@ export default function() {
     }
 
     // Watch for all fs events.
-    watcher.on('all', debounce(handleFsChange, 100));
+    watcher.on('all', debounce(handleFsChange, 200));
   });
 
   // Handle when theme files change and re-build entire source to reflect new
@@ -87,10 +96,17 @@ export default function() {
 
     themeWatcher.on('change', function(path) {
       log.info('Theme file changed at: ' + path);
-      log.info('Rebuilding...');
-      yarn.readTheme()
+      const id = activity.start('Rebuilding...');
+
+      yarn.reload()
         .then(function() {
           return yarn.build();
+        }).then(function() {
+          activity.end(id);
+
+          const date = new Date();
+          log.info('\t\tdone! (' + date.toISOString() + ')');
+          console.log('');
         });
     });
   });
