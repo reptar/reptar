@@ -2,7 +2,7 @@ import fs from 'fs-extra';
 import log from '../lib/log';
 import path from 'path';
 import inquirer from 'inquirer';
-import child_process from 'child_process';
+import spawn from 'cross-spawn';
 
 export default function init() {
   var destination = process.cwd();
@@ -69,7 +69,7 @@ export default function init() {
 
     var npmInstallProc;
     try {
-      npmInstallProc = child_process.spawn('npm', [
+      npmInstallProc = spawn('npm', [
         'install'       // Disable caching.
       ], {
         stdio: 'inherit',
