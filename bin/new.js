@@ -54,5 +54,5 @@ export default function(args) {
     log.info(`New ${newTypeKey} created at ${absolutePath}`);
   }
 
-  inquirer.prompt(newType.prompts, promptHandler);
+  inquirer.prompt(newType.prompts).then(promptHandler);
 }

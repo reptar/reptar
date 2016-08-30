@@ -17,7 +17,7 @@ export default function init() {
     }
   ];
 
-  inquirer.prompt(questions, function(answers) {
+  inquirer.prompt(questions).then((answers) => {
     if (answers.destinationOk === false) {
       process.exit(1);
     }
