@@ -1,20 +1,13 @@
-import spawn from 'cross-spawn';
-import Url from '../lib/url';
+import liveServer from 'live-server';
 import Config from '../lib/config';
 
-export default function(options) {
+export default function() {
   const config = Config.create();
 
-  const httpServerPath = Url.pathFromRoot(
-    './node_modules/.bin/http-server'
-  );
-
-  spawn(httpServerPath, [
-    config.get('path.destination'),
-    '-p ' + config.get('server.port'),
-    '-d',
-    '-c-1'
-  ], {
-    stdio: options.showOutput !== false ? 'inherit' : 'ignore'
+  liveServer.start({
+    port: config.get('server.port'),
+    root: config.get('path.destination'),
+    open: false,
+    logLevel: 2,
   });
 }
