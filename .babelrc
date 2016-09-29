@@ -1,6 +1,12 @@
 {
-  "presets": ["es2015", "stage-1"],
   "plugins": [
+    "transform-es2015-spread",
+    "transform-es2015-destructuring",
+    "transform-es2015-modules-commonjs",
+    "transform-object-rest-spread",
+    "transform-class-properties",
+    "transform-async-to-generator",
+    "transform-regenerator",
     "lodash",
     "transform-runtime"
   ]
