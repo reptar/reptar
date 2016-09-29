@@ -1,6 +1,6 @@
 import Promise from 'bluebird';
 import activity from 'activity-logger';
-import debounce from 'lodash/debounce';
+import _ from 'lodash';
 import log from '../lib/log';
 import { YAML } from '../lib/constants';
 import Yarn from '../lib';
@@ -84,7 +84,7 @@ export default function() {
     }
 
     // Watch for all fs events.
-    watcher.on('all', debounce(handleFsChange, 200));
+    watcher.on('all', _.debounce(handleFsChange, 200));
   });
 
   // Handle when theme files change and re-build entire source to reflect new

@@ -1,5 +1,5 @@
 import assert from 'power-assert';
-import isArray from 'lodash/isArray';
+import _ from 'lodash';
 import sinon from 'sinon';
 
 import {addTemplateFilter} from '../../../lib/template.js';
@@ -23,7 +23,7 @@ describe('plugin/api PluginAPI', function() {
     let beforeSpy = sinon.spy();
     PluginAPI.event.file.beforeRender(beforeSpy);
 
-    assert(isArray(Plugin._handlers[Plugin.Event.file.beforeRender]));
+    assert(_.isArray(Plugin._handlers[Plugin.Event.file.beforeRender]));
     assert.equal(Plugin._handlers[Plugin.Event.file.beforeRender].length, 1);
     assert.deepEqual(
       Plugin._handlers[Plugin.Event.file.beforeRender][0],
@@ -35,7 +35,7 @@ describe('plugin/api PluginAPI', function() {
     PluginAPI.event.file.afterRender(afterSpy);
     PluginAPI.event.file.afterRender(afterSpy);
 
-    assert(isArray(Plugin._handlers[Plugin.Event.file.afterRender]));
+    assert(_.isArray(Plugin._handlers[Plugin.Event.file.afterRender]));
     assert.equal(Plugin._handlers[Plugin.Event.file.afterRender].length, 2);
     assert.deepEqual(
       Plugin._handlers[Plugin.Event.file.afterRender][0],

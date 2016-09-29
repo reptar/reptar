@@ -1,4 +1,4 @@
-import reduce from 'lodash/reduce';
+import _ from 'lodash';
 import mockFs from 'mock-fs';
 import fs from 'fs-extra';
 import path from 'path';
@@ -160,7 +160,7 @@ export async function getSimpleOneOutput() {
  * @return {Object.<string,string>}
  */
 export function filterOnlyFiles(files) {
-  return reduce(files, (result, fileContent, filePath) => {
+  return _.reduce(files, (result, fileContent, filePath) => {
     if (filePath.match(/\.(html)/)) {
       result[filePath] = fileContent;
     }

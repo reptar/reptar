@@ -1,4 +1,4 @@
-import cloneDeep from 'lodash/cloneDeep';
+import _ from 'lodash';
 
 exports.frontmatterString =
 `---
@@ -18,7 +18,7 @@ exports.frontmatterJSON = {
 exports.collectionMetadataKey = 'soMeta';
 
 exports.collectionFiles = function() {
-  return cloneDeep(
+  return _.cloneDeep(
     [
       {
         id: 'Coffee',
@@ -64,7 +64,7 @@ exports.collectionFiles = function() {
 };
 
 exports.configDefault = function() {
-  return cloneDeep(
+  return _.cloneDeep(
     {
       site: {
         title: 'Good Morning GitHub'

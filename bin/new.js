@@ -1,5 +1,5 @@
 import log from '../lib/log';
-import isNil from 'lodash/isNil';
+import _ from 'lodash';
 import path from 'path';
 import fs from 'fs-extra';
 import inquirer from 'inquirer';
@@ -13,7 +13,7 @@ let newTypes = {
         name: 'title',
         type: 'input',
         message: 'Title of new file.',
-        validate: (input) => !isNil(input)
+        validate: (input) => !_.isNil(input)
       }
     ],
     template: (data) => (

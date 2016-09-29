@@ -1,6 +1,6 @@
 import assert from 'power-assert';
 import sinon from 'sinon';
-import isObject from 'lodash/isObject';
+import _ from 'lodash';
 
 import {
   mockSimpleSite,
@@ -55,10 +55,10 @@ describe('yarn Yarn', function() {
     assert(instance.theme instanceof Theme);
     assert.equal(instance.theme.setGetConfig.callCount, 1);
 
-    assert(isObject(instance.files));
-    assert(isObject(instance.collections));
-    assert(isObject(instance.data));
-    assert(isObject(instance.data.collections));
+    assert(_.isObject(instance.files));
+    assert(_.isObject(instance.collections));
+    assert(_.isObject(instance.data));
+    assert(_.isObject(instance.data.collections));
   });
 
   it('builds site correctly', async function() {

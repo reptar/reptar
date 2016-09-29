@@ -1,7 +1,7 @@
 import assert from 'power-assert';
 import sinon from 'sinon';
 import path from 'path';
-import each from 'lodash/each';
+import _ from 'lodash';
 
 import fixture from '../../fixture';
 
@@ -77,7 +77,7 @@ describe('config/index Config', () => {
         )
       );
 
-      each(instance.path, (val, key) => {
+      _.each(instance.path, (val, key) => {
         assert.equal(instance.path[key], instance._raw.path[key]);
       });
     });

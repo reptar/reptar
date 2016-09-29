@@ -1,6 +1,6 @@
 import assert from 'power-assert';
 import sinon from 'sinon';
-import isArray from 'lodash/isArray';
+import _ from 'lodash';
 import Promise from 'bluebird';
 
 import Plugin from '../../../lib/plugin/index.js';
@@ -18,7 +18,7 @@ describe('plugin/index Plugin', function() {
 
       Plugin.addEventHandler(handlerName, handlerFn);
 
-      assert(isArray(Plugin._handlers[handlerName]));
+      assert(_.isArray(Plugin._handlers[handlerName]));
       assert.equal(Plugin._handlers[handlerName].length, 1);
 
       assert.deepEqual(
@@ -85,7 +85,7 @@ describe('plugin/index Plugin', function() {
       Plugin.addEventHandler(handlerName, noopFunc);
       Plugin.addEventHandler(handlerName, promiseFn);
 
-      assert(isArray(Plugin._handlers[handlerName]));
+      assert(_.isArray(Plugin._handlers[handlerName]));
       assert.equal(Plugin._handlers[handlerName].length, 2);
 
       let handlerValue = 5;
@@ -135,7 +135,7 @@ describe('plugin/index Plugin', function() {
 
       Plugin.addEventHandler(handlerName, blankReturnFn);
 
-      assert(isArray(Plugin._handlers[handlerName]));
+      assert(_.isArray(Plugin._handlers[handlerName]));
       assert.equal(Plugin._handlers[handlerName].length, 1);
 
       let argValue1 = {foo: 'bar'};
@@ -167,7 +167,7 @@ describe('plugin/index Plugin', function() {
 
         Plugin.addEventHandler(handlerName, eventHandlerFn);
 
-        assert(isArray(Plugin._handlers[handlerName]));
+        assert(_.isArray(Plugin._handlers[handlerName]));
         assert.equal(Plugin._handlers[handlerName].length, 1);
 
         let argValue1 = {foo: 'bar'};
@@ -189,7 +189,7 @@ describe('plugin/index Plugin', function() {
 
         Plugin.addEventHandler(handlerName, eventHandlerFn);
 
-        assert(isArray(Plugin._handlers[handlerName]));
+        assert(_.isArray(Plugin._handlers[handlerName]));
         assert.equal(Plugin._handlers[handlerName].length, 1);
 
         let argValue1 = {foo: 'bar'};
