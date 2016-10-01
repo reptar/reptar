@@ -81,11 +81,25 @@ describe('config/index Config', () => {
         assert.equal(instance.path[key], instance._raw.path[key]);
       });
     });
-  });
 
-  describe('defaultConfig', () => {
-    it('returns an object', () => {
-      assert(typeof Config.defaultConfig() === 'object');
+    it('throws when given an invalid config object', () => {
+      let root = '/root/';
+
+      let instance = new Config();
+      instance._root = root;
+
+      const invalidConfigs = [
+        {
+          path: false,
+        },
+        {
+          site: 'Test',
+        }
+      ];
+
+      invalidConfigs.forEach(config => {
+        assert.throws(() => instance.update(config));
+      });
     });
   });
 });

@@ -54,7 +54,6 @@ function mirrorPathsToContent(paths, options = {}) {
  */
 function coreYarnFiles() {
   return mirrorPathsToContent([
-    'lib/config/defaults.yml',
     '.babelrc',
     'package.json',
   ].map(p => path.resolve(__dirname, '../../', p)));
