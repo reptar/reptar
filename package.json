@@ -11,7 +11,27 @@
     "test:e2e": "npm test -- test/e2e",
     "lint": "eslint .",
     "coverage": "babel-node ./node_modules/.bin/isparta cover ./node_modules/mocha/bin/_mocha -- --recursive",
-    "coveralls": "babel-node ./node_modules/.bin/isparta cover --report lcovonly ./node_modules/mocha/bin/_mocha -- --recursive && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "coveralls": "babel-node ./node_modules/.bin/isparta cover --report lcovonly ./node_modules/mocha/bin/_mocha -- --recursive && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "release": "standard-version"
+  },
+  "config": {
+    "validate-commit-msg": {
+      "types": [
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "perf",
+        "test",
+        "chore",
+        "revert"
+      ],
+      "helpMessage": "\nYarn is using standard-version as its commit message convention.\nPlease consult https://github.com/conventional-changelog/standard-version#commit-message-convention-at-a-glance \nfor documentation on how to format your commit message."
+    },
+    "ghooks": {
+      "commit-msg": "validate-commit-msg"
+    }
   },
   "repository": "yarnjs/yarn",
   "keywords": [
@@ -82,10 +102,13 @@
     "babel-register": "^6.16.0",
     "coveralls": "^2.11.14",
     "eslint": "^3.7.0",
+    "ghooks": "^1.3.2",
     "isparta": "^4.0.0",
     "mocha": "^3.1.0",
     "mock-fs": "^3.11.0",
     "power-assert": "^1.4.1",
-    "sinon": "^2.0.0-pre.3"
+    "sinon": "^2.0.0-pre.3",
+    "standard-version": "^2.4.0",
+    "validate-commit-msg": "^2.8.0"
   }
 }
