@@ -8,7 +8,13 @@
     "transform-class-properties",
     "transform-async-to-generator",
     "transform-regenerator",
-    "lodash",
     "transform-runtime"
-  ]
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        "lodash",
+      ]
+    }
+  }
 }

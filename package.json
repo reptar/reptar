@@ -5,7 +5,7 @@
   "main": "./dist/lib/index.js",
   "scripts": {
     "compile": "babel lib --out-dir dist/lib && babel bin --out-dir dist/bin",
-    "prepublish": "npm run compile && cp lib/config/defaults.yml dist/lib/config/defaults.yml",
+    "prepublish": "NODE_ENV=production npm run compile && cp lib/config/defaults.yml dist/lib/config/defaults.yml",
     "test": "mocha --recursive --require ./test/setup.js --reporter spec",
     "test:unit": "npm test -- test/unit",
     "test:e2e": "npm test -- test/e2e",
