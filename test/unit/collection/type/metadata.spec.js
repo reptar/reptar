@@ -15,8 +15,8 @@ import MetadataCollection from
   '../../../../lib/collection/type/metadata.js';
 
 describe('collection/type/metadata MetadataCollection', () => {
-  let config = createMockConfig();
-  let getConfig = () => config;
+  const config = createMockConfig();
+  const getConfig = () => config;
 
   let sandbox;
   beforeEach(() => {
@@ -31,10 +31,10 @@ describe('collection/type/metadata MetadataCollection', () => {
 
   describe('_isFileInCollection', () => {
     it('is false if file does not have collection\'s metadata key', () => {
-      let instance = new MetadataCollection('name');
+      const instance = new MetadataCollection('name');
       instance.metadata = 'soMeta';
 
-      let file = {
+      const file = {
         data: {}
       };
 
@@ -46,10 +46,10 @@ describe('collection/type/metadata MetadataCollection', () => {
     });
 
     it('is true if file has collection\'s metadata key', () => {
-      let instance = new MetadataCollection('name');
+      const instance = new MetadataCollection('name');
       instance.metadata = 'soMeta';
 
-      let file = {
+      const file = {
         data: {}
       };
 
@@ -66,7 +66,7 @@ describe('collection/type/metadata MetadataCollection', () => {
 
   describe('populate', () => {
     it('adds files to collection', () => {
-      let instance = new MetadataCollection('name');
+      const instance = new MetadataCollection('name');
       instance.metadata = fixture.collectionMetadataKey;
       sinon.stub(instance, 'createCollectionPages').returns(sinon.spy());
       sinon.stub(instance, '_isFileInCollection').returns(true);
@@ -74,7 +74,7 @@ describe('collection/type/metadata MetadataCollection', () => {
       assert(_.isUndefined(instance.files));
       assert(_.isUndefined(instance.metadataFiles));
 
-      let files = fixture.collectionFiles();
+      const files = fixture.collectionFiles();
       assert.deepEqual(instance.populate(files), instance);
       assert.equal(instance.createCollectionPages.calledOnce, true);
       assert.equal(CollectionBase.sortFiles.called, false);
@@ -103,7 +103,7 @@ describe('collection/type/metadata MetadataCollection', () => {
     });
 
     it('does not add files to collection', () => {
-      let instance = new MetadataCollection('name');
+      const instance = new MetadataCollection('name');
       instance.metadata = fixture.collectionMetadataKey;
       sinon.stub(instance, 'createCollectionPages').returns(sinon.spy());
       sinon.stub(instance, '_isFileInCollection').returns(false);
@@ -111,7 +111,7 @@ describe('collection/type/metadata MetadataCollection', () => {
       assert(_.isUndefined(instance.files));
       assert(_.isUndefined(instance.metadataFiles));
 
-      let files = fixture.collectionFiles();
+      const files = fixture.collectionFiles();
       assert.deepEqual(instance.populate(files), instance);
       assert.equal(instance.createCollectionPages.calledOnce, true);
       assert.equal(CollectionBase.sortFiles.called, false);
@@ -134,7 +134,7 @@ describe('collection/type/metadata MetadataCollection', () => {
 
   describe('createCollectionPages', () => {
     it('returns early if no pagination permalinks are set', () => {
-      let instance = new MetadataCollection('name', undefined, getConfig);
+      const instance = new MetadataCollection('name', undefined, getConfig);
       assert.equal(instance.createCollectionPages(), false);
 
       instance.pagination = {};
@@ -147,10 +147,10 @@ describe('collection/type/metadata MetadataCollection', () => {
       assert.equal(instance.createCollectionPages(), false);
     });
 
-    let pageSize = 1;
+    const pageSize = 1;
     it('adds files to collectionPages', () => {
-      let files = fixture.collectionFiles();
-      let instance = new MetadataCollection('name', undefined, getConfig);
+      const files = fixture.collectionFiles();
+      const instance = new MetadataCollection('name', undefined, getConfig);
       instance.metadata = fixture.collectionMetadataKey;
       instance.pagination = {};
       instance.pagination.size = pageSize;
@@ -186,7 +186,7 @@ describe('collection/type/metadata MetadataCollection', () => {
           expectedPermalink = instance.pagination.permalinkIndex;
         }
 
-        let files = instance.metadataFiles[page.data.metadata];
+        const files = instance.metadataFiles[page.data.metadata];
 
         assert(page instanceof CollectionPage);
 
@@ -204,7 +204,7 @@ describe('collection/type/metadata MetadataCollection', () => {
           assert(_.isUndefined(page.data.next));
           assert(_.isUndefined(page.data.next_link));
 
-          let previous = instance.pages[index - 1];
+          const previous = instance.pages[index - 1];
           assert.equal(page.data.prev, previous.data.page);
           assert.equal(page.data.prev_link, previous.data.url);
 

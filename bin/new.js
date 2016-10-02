@@ -6,7 +6,7 @@ import inquirer from 'inquirer';
 import Config from '../lib/config';
 import Url from '../lib/url';
 
-let newTypes = {
+const newTypes = {
   file: {
     prompts: [
       {
@@ -27,26 +27,26 @@ date: ${data.date.toISOString()}
 };
 
 export default function(args) {
-  let newTypeKey = args._[1];
-  let newType = newTypes[newTypeKey];
+  const newTypeKey = args._[1];
+  const newType = newTypes[newTypeKey];
   if (_.isNil(newType)) {
     log.error(`Unknown new type: '${newTypeKey}'.`);
     log.error(`Only support new types [${Object.keys(newTypes).join(', ')}].`);
     process.exit(0);
   }
 
-  let config = Config.create();
+  const config = Config.create();
 
   function promptHandler(data) {
     // Set date to now.
     data.date = new Date();
 
-    let filePath = Url.interpolatePermalink(
+    const filePath = Url.interpolatePermalink(
       config.get('new_file_permalink'),
       data
     ).toLowerCase();
-    let fileContent = newType.template(data);
-    let absolutePath = path.join(config.get('path.source'), filePath);
+    const fileContent = newType.template(data);
+    const absolutePath = path.join(config.get('path.source'), filePath);
 
     // Write file!
     fs.outputFileSync(absolutePath, fileContent, 'utf8');

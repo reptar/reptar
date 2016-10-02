@@ -33,7 +33,7 @@ describe('collection/base CollectionBase', () => {
     });
 
     it('accepts a name and no config object', () => {
-      let instance = new CollectionBase('name');
+      const instance = new CollectionBase('name');
 
       assert.equal(instance.name, 'name');
       assert(_.isUndefined(instance.path));
@@ -55,8 +55,8 @@ describe('collection/base CollectionBase', () => {
 
   describe('isFiltered', () => {
     it('returns if a file in collection is filtered', () => {
-      let instance = new CollectionBase('name');
-      let file = {
+      const instance = new CollectionBase('name');
+      const file = {
         data: {}
       };
 
@@ -100,8 +100,8 @@ describe('collection/base CollectionBase', () => {
   describe('sortFiles', () => {
     it('sorts files according to config', () => {
       assert.ok(true);
-      let files = fixture.collectionFiles();
-      let sortConfig = {
+      const files = fixture.collectionFiles();
+      const sortConfig = {
         key: 'id',
         order: 'descending'
       };

@@ -11,8 +11,8 @@ import Url from '../../../lib/url';
 import CollectionPage from '../../../lib/collection/page.js';
 
 describe('collection/page CollectionPage', () => {
-  let config = createMockConfig();
-  let getConfig = () => config;
+  const config = createMockConfig();
+  const getConfig = () => config;
 
   let sandbox;
   beforeEach(() => {
@@ -23,7 +23,7 @@ describe('collection/page CollectionPage', () => {
     sandbox.restore();
   });
 
-  let collectionPageData = {
+  const collectionPageData = {
     page: 2,
 
     // How many pages in the collection.
@@ -48,10 +48,10 @@ describe('collection/page CollectionPage', () => {
     });
 
     it('creates a unique id', () => {
-      let id = 'idHere';
-      let index = 4;
+      const id = 'idHere';
+      const index = 4;
 
-      let instance = new CollectionPage(id, index);
+      const instance = new CollectionPage(id, index);
 
       assert.equal(instance.id, `${id}:${index}`);
       assert.equal(instance._collectionId, id);
@@ -62,10 +62,10 @@ describe('collection/page CollectionPage', () => {
 
   describe('setData', () => {
     it('saves passed in values', () => {
-      let data = collectionPageData;
-      let files = fixture.collectionFiles();
+      const data = collectionPageData;
+      const files = fixture.collectionFiles();
 
-      let instance = new CollectionPage('id', 2);
+      const instance = new CollectionPage('id', 2);
       instance.setGetConfig(getConfig);
       instance.permalink = 'ok';
 
@@ -81,12 +81,12 @@ describe('collection/page CollectionPage', () => {
 
   describe('setFiles', () => {
     it('adds pageId information to each file.', () => {
-      let files = fixture.collectionFiles().map(file => {
+      const files = fixture.collectionFiles().map(file => {
         file.collectionPages = new Set();
         return file;
       });
 
-      let instance = new CollectionPage('id', 2);
+      const instance = new CollectionPage('id', 2);
       instance.permalink = 'ok';
 
       files.forEach(file => {

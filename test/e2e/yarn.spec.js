@@ -44,7 +44,7 @@ describe('yarn Yarn', function() {
     sandbox.spy(Config.prototype, 'setRoot');
     sandbox.spy(Theme.prototype, 'setGetConfig');
 
-    let instance = new Yarn({
+    const instance = new Yarn({
       rootPath: getPathToSimpleMock()
     });
     assert.equal(instance.updateConfig.callCount, 1);
@@ -65,16 +65,18 @@ describe('yarn Yarn', function() {
     sandbox.spy(fs, 'outputFileAsync');
 
     // Build site.
-    let instance = new Yarn({
+    const instance = new Yarn({
       rootPath: getPathToSimpleMock()
     });
     await instance.loadState();
     await instance.build();
 
     for (let i = 0; i < fs.outputFileAsync.callCount; i++) {
-      let fileDestination = fs.outputFileAsync.getCall(i).args[0];
-      let fileDestinationRelative = fileDestination.replace(/(.*)_site\//, '');
-      let fileWritten = fs.outputFileAsync.getCall(i).args[1];
+      const fileDestination = fs.outputFileAsync.getCall(i).args[0];
+      const fileDestinationRelative = fileDestination.replace(
+        /(.*)_site\//, ''
+      );
+      const fileWritten = fs.outputFileAsync.getCall(i).args[1];
 
       // Make sure what Yarn built matches what we expect it to have built.
       assert.equal(fileWritten, simpleOneOutput[fileDestinationRelative]);

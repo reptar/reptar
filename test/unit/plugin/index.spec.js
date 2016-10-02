@@ -6,7 +6,7 @@ import Promise from 'bluebird';
 import Plugin from '../../../lib/plugin/index.js';
 
 describe('plugin/index Plugin', function() {
-  let handlerName = 'test:handler';
+  const handlerName = 'test:handler';
 
   afterEach(() => {
     Plugin._handlers = {};
@@ -14,7 +14,7 @@ describe('plugin/index Plugin', function() {
 
   describe('addEventHandler', function() {
     it('can add handlers', function() {
-      let handlerFn = sinon.spy();
+      const handlerFn = sinon.spy();
 
       Plugin.addEventHandler(handlerName, handlerFn);
 
@@ -37,7 +37,7 @@ describe('plugin/index Plugin', function() {
   describe('processEventHandlers', function() {
     describe('can invoke handlers when none exist', () => {
       it('with one passed argument', async () => {
-        let eventArg = 'hey man';
+        const eventArg = 'hey man';
         let newVal;
         try {
           newVal = await Plugin.processEventHandlers('bogus', eventArg);
@@ -49,7 +49,7 @@ describe('plugin/index Plugin', function() {
       });
 
       it('with multiple passed arguments', async () => {
-        let eventArgs = [
+        const eventArgs = [
           'the chicken',
           'is',
           5
@@ -72,11 +72,11 @@ describe('plugin/index Plugin', function() {
     });
 
     it('can invoke handlers sequentionally', async () => {
-      let noopFunc = sinon.spy(() => {
+      const noopFunc = sinon.spy(() => {
         // noop
       });
 
-      let promiseFn = sinon.spy((val) => {
+      const promiseFn = sinon.spy((val) => {
         return new Promise(resolve => {
           resolve(val);
         });
@@ -88,7 +88,7 @@ describe('plugin/index Plugin', function() {
       assert(_.isArray(Plugin._handlers[handlerName]));
       assert.equal(Plugin._handlers[handlerName].length, 2);
 
-      let handlerValue = 5;
+      const handlerValue = 5;
       let newVal;
 
       try {
@@ -105,10 +105,10 @@ describe('plugin/index Plugin', function() {
 
       assert.equal(newVal, handlerValue);
 
-      let modifierFn = sinon.spy((val) => {
+      const modifierFn = sinon.spy((val) => {
         return val * val;
       });
-      let trailingNoopFn = sinon.spy();
+      const trailingNoopFn = sinon.spy();
 
       Plugin.addEventHandler(handlerName, modifierFn);
       Plugin.addEventHandler(handlerName, trailingNoopFn);
@@ -129,7 +129,7 @@ describe('plugin/index Plugin', function() {
     });
 
     it('invokes handlers with multiple arguments', async () => {
-      let blankReturnFn = sinon.spy(() => {
+      const blankReturnFn = sinon.spy(() => {
         return;
       });
 
@@ -138,8 +138,8 @@ describe('plugin/index Plugin', function() {
       assert(_.isArray(Plugin._handlers[handlerName]));
       assert.equal(Plugin._handlers[handlerName].length, 1);
 
-      let argValue1 = {foo: 'bar'};
-      let argValue2 = 'a wonderful world';
+      const argValue1 = {foo: 'bar'};
+      const argValue2 = 'a wonderful world';
       let processedEventValue;
 
       try {
@@ -161,7 +161,7 @@ describe('plugin/index Plugin', function() {
 
     describe('throws when plugin handlers', () => {
       it('return only part of the arguments given', (done) => {
-        let eventHandlerFn = sinon.spy((arg1, arg2) => {
+        const eventHandlerFn = sinon.spy((arg1, arg2) => {
           return arg2;
         });
 
@@ -170,8 +170,8 @@ describe('plugin/index Plugin', function() {
         assert(_.isArray(Plugin._handlers[handlerName]));
         assert.equal(Plugin._handlers[handlerName].length, 1);
 
-        let argValue1 = {foo: 'bar'};
-        let argValue2 = 'a wonderful world';
+        const argValue1 = {foo: 'bar'};
+        const argValue2 = 'a wonderful world';
 
         Plugin.processEventHandlers(
           handlerName,
@@ -183,7 +183,7 @@ describe('plugin/index Plugin', function() {
       });
 
       it('returns arguments in wrong order given', (done) => {
-        let eventHandlerFn = sinon.spy((arg1, arg2) => {
+        const eventHandlerFn = sinon.spy((arg1, arg2) => {
           return [arg2, arg1];
         });
 
@@ -192,8 +192,8 @@ describe('plugin/index Plugin', function() {
         assert(_.isArray(Plugin._handlers[handlerName]));
         assert.equal(Plugin._handlers[handlerName].length, 1);
 
-        let argValue1 = {foo: 'bar'};
-        let argValue2 = 'a wonderful world';
+        const argValue1 = {foo: 'bar'};
+        const argValue2 = 'a wonderful world';
 
         Plugin.processEventHandlers(
           handlerName,

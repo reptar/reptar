@@ -23,7 +23,7 @@ describe('config/index Config', () => {
       sandbox.spy(Config.prototype, 'loadLocal');
       sandbox.spy(Config.prototype, 'update');
 
-      let instance = new Config();
+      const instance = new Config();
 
       assert.ok(instance);
       assert(typeof instance._raw === 'object');
@@ -37,9 +37,9 @@ describe('config/index Config', () => {
     it('calculates paths correctly', () => {
       sandbox.stub(Config.prototype, 'update').returns();
 
-      let root = '/root/';
+      const root = '/root/';
 
-      let instance = new Config();
+      const instance = new Config();
       instance._root = root;
 
       // Restore original update so we can actual test its behavior.
@@ -47,7 +47,7 @@ describe('config/index Config', () => {
 
       instance.update(fixture.configDefault());
 
-      let expectedConfig = fixture.configDefault();
+      const expectedConfig = fixture.configDefault();
 
       assert.equal(
         instance._raw.path.source,
@@ -83,9 +83,9 @@ describe('config/index Config', () => {
     });
 
     it('throws when given an invalid config object', () => {
-      let root = '/root/';
+      const root = '/root/';
 
-      let instance = new Config();
+      const instance = new Config();
       instance._root = root;
 
       const invalidConfigs = [

@@ -43,7 +43,7 @@ yargs
   .help('help')
   .default('help');
 
-let argv = yargs.argv;
+const argv = yargs.argv;
 
 console.log('yarn\n');
 
@@ -64,8 +64,8 @@ if (argv.version) {
   yargs.showHelp('log');
   process.exit(0);
 } else {
-  let command = argv._[0];
-  let commandHandler = commands[command];
+  const command = argv._[0];
+  const commandHandler = commands[command];
 
   if (!commandHandler) {
     log.warn('Unknown command: ' + argv._.join(' '));

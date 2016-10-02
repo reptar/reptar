@@ -14,10 +14,10 @@ configureMarkdownEngine();
 import File from '../../lib/file.js';
 
 describe('file File', () => {
-  let filePath = '/not/a/real/path';
+  const filePath = '/not/a/real/path';
 
-  let config = createMockConfig();
-  let getConfig = () => config;
+  const config = createMockConfig();
+  const getConfig = () => config;
 
   let sandbox;
   beforeEach(() => {
@@ -33,7 +33,7 @@ describe('file File', () => {
 
   describe('constructor', () => {
     it('can create an instance', () => {
-      let instance = new File(filePath, getConfig);
+      const instance = new File(filePath, getConfig);
 
       assert.ok(instance);
 
@@ -50,14 +50,14 @@ describe('file File', () => {
     it('called when permalink set', () => {
       sandbox.spy(File.prototype, '_calculateDestination');
 
-      let instance = new File(filePath, getConfig);
+      const instance = new File(filePath, getConfig);
 
       assert.ok(instance._calculateDestination.calledOnce);
     });
 
     it('allows custom file url property', () => {
       const permalinkValue = 'whee';
-      let instance = new File(filePath, getConfig);
+      const instance = new File(filePath, getConfig);
 
       // Should use filePath when no file url or permalink is et.
       assert.equal(instance.data.url, Url.makePretty(
@@ -84,7 +84,7 @@ describe('file File', () => {
   });
 
   it('has all proper values on its data object', () => {
-    let instance = new File(filePath, getConfig);
+    const instance = new File(filePath, getConfig);
 
     assert.strictEqual(instance.url, undefined);
     assert.equal(instance.data.url, Url.makePretty(

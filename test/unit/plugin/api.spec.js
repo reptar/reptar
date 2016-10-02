@@ -20,7 +20,7 @@ describe('plugin/api PluginAPI', function() {
   });
 
   it('creates methods for registering event handlers', function() {
-    let beforeSpy = sinon.spy();
+    const beforeSpy = sinon.spy();
     PluginAPI.event.file.beforeRender(beforeSpy);
 
     assert(_.isArray(Plugin._handlers[Plugin.Event.file.beforeRender]));
@@ -31,7 +31,7 @@ describe('plugin/api PluginAPI', function() {
     );
     assert.equal(beforeSpy.called, false);
 
-    let afterSpy = sinon.spy();
+    const afterSpy = sinon.spy();
     PluginAPI.event.file.afterRender(afterSpy);
     PluginAPI.event.file.afterRender(afterSpy);
 

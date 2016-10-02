@@ -16,8 +16,8 @@ import FileSystemCollection
   from '../../../../lib/collection/type/file-system.js';
 
 describe('collection/type/file-system FileSystemCollection', () => {
-  let config = createMockConfig();
-  let getConfig = () => config;
+  const config = createMockConfig();
+  const getConfig = () => config;
 
   let sandbox;
   beforeEach(() => {
@@ -32,8 +32,8 @@ describe('collection/type/file-system FileSystemCollection', () => {
 
   describe('_isFileInCollection', () => {
     it('is false if file\'s path is not within collection\'s path', () => {
-      let path = 'my/file/path';
-      let instance = new FileSystemCollection('name');
+      const path = 'my/file/path';
+      const instance = new FileSystemCollection('name');
       instance.path = path;
 
       let file = {
@@ -56,8 +56,8 @@ describe('collection/type/file-system FileSystemCollection', () => {
     });
 
     it('is true if file\'s path includes collection\'s path', () => {
-      let path = 'my/file/path';
-      let instance = new FileSystemCollection('name');
+      const path = 'my/file/path';
+      const instance = new FileSystemCollection('name');
       instance.path = path;
       sinon.stub(instance, '_isFileExcluded').returns(false);
 
@@ -75,8 +75,8 @@ describe('collection/type/file-system FileSystemCollection', () => {
     });
 
     it('is false if file\'s path is excluded from collection', () => {
-      let path = 'my/file/path';
-      let instance = new FileSystemCollection('name');
+      const path = 'my/file/path';
+      const instance = new FileSystemCollection('name');
       instance.path = path;
       sinon.stub(instance, '_isFileExcluded').returns(true);
 
@@ -96,7 +96,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
 
   describe('populate', () => {
     it('adds files to collection', () => {
-      let instance = new FileSystemCollection('name');
+      const instance = new FileSystemCollection('name');
       instance.path = 'ok';
       instance.permalink = '/my/:permalink';
       sinon.spy(instance, 'addFile');
@@ -105,7 +105,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
       sandbox.spy(CollectionBase, 'sortFiles');
       assert(_.isObject(instance.files));
 
-      let files = fixture.collectionFiles();
+      const files = fixture.collectionFiles();
       assert.deepEqual(instance.populate(files), instance);
       assert.equal(instance.addFile.callCount, 3);
       assert.equal(instance.createCollectionPages.calledOnce, true);
@@ -119,7 +119,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
     });
 
     it('does not add files to collection', () => {
-      let instance = new FileSystemCollection('name');
+      const instance = new FileSystemCollection('name');
       instance.path = 'ok';
       instance.permalink = '/my/:permalink';
       sinon.spy(instance, 'addFile');
@@ -128,7 +128,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
       sandbox.spy(CollectionBase, 'sortFiles');
       assert(_.isObject(instance.files));
 
-      let files = fixture.collectionFiles();
+      const files = fixture.collectionFiles();
       assert.deepEqual(instance.populate(files), instance);
       assert.equal(instance.addFile.callCount, 3);
       assert.equal(instance.createCollectionPages.calledOnce, true);
@@ -148,10 +148,10 @@ describe('collection/type/file-system FileSystemCollection', () => {
 
   describe('createCollectionPages', () => {
     it('adds files to collectionPages', () => {
-      let pageSize = 1;
+      const pageSize = 1;
 
-      let instance = new FileSystemCollection('name', undefined, getConfig);
-      let filesArray = fixture.collectionFiles();
+      const instance = new FileSystemCollection('name', undefined, getConfig);
+      const filesArray = fixture.collectionFiles();
       filesArray.forEach((file, index) => {
         instance.files[index] = file;
       });
@@ -175,7 +175,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
         assert(page instanceof CollectionPage);
         assert.deepEqual(page.data.files, [instance.files[index].data]);
 
-        let expectedPermalink = index === 0 ?
+        const expectedPermalink = index === 0 ?
           instance.pagination.permalinkIndex :
           instance.pagination.permalinkPage;
 
@@ -189,7 +189,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
           assert(_.isUndefined(page.data.prev));
           assert(_.isUndefined(page.data.prev_link));
         } else {
-          let previous = instance.pages[index - 1];
+          const previous = instance.pages[index - 1];
           assert.equal(page.data.prev, previous.data.page);
           assert.equal(page.data.prev_link, previous.data.url);
         }
@@ -198,7 +198,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
           assert(_.isUndefined(page.data.next));
           assert(_.isUndefined(page.data.next_link));
         } else {
-          let next = instance.pages[index + 1];
+          const next = instance.pages[index + 1];
           assert.equal(page.data.next, next.data.page);
           assert.equal(page.data.next_link, next.data.url);
         }
@@ -211,7 +211,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
   describe('createCollectionPages', () => {
     it('returns early if no pagination permalinks are set', () => {
       sandbox.spy(CollectionBase, 'sortFiles');
-      let instance = new FileSystemCollection('name');
+      const instance = new FileSystemCollection('name');
       assert.equal(instance.createCollectionPages(), false);
 
       instance.pagination = {};
@@ -228,7 +228,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
   });
 
   describe('_setExcludePaths', () => {
-    let excludeCollections = [
+    const excludeCollections = [
       {
         path: '/my/path'
       },
@@ -240,7 +240,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
     const excludePaths = excludeCollections.map(coll => coll.path);
 
     it('can set exclude paths', () => {
-      let instance = new FileSystemCollection('name', undefined, getConfig);
+      const instance = new FileSystemCollection('name', undefined, getConfig);
       assert(_.isUndefined(instance.path));
       assert(_.isArray(instance.excludePaths));
       assert.equal(instance.excludePaths.length, 0);
@@ -250,7 +250,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
     });
 
     it('does not add its own path to the exclude path array', () => {
-      let instance = new FileSystemCollection('name', undefined, getConfig);
+      const instance = new FileSystemCollection('name', undefined, getConfig);
       instance.path = excludePaths[0];
       assert(_.isArray(instance.excludePaths));
       assert.equal(instance.excludePaths.length, 0);
@@ -262,7 +262,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
 
   describe('_isFileExcluded', () => {
     it('is false when FileSystemCollection has no path', () => {
-      let instance = new FileSystemCollection('name');
+      const instance = new FileSystemCollection('name');
       assert(_.isUndefined(instance.path));
 
       assert.equal(instance._isFileExcluded(), false);
@@ -270,7 +270,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
     });
 
     it('is false when FileSystemCollection has metadata', () => {
-      let instance = new FileSystemCollection('name');
+      const instance = new FileSystemCollection('name');
       instance.metadata = 'dummy/path';
       instance.metadata = 'fixture.collectionMetadataKey';
 
@@ -280,7 +280,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
     });
 
     it('is false when no excludePaths are set', () => {
-      let instance = new FileSystemCollection('name');
+      const instance = new FileSystemCollection('name');
       instance.path = '/dummy/path';
       assert(_.isArray(instance.excludePaths));
       assert.equal(instance.excludePaths.length, 0);
@@ -295,15 +295,15 @@ describe('collection/type/file-system FileSystemCollection', () => {
     });
 
     it('is true if the file path is contained in our excludePaths', () => {
-      let path = '/dummy/path';
-      let instance = new FileSystemCollection('name');
+      const path = '/dummy/path';
+      const instance = new FileSystemCollection('name');
       instance.path = path;
       instance.excludePaths = [
         'another/path',
         path
       ];
 
-      let file = {
+      const file = {
         path: `a/long${path}`
       };
 
@@ -311,15 +311,15 @@ describe('collection/type/file-system FileSystemCollection', () => {
     });
 
     it('is false if the file path is not in our excludePaths', () => {
-      let path = '/dummy/path';
-      let instance = new FileSystemCollection('name');
+      const path = '/dummy/path';
+      const instance = new FileSystemCollection('name');
       instance.path = path;
       instance.excludePaths = [
         'another/path',
         path
       ];
 
-      let file = {
+      const file = {
         path: 'a/long/time/ago'
       };
 

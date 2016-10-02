@@ -30,9 +30,9 @@ describe('render Render', function() {
         args[args.length - 1]();
       });
 
-      let renderContent = 'hello world';
+      const renderContent = 'hello world';
 
-      let instance = new CollectionBase('name');
+      const instance = new CollectionBase('name');
       instance.files = fixture.collectionFiles().map(file => {
         file.render = sinon.spy(() => {
           return renderContent;
@@ -40,9 +40,9 @@ describe('render Render', function() {
         return file;
       });
 
-      let file = instance.files[0];
-      let beforeSpy = sinon.spy();
-      let afterSpy = sinon.spy((val, val2) => [val, val2]);
+      const file = instance.files[0];
+      const beforeSpy = sinon.spy();
+      const afterSpy = sinon.spy((val, val2) => [val, val2]);
       PluginAPI.event.file.beforeRender(beforeSpy);
       PluginAPI.event.file.afterRender(afterSpy);
 
@@ -76,13 +76,13 @@ describe('render Render', function() {
         args[args.length - 1]();
       });
 
-      let mockFile = {
+      const mockFile = {
         destination: './path/to/write/file'
       };
-      let content = 'this is the excellent content';
+      const content = 'this is the excellent content';
 
-      let beforeSpy = sinon.spy();
-      let afterSpy = sinon.spy((val) => val);
+      const beforeSpy = sinon.spy();
+      const afterSpy = sinon.spy((val) => val);
       PluginAPI.event.collection.beforeWrite(beforeSpy);
       PluginAPI.event.collection.afterWrite(afterSpy);
 
