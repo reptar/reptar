@@ -30,7 +30,6 @@ exports.collectionFiles = function() {
           this.permalink = val;
         },
         collections: {add: function(){}},
-        collectionPages: {add: function(){}},
         destination: './destination/path'
       },
       {
@@ -43,7 +42,6 @@ exports.collectionFiles = function() {
           this.permalink = val;
         },
         collections: {add: function(){}},
-        collectionPages: {add: function(){}},
         destination: './destination/path'
       },
       {
@@ -56,7 +54,6 @@ exports.collectionFiles = function() {
           this.permalink = val;
         },
         collections: {add: function(){}},
-        collectionPages: {add: function(){}},
         destination: './destination/path'
       }
     ]

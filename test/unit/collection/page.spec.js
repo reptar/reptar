@@ -78,26 +78,4 @@ describe('collection/page CollectionPage', () => {
       assert.deepEqual(instance.data, data);
     });
   });
-
-  describe('setFiles', () => {
-    it('adds pageId information to each file.', () => {
-      const files = fixture.collectionFiles().map(file => {
-        file.collectionPages = new Set();
-        return file;
-      });
-
-      const instance = new CollectionPage('id', 2);
-      instance.permalink = 'ok';
-
-      files.forEach(file => {
-        assert(!file.collectionPages.has(instance));
-      });
-
-      instance.setFiles(files);
-
-      files.forEach(file => {
-        assert.ok(file.collectionPages.has(instance));
-      });
-    });
-  });
 });
