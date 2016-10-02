@@ -1,11 +1,13 @@
 import assert from 'power-assert';
+import rewire from 'rewire';
 import sinon from 'sinon';
 import path from 'path';
 import _ from 'lodash';
 
 import fixture from '../../fixture';
 
-import Config from '../../../lib/config/index.js';
+const ConfigRewire = rewire('../../../lib/config/index.js');
+const Config = ConfigRewire.default;
 
 describe('config/index Config', () => {
 
@@ -20,7 +22,6 @@ describe('config/index Config', () => {
 
   describe('constructor', () => {
     it('can create an instance', () => {
-      sandbox.spy(Config.prototype, 'loadLocal');
       sandbox.spy(Config.prototype, 'update');
 
       const instance = new Config();
@@ -28,7 +29,6 @@ describe('config/index Config', () => {
       assert.ok(instance);
       assert(typeof instance._raw === 'object');
 
-      assert(instance.loadLocal.calledOnce === false);
       assert(instance.update.calledOnce === false);
     });
   });
@@ -45,7 +45,12 @@ describe('config/index Config', () => {
       // Restore original update so we can actual test its behavior.
       instance.update.restore();
 
-      instance.update(fixture.configDefault());
+      const revert = ConfigRewire.__set__(
+        'loadAndParseYaml',
+        sinon.stub().returns(fixture.configDefault())
+      );
+
+      instance.update();
 
       const expectedConfig = fixture.configDefault();
 
@@ -80,6 +85,8 @@ describe('config/index Config', () => {
       _.each(instance.path, (val, key) => {
         assert.equal(instance.path[key], instance._raw.path[key]);
       });
+
+      revert();
     });
 
     it('throws when given an invalid config object', () => {

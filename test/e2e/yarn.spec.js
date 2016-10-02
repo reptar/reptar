@@ -41,7 +41,7 @@ describe('yarn Yarn', function() {
 
   it('instantiates correctly', function() {
     sandbox.spy(Yarn.prototype, 'updateConfig');
-    sandbox.spy(Config.prototype, 'setRoot');
+    sandbox.spy(Config.prototype, 'update');
     sandbox.spy(Theme.prototype, 'setGetConfig');
 
     const instance = new Yarn({
@@ -50,7 +50,7 @@ describe('yarn Yarn', function() {
     assert.equal(instance.updateConfig.callCount, 1);
 
     assert(instance.config instanceof Config);
-    assert.equal(instance.config.setRoot.callCount, 1);
+    assert.equal(instance.config.update.callCount, 1);
 
     assert(instance.theme instanceof Theme);
     assert.equal(instance.theme.setGetConfig.callCount, 1);
