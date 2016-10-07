@@ -50,6 +50,47 @@ describe('url Url', function() {
     });
   });
 
+  describe('replaceMarkdownExtension', function() {
+    it('replaces known markdown extensions', function() {
+      const markdownExtensions = [
+        'md',
+        'markdown',
+      ];
+
+      assert.equal(
+        Url.replaceMarkdownExtension(
+          '/_posts/hello-world.md',
+          markdownExtensions
+        ),
+        '/_posts/hello-world.html'
+      );
+
+      assert.equal(
+        Url.replaceMarkdownExtension(
+          '/_posts/hello-world.markdown',
+          markdownExtensions
+        ),
+        '/_posts/hello-world.html'
+      );
+
+      assert.equal(
+        Url.replaceMarkdownExtension(
+          '/_posts/hello-world.mkdown',
+          markdownExtensions
+        ),
+        '/_posts/hello-world.mkdown'
+      );
+
+      assert.equal(
+        Url.replaceMarkdownExtension(
+          '/_posts/hello-world.html',
+          markdownExtensions
+        ),
+        '/_posts/hello-world.html'
+      );
+    });
+  });
+
   describe('makeUrlFileSystemSafe', function() {
     it('appends index.html to a url that has no file extension', function() {
       assert.equal(Url.makeUrlFileSystemSafe('/my-beautiful-html-permalink'),
