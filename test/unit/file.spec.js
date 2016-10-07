@@ -176,7 +176,7 @@ describe('file File', () => {
       assert.equal(instance.url, undefined);
 
       // Should use permalink value when no url is set.
-      instance.permalink = permalinkValue;
+      instance.data.permalink = permalinkValue;
       instance._calculateDestination();
       assert.equal(instance.data.url, Url.makePretty(
         Url.makeUrlFileSystemSafe(permalinkValue)
@@ -186,7 +186,7 @@ describe('file File', () => {
       // Should use File url if set.
       const customPermalinkValue = 'customPermalinkValue';
       instance.frontmatter.url = customPermalinkValue;
-      instance.permalink = permalinkValue;
+      instance.data.permalink = permalinkValue;
       instance._calculateDestination();
       assert.equal(instance.data.url, Url.makePretty(
         Url.makeUrlFileSystemSafe(customPermalinkValue)
@@ -208,14 +208,16 @@ describe('file File', () => {
       )
     ));
 
-    instance.permalink = 'whee';
+    const permalink = 'whee';
+    instance.data.permalink = permalink;
     instance._calculateDestination();
 
     assert.deepEqual(instance.data, {
       content: fixture.frontmatterJSON.content,
       title: fixture.frontmatterJSON.data.title,
+      permalink,
       url: Url.makePretty(
-        Url.makeUrlFileSystemSafe(instance.permalink)
+        Url.makeUrlFileSystemSafe(instance.data.permalink)
       )
     });
   });
