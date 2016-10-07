@@ -113,7 +113,6 @@ describe('collection/type/file-system FileSystemCollection', () => {
       assert(_.isUndefined(instance.metadataFiles));
 
       files.forEach((file, index)=> {
-        assert.equal(file.permalink, instance.permalink);
         assert.equal(file.data, instance.data.files[index]);
       });
     });

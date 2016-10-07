@@ -26,13 +26,27 @@ file:
   # What key from a File's frontmatter Yarn should use
   # as the property to grab the URL of the file from.
   url_key: url
+  defaults:
+    -
+      scope:
+         # Any file in this path will have the default values applied.
+         path: ./_posts
+      values:
+        template: post
+        permalink: /:title/
+    -
+      scope:
+         # Any file with this matching metadata will have the default values applied.
+         metadata:
+           draft: true
+      values:
+        template: draft
 
 # This is where you configure your collections of content.
 # For more details refer to the Collections documentation.
 collections:
   default:
     path: ./
-    template: page
   favicon:
     path: favicon.ico
     static: true
@@ -41,8 +55,6 @@ collections:
     static: true
   post:
     path: ./_posts
-    template: post
-    permalink: /:title/
     filter:
       metadata:
         draft: true

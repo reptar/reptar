@@ -34,18 +34,22 @@ describe('config/index Config', () => {
   });
 
   describe('update', () => {
-    it('calculates paths correctly', () => {
-      sandbox.stub(Config.prototype, 'update').returns();
+    let revert;
 
+    afterEach(() => {
+      if (_.isFunction(revert)) {
+        revert();
+        revert = null;
+      }
+    });
+
+    it('calculates paths correctly', () => {
       const root = '/root/';
 
       const instance = new Config();
       instance._root = root;
 
-      // Restore original update so we can actual test its behavior.
-      instance.update.restore();
-
-      const revert = ConfigRewire.__set__(
+      revert = ConfigRewire.__set__(
         'loadAndParseYaml',
         sinon.stub().returns(fixture.configDefault())
       );
@@ -85,8 +89,6 @@ describe('config/index Config', () => {
       _.each(instance.path, (val, key) => {
         assert.equal(instance.path[key], instance._raw.path[key]);
       });
-
-      revert();
     });
 
     it('throws when given an invalid config object', () => {
@@ -105,7 +107,108 @@ describe('config/index Config', () => {
       ];
 
       invalidConfigs.forEach(config => {
-        assert.throws(() => instance.update(config));
+        revert = ConfigRewire.__set__(
+          'loadAndParseYaml',
+          sinon.stub().returns(config)
+        );
+
+        assert.throws(() => instance.update(), JSON.stringify(config));
+      });
+    });
+
+    it('sorts file defaults in correct precedence order', () => {
+      const root = '/root/';
+
+      const instance = new Config();
+      instance._root = root;
+
+      const expectedFileDefaultsOrder = [
+        {
+          scope: {
+            metadata: {
+              foo: 'bar',
+            },
+          },
+          values: {},
+        },
+        {
+          scope: {
+            path: './'
+          },
+          values: {},
+        },
+        {
+          scope: {
+            path: './_posts/',
+          },
+          values: {},
+        },
+        {
+          scope: {
+            path: './_posts/',
+            metadata: {
+              foo: 'bar',
+            },
+          },
+          values: {},
+        },
+        {
+          scope: {
+            path: './_posts/',
+            metadata: {
+              draft: true,
+            },
+          },
+          values: {},
+        },
+        {
+          scope: {
+            path: './_posts/2016'
+          },
+          values: {},
+        },
+      ];
+
+      // Test 3 random orderings.
+      _.times(3, () => {
+        revert = ConfigRewire.__set__(
+          'loadAndParseYaml',
+          sinon.stub().returns({
+            ...fixture.configDefault(),
+            path: {
+              source: './'
+            },
+            file: {
+              defaults: _.shuffle(expectedFileDefaultsOrder),
+            },
+          })
+        );
+
+        instance.update();
+
+        instance.get('file.defaults').forEach((defaultObj, index) => {
+          // Ignore index 3 and 4 as they are sorted by the order in which
+          // they are given. They can be in either order depending on what
+          // the _.shuffle operation does.
+          // This is safe to ignore as everything else has a known expected
+          // order.
+          if (index === 3 || index === 4) {
+            return;
+          }
+
+          const expectedObj = _.cloneDeep(expectedFileDefaultsOrder[index]);
+          if (expectedObj.scope.path != null) {
+            expectedObj.scope.path = path.resolve(
+              root,
+              expectedObj.scope.path
+            );
+          }
+
+          assert.deepEqual(
+            defaultObj,
+            expectedObj
+          );
+        });
       });
     });
   });

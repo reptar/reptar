@@ -26,9 +26,6 @@ exports.collectionFiles = function() {
           some: 'data',
           [exports.collectionMetadataKey]: 'norman'
         },
-        setPermalink: function(val) {
-          this.permalink = val;
-        },
         collections: {add: function(){}},
         destination: './destination/path'
       },
@@ -38,9 +35,6 @@ exports.collectionFiles = function() {
           good: 'morning',
           [exports.collectionMetadataKey]: ['norman', 'rockwell']
         },
-        setPermalink: function(val) {
-          this.permalink = val;
-        },
         collections: {add: function(){}},
         destination: './destination/path'
       },
@@ -49,9 +43,6 @@ exports.collectionFiles = function() {
         data: {
           happy: 'wednesday',
           [exports.collectionMetadataKey]: null
-        },
-        setPermalink: function(val) {
-          this.permalink = val;
         },
         collections: {add: function(){}},
         destination: './destination/path'
