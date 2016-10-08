@@ -110,6 +110,14 @@ describe('url Url', function() {
       assert.equal(Url.makeUrlFileSystemSafe('/html/goes-here.html'),
         '/html/goes-here.html'
       );
+
+      assert.equal(Url.makeUrlFileSystemSafe('/html/image.png'),
+        '/html/image.png'
+      );
+
+      assert.equal(Url.makeUrlFileSystemSafe('/html/index.gif'),
+        '/html/index.gif'
+      );
     });
   });
 
@@ -134,6 +142,18 @@ describe('url Url', function() {
       );
 
       url = '/no-time-to-wasteindex.html';
+      assert.equal(
+        Url.makePretty(url),
+        url
+      );
+
+      url = '/favicon.ico';
+      assert.equal(
+        Url.makePretty(url),
+        url
+      );
+
+      url = '/images/index.gif';
       assert.equal(
         Url.makePretty(url),
         url
