@@ -40,8 +40,6 @@ describe('collection/base CollectionBase', () => {
       assert(_.isUndefined(instance.metadata));
       assert(_.isUndefined(instance.template));
       assert(_.isUndefined(instance.permalink));
-      assert(_.isUndefined(instance.static));
-      assert(_.isUndefined(instance.staticDestination));
       assert(_.isUndefined(instance.sort));
       assert(_.isUndefined(instance.pagination));
       assert(_.isUndefined(instance.files));

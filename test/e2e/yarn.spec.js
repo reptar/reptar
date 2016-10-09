@@ -32,6 +32,7 @@ describe('yarn Yarn', function() {
 
     // Don't actually save cache to file system.
     sandbox.stub(cache, 'save');
+    sandbox.stub(fs, 'copy', (path, dest, cb) => setTimeout(cb, 0));
   });
 
   afterEach(() => {

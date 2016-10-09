@@ -26,6 +26,9 @@ file:
   # What key from a File's frontmatter Yarn should use
   # as the property to grab the URL of the file from.
   url_key: url
+  # Apply frontmatter values to a File based upon a defined scope.
+  # If the scope matches a File then the default values are applied if they
+  # are not already set.
   defaults:
     -
       scope:
@@ -45,14 +48,6 @@ file:
 # This is where you configure your collections of content.
 # For more details refer to the Collections documentation.
 collections:
-  default:
-    path: ./
-  favicon:
-    path: favicon.ico
-    static: true
-  images:
-    path: ./images
-    static: true
   post:
     path: ./_posts
     filter:

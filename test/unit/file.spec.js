@@ -2,7 +2,7 @@ import _ from 'lodash';
 import assert from 'power-assert';
 import path from 'path';
 import sinon from 'sinon';
-import fs from 'fs';
+import fs from 'fs-extra';
 
 import fixture from '../fixture';
 import {
@@ -10,6 +10,7 @@ import {
 } from '../utils';
 
 import Url from '../../lib/url';
+import Parse from '../../lib/parse';
 import {configureMarkdownEngine} from '../../lib/markdown.js';
 configureMarkdownEngine();
 
@@ -25,8 +26,13 @@ describe('file File', () => {
   beforeEach(() => {
     sandbox = sinon.sandbox.create();
 
-    sandbox.stub(fs, 'readFileSync')
-      .withArgs(filePath, 'utf8').returns(fixture.frontmatterString);
+    const readFileStub = (file, opts, cb) =>
+      cb(null, fixture.frontmatterString);
+
+    sandbox.stub(fs, 'readFile', readFileStub)
+      .withArgs(filePath, 'utf8');
+
+    sandbox.stub(Parse, 'fileHasFrontmatter').returns(true);
   });
 
   afterEach(() => {
@@ -34,8 +40,9 @@ describe('file File', () => {
   });
 
   describe('constructor', () => {
-    it('can create an instance', () => {
+    it('can create an instance', async () => {
       const instance = new File(filePath, getConfig);
+      await instance.update();
 
       assert.ok(instance);
 
@@ -46,10 +53,11 @@ describe('file File', () => {
       assert.ok(instance.data.content, fixture.frontmatterJSON.content);
     });
 
-    it('calculates destination path', () => {
+    it('calculates destination path', async () => {
       sandbox.spy(File.prototype, '_calculateDestination');
 
       const instance = new File(filePath, getConfig);
+      await instance.update();
 
       assert.ok(instance._calculateDestination.calledOnce);
       assert.ok(instance.destination);
@@ -95,24 +103,31 @@ describe('file File', () => {
     const getConfig = () => config;
 
     function createFile(filePathParts, additionalFrontmatter = {}) {
-      sandbox.restore();
+      return async () => {
+        sandbox.restore();
 
-      const filePath = path.join(config.get('path.source'), ...filePathParts);
+        const filePath = path.join(config.get('path.source'), ...filePathParts);
 
-      sandbox.stub(fs, 'readFileSync')
-        .withArgs(filePath, 'utf8').returns(fixture.frontmatterString);
+        const readFileStub = (file, opts, cb) =>
+          cb(null, fixture.frontmatterString);
 
-      const instance = new File(filePath, getConfig);
-      _.extend(instance.frontmatter, additionalFrontmatter);
-      instance.defaults = instance._gatherDefaults();
-      // Mimic internal File.update behavior to copy over data.
-      _.merge(instance.data, instance.defaults, instance.frontmatter);
+        sandbox.stub(fs, 'readFile', readFileStub)
+          .withArgs(filePath, 'utf8');
+        sandbox.stub(Parse, 'fileHasFrontmatter').returns(true);
 
-      return instance;
+        const instance = new File(filePath, getConfig);
+        await instance.update();
+        _.extend(instance.frontmatter, additionalFrontmatter);
+        instance.defaults = instance._gatherDefaults();
+        // Mimic internal File.update behavior to copy over data.
+        _.merge(instance.data, instance.defaults, instance.frontmatter);
+
+        return instance;
+      };
     }
 
     it('applies default values that match', () => {
-      [
+      const promises = [
         [
           createFile(['..', 'test.md']),
           {},
@@ -145,7 +160,8 @@ describe('file File', () => {
             defaults[0].values,
           )
         ],
-      ].forEach(([instance, expectedValue]) => {
+      ].map(async ([creator, expectedValue]) => {
+        const instance = await creator();
         assert.deepEqual(instance.defaults, expectedValue);
         assert.ok(_.isMatch(instance.data, instance.frontmatter));
 
@@ -156,13 +172,16 @@ describe('file File', () => {
           assert.ok(instance.data[expectedKey] != null);
         });
       });
+
+      return Promise.all(promises);
     });
   });
 
   describe('_calculateDestination', () => {
-    it('allows custom file url property', () => {
+    it('allows custom file url property', async () => {
       const permalinkValue = 'whee';
       const instance = new File(filePath, getConfig);
+      await instance.update();
 
       // Should use filePath when no file url or permalink is et.
       assert.equal(instance.data.url, Url.makePretty(
@@ -195,8 +214,9 @@ describe('file File', () => {
     });
   });
 
-  it('has all proper values on its data object', () => {
+  it('has all proper values on its data object', async () => {
     const instance = new File(filePath, getConfig);
+    await instance.update();
 
     assert.strictEqual(instance.url, undefined);
     assert.equal(instance.data.url, Url.makePretty(
