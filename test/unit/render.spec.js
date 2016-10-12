@@ -49,7 +49,6 @@ describe('render Render', function() {
       try {
         await renderAndWriteFileWithPlugins(
           file,
-          file.template,
           {},
           Plugin.Event.file.beforeRender,
           Plugin.Event.file.afterRender
@@ -62,7 +61,7 @@ describe('render Render', function() {
       assert.ok(beforeSpy.calledWith(file));
 
       assert.equal(file.render.callCount, 1);
-      assert.ok(file.render.calledWith(instance.template, {}));
+      assert.ok(file.render.calledWith({}));
 
       assert.equal(afterSpy.callCount, 1);
       assert.ok(afterSpy.calledWith(file, renderContent));
