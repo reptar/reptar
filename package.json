@@ -1,7 +1,7 @@
 {
-  "name": "yarnjs",
+  "name": "reptar",
   "version": "1.4.0",
-  "description": "spin your own yarn",
+  "description": "a static site generator that roars",
   "main": "./dist/lib/index.js",
   "scripts": {
     "compile": "babel lib --out-dir dist/lib && babel bin --out-dir dist/bin",
@@ -13,7 +13,7 @@
     "coverage": "babel-node ./node_modules/.bin/isparta cover ./node_modules/mocha/bin/_mocha -- --recursive",
     "coveralls": "babel-node ./node_modules/.bin/isparta cover --report lcovonly ./node_modules/mocha/bin/_mocha -- --recursive && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
-  "repository": "yarnjs/yarn",
+  "repository": "reptar/reptar",
   "keywords": [
     "blog",
     "blogging",

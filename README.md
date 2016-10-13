@@ -1,10 +1,14 @@
-# yarn
+# reptar
 
 [![npm version][npm-badge]][npm-url]
 [![Build Status][travis-badge]][travis-url]
 [![Coverage Status][coveralls-badge]][coveralls-url]
 
-spin your own yarn.  (a static site generator)
+the static site generator formerly known as yarn. names are hard and it's better to be distinct (especially when a [new wildly popular library](https://yarnpkg.com/) is released with the same name).
+
+bear with me as I transfer over all names to the new and improved, reptar!
+
+![](./reptar.png)
 
 ---
 
