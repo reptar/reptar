@@ -1,7 +1,7 @@
 {
-  "name": "yarnjs",
+  "name": "reptar",
   "version": "1.4.0",
-  "description": "spin your own yarn",
+  "description": "a static site generator that roars",
   "main": "./dist/lib/index.js",
   "scripts": {
     "compile": "babel lib --out-dir dist/lib && babel bin --out-dir dist/bin",
@@ -33,7 +33,7 @@
       "commit-msg": "validate-commit-msg"
     }
   },
-  "repository": "yarnjs/yarn",
+  "repository": "reptar/reptar",
   "keywords": [
     "blog",
     "blogging",
