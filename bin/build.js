@@ -6,7 +6,7 @@ export default function(options) {
   console.log('');
 
   var yarn = new Yarn(options);
-  yarn.loadState()
+  yarn.update()
     .then(yarn.build.bind(yarn))
     .then(function() {
       console.log('');

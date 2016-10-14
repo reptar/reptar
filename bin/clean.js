@@ -3,7 +3,8 @@ import Yarn from '../lib';
 export default function() {
 
   var yarn = new Yarn();
-  yarn.cleanDestination()
+  yarn.update()
+    .then(yarn.cleanDestination.bind(yarn))
     .then(function() {
       process.exit(0);
     })

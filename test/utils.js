@@ -4,5 +4,7 @@ const Config = ConfigRewire.default;
 
 export function createMockConfig(config = {}) {
   ConfigRewire.__set__('loadAndParseYaml', () => config);
-  return Config.create('');
+  const instance = new Config('');
+  instance.update();
+  return instance;
 }

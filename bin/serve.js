@@ -2,7 +2,8 @@ import liveServer from 'live-server';
 import Config from '../lib/config';
 
 export default function() {
-  const config = Config.create();
+  const config = new Config();
+  config.update();
 
   liveServer.start({
     port: config.get('server.port'),

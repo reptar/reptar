@@ -24,7 +24,7 @@ describe('config/index Config', () => {
     it('can create an instance', () => {
       sandbox.spy(Config.prototype, 'update');
 
-      const instance = new Config();
+      const instance = new Config('');
 
       assert.ok(instance);
       assert(typeof instance._raw === 'object');
@@ -46,8 +46,8 @@ describe('config/index Config', () => {
     it('calculates paths correctly', () => {
       const root = '/root/';
 
-      const instance = new Config();
-      instance._root = root;
+      const instance = new Config('');
+      instance.root = root;
 
       revert = ConfigRewire.__set__(
         'loadAndParseYaml',
@@ -94,8 +94,8 @@ describe('config/index Config', () => {
     it('throws when given an invalid config object', () => {
       const root = '/root/';
 
-      const instance = new Config();
-      instance._root = root;
+      const instance = new Config('');
+      instance.root = root;
 
       const invalidConfigs = [
         {
@@ -119,8 +119,8 @@ describe('config/index Config', () => {
     it('sorts file defaults in correct precedence order', () => {
       const root = '/root/';
 
-      const instance = new Config();
-      instance._root = root;
+      const instance = new Config('');
+      instance.root = root;
 
       const expectedFileDefaultsOrder = [
         {

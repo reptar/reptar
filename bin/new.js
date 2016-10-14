@@ -35,7 +35,8 @@ export default function(args) {
     process.exit(0);
   }
 
-  const config = Config.create();
+  const config = new Config();
+  config.update();
 
   function promptHandler(data) {
     // Set date to now.

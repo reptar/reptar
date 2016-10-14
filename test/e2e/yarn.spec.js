@@ -40,15 +40,18 @@ describe('yarn Yarn', function() {
     restoreMockFs();
   });
 
-  it('instantiates correctly', function() {
-    sandbox.spy(Yarn.prototype, 'updateConfig');
+  it('instantiates correctly', async function() {
+    sandbox.spy(Yarn.prototype, 'update');
     sandbox.spy(Config.prototype, 'update');
     sandbox.spy(Theme.prototype, 'setGetConfig');
 
     const instance = new Yarn({
       rootPath: getPathToSimpleMock()
     });
-    assert.equal(instance.updateConfig.callCount, 1);
+    assert.equal(instance.update.callCount, 0);
+
+    await instance.update();
+    assert.equal(instance.update.callCount, 1);
 
     assert(instance.config instanceof Config);
     assert.equal(instance.config.update.callCount, 1);
@@ -69,7 +72,7 @@ describe('yarn Yarn', function() {
     const instance = new Yarn({
       rootPath: getPathToSimpleMock()
     });
-    await instance.loadState();
+    await instance.update();
     await instance.build();
 
     for (let i = 0; i < fs.outputFileAsync.callCount; i++) {

@@ -23,7 +23,7 @@ export default function() {
     noTemplateCache: true
   });
 
-  yarn.loadState()
+  yarn.update()
     .catch(function(e) {
       log.error(e.stack);
       throw e;
@@ -65,7 +65,7 @@ export default function() {
       let promise;
       // If `_config.yml` changed then re-load from fs.
       if (path.indexOf(YAML.CONFIG) > -1) {
-        promise = yarn.reload();
+        promise = yarn.update();
       } else {
         promise = Promise.resolve();
       }
@@ -98,7 +98,7 @@ export default function() {
       log.info('Theme file changed at: ' + path);
       const id = activity.start('Rebuilding...');
 
-      yarn.reload()
+      yarn.update()
         .then(function() {
           return yarn.build();
         }).then(function() {
