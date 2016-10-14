@@ -3,8 +3,12 @@
   "version": "1.4.0",
   "description": "a static site generator that roars",
   "main": "./dist/lib/index.js",
+  "bin": {
+    "reptar": "./dist/bin/reptar.js",
+    "reptar-debug": "./bin/reptar-debug.js"
+  },
   "scripts": {
-    "compile": "babel lib --out-dir dist/lib && babel bin --out-dir dist/bin",
+    "compile": "babel lib --out-dir dist/lib && babel bin --out-dir dist/bin && cp lib/config/config_example.yml dist/lib/config/config_example.yml",
     "prepublish": "NODE_ENV=production npm run compile",
     "test": "mocha --recursive --require ./test/setup.js --reporter spec",
     "test:unit": "npm test -- test/unit",
@@ -27,7 +31,7 @@
         "chore",
         "revert"
       ],
-      "helpMessage": "\nYarn is using standard-version as its commit message convention.\nPlease consult https://github.com/conventional-changelog/standard-version#commit-message-convention-at-a-glance \nfor documentation on how to format your commit message."
+      "helpMessage": "\nReptar is using standard-version as its commit message convention.\nPlease consult https://github.com/conventional-changelog/standard-version#commit-message-convention-at-a-glance \nfor documentation on how to format your commit message."
     },
     "ghooks": {
       "commit-msg": "validate-commit-msg"
@@ -35,6 +39,7 @@
   },
   "repository": "reptar/reptar",
   "keywords": [
+    "reptar",
     "blog",
     "blogging",
     "static",
@@ -46,7 +51,7 @@
   "engines": {
     "node": ">=4.0.0"
   },
-  "preferGlobal": true,
+  "preferGlobal": false,
   "dependencies": {
     "activity-logger": "^1.4.0",
     "babel-polyfill": "^6.16.0",
@@ -82,8 +87,7 @@
     "uglifyify": "^3.0.3",
     "yargs": "^5.0.0",
     "yarn-excerpt": "0.7.0",
-    "yarn-html-minifier": "^0.6.1",
-    "yarn-scaffold": "^0.7.0"
+    "yarn-html-minifier": "^0.6.1"
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",

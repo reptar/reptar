@@ -12,7 +12,7 @@ describe('json JSON', function() {
 
       assert(_.isEqual(
         Array.from(plugins),
-        ['yarn-excerpt', 'yarn-html-minifier', 'yarn-scaffold']
+        ['yarn-excerpt', 'yarn-html-minifier']
       ));
     });
   });
