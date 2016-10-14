@@ -1,5 +1,5 @@
 ---
-title: My First Yarn
+title: My First Post
 date: 2015-01-01T12:12:12.123Z
 tags:
 - meta

@@ -11,7 +11,7 @@ import {
 } from '../fixtures';
 import fs from 'fs-extra';
 
-import Yarn from '../../lib/index.js';
+import Reptar from '../../lib/index.js';
 import cache from '../../lib/cache.js';
 import Config from '../../lib/config/index.js';
 import Theme from '../../lib/theme/index.js';
@@ -19,7 +19,7 @@ import Theme from '../../lib/theme/index.js';
 import log from '../../lib/log.js';
 log.setSilent(true);
 
-describe('yarn Yarn', function() {
+describe('reptar Reptar', function() {
   this.timeout(5000);
 
   let sandbox;
@@ -41,11 +41,11 @@ describe('yarn Yarn', function() {
   });
 
   it('instantiates correctly', async function() {
-    sandbox.spy(Yarn.prototype, 'update');
+    sandbox.spy(Reptar.prototype, 'update');
     sandbox.spy(Config.prototype, 'update');
     sandbox.spy(Theme.prototype, 'setGetConfig');
 
-    const instance = new Yarn({
+    const instance = new Reptar({
       rootPath: getPathToSimpleMock()
     });
     assert.equal(instance.update.callCount, 0);
@@ -69,7 +69,7 @@ describe('yarn Yarn', function() {
     sandbox.spy(fs, 'outputFileAsync');
 
     // Build site.
-    const instance = new Yarn({
+    const instance = new Reptar({
       rootPath: getPathToSimpleMock()
     });
     await instance.update();
@@ -82,7 +82,7 @@ describe('yarn Yarn', function() {
       );
       const fileWritten = fs.outputFileAsync.getCall(i).args[1];
 
-      // Make sure what Yarn built matches what we expect it to have built.
+      // Make sure what Reptar built matches what we expect it to have built.
       assert.equal(fileWritten, simpleOneOutput[fileDestinationRelative]);
     }
   });

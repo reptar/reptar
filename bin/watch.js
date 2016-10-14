@@ -3,7 +3,7 @@ import activity from 'activity-logger';
 import _ from 'lodash';
 import log from '../lib/log';
 import { YAML } from '../lib/constants';
-import Yarn from '../lib';
+import Reptar from '../lib';
 import chokidar from 'chokidar';
 import serve from './serve';
 
@@ -15,7 +15,7 @@ export default function() {
 
   const startActivity = activity.start('Starting watching files.');
 
-  const yarn = new Yarn({
+  const reptar = new Reptar({
     // Turn on incremental building.
     incremental: true,
 
@@ -23,13 +23,13 @@ export default function() {
     noTemplateCache: true
   });
 
-  yarn.update()
+  reptar.update()
     .catch(function(e) {
       log.error(e.stack);
       throw e;
     });
 
-  const configPath = yarn.getConfig().get('path');
+  const configPath = reptar.getConfig().get('path');
 
   const watcher = chokidar.watch([
     configPath.source
@@ -65,15 +65,15 @@ export default function() {
       let promise;
       // If `_config.yml` changed then re-load from fs.
       if (path.indexOf(YAML.CONFIG) > -1) {
-        promise = yarn.update();
+        promise = reptar.update();
       } else {
         promise = Promise.resolve();
       }
 
       promise.then(function() {
-        return yarn.readFiles(path);
+        return reptar.readFiles(path);
       }).then(function() {
-        return yarn.build();
+        return reptar.build();
       }).then(() => {
         activity.end(id);
 
@@ -98,9 +98,9 @@ export default function() {
       log.info('Theme file changed at: ' + path);
       const id = activity.start('Rebuilding...');
 
-      yarn.update()
+      reptar.update()
         .then(function() {
-          return yarn.build();
+          return reptar.build();
         }).then(function() {
           activity.end(id);
 

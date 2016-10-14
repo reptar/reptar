@@ -92,9 +92,9 @@ export default function init() {
     runCmd('npm', ['init', '--yes']);
 
     const npmPackages = [
-      'yarn-excerpt',
-      'yarn-html-minifier',
-      'yarn-theme-thread',
+      'reptar-excerpt',
+      'reptar-html-minifier',
+      'reptar-theme-thread',
     ];
     runCmd('npm', ['install', '--save'].concat(npmPackages));
 

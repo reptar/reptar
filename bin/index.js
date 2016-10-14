@@ -20,7 +20,7 @@ const commands = {
 };
 
 yargs
-  .command('init', 'scaffold a new yarn site')
+  .command('init', 'scaffold a new reptar site')
   .command('new', 'create new content')
   .command('build', 'build your site')
   .command('clean', 'cleans destination folder')
@@ -45,7 +45,7 @@ yargs
 
 const argv = yargs.argv;
 
-console.log('yarn\n');
+console.log('reptar\n');
 
 if (argv.verbose) {
   log.setLogLevel('verbose');

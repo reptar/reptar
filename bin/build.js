@@ -1,13 +1,13 @@
 import log from '../lib/log';
-import Yarn from '../lib';
+import Reptar from '../lib';
 
 export default function(options) {
   const id = log.startActivity('building\t\t\t');
   console.log('');
 
-  var yarn = new Yarn(options);
-  yarn.update()
-    .then(yarn.build.bind(yarn))
+  const reptar = new Reptar(options);
+  reptar.update()
+    .then(reptar.build.bind(reptar))
     .then(function() {
       console.log('');
       log.endActivity(id);
