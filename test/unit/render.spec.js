@@ -6,8 +6,7 @@ import Plugin from '../../lib/plugin/index.js';
 const PluginAPI = Plugin.API;
 import CollectionBase from '../../lib/collection/base.js';
 import {
-  writeToDiskWithPlugins,
-  renderAndWriteFileWithPlugins,
+  renderFileWithPlugins,
 } from '../../lib/render.js';
 
 describe('render Render', function() {
@@ -47,7 +46,7 @@ describe('render Render', function() {
       PluginAPI.event.file.afterRender(afterSpy);
 
       try {
-        await renderAndWriteFileWithPlugins(
+        await renderFileWithPlugins(
           file,
           {},
           Plugin.Event.file.beforeRender,
@@ -65,48 +64,6 @@ describe('render Render', function() {
 
       assert.equal(afterSpy.callCount, 1);
       assert.ok(afterSpy.calledWith(file, renderContent));
-    });
-  });
-
-  describe('writeToDiskWithPlugins', () => {
-    it('calls all functions in expected order', async () => {
-      sandbox.stub(fs, 'outputFile', function(...args) {
-        // Call callback.
-        args[args.length - 1]();
-      });
-
-      const mockFile = {
-        destination: './path/to/write/file'
-      };
-      const content = 'this is the excellent content';
-
-      const beforeSpy = sinon.spy();
-      const afterSpy = sinon.spy((val) => val);
-      PluginAPI.event.collection.beforeWrite(beforeSpy);
-      PluginAPI.event.collection.afterWrite(afterSpy);
-
-      try {
-        await writeToDiskWithPlugins(mockFile, content);
-      } catch (e) {
-        console.log(e);
-      }
-
-      assert.equal(beforeSpy.callCount, 1);
-      assert.ok(beforeSpy.calledWith(mockFile, content));
-
-      assert.equal(fs.outputFile.callCount, 1);
-      assert.ok(fs.outputFile.calledWith(
-        mockFile.destination,
-        content,
-        'utf8'
-      ));
-
-      assert.equal(afterSpy.callCount, 1);
-      assert.ok(afterSpy.calledWith(mockFile, content));
-
-      assert.ok(beforeSpy.calledBefore(fs.outputFile));
-      assert.ok(fs.outputFile.calledBefore(afterSpy));
-      assert.ok(afterSpy.calledBefore(writeToDiskWithPlugins));
     });
   });
 });

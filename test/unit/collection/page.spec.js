@@ -54,8 +54,8 @@ describe('collection/page CollectionPage', () => {
       const instance = new CollectionPage(id, index);
 
       assert.equal(instance.id, `${id}:${index}`);
-      assert.equal(instance._collectionId, id);
-      assert.equal(instance._index, index);
+      assert.equal(instance.collectionId, id);
+      assert.equal(instance.index, index);
       assert.equal(instance.data.page, index + 1);
     });
   });
