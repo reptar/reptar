@@ -38,17 +38,17 @@ file:
       values:
         template: post
         permalink: /:title/
+  filters:
+    metadata:
+      draft: true
+    future_date:
+      key: date
 
 # This is where you configure your collections of content.
 # For more details refer to the Collections documentation.
 collections:
   post:
     path: ./_posts
-    filter:
-      metadata:
-        draft: true
-      future_date:
-        key: date
     sort:
       key: date
       order: descending
@@ -62,11 +62,6 @@ collections:
     sort:
       key: date
       order: descending
-    filter:
-      metadata:
-        draft: true
-      future_date:
-        key: date
     pagination:
       template: tag
       size: 6

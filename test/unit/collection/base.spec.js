@@ -74,15 +74,15 @@ describe('collection/base CollectionBase', () => {
     const additionalData = [
       {
         number: 10,
-        date: '2017-3-28',
+        date: '2017-03-28',
       },
       {
         number: 1,
-        date: '2013-9-8',
+        date: '2013-09-8',
       },
       {
         number: 5,
-        date: '2016-5-1',
+        date: '2016-05-1',
       },
     ];
     beforeEach(() => {
