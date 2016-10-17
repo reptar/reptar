@@ -55,43 +55,16 @@ describe('collection/base CollectionBase', () => {
     it('returns if a file in collection is filtered', () => {
       const instance = new CollectionBase('name');
       const file = {
-        data: {}
+        filtered: undefined,
       };
 
       assert.equal(instance.isFiltered(file), false);
 
-      instance.filter = {
-        metadata: {
-          draft: true
-        }
-      };
-
+      file.filtered = false;
       assert.equal(instance.isFiltered(file), false);
 
-      file.data.draft = true;
-
+      file.filtered = true;
       assert.equal(instance.isFiltered(file), true);
-
-      instance.filter = {
-        metadata: {
-          draft: true
-        },
-        future_date: undefined
-      };
-
-      assert.equal(instance.isFiltered(file), true);
-
-      file.data.date = Date.now() + 5000;
-
-      assert.equal(instance.isFiltered(file), true);
-
-      file.data.draft = false;
-
-      assert.equal(instance.isFiltered(file), true);
-
-      instance.filter = {};
-
-      assert.equal(instance.isFiltered(file), false);
     });
   });
 

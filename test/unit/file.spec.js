@@ -19,11 +19,14 @@ import File from '../../lib/file.js';
 describe('file File', () => {
   const filePath = '/fixture/_posts/hello-world.md';
 
-  const config = createMockConfig();
-  const getConfig = () => config;
+  let config;
+  let getConfig;
 
   let sandbox;
   beforeEach(() => {
+    config = createMockConfig();
+    getConfig = () => config;
+
     sandbox = sinon.sandbox.create();
 
     const readFileStub = (file, opts, cb) =>
@@ -234,11 +237,60 @@ describe('file File', () => {
 
     assert.deepEqual(instance.data, {
       content: fixture.frontmatterJSON.content,
-      title: fixture.frontmatterJSON.data.title,
+      ...fixture.frontmatterJSON.data,
       permalink,
       url: Url.makePretty(
         Url.makeUrlFileSystemSafe(instance.data.permalink)
       )
+    });
+  });
+
+  describe('filtered', () => {
+    it('set correctly', async () => {
+      const instance = new File(filePath, getConfig);
+
+      await instance.update();
+      assert.equal(instance.filtered, false);
+
+      config._raw.file.filters = {
+        metadata: {
+          draft: false
+        }
+      };
+      await instance.update();
+      assert.equal(instance.filtered, false);
+
+      config._raw.file.filters = {
+        metadata: {
+          draft: true
+        }
+      };
+      await instance.update();
+      assert.equal(instance.filtered, true);
+
+      config._raw.file.filters = {
+        future_date: {
+          key: 'draft'
+        }
+      };
+      await instance.update();
+      assert.equal(instance.filtered, false);
+
+      config._raw.file.filters = {
+        future_date: {
+          key: 'future_date'
+        }
+      };
+      await instance.update();
+      assert.equal(instance.filtered, true);
+
+      config._raw.file.filters = {
+        future_date: {
+          key: 'date'
+        }
+      };
+      await instance.update();
+      assert.equal(instance.filtered, false);
     });
   });
 });

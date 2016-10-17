@@ -28,6 +28,7 @@ file:
   url_key: url
   # The format that your date values are formatted as.
   # This is used when parsing date objects.
+  # This current format supports dates like 2016-2-28
   # It uses moment.js under the head and its format syntax as well:
   # http://momentjs.com/docs/#/displaying/format/
   date_format: YYYY-M-D
@@ -49,17 +50,21 @@ file:
            draft: true
       values:
         template: draft
+  # Filter out Files.
+  filters:
+    # If any of the metadata values match then the File is filtered out.
+    metadata:
+      draft: true
+    # If the date is in the future then it is filtered out.
+    future_date:
+      # Customize what key we should use to pull the date value from.
+      key: date
 
 # This is where you configure your collections of content.
 # For more details refer to the Collections documentation.
 collections:
   post:
     path: ./_posts
-    filter:
-      metadata:
-        draft: true
-      future_date:
-        key: date
     sort:
       key: date
       order: descending
@@ -73,11 +78,6 @@ collections:
     sort:
       key: date
       order: descending
-    filter:
-      metadata:
-        draft: true
-      future_date:
-        key: date
     pagination:
       template: tag
       size: 6

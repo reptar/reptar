@@ -3,6 +3,9 @@ import _ from 'lodash';
 exports.frontmatterString =
 `---
 title: Stubs Matter
+draft: true
+date: '2016-10-11'
+future_date: 2020-2-29
 ---
 
 What *great* **joy**.`;
@@ -10,7 +13,10 @@ What *great* **joy**.`;
 exports.frontmatterJSON = {
   orig: exports.frontmatterString,
   data: {
-    title: 'Stubs Matter'
+    title: 'Stubs Matter',
+    draft: true,
+    date: '2016-10-11',
+    future_date: '2020-2-29',
   },
   content: '\nWhat *great* **joy**.'
 };
