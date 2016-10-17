@@ -26,6 +26,11 @@ file:
   # What key from a File's frontmatter Reptar should use
   # as the property to grab the URL of the file from.
   url_key: url
+  # The format that your date values are formatted as.
+  # This is used when parsing date objects.
+  # It uses moment.js under the head and its format syntax as well:
+  # http://momentjs.com/docs/#/displaying/format/
+  date_format: YYYY-M-D
   # Apply frontmatter values to a File based upon a defined scope.
   # If the scope matches a File then the default values are applied if they
   # are not already set.
