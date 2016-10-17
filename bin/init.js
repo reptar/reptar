@@ -1,8 +1,11 @@
 import fs from 'fs-extra';
-import log from '../lib/log';
+import moment from 'moment';
 import path from 'path';
 import inquirer from 'inquirer';
 import spawn from 'cross-spawn';
+import log from '../lib/log';
+
+const dateNowFormatted = moment().format('YYYY-M-D');
 
 /* eslint-disable indent */
 // Files to create in our scaffold location.
@@ -11,7 +14,7 @@ const scaffoldFiles = [
     '_posts/hello-world.md',
 `---
 title: Hello World!
-date: ${(new Date()).toISOString()}
+date: ${dateNowFormatted}
 tags:
 - meta
 ---
@@ -24,7 +27,7 @@ Welcome to my site!
 `---
 title: About
 slug: about
-date: ${(new Date()).toISOString()}
+date: ${dateNowFormatted}
 ---
 
 Find out more about me.
@@ -34,6 +37,8 @@ Find out more about me.
 /* eslint-enable indent */
 
 export default function init() {
+  log.info('Init a new Reptar site');
+
   const destination = process.cwd();
 
   const questions = [
@@ -87,17 +92,19 @@ export default function init() {
       });
     }
 
-    log.info('Installing npm packages.');
-
-    runCmd('npm', ['init', '--yes']);
-
     const npmPackages = [
       'reptar-excerpt',
       'reptar-html-minifier',
       'reptar-theme-thread',
     ];
+
+    log.info(`Installing npm packages: ${npmPackages.join(', ')}`);
+
+    runCmd('npm', ['init', '--yes']);
+
     runCmd('npm', ['install', '--save'].concat(npmPackages));
 
     log.info('New Reptar site created at ' + destination);
+    log.info('Now run `reptar build` and `reptar serve`');
   });
 }
