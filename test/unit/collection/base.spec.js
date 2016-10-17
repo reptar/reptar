@@ -96,11 +96,32 @@ describe('collection/base CollectionBase', () => {
   });
 
   describe('sortFiles', () => {
-    it('sorts files according to config', () => {
-      assert.ok(true);
-      const files = fixture.collectionFiles();
+    let files;
+
+    const additionalData = [
+      {
+        number: 10,
+        date: '2017-3-28',
+      },
+      {
+        number: 1,
+        date: '2013-9-8',
+      },
+      {
+        number: 5,
+        date: '2016-5-1',
+      },
+    ];
+    beforeEach(() => {
+      files = fixture.collectionFiles().map((file, index) => {
+        _.extend(file.data, additionalData[index]);
+        return file;
+      });
+    });
+
+    it('sorts integer value descending', () => {
       const sortConfig = {
-        key: 'id',
+        key: 'number',
         order: 'descending'
       };
 
@@ -108,8 +129,37 @@ describe('collection/base CollectionBase', () => {
         CollectionBase.sortFiles(files, sortConfig),
         [files[0], files[2], files[1]]
       );
+    });
 
-      sortConfig.order = '';
+    it('sorts integer value ascending', () => {
+      const sortConfig = {
+        key: 'number',
+        order: 'ascending'
+      };
+
+      assert.deepEqual(
+        CollectionBase.sortFiles(files, sortConfig),
+        [files[1], files[2], files[0]]
+      );
+    });
+
+    it('sorts date value descending', () => {
+      const sortConfig = {
+        key: 'date',
+        order: 'descending'
+      };
+
+      assert.deepEqual(
+        CollectionBase.sortFiles(files, sortConfig),
+        [files[0], files[2], files[1]]
+      );
+    });
+
+    it('sorts date value ascending', () => {
+      const sortConfig = {
+        key: 'date',
+        order: 'ascending'
+      };
 
       assert.deepEqual(
         CollectionBase.sortFiles(files, sortConfig),
