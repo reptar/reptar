@@ -204,6 +204,7 @@ class Server {
         fn(...args).then(() => fn.running = false);
       };
     }
+
     chokidar.watch([
       this.reptar.theme.config.path.source,
     ]).on('change', debounceFunction(async (changePath) => {
@@ -227,6 +228,15 @@ class Server {
       path.join(this.reptar.config.root, YAML.CONFIG)
     ]).on('change', debounceFunction(async (changePath) => {
       log.info(`_config.yml updated at ${changePath}`);
+
+      await this.reptar.update();
+      this.updateIndex();
+    }));
+
+    chokidar.watch([
+      this.reptar.config.get('path.data'),
+    ]).on('change', debounceFunction(async (changePath) => {
+      log.info(`Data updated at ${changePath}`);
 
       await this.reptar.update();
       this.updateIndex();
