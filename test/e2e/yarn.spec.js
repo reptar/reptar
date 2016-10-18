@@ -66,7 +66,7 @@ describe('reptar Reptar', function() {
   });
 
   it('builds site correctly', async function() {
-    sandbox.spy(fs, 'outputFileAsync');
+    sandbox.spy(fs, 'outputFile');
 
     // Build site.
     const instance = new Reptar({
@@ -75,12 +75,14 @@ describe('reptar Reptar', function() {
     await instance.update();
     await instance.build();
 
-    for (let i = 0; i < fs.outputFileAsync.callCount; i++) {
-      const fileDestination = fs.outputFileAsync.getCall(i).args[0];
+    assert(fs.outputFile.callCount > 0);
+
+    for (let i = 0; i < fs.outputFile.callCount; i++) {
+      const fileDestination = fs.outputFile.getCall(i).args[0];
       const fileDestinationRelative = fileDestination.replace(
         /(.*)_site\//, ''
       );
-      const fileWritten = fs.outputFileAsync.getCall(i).args[1];
+      const fileWritten = fs.outputFile.getCall(i).args[1];
 
       // Make sure what Reptar built matches what we expect it to have built.
       assert.equal(fileWritten, simpleOneOutput[fileDestinationRelative]);
