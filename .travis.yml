@@ -6,6 +6,9 @@ cache:
 git:
   depth: 3
 
+env:
+  - NODE_ENV=test
+
 node_js:
   - "4"
   - "5"

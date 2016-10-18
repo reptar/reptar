@@ -11,6 +11,11 @@
     "transform-runtime"
   ],
   "env": {
+    "test": {
+      "plugins": [
+        "istanbul"
+      ]
+    },
     "production": {
       "plugins": [
         "lodash"
