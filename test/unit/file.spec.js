@@ -191,7 +191,7 @@ describe('file File', () => {
         Url.makeUrlFileSystemSafe(
           Url.replaceMarkdownExtension(
             filePath,
-            instance._getConfig().get('markdown_extension')
+            instance._getConfig().get('markdown.extensions')
           )
         )
       ));
@@ -226,7 +226,7 @@ describe('file File', () => {
       Url.makeUrlFileSystemSafe(
         Url.replaceMarkdownExtension(
           filePath,
-          instance._getConfig().get('markdown_extension')
+          instance._getConfig().get('markdown.extensions')
         )
       )
     ));

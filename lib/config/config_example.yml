@@ -91,29 +91,27 @@ theme: 'thread'
 # If we should remove the compile destination folder before writing.
 clean_destination: false
 
-# What file extensions we should recognize as a markdown file.
-markdown_extension:
-  - markdown
-  - mkdown
-  - mkdn
-  - mkd
-  - md
-
 # Slug options.
 # Options passed to node-slug
 slug:
   lower: true
 
-# Conversion.
-# What markdown conversion tool we should use.
-markdown:    remarkable
-highlighter: highlight.js
-
-# Markdown Processor.
-# This lets you customize the markdown processor defined above.
-remarkable:
-  preset:       'commonmark'
-  highlight:    true
+# Markdown.
+# This lets you customize how markdown is handled.
+markdown:
+  # What file extensions we should recognize as a markdown file.
+  extensions:
+    - markdown
+    - mkdown
+    - mkdn
+    - mkd
+    - md
+  # Options given directly when creating our markdown parser.
+  # Documentation here:
+  # https://github.com/markdown-it/markdown-it#init-with-presets-and-options
+  options:
+    preset:       'commonmark'
+    highlight:    true
 
 # Serving.
 # When running `reptar serve` what settings should be used.
