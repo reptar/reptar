@@ -1,3 +1,6 @@
+// Allow mock-fs to hijack fs module.
+require('mock-fs');
+
 const fs = require('fs');
 
 var babelRcFile = JSON.parse(

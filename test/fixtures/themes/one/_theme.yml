@@ -19,7 +19,7 @@ assets:
   js:
     source: ./js/main.js
     processor:
-      hash: true
+      hash: false
       name: browserify
       plugins:
         babelify:

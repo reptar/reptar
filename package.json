@@ -14,7 +14,7 @@
     "test:unit": "npm test -- test/unit",
     "test:e2e": "npm test -- test/e2e",
     "lint": "eslint .",
-    "coverage": "./node_modules/.bin/nyc npm run test:unit",
+    "coverage": "./node_modules/.bin/nyc npm run test",
     "coveralls": "./node_modules/.bin/nyc report --reporter=text-lcov | coveralls",
     "release": "standard-version"
   },
