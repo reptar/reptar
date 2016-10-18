@@ -3,6 +3,7 @@ import _ from 'lodash';
 import path from 'path';
 import Hapi from 'hapi';
 import inert from 'inert';
+import ora from 'ora';
 import chokidar from 'chokidar';
 import { YAML } from '../lib/constants';
 import log from '../lib/log';
@@ -194,30 +195,47 @@ class Server {
    * user updates files.
    */
   createFsWatchers() {
+    function debounceFunction(fn) {
+      return (...args) => {
+        if (fn.running) {
+          return;
+        }
+        fn.running = true;
+        fn(...args).then(() => fn.running = false);
+      };
+    }
     chokidar.watch([
       this.reptar.theme.config.path.source,
-    ]).on('change', async (changePath) => {
+    ]).on('change', debounceFunction(async (changePath) => {
       log.info(`Theme updated at ${changePath}`);
+      const label = 'Updating theme.\t\t';
 
-      const id = activity.start('Updating theme.');
+      const startTime = Date.now();
+      const spinner = ora({
+        text: label,
+        spinner: 'dot4',
+      }).start();
+
       await this.reptar.theme.read();
       this.updateIndex();
-      activity.end(id);
-    });
+
+      spinner.text = `${label} (${Date.now() - startTime}ms)`;
+      spinner.succeed();
+    }));
 
     chokidar.watch([
       path.join(this.reptar.config.root, YAML.CONFIG)
-    ]).on('change', async (changePath) => {
+    ]).on('change', debounceFunction(async (changePath) => {
       log.info(`_config.yml updated at ${changePath}`);
 
       await this.reptar.update();
       this.updateIndex();
-    });
+    }));
   }
 }
 
 export default async function watch(options = {}) {
-  const startActivity = activity.start('Starting watch.');
+  const startActivity = activity.start('Starting watch.\t\t\t');
 
   const reptar = new Reptar({
     // Turn off caching of templates.
