@@ -3,7 +3,7 @@ import mockFs from 'mock-fs';
 import fs from 'fs-extra';
 import path from 'path';
 import {
-  getYarnPackageNames,
+  getReptarPackageNames,
 } from '../../lib/json.js';
 
 /**
@@ -49,12 +49,11 @@ function mirrorPathsToContent(paths, options = {}) {
 }
 
 /**
- * Mock files that Yarn directly depends on.
+ * Mock files that Reptar directly depends on.
  * @return {Object}
  */
-function coreYarnFiles() {
+function coreReptarFiles() {
   return mirrorPathsToContent([
-    'lib/config/defaults.yml',
     '.babelrc',
     'package.json',
   ].map(p => path.resolve(__dirname, '../../', p)));
@@ -64,14 +63,14 @@ function coreYarnFiles() {
  * Get all needed node_module file paths of npm modules we need to mock.
  * @return {Array.<string>} [description]
  */
-async function yarnNpmFilePaths() {
-  const yarnRootPath = path.join(__dirname, '../../');
-  let npmModules = getYarnPackageNames(yarnRootPath);
+async function reptarNpmFilePaths() {
+  const reptarRootPath = path.join(__dirname, '../../');
+  let npmModules = getReptarPackageNames(reptarRootPath);
 
   let allPaths = [];
   for (let i = 0; i < npmModules.length; i++) {
     const modulePaths = await getAllFilePaths(path.join(
-      yarnRootPath,
+      reptarRootPath,
       'node_modules',
       npmModules[i]
     ));
@@ -82,7 +81,7 @@ async function yarnNpmFilePaths() {
 }
 
 /**
- * Mock a simple Yarn site.
+ * Mock a simple Reptar site.
  * @return {Object}
  */
 export async function mockSimpleSite() {
@@ -103,7 +102,7 @@ export async function mockSimpleSite() {
     }
   });
 
-  const npmPaths = await yarnNpmFilePaths();
+  const npmPaths = await reptarNpmFilePaths();
   const npmMocks = mirrorPathsToContent(npmPaths, {
     msapKey: (currentPath) => {
       return currentPath.replace(
@@ -116,7 +115,7 @@ export async function mockSimpleSite() {
   const allMocks = {
     ...mocks,
     ...themeOne,
-    ...coreYarnFiles(),
+    ...coreReptarFiles(),
     ...npmMocks,
   };
 

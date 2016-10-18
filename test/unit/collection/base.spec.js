@@ -33,15 +33,13 @@ describe('collection/base CollectionBase', () => {
     });
 
     it('accepts a name and no config object', () => {
-      let instance = new CollectionBase('name');
+      const instance = new CollectionBase('name');
 
       assert.equal(instance.name, 'name');
       assert(_.isUndefined(instance.path));
       assert(_.isUndefined(instance.metadata));
       assert(_.isUndefined(instance.template));
       assert(_.isUndefined(instance.permalink));
-      assert(_.isUndefined(instance.static));
-      assert(_.isUndefined(instance.staticDestination));
       assert(_.isUndefined(instance.sort));
       assert(_.isUndefined(instance.pagination));
       assert(_.isUndefined(instance.files));
@@ -55,54 +53,48 @@ describe('collection/base CollectionBase', () => {
 
   describe('isFiltered', () => {
     it('returns if a file in collection is filtered', () => {
-      let instance = new CollectionBase('name');
-      let file = {
-        data: {}
+      const instance = new CollectionBase('name');
+      const file = {
+        filtered: undefined,
       };
 
       assert.equal(instance.isFiltered(file), false);
 
-      instance.filter = {
-        metadata: {
-          draft: true
-        }
-      };
-
+      file.filtered = false;
       assert.equal(instance.isFiltered(file), false);
 
-      file.data.draft = true;
-
+      file.filtered = true;
       assert.equal(instance.isFiltered(file), true);
-
-      instance.filter = {
-        metadata: {
-          draft: true
-        },
-        future_date: undefined
-      };
-
-      assert.equal(instance.isFiltered(file), true);
-
-      file.data.date = Date.now() + 5000;
-
-      assert.equal(instance.isFiltered(file), true);
-
-      file.data.draft = false;
-
-      assert.equal(instance.isFiltered(file), true);
-
-      instance.filter = {};
-
-      assert.equal(instance.isFiltered(file), false);
     });
   });
 
   describe('sortFiles', () => {
-    it('sorts files according to config', () => {
-      assert.ok(true);
-      let files = fixture.collectionFiles();
-      let sortConfig = {
-        key: 'id',
+    let files;
+
+    const additionalData = [
+      {
+        number: 10,
+        date: '2017-03-28',
+      },
+      {
+        number: 1,
+        date: '2013-09-8',
+      },
+      {
+        number: 5,
+        date: '2016-05-1',
+      },
+    ];
+    beforeEach(() => {
+      files = fixture.collectionFiles().map((file, index) => {
+        _.extend(file.data, additionalData[index]);
+        return file;
+      });
+    });
+
+    it('sorts integer value descending', () => {
+      const sortConfig = {
+        key: 'number',
         order: 'descending'
       };
 
@@ -110,8 +102,37 @@ describe('collection/base CollectionBase', () => {
         CollectionBase.sortFiles(files, sortConfig),
         [files[0], files[2], files[1]]
       );
+    });
 
-      sortConfig.order = '';
+    it('sorts integer value ascending', () => {
+      const sortConfig = {
+        key: 'number',
+        order: 'ascending'
+      };
+
+      assert.deepEqual(
+        CollectionBase.sortFiles(files, sortConfig),
+        [files[1], files[2], files[0]]
+      );
+    });
+
+    it('sorts date value descending', () => {
+      const sortConfig = {
+        key: 'date',
+        order: 'descending'
+      };
+
+      assert.deepEqual(
+        CollectionBase.sortFiles(files, sortConfig),
+        [files[0], files[2], files[1]]
+      );
+    });
+
+    it('sorts date value ascending', () => {
+      const sortConfig = {
+        key: 'date',
+        order: 'ascending'
+      };
 
       assert.deepEqual(
         CollectionBase.sortFiles(files, sortConfig),

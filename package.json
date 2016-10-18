@@ -3,18 +3,43 @@
   "version": "1.4.0",
   "description": "a static site generator that roars",
   "main": "./dist/lib/index.js",
+  "bin": {
+    "reptar": "./dist/bin/reptar.js",
+    "reptar-debug": "./bin/reptar-debug.js"
+  },
   "scripts": {
-    "compile": "babel lib --out-dir dist/lib && babel bin --out-dir dist/bin",
-    "prepublish": "NODE_ENV=production npm run compile && cp lib/config/defaults.yml dist/lib/config/defaults.yml",
+    "compile": "babel lib --out-dir dist/lib && babel bin --out-dir dist/bin && cp lib/config/config_example.yml dist/lib/config/config_example.yml",
+    "prepublish": "NODE_ENV=production npm run compile",
     "test": "mocha --recursive --require ./test/setup.js --reporter spec",
     "test:unit": "npm test -- test/unit",
     "test:e2e": "npm test -- test/e2e",
     "lint": "eslint .",
     "coverage": "babel-node ./node_modules/.bin/isparta cover ./node_modules/mocha/bin/_mocha -- --recursive",
-    "coveralls": "babel-node ./node_modules/.bin/isparta cover --report lcovonly ./node_modules/mocha/bin/_mocha -- --recursive && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "coveralls": "babel-node ./node_modules/.bin/isparta cover --report lcovonly ./node_modules/mocha/bin/_mocha -- --recursive && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "release": "standard-version"
+  },
+  "config": {
+    "validate-commit-msg": {
+      "types": [
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "perf",
+        "test",
+        "chore",
+        "revert"
+      ],
+      "helpMessage": "\nReptar is using standard-version as its commit message convention.\nPlease consult https://github.com/conventional-changelog/standard-version#commit-message-convention-at-a-glance \nfor documentation on how to format your commit message."
+    },
+    "ghooks": {
+      "commit-msg": "validate-commit-msg"
+    }
   },
   "repository": "reptar/reptar",
   "keywords": [
+    "reptar",
     "blog",
     "blogging",
     "static",
@@ -26,7 +51,7 @@
   "engines": {
     "node": ">=4.0.0"
   },
-  "preferGlobal": true,
+  "preferGlobal": false,
   "dependencies": {
     "activity-logger": "^1.4.0",
     "babel-polyfill": "^6.16.0",
@@ -41,28 +66,30 @@
     "fs-extra": "^0.30.0",
     "glob": "^7.1.0",
     "gray-matter": "^2.0.2",
+    "hapi": "^15.1.1",
     "highlight.js": "^9.7.0",
     "home-or-tmp": "^2.0.0",
+    "inert": "^4.0.2",
     "inquirer": "^1.1.3",
+    "joi": "^9.1.0",
     "js-yaml": "^3.6.1",
     "less": "^2.7.1",
     "less-plugin-autoprefix": "^1.5.1",
     "less-plugin-clean-css": "^1.5.1",
-    "less-plugin-npm-import": "yarnjs/less-plugin-npm-import#basedir",
-    "live-server": "^1.1.0",
+    "less-plugin-npm-import": "reptar/less-plugin-npm-import#basedir",
     "lodash": "^4.16.2",
+    "markdown-it": "^8.0.1",
     "moment": "^2.15.1",
     "node-sass": "^3.10.0",
     "nunjucks": "^2.5.2",
-    "remarkable": "^1.7.0",
+    "ora": "^0.3.0",
+    "reptar-excerpt": "0.7.0",
+    "reptar-html-minifier": "^0.7.0",
     "resolve": "^1.1.7",
     "rimraf": "^2.5.4",
     "slug": "^0.9.1",
     "uglifyify": "^3.0.3",
-    "yargs": "^5.0.0",
-    "yarn-excerpt": "0.7.0",
-    "yarn-html-minifier": "^0.6.1",
-    "yarn-scaffold": "^0.7.0"
+    "yargs": "^5.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",
@@ -81,10 +108,14 @@
     "babel-register": "^6.16.0",
     "coveralls": "^2.11.14",
     "eslint": "^3.7.0",
+    "ghooks": "^1.3.2",
     "isparta": "^4.0.0",
     "mocha": "^3.1.0",
     "mock-fs": "^3.11.0",
     "power-assert": "^1.4.1",
-    "sinon": "^2.0.0-pre.2"
+    "rewire": "^2.5.2",
+    "sinon": "^2.0.0-pre.3",
+    "standard-version": "^2.4.0",
+    "validate-commit-msg": "^2.8.0"
   }
 }

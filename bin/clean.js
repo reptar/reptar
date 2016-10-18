@@ -1,9 +1,9 @@
-import Yarn from '../lib';
+import Reptar from '../lib';
 
 export default function() {
-
-  var yarn = new Yarn();
-  yarn.cleanDestination()
+  const reptar = new Reptar();
+  reptar.update()
+    .then(reptar.cleanDestination.bind(reptar))
     .then(function() {
       process.exit(0);
     })

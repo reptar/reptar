@@ -1,7 +1,10 @@
-import sinon from 'sinon';
+import rewire from 'rewire';
+const ConfigRewire = rewire('../lib/config/index.js');
+const Config = ConfigRewire.default;
 
-export function createMockConfig() {
-  return {
-    get: sinon.stub().returns(''),
-  };
+export function createMockConfig(config = {}) {
+  ConfigRewire.__set__('loadAndParseYaml', () => config);
+  const instance = new Config('');
+  instance.update();
+  return instance;
 }

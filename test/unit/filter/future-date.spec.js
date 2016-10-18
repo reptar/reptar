@@ -1,8 +1,8 @@
 import assert from 'power-assert';
 
-import futureDate from '../../../../lib/collection/filter/future-date.js';
+import futureDate from '../../../lib/filter/future-date.js';
 
-describe('collection/filter/future-date futureDate', () => {
+describe('filter/future-date futureDate', () => {
 
   it('should default to use date as key value', () => {
     assert.equal(futureDate({

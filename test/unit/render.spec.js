@@ -6,8 +6,7 @@ import Plugin from '../../lib/plugin/index.js';
 const PluginAPI = Plugin.API;
 import CollectionBase from '../../lib/collection/base.js';
 import {
-  writeToDiskWithPlugins,
-  renderAndWriteFileWithPlugins,
+  renderFileWithPlugins,
 } from '../../lib/render.js';
 
 describe('render Render', function() {
@@ -30,9 +29,9 @@ describe('render Render', function() {
         args[args.length - 1]();
       });
 
-      let renderContent = 'hello world';
+      const renderContent = 'hello world';
 
-      let instance = new CollectionBase('name');
+      const instance = new CollectionBase('name');
       instance.files = fixture.collectionFiles().map(file => {
         file.render = sinon.spy(() => {
           return renderContent;
@@ -40,16 +39,15 @@ describe('render Render', function() {
         return file;
       });
 
-      let file = instance.files[0];
-      let beforeSpy = sinon.spy();
-      let afterSpy = sinon.spy((val, val2) => [val, val2]);
+      const file = instance.files[0];
+      const beforeSpy = sinon.spy();
+      const afterSpy = sinon.spy((val, val2) => [val, val2]);
       PluginAPI.event.file.beforeRender(beforeSpy);
       PluginAPI.event.file.afterRender(afterSpy);
 
       try {
-        await renderAndWriteFileWithPlugins(
+        await renderFileWithPlugins(
           file,
-          file.template,
           {},
           Plugin.Event.file.beforeRender,
           Plugin.Event.file.afterRender
@@ -62,52 +60,10 @@ describe('render Render', function() {
       assert.ok(beforeSpy.calledWith(file));
 
       assert.equal(file.render.callCount, 1);
-      assert.ok(file.render.calledWith(instance.template, {}));
+      assert.ok(file.render.calledWith({}));
 
       assert.equal(afterSpy.callCount, 1);
       assert.ok(afterSpy.calledWith(file, renderContent));
-    });
-  });
-
-  describe('writeToDiskWithPlugins', () => {
-    it('calls all functions in expected order', async () => {
-      sandbox.stub(fs, 'outputFile', function(...args) {
-        // Call callback.
-        args[args.length - 1]();
-      });
-
-      let mockFile = {
-        destination: './path/to/write/file'
-      };
-      let content = 'this is the excellent content';
-
-      let beforeSpy = sinon.spy();
-      let afterSpy = sinon.spy((val) => val);
-      PluginAPI.event.collection.beforeWrite(beforeSpy);
-      PluginAPI.event.collection.afterWrite(afterSpy);
-
-      try {
-        await writeToDiskWithPlugins(mockFile, content);
-      } catch (e) {
-        console.log(e);
-      }
-
-      assert.equal(beforeSpy.callCount, 1);
-      assert.ok(beforeSpy.calledWith(mockFile, content));
-
-      assert.equal(fs.outputFile.callCount, 1);
-      assert.ok(fs.outputFile.calledWith(
-        mockFile.destination,
-        content,
-        'utf8'
-      ));
-
-      assert.equal(afterSpy.callCount, 1);
-      assert.ok(afterSpy.calledWith(mockFile, content));
-
-      assert.ok(beforeSpy.calledBefore(fs.outputFile));
-      assert.ok(fs.outputFile.calledBefore(afterSpy));
-      assert.ok(afterSpy.calledBefore(writeToDiskWithPlugins));
     });
   });
 });

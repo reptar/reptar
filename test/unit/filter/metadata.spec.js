@@ -1,11 +1,10 @@
 import assert from 'power-assert';
 
-import metadata from '../../../../lib/collection/filter/metadata.js';
+import metadata from '../../../lib/filter/metadata.js';
 
-describe('collection/filter/metadata metadata', () => {
+describe('filter/metadata metadata', () => {
 
   it('should return true when a match is found', () => {
-    metadata.reset();
     assert.equal(metadata({
       data: {
         draft: true,
@@ -15,7 +14,6 @@ describe('collection/filter/metadata metadata', () => {
       draft: true
     }), true);
 
-    metadata.reset();
     assert.equal(metadata({
       data: {
         draft: true,
@@ -26,7 +24,6 @@ describe('collection/filter/metadata metadata', () => {
       title: 'test'
     }), true);
 
-    metadata.reset();
     assert.equal(metadata({
       data: {
         draft: true,
@@ -40,7 +37,6 @@ describe('collection/filter/metadata metadata', () => {
   });
 
   it('should return false when a match is not found', () => {
-    metadata.reset();
     assert.equal(metadata({
       data: {
         draft: false,
@@ -50,7 +46,6 @@ describe('collection/filter/metadata metadata', () => {
       draft: true
     }), false);
 
-    metadata.reset();
     assert.equal(metadata({
       data: {
         draft: true
@@ -60,7 +55,6 @@ describe('collection/filter/metadata metadata', () => {
       title: 'test'
     }), false);
 
-    metadata.reset();
     assert.equal(metadata({
       data: {
         draft: true,
@@ -71,7 +65,6 @@ describe('collection/filter/metadata metadata', () => {
       title: 'test'
     }), false);
 
-    metadata.reset();
     assert.equal(metadata({
       data: {
         draft: true,

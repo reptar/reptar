@@ -11,7 +11,7 @@ import {
 } from '../fixtures';
 import fs from 'fs-extra';
 
-import Yarn from '../../lib/index.js';
+import Reptar from '../../lib/index.js';
 import cache from '../../lib/cache.js';
 import Config from '../../lib/config/index.js';
 import Theme from '../../lib/theme/index.js';
@@ -19,7 +19,7 @@ import Theme from '../../lib/theme/index.js';
 import log from '../../lib/log.js';
 log.setSilent(true);
 
-describe('yarn Yarn', function() {
+describe('reptar Reptar', function() {
   this.timeout(5000);
 
   let sandbox;
@@ -32,6 +32,7 @@ describe('yarn Yarn', function() {
 
     // Don't actually save cache to file system.
     sandbox.stub(cache, 'save');
+    sandbox.stub(fs, 'copy', (path, dest, cb) => setTimeout(cb, 0));
   });
 
   afterEach(() => {
@@ -39,18 +40,21 @@ describe('yarn Yarn', function() {
     restoreMockFs();
   });
 
-  it('instantiates correctly', function() {
-    sandbox.spy(Yarn.prototype, 'updateConfig');
-    sandbox.spy(Config.prototype, 'setRoot');
+  it('instantiates correctly', async function() {
+    sandbox.spy(Reptar.prototype, 'update');
+    sandbox.spy(Config.prototype, 'update');
     sandbox.spy(Theme.prototype, 'setGetConfig');
 
-    let instance = new Yarn({
+    const instance = new Reptar({
       rootPath: getPathToSimpleMock()
     });
-    assert.equal(instance.updateConfig.callCount, 1);
+    assert.equal(instance.update.callCount, 0);
+
+    await instance.update();
+    assert.equal(instance.update.callCount, 1);
 
     assert(instance.config instanceof Config);
-    assert.equal(instance.config.setRoot.callCount, 1);
+    assert.equal(instance.config.update.callCount, 1);
 
     assert(instance.theme instanceof Theme);
     assert.equal(instance.theme.setGetConfig.callCount, 1);
@@ -62,21 +66,25 @@ describe('yarn Yarn', function() {
   });
 
   it('builds site correctly', async function() {
-    sandbox.spy(fs, 'outputFileAsync');
+    sandbox.spy(fs, 'outputFile');
 
     // Build site.
-    let instance = new Yarn({
+    const instance = new Reptar({
       rootPath: getPathToSimpleMock()
     });
-    await instance.loadState();
+    await instance.update();
     await instance.build();
 
-    for (let i = 0; i < fs.outputFileAsync.callCount; i++) {
-      let fileDestination = fs.outputFileAsync.getCall(i).args[0];
-      let fileDestinationRelative = fileDestination.replace(/(.*)_site\//, '');
-      let fileWritten = fs.outputFileAsync.getCall(i).args[1];
+    assert(fs.outputFile.callCount > 0);
 
-      // Make sure what Yarn built matches what we expect it to have built.
+    for (let i = 0; i < fs.outputFile.callCount; i++) {
+      const fileDestination = fs.outputFile.getCall(i).args[0];
+      const fileDestinationRelative = fileDestination.replace(
+        /(.*)_site\//, ''
+      );
+      const fileWritten = fs.outputFile.getCall(i).args[1];
+
+      // Make sure what Reptar built matches what we expect it to have built.
       assert.equal(fileWritten, simpleOneOutput[fileDestinationRelative]);
     }
   });

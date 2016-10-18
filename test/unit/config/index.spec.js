@@ -1,11 +1,13 @@
 import assert from 'power-assert';
+import rewire from 'rewire';
 import sinon from 'sinon';
 import path from 'path';
 import _ from 'lodash';
 
 import fixture from '../../fixture';
 
-import Config from '../../../lib/config/index.js';
+const ConfigRewire = rewire('../../../lib/config/index.js');
+const Config = ConfigRewire.default;
 
 describe('config/index Config', () => {
 
@@ -20,34 +22,41 @@ describe('config/index Config', () => {
 
   describe('constructor', () => {
     it('can create an instance', () => {
-      sandbox.spy(Config.prototype, 'loadLocal');
       sandbox.spy(Config.prototype, 'update');
 
-      let instance = new Config();
+      const instance = new Config('');
 
       assert.ok(instance);
       assert(typeof instance._raw === 'object');
 
-      assert(instance.loadLocal.calledOnce === false);
       assert(instance.update.calledOnce === false);
     });
   });
 
   describe('update', () => {
+    let revert;
+
+    afterEach(() => {
+      if (_.isFunction(revert)) {
+        revert();
+        revert = null;
+      }
+    });
+
     it('calculates paths correctly', () => {
-      sandbox.stub(Config.prototype, 'update').returns();
+      const root = '/root/';
 
-      let root = '/root/';
+      const instance = new Config('');
+      instance.root = root;
 
-      let instance = new Config();
-      instance._root = root;
+      revert = ConfigRewire.__set__(
+        'loadAndParseYaml',
+        sinon.stub().returns(fixture.configDefault())
+      );
 
-      // Restore original update so we can actual test its behavior.
-      instance.update.restore();
+      instance.update();
 
-      instance.update(fixture.configDefault());
-
-      let expectedConfig = fixture.configDefault();
+      const expectedConfig = fixture.configDefault();
 
       assert.equal(
         instance._raw.path.source,
@@ -81,11 +90,126 @@ describe('config/index Config', () => {
         assert.equal(instance.path[key], instance._raw.path[key]);
       });
     });
-  });
 
-  describe('defaultConfig', () => {
-    it('returns an object', () => {
-      assert(typeof Config.defaultConfig() === 'object');
+    it('throws when given an invalid config object', () => {
+      const root = '/root/';
+
+      const instance = new Config('');
+      instance.root = root;
+
+      const invalidConfigs = [
+        {
+          path: false,
+        },
+        {
+          site: 'Test',
+        }
+      ];
+
+      invalidConfigs.forEach(config => {
+        revert = ConfigRewire.__set__(
+          'loadAndParseYaml',
+          sinon.stub().returns(config)
+        );
+
+        assert.throws(() => instance.update(), JSON.stringify(config));
+      });
+    });
+
+    it('sorts file defaults in correct precedence order', () => {
+      const root = '/root/';
+
+      const instance = new Config('');
+      instance.root = root;
+
+      const expectedFileDefaultsOrder = [
+        {
+          scope: {
+            metadata: {
+              foo: 'bar',
+            },
+          },
+          values: {},
+        },
+        {
+          scope: {
+            path: './'
+          },
+          values: {},
+        },
+        {
+          scope: {
+            path: './_posts/',
+          },
+          values: {},
+        },
+        {
+          scope: {
+            path: './_posts/',
+            metadata: {
+              foo: 'bar',
+            },
+          },
+          values: {},
+        },
+        {
+          scope: {
+            path: './_posts/',
+            metadata: {
+              draft: true,
+            },
+          },
+          values: {},
+        },
+        {
+          scope: {
+            path: './_posts/2016'
+          },
+          values: {},
+        },
+      ];
+
+      // Test 3 random orderings.
+      _.times(3, () => {
+        revert = ConfigRewire.__set__(
+          'loadAndParseYaml',
+          sinon.stub().returns({
+            ...fixture.configDefault(),
+            path: {
+              source: './'
+            },
+            file: {
+              defaults: _.shuffle(expectedFileDefaultsOrder),
+            },
+          })
+        );
+
+        instance.update();
+
+        instance.get('file.defaults').forEach((defaultObj, index) => {
+          // Ignore index 3 and 4 as they are sorted by the order in which
+          // they are given. They can be in either order depending on what
+          // the _.shuffle operation does.
+          // This is safe to ignore as everything else has a known expected
+          // order.
+          if (index === 3 || index === 4) {
+            return;
+          }
+
+          const expectedObj = _.cloneDeep(expectedFileDefaultsOrder[index]);
+          if (expectedObj.scope.path != null) {
+            expectedObj.scope.path = path.resolve(
+              root,
+              expectedObj.scope.path
+            );
+          }
+
+          assert.deepEqual(
+            defaultObj,
+            expectedObj
+          );
+        });
+      });
     });
   });
 });

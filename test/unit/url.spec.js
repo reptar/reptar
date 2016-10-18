@@ -50,6 +50,47 @@ describe('url Url', function() {
     });
   });
 
+  describe('replaceMarkdownExtension', function() {
+    it('replaces known markdown extensions', function() {
+      const markdownExtensions = [
+        'md',
+        'markdown',
+      ];
+
+      assert.equal(
+        Url.replaceMarkdownExtension(
+          '/_posts/hello-world.md',
+          markdownExtensions
+        ),
+        '/_posts/hello-world.html'
+      );
+
+      assert.equal(
+        Url.replaceMarkdownExtension(
+          '/_posts/hello-world.markdown',
+          markdownExtensions
+        ),
+        '/_posts/hello-world.html'
+      );
+
+      assert.equal(
+        Url.replaceMarkdownExtension(
+          '/_posts/hello-world.mkdown',
+          markdownExtensions
+        ),
+        '/_posts/hello-world.mkdown'
+      );
+
+      assert.equal(
+        Url.replaceMarkdownExtension(
+          '/_posts/hello-world.html',
+          markdownExtensions
+        ),
+        '/_posts/hello-world.html'
+      );
+    });
+  });
+
   describe('makeUrlFileSystemSafe', function() {
     it('appends index.html to a url that has no file extension', function() {
       assert.equal(Url.makeUrlFileSystemSafe('/my-beautiful-html-permalink'),
@@ -68,6 +109,14 @@ describe('url Url', function() {
     it('does not append index.html to a url that does not need it', function() {
       assert.equal(Url.makeUrlFileSystemSafe('/html/goes-here.html'),
         '/html/goes-here.html'
+      );
+
+      assert.equal(Url.makeUrlFileSystemSafe('/html/image.png'),
+        '/html/image.png'
+      );
+
+      assert.equal(Url.makeUrlFileSystemSafe('/html/index.gif'),
+        '/html/index.gif'
       );
     });
   });
@@ -93,6 +142,18 @@ describe('url Url', function() {
       );
 
       url = '/no-time-to-wasteindex.html';
+      assert.equal(
+        Url.makePretty(url),
+        url
+      );
+
+      url = '/favicon.ico';
+      assert.equal(
+        Url.makePretty(url),
+        url
+      );
+
+      url = '/images/index.gif';
       assert.equal(
         Url.makePretty(url),
         url

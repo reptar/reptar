@@ -1,8 +1,8 @@
-# Contributing to yarn
+# Contributing to Reptar
 
 ## Development
 
-Refer to [DEVELOPMENT.md](DEVELOPMENT.md) for docs on how to develop yarn.
+Refer to [DEVELOPMENT.md](DEVELOPMENT.md) for docs on how to develop Reptar.
 
 ## Tests
 

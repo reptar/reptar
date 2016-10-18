@@ -1,17 +1,51 @@
 import fs from 'fs-extra';
-import log from '../lib/log';
+import moment from 'moment';
 import path from 'path';
 import inquirer from 'inquirer';
 import spawn from 'cross-spawn';
+import log from '../lib/log';
+
+const dateNowFormatted = moment().format('YYYY-M-D');
+
+/* eslint-disable indent */
+// Files to create in our scaffold location.
+const scaffoldFiles = [
+  [
+    '_posts/hello-world.md',
+`---
+title: Hello World!
+date: ${dateNowFormatted}
+tags:
+- meta
+---
+
+Welcome to my site!
+`,
+  ],
+  [
+    'about.md',
+`---
+title: About
+slug: about
+date: ${dateNowFormatted}
+---
+
+Find out more about me.
+`
+  ],
+];
+/* eslint-enable indent */
 
 export default function init() {
-  var destination = process.cwd();
+  log.info('Init a new Reptar site');
 
-  var questions = [
+  const destination = process.cwd();
+
+  const questions = [
     {
       type: 'confirm',
       name: 'destinationOk',
-      message: 'OK to create new yarn site at path: ' +
+      message: 'OK to create new Reptar site at path: ' +
         destination + '?',
       default: true
     }
@@ -22,65 +56,55 @@ export default function init() {
       process.exit(1);
     }
 
-    var scaffoldSource = require('yarn-scaffold');
-
-    // Copy scaffold project.
+    // Create directory.
     try {
-      fs.copySync(scaffoldSource, destination);
+      fs.ensureDirSync(destination);
     } catch (e) {
-      log.error('Unable to copy scaffold contents into new yarn site.');
+      log.error(`Unable to create folder at ${destination}.`);
       log.error(e);
     }
 
-    // Create our package.json file. Grab the existing dependencies from the
-    // scaffold package.json and create our clean new one.
+    // Copy scaffold files.
     try {
-      var scaffoldJson = require(path.join(destination, 'package.json'));
+      scaffoldFiles.forEach(([filePath, fileContents]) => {
+        fs.outputFileSync(
+          path.join(destination, filePath),
+          fileContents
+        );
+      });
 
-      var packageJsonData = {
-        main: 'my-yarn-site',
-        dependencies: scaffoldJson.dependencies
-      };
-
-      var packageJsonPath = path.join(destination, 'package.json');
-      fs.outputFileSync(packageJsonPath, JSON.stringify(packageJsonData));
+      fs.outputFileSync(
+        path.join(destination, '_config.yml'),
+        fs.readFileSync(
+          path.join(__dirname, '../lib/config/config_example.yml'),
+          'utf8'
+        )
+      );
     } catch (e) {
-      log.error('Unable to create package.json file.');
+      log.error('Unable to create scaffold files.');
       log.error(e);
     }
 
-    // Remove un-needed files.
-    [
-      '_site',
-      'node_modules',
-      'images/.gitkeep',
-      '.npmignore',
-      'scaffold.js',
-      'README.md'
-    ].forEach(function(dir) {
-      var rmDir = path.join(destination, dir);
-
-      try {
-        fs.removeSync(rmDir);
-      } catch (e) {
-        // Fail silently, not a big deal to not be able to remove files.
-      }
-    });
-
-    var npmInstallProc;
-    try {
-      npmInstallProc = spawn('npm', [
-        'install'       // Disable caching.
-      ], {
+    function runCmd(cmd, args) {
+      return spawn.sync(cmd, args, {
         stdio: 'inherit',
         cwd: destination
       });
-    } catch (e) {
-      log.warn('Unable to run `npm install`');
     }
 
-    npmInstallProc.on('close', function() {
-      log.info('New yarn site created at ' + destination);
-    });
+    const npmPackages = [
+      'reptar-excerpt',
+      'reptar-html-minifier',
+      'reptar-theme-thread',
+    ];
+
+    log.info(`Installing npm packages: ${npmPackages.join(', ')}`);
+
+    runCmd('npm', ['init', '--yes']);
+
+    runCmd('npm', ['install', '--save'].concat(npmPackages));
+
+    log.info('New Reptar site created at ' + destination);
+    log.info('Now run `reptar build` and `reptar serve`');
   });
 }

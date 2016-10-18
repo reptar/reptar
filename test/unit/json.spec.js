@@ -5,14 +5,14 @@ import * as json from '../../lib/json.js';
 
 describe('json JSON', function() {
 
-  describe('getYarnPackageNames', () => {
-    it('returns the yarn package names', () => {
-      let rootDir = path.resolve(__dirname, '../../');
-      let plugins = json.getYarnPackageNames(rootDir);
+  describe('getReptarPackageNames', () => {
+    it('returns the Reptar package names', () => {
+      const rootDir = path.resolve(__dirname, '../../');
+      const plugins = json.getReptarPackageNames(rootDir);
 
       assert(_.isEqual(
         Array.from(plugins),
-        ['yarn-excerpt', 'yarn-html-minifier', 'yarn-scaffold']
+        ['reptar-excerpt', 'reptar-html-minifier']
       ));
     });
   });

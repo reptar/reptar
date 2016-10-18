@@ -45,9 +45,13 @@
     }],
     "semi": 2,
     "curly": 2,
-    "eqeqeq": 2,
+    "eqeqeq": [2, "smart"],
     "indent": [2, 2],
     "no-unused-vars": 2,
+    "prefer-const": [2, {
+      "destructuring": "all",
+      "ignoreReadBeforeAssign": true
+    }],
     "no-undef": 2
   }
 }
