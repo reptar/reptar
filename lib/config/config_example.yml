@@ -40,6 +40,15 @@ file:
     -
       scope:
          # Any file in this path will have the default values applied.
+         path: ./
+      values:
+        template: page
+        permalink: /:title/
+    -
+      scope:
+         # Any file in this path will have the default values applied.
+         # Because this path is more specific it will over-write the previous
+         # defaults.
          path: ./_posts
       values:
         template: post
