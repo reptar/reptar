@@ -24,5 +24,5 @@ Looking for contributions guidelines? [Go to CONTRIBUTING.md.](CONTRIBUTING.md)
 [npm-url]: http://badge.fury.io/js/reptar
 [travis-badge]: https://travis-ci.org/reptar/reptar.svg?branch=master
 [travis-url]: https://travis-ci.org/reptar/reptar
-[coveralls-badge]:https://coveralls.io/repos/github/reptar/reptar/badge.svg?branch=master
-[coveralls-url]: https://coveralls.io/github/reptar/reptar?branch=master
+[coveralls-badge]: https://coveralls.io/repos/github/reptar/reptar/badge.svg
+[coveralls-url]: https://coveralls.io/github/reptar/reptar
