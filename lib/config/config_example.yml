@@ -66,24 +66,24 @@ file:
 collections:
   post:
     path: ./_posts
+    template: index
+    page_size: 6
     sort:
       key: date
       order: descending
-    pagination:
-      template: index
-      size: 6
-      permalink_index: /
-      permalink_page:  /page/:page/
+    permalink:
+      index: /
+      page:  /page/:page/
   tag:
     metadata: tags
+    template: tag
+    page_size: 6
     sort:
       key: date
       order: descending
-    pagination:
-      template: tag
-      size: 6
-      permalink_index: /tag/:metadata/
-      permalink_page:  /tag/:metadata/:page/
+    permalink:
+      index: /tag/:metadata/
+      page:  /tag/:metadata/:page/
 
 # Current theme.
 # What theme your Reptar site should use when building your site.

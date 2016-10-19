@@ -154,10 +154,10 @@ describe('collection/type/file-system FileSystemCollection', () => {
       filesArray.forEach((file, index) => {
         instance.files[index] = file;
       });
-      instance.pagination = {};
-      instance.pagination.size = pageSize;
-      instance.pagination.permalinkIndex = 'index.html';
-      instance.pagination.permalinkPage = '/page.html';
+      instance.pageSize = pageSize;
+      instance.permalink = {};
+      instance.permalink.index = 'index.html';
+      instance.permalink.page = '/page.html';
       sinon.spy(instance, 'createPage');
       sinon.spy(instance, '_linkPages');
       sandbox.spy(CollectionBase, 'sortFiles');
@@ -175,8 +175,8 @@ describe('collection/type/file-system FileSystemCollection', () => {
         assert.deepEqual(page.data.files, [instance.files[index].data]);
 
         const expectedPermalink = index === 0 ?
-          instance.pagination.permalinkIndex :
-          instance.pagination.permalinkPage;
+          instance.permalink.index :
+          instance.permalink.page;
 
         assert.equal(page.permalink, expectedPermalink);
 
@@ -213,14 +213,14 @@ describe('collection/type/file-system FileSystemCollection', () => {
       const instance = new FileSystemCollection('name');
       assert.equal(instance.createCollectionPages(), false);
 
-      instance.pagination = {};
-      instance.pagination.permalinkIndex = 'index.html';
-      instance.pagination.permalinkPage = undefined;
+      instance.permalink = {};
+      instance.permalink.index = 'index.html';
+      instance.permalink.page = undefined;
       assert.equal(instance.createCollectionPages(), false);
       assert.equal(CollectionBase.sortFiles.calledOnce, false);
 
-      instance.pagination.permalinkIndex = undefined;
-      instance.pagination.permalinkPage = '/page.html';
+      instance.permalink.index = undefined;
+      instance.permalink.page = '/page.html';
       assert.equal(instance.createCollectionPages(), false);
       assert.equal(CollectionBase.sortFiles.calledOnce, false);
     });

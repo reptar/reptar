@@ -137,13 +137,13 @@ describe('collection/type/metadata MetadataCollection', () => {
       const instance = new MetadataCollection('name', undefined, getConfig);
       assert.equal(instance.createCollectionPages(), false);
 
-      instance.pagination = {};
-      instance.pagination.permalinkIndex = 'index.html';
-      instance.pagination.permalinkPage = undefined;
+      instance.permalink = {};
+      instance.permalink.index = 'index.html';
+      instance.permalink.page = undefined;
       assert.equal(instance.createCollectionPages(), false);
 
-      instance.pagination.permalinkIndex = undefined;
-      instance.pagination.permalinkPage = '/page.html';
+      instance.permalink.index = undefined;
+      instance.permalink.page = '/page.html';
       assert.equal(instance.createCollectionPages(), false);
     });
 
@@ -152,10 +152,10 @@ describe('collection/type/metadata MetadataCollection', () => {
       const files = fixture.collectionFiles();
       const instance = new MetadataCollection('name', undefined, getConfig);
       instance.metadata = fixture.collectionMetadataKey;
-      instance.pagination = {};
-      instance.pagination.size = pageSize;
-      instance.pagination.permalinkIndex = 'index.html';
-      instance.pagination.permalinkPage = '/page/:metadata/:page.html';
+      instance.permalink = {};
+      instance.pageSize = pageSize;
+      instance.permalink.index = 'index.html';
+      instance.permalink.page = '/page/:metadata/:page.html';
       assert.equal(instance.pages.length, 0);
       assert(_.isUndefined(instance.metadataFiles));
       sinon.spy(instance, 'createCollectionPages');
@@ -176,14 +176,14 @@ describe('collection/type/metadata MetadataCollection', () => {
         // the right page data.
         let index = realIndex;
         let expectedPermalink = index === 0 ?
-          instance.pagination.permalinkIndex :
-          instance.pagination.permalinkPage;
+          instance.permalink.index :
+          instance.permalink.page;
         if (realIndex === 2) {
           index = 0;
-          expectedPermalink = instance.pagination.permalinkIndex;
+          expectedPermalink = instance.permalink.index;
         } else if (realIndex === 3) {
           index = 0;
-          expectedPermalink = instance.pagination.permalinkIndex;
+          expectedPermalink = instance.permalink.index;
         }
 
         const files = instance.metadataFiles[page.data.metadata];
