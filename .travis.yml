@@ -18,5 +18,4 @@ before_script:
   npm run lint
 
 after_script:
-  mkdir .nyc_output
-  npm run coveralls
+  mkdir .nyc_output && npm run coveralls
