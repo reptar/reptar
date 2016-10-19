@@ -1,5 +1,6 @@
 import Hapi from 'hapi';
 import inert from 'inert';
+import path from 'path';
 import Config from '../lib/config';
 import log from '../lib/log';
 
@@ -28,7 +29,7 @@ export default async function serve() {
 
   server.route({
     method: 'GET',
-    path: '/{param*}',
+    path: path.join('/', config.get('server.baseurl'), '/{param*}'),
     handler: {
       directory: {
         path: '.',
@@ -40,5 +41,8 @@ export default async function serve() {
 
   server.start();
 
-  log.info('Server running at:', server.info.uri);
+  log.info(
+    'Server running at:',
+    path.join(server.info.uri, config.get('server.baseurl'))
+  );
 }
