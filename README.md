@@ -4,13 +4,11 @@
 [![Build Status][travis-badge]][travis-url]
 [![Coverage Status][coveralls-badge]][coveralls-url]
 
-The static site generator formerly known as yarn.
-
-Names are hard and it's better to be distinct (especially when a [new wildly popular library](https://yarnpkg.com/) is released with the same name).
-
-Bear with me as I transfer over all names to the new and improved, Reptar!
+Static sites that roar.
 
 ![](./reptar.png)
+
+The static site generator formerly known as yarn.
 
 ---
 
