@@ -20,12 +20,17 @@ const commands = {
 };
 
 yargs
-  .command('init', 'scaffold a new reptar site')
+  .command('init', 'scaffold a new site')
   .command('new', 'create new content')
-  .command('build', 'build your site')
-  .command('clean', 'cleans destination folder')
-  .command('serve', 'serve your site with http-server')
-  .command('watch', 'build, serve, and watch for file changes')
+  .command('build', 'build your site', (yargs) => (
+    yargs.option('clean', {
+      alias: 'c',
+      default: false,
+    })
+  ))
+  .command('clean', 'clean destination folder')
+  .command('serve', 'create a simple web server')
+  .command('watch', 'create a server that builds your site lazily')
   .option('incremental', {
     description: 'only build files that have changed',
     boolean: true,
@@ -68,8 +73,8 @@ if (argv.version) {
   const commandHandler = commands[command];
 
   if (!commandHandler) {
-    log.warn('Unknown command: ' + argv._.join(' '));
-    console.log('');
+    log.error('Unknown command: ' + argv._.join(' '));
+    process.stdout.write('\n');
     yargs.showHelp();
   } else {
     commandHandler(argv);
