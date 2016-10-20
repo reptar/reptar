@@ -1,21 +1,28 @@
 import log from '../lib/log';
 import Reptar from '../lib';
 
-export default function(options) {
+export default async function build(options) {
   const id = log.startActivity('building\t\t\t');
-  console.log('');
+  process.stdout.write('\n');
 
   const reptar = new Reptar(options);
-  reptar.update()
-    .then(reptar.build.bind(reptar))
-    .then(function() {
-      console.log('');
-      log.endActivity(id);
 
-      process.exit(0);
-    })
-    .catch(function(e) {
-      console.log(e.stack);
-      throw e;
-    });
+  try {
+    await reptar.update();
+  } catch (e) {
+    log.error(e.message);
+    process.exit(1);
+  }
+
+  try {
+    await reptar.build();
+  } catch (e) {
+    log.error(e.message);
+    process.exit(1);
+  }
+
+  process.stdout.write('\n');
+  log.endActivity(id);
+
+  process.exit(0);
 }

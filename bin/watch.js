@@ -2,6 +2,7 @@ import activity from 'activity-logger';
 import _ from 'lodash';
 import path from 'path';
 import Hapi from 'hapi';
+import Boom from 'boom';
 import inert from 'inert';
 import ora from 'ora';
 import chokidar from 'chokidar';
@@ -39,7 +40,11 @@ class Server {
     this.server.route({
       method: 'GET',
       path: '/{p*}',
-      handler: this.routeHandler,
+      handler: (request, reply) => {
+        this.routeHandler(request, reply).catch(e => {
+          reply(Boom.badData(e.message));
+        });
+      },
     });
 
     this.updateIndex();
