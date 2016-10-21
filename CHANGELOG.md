@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/reptar/reptar/compare/v2.0.0...v2.1.0) (2016-10-21)
+
+
+### Bug Fixes
+
+* Better handling when we encounter errors building site. ([bddb664](https://github.com/reptar/reptar/commit/bddb664))
+
+
+### Features
+
+* **cli:** Add ability to pass --clean to reptar build. ([687c965](https://github.com/reptar/reptar/commit/687c965))
+* **markdown:** Add prism as an option for highlighting markdown. ([71ac5ea](https://github.com/reptar/reptar/commit/71ac5ea))
+* **template:** Add new built-in filter 'groupbydate'. ([ef49ce7](https://github.com/reptar/reptar/commit/ef49ce7))
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/reptar/reptar/compare/v1.4.0...v2.0.0) (2016-10-19)
 
