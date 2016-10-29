@@ -77,6 +77,7 @@
 <div class="content" data-ice="content"><h1 data-ice="title">lib/index.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Promise from &apos;bluebird&apos;;
 import _ from &apos;lodash&apos;;
+import fp from &apos;lodash/fp&apos;;
 import moment from &apos;moment&apos;;
 import path from &apos;path&apos;;
 import rimraf from &apos;rimraf&apos;;
@@ -86,6 +87,7 @@ import cache from &apos;./cache&apos;;
 import * as CONSTANTS from &apos;./constants&apos;;
 import { createChecksum } from &apos;./checksum&apos;;
 import Config from &apos;./config&apos;;
+import log from &apos;./log&apos;;
 import Url from &apos;./url&apos;;
 import DataFiles from &apos;./data-files&apos;;
 import {
@@ -363,6 +365,26 @@ export default class Reptar {
     if (this.config.get(&apos;clean_destination&apos;) || this.options.clean) {
       await this.cleanDestination();
     }
+
+    // Collect all Files and CollectionPages
+    const allFiles = _.concat(
+      _.values(this.files),
+      _.flatMap(this.collections, &apos;pages&apos;)
+    );
+
+    // See if any two objects have the same destination path.
+    const destinationCollisions = _.flow(
+      fp.groupBy(&apos;destination&apos;),
+      fp.pickBy(val =&gt; val.length &gt; 1)
+    )(allFiles);
+
+    // Show a warning for any collisions detected.
+    _.forEach(destinationCollisions, (files, dest) =&gt; {
+      log.warn(
+        `Destination collision detected at ${dest}\n` +
+        `\t Source files:\n\t\t${files.map(f =&gt; f.id).join(&apos;\n\t\t&apos;)}`
+      );
+    });
 
     this.data.reptar = Reptar.getReptarData();
 

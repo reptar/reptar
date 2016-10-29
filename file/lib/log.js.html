@@ -78,14 +78,12 @@
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import chalk from &apos;chalk&apos;;
 import activity from &apos;activity-logger&apos;;
 
-let verboseMode = false;
+let verboseMode = true;
 let isSilent = false;
 
 export default {
   setLogLevel(logLevel) {
-    if (logLevel === &apos;verbose&apos;) {
-      verboseMode = true;
-    }
+    verboseMode = logLevel === &apos;verbose&apos;;
   },
 
   setSilent(newSilent = false) {
@@ -126,7 +124,8 @@ export default {
     }
     return activity.end(id);
   },
-};</code></pre>
+};
+</code></pre>
 
 </div>
 

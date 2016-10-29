@@ -1587,7 +1587,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import _ from 'lodash';\n\nimport CollectionBase from '../base';\n\n/**\n * A collection that derives its content from a match in a files yaml\n * frontmatter data.\n */\nexport default class MetadataCollection extends CollectionBase {\n  constructor(name, collectionConfig, getConfig) {\n    super(name, collectionConfig, getConfig);\n\n    /**\n     * Object which holds a mapping of metadata value to the files that contain\n     * the metadata property.\n     * For example with metadata of 'tags' you'd have:\n     * {\n     * \t'tag-name': [file, file],\n     * \t'other-tag': [file, file]\n     * }\n     * @type {Object.<string, Array.<File>>}\n     */\n    this.metadataFiles;\n  }\n\n  /**\n   * Checks to see if this file passes all requirements to be considered a part\n   * of this collection.\n   * @param {File} file File object.\n   * @return {boolean} true if the file meets all requirements.\n   */\n  _isFileInCollection(file) {\n    return !_.isUndefined(file.data[this.metadata]) && !this.isFiltered(file);\n  }\n\n  /**\n   * Add a file to the collection.\n   * @param {File} file File object.\n   * @return {boolean} True if the file was added to the collection.\n   */\n  addFile(file) {\n    if (!this._isFileInCollection(file)) {\n      return false;\n    }\n\n    let metadataValues = file.data[this.metadata];\n    if (!Array.isArray(metadataValues)) {\n      metadataValues = [metadataValues];\n    }\n\n    metadataValues.forEach(value => {\n      this.metadataFiles[value] = this.metadataFiles[value] || [];\n      this.metadataFiles[value].push(file);\n\n      // Add data to template accessible object.\n      this.data.metadata[value] = this.data.metadata[value] || [];\n      this.data.metadata[value].push(file.data);\n    });\n\n    return true;\n  }\n\n  /**\n   * Populate the Collection's files via file system path or metadata attribute.\n   * @param {Object.<string, Files>} files Object of files.\n   * @return {Collection}\n   */\n  populate(files) {\n    // Create metadata files.\n    this.metadataFiles = {};\n\n    // Initialize template data.\n    this.data.metadata = {};\n\n    // Store files that are in our collection.\n    _.each(files, file => {\n      // Don't return value so we iterate over every file.\n      this.addFile(file);\n    });\n\n    this.createCollectionPages();\n\n    return this;\n  }\n\n  /**\n   * Create CollectionPage objects for our Collection.\n   * @return {boolean} True if we successfully created CollectionPages.\n   * @private\n   */\n  createCollectionPages() {\n    // If no permalink paths are set then we don't render a CollectionPage.\n    if (!(this.permalink && this.permalink.index && this.permalink.page)) {\n      return false;\n    }\n\n    if (this.metadataFiles) {\n      this.pages = [];\n\n      // Create CollectionPage objects to represent our pagination pages.\n      _.each(this.metadataFiles, (files, metadataKey) => {\n        // Sort files.\n        files = CollectionBase.sortFiles(\n          files,\n          this.sort,\n          this._getConfig().get('file.date_format')\n        );\n\n        // Break up our array of files into arrays that match our defined\n        // pagination size.\n        const pages = _.chunk(files, this.pageSize);\n\n        pages.forEach((pageFiles, index) => {\n          // Create CollectionPage.\n          const collectionPage = this.createPage(\n            index,\n            `${this.id}:${metadataKey}:${index}` // Custom ID.\n          );\n\n          collectionPage.setData({\n            // Extra template information.\n            metadata: metadataKey,\n\n            // How many pages in the collection.\n            total_pages: pages.length,\n\n            // Posts displayed per page\n            per_page: this.pageSize,\n\n            // Total number of posts\n            total: files.length\n          });\n\n          // Files in the page.\n          collectionPage.setFiles(pageFiles);\n\n          // Create a map of the metadataKey to its full URL on the file object.\n          // Useful when rendering and wanting to link out to the metadata page.\n          pageFiles.forEach(file => {\n            file.data.metadataUrls = file.data.metadataUrls || {};\n            file.data.metadataUrls[metadataKey] = collectionPage.data.url;\n          });\n\n          // Add to our array of pages.\n          this.pages.push(collectionPage);\n        });\n      });\n    }\n\n    this._linkPages(\n      // ShouldLinkPrevious\n      (previous, collectionPage) => {\n        // With metadata collections all pages aren't made in the same context.\n        // i.e. for a tag metadata collection you'll have 3 pages with metadata\n        // value of 'review', and 2 pages of value 'tutorial'. These different\n        // metadata values should not be linked.\n        return previous && this.metadataFiles &&\n          previous.data.metadata === collectionPage.data.metadata;\n      },\n      // ShouldLinkNext\n      (next, collectionPage) => {\n        // With metadata collections all pages aren't made in the same context.\n        // i.e. for a tag metadata collection you'll have 3 pages with metadata\n        // value of 'review', and 2 pages of value 'tutorial'. These different\n        // metadata values should not be linked.\n        return next && this.metadataFiles &&\n          next.data.metadata === collectionPage.data.metadata;\n      }\n    );\n\n    return true;\n  }\n}\n"
+    "content": "import _ from 'lodash';\n\nimport Url from '../../url';\nimport CollectionBase from '../base';\n\n/**\n * A collection that derives its content from a match in a files yaml\n * frontmatter data.\n */\nexport default class MetadataCollection extends CollectionBase {\n  constructor(name, collectionConfig, getConfig) {\n    super(name, collectionConfig, getConfig);\n\n    /**\n     * Object which holds a mapping of metadata value to the files that contain\n     * the metadata property.\n     * For example with metadata of 'tags' you'd have:\n     * {\n     * \t'tag-name': [file, file],\n     * \t'other-tag': [file, file]\n     * }\n     * @type {Object.<string, Array.<File>>}\n     */\n    this.metadataFiles;\n  }\n\n  /**\n   * Checks to see if this file passes all requirements to be considered a part\n   * of this collection.\n   * @param {File} file File object.\n   * @return {boolean} true if the file meets all requirements.\n   */\n  _isFileInCollection(file) {\n    return !_.isUndefined(file.data[this.metadata]) && !this.isFiltered(file);\n  }\n\n  /**\n   * Add a file to the collection.\n   * @param {File} file File object.\n   * @return {boolean} True if the file was added to the collection.\n   */\n  addFile(file) {\n    if (!this._isFileInCollection(file)) {\n      return false;\n    }\n\n    let metadataValues = file.data[this.metadata];\n    if (!Array.isArray(metadataValues)) {\n      metadataValues = [metadataValues];\n    }\n\n    metadataValues.forEach(rawValue => {\n      // Slugify each value to make sure there's no collisions when we write\n      // CollectionPages to disk. This prevents `open source` and `open-source`\n      // from being in two different keys but both writing to the same\n      // file-system destination.\n      const value = _.isString(rawValue) ? Url.slug(rawValue) : rawValue;\n      this.metadataFiles[value] = this.metadataFiles[value] || [];\n      this.metadataFiles[value].push(file);\n\n      // Add data to template accessible object.\n      this.data.metadata[value] = this.data.metadata[value] || [];\n      this.data.metadata[value].push(file.data);\n    });\n\n    return true;\n  }\n\n  /**\n   * Populate the Collection's files via file system path or metadata attribute.\n   * @param {Object.<string, Files>} files Object of files.\n   * @return {Collection}\n   */\n  populate(files) {\n    // Create metadata files.\n    this.metadataFiles = {};\n\n    // Initialize template data.\n    this.data.metadata = {};\n\n    // Store files that are in our collection.\n    _.each(files, file => {\n      // Don't return value so we iterate over every file.\n      this.addFile(file);\n    });\n\n    this.createCollectionPages();\n\n    return this;\n  }\n\n  /**\n   * Create CollectionPage objects for our Collection.\n   * @return {boolean} True if we successfully created CollectionPages.\n   * @private\n   */\n  createCollectionPages() {\n    // If no permalink paths are set then we don't render a CollectionPage.\n    if (!(this.permalink && this.permalink.index && this.permalink.page)) {\n      return false;\n    }\n\n    if (this.metadataFiles) {\n      this.pages = [];\n\n      // Create CollectionPage objects to represent our pagination pages.\n      _.each(this.metadataFiles, (files, metadataKey) => {\n        // Sort files.\n        files = CollectionBase.sortFiles(\n          files,\n          this.sort,\n          this._getConfig().get('file.date_format')\n        );\n\n        // Break up our array of files into arrays that match our defined\n        // pagination size.\n        const pages = _.chunk(files, this.pageSize);\n\n        pages.forEach((pageFiles, index) => {\n          // Create CollectionPage.\n          const collectionPage = this.createPage(\n            index,\n            `${this.id}:${metadataKey}:${index}` // Custom ID.\n          );\n\n          collectionPage.setData({\n            // Extra template information.\n            metadata: metadataKey,\n\n            // How many pages in the collection.\n            total_pages: pages.length,\n\n            // Posts displayed per page\n            per_page: this.pageSize,\n\n            // Total number of posts\n            total: files.length\n          });\n\n          // Files in the page.\n          collectionPage.setFiles(pageFiles);\n\n          // Create a map of the metadataKey to its full URL on the file object.\n          // Useful when rendering and wanting to link out to the metadata page.\n          pageFiles.forEach(file => {\n            file.data.metadataUrls = file.data.metadataUrls || {};\n            file.data.metadataUrls[metadataKey] = collectionPage.data.url;\n          });\n\n          // Add to our array of pages.\n          this.pages.push(collectionPage);\n        });\n      });\n    }\n\n    this._linkPages(\n      // ShouldLinkPrevious\n      (previous, collectionPage) => {\n        // With metadata collections all pages aren't made in the same context.\n        // i.e. for a tag metadata collection you'll have 3 pages with metadata\n        // value of 'review', and 2 pages of value 'tutorial'. These different\n        // metadata values should not be linked.\n        return previous && this.metadataFiles &&\n          previous.data.metadata === collectionPage.data.metadata;\n      },\n      // ShouldLinkNext\n      (next, collectionPage) => {\n        // With metadata collections all pages aren't made in the same context.\n        // i.e. for a tag metadata collection you'll have 3 pages with metadata\n        // value of 'review', and 2 pages of value 'tutorial'. These different\n        // metadata values should not be linked.\n        return next && this.metadataFiles &&\n          next.data.metadata === collectionPage.data.metadata;\n      }\n    );\n\n    return true;\n  }\n}\n"
   },
   {
     "__docId__": 65,
@@ -1602,7 +1602,7 @@
     "importPath": "reptar/lib/collection/type/metadata.js",
     "importStyle": "MetadataCollection",
     "description": "A collection that derives its content from a match in a files yaml\nfrontmatter data.",
-    "lineNumber": 9,
+    "lineNumber": 10,
     "interface": false,
     "extends": [
       "lib/collection/base.js~CollectionBase"
@@ -1618,7 +1618,7 @@
     "longname": "lib/collection/type/metadata.js~MetadataCollection#constructor",
     "access": null,
     "description": null,
-    "lineNumber": 10,
+    "lineNumber": 11,
     "undocument": true,
     "params": [
       {
@@ -1652,7 +1652,7 @@
     "longname": "lib/collection/type/metadata.js~MetadataCollection#_isFileInCollection",
     "access": null,
     "description": "Checks to see if this file passes all requirements to be considered a part\nof this collection.",
-    "lineNumber": 32,
+    "lineNumber": 33,
     "params": [
       {
         "nullable": null,
@@ -1685,7 +1685,7 @@
     "longname": "lib/collection/type/metadata.js~MetadataCollection#addFile",
     "access": null,
     "description": "Add a file to the collection.",
-    "lineNumber": 41,
+    "lineNumber": 42,
     "params": [
       {
         "nullable": null,
@@ -1718,7 +1718,7 @@
     "longname": "lib/collection/type/metadata.js~MetadataCollection#populate",
     "access": null,
     "description": "Populate the Collection's files via file system path or metadata attribute.",
-    "lineNumber": 68,
+    "lineNumber": 74,
     "params": [
       {
         "nullable": null,
@@ -1751,7 +1751,7 @@
     "longname": "lib/collection/type/metadata.js~MetadataCollection#metadataFiles",
     "access": null,
     "description": null,
-    "lineNumber": 70,
+    "lineNumber": 76,
     "undocument": true,
     "type": {
       "types": [
@@ -1769,7 +1769,7 @@
     "longname": "lib/collection/type/metadata.js~MetadataCollection#createCollectionPages",
     "access": "private",
     "description": "Create CollectionPage objects for our Collection.",
-    "lineNumber": 91,
+    "lineNumber": 97,
     "params": [],
     "return": {
       "nullable": null,
@@ -1791,7 +1791,7 @@
     "longname": "lib/collection/type/metadata.js~MetadataCollection#pages",
     "access": null,
     "description": null,
-    "lineNumber": 98,
+    "lineNumber": 104,
     "undocument": true,
     "type": {
       "types": [
@@ -2803,7 +2803,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import Promise from 'bluebird';\nimport _ from 'lodash';\nimport moment from 'moment';\nimport path from 'path';\nimport rimraf from 'rimraf';\nimport glob from 'glob';\nimport ora from 'ora';\nimport cache from './cache';\nimport * as CONSTANTS from './constants';\nimport { createChecksum } from './checksum';\nimport Config from './config';\nimport Url from './url';\nimport DataFiles from './data-files';\nimport {\n  configureTemplateEngine,\n} from './template';\nimport {\n  configureMarkdownEngine,\n} from './markdown';\nimport Plugin from './plugin/index';\nimport Theme from './theme';\nimport {\n  createCollection,\n} from './collection';\nimport File from './file';\n\n/**\n * Helper function to wrap commands with a log.startActivity command so we can\n * see how long a command takes.\n * @param {string} label A label to use for this command.\n * @param {Function} cmd A function to run as the command.\n */\nasync function wrapCommand(label, cmd) {\n  const startTime = Date.now();\n  const spinner = ora({\n    text: label,\n    spinner: 'dot4',\n  }).start();\n\n  try {\n    await cmd();\n    spinner.text = `${label} (${Date.now() - startTime}ms)`;\n    spinner.succeed();\n  } catch (e) {\n    spinner.fail();\n    throw e;\n  }\n}\n\nexport default class Reptar {\n  /**\n   * Create a new Reptar instance.\n   * @param {Object} options Options object.\n   * @param {string} options.rootPath Where the root path of this Reptar\n   *   instance points to.\n   * @param {boolean} options.incremental If we should incremental build files.\n   * @param {boolean} options.noTemplateCache Should templates be cached.\n   *   Typically this is only off when developing or in watch mode.\n   */\n  constructor(options = {}) {\n    /**\n     * Expose config object on instance.\n     * @type {Config}\n     */\n    this.config = new Config(options.rootPath);\n\n    /**\n     * Returns our config instance.\n     * @return {Object}\n     */\n    this.getConfig = () => {\n      return this.config;\n    };\n\n    /**\n     * Save options passed into instance.\n     * @type {Object}\n     */\n    this.options = _.defaults(options, {\n      noTemplateCache: false,\n      clean: false,\n    });\n\n    /**\n     * All files found in our source path.\n     * Key is the full path to the file, value is the actual File object.\n     * @type {Object.<string, File>}\n     */\n    this.files = Object.create(null);\n\n    /**\n     * Site wide data available in all templates.\n     * @type {Object.<string, Object>}\n     */\n    this.data = Object.create(null);\n\n    /**\n     * Mapping of Collection IDs to the instance.\n     * @type {Object.<string, Collection>}\n     */\n    this.collections = Object.create(null);\n\n    /**\n     * Class responsible for handling themes.\n     * @type {Theme}\n     */\n    this.theme = new Theme();\n    this.theme.setGetConfig(this.getConfig);\n\n    /**\n     * Expose collections.\n     * @type {Object}\n     */\n    this.data.collections = Object.create(null);\n  }\n\n  async update() {\n    this.config.update();\n\n    const { base, dir } = path.parse(this.config.root);\n    cache.setNamespace(`${base}-${createChecksum(dir).slice(0, 10)}`);\n\n    // Options passed into constructor take precedence over the config value.\n    // We default to loading cache, unless explicitly set to false.\n    const shouldLoadCache = !_.isNil(this.options.incremental) ?\n      this.options.incremental !== false :\n      this.config.get('incremental') !== false;\n    if (shouldLoadCache) {\n      cache.load();\n    }\n\n    Url.setSlugOptions(this.config.get('slug'));\n\n    this.theme.update();\n\n    // Configure template engine.\n    configureTemplateEngine({\n      config: this.config,\n      paths: this.theme.config.path.templates,\n      noCache: this.options.noTemplateCache,\n    });\n\n    // Configure markdown engine.\n    configureMarkdownEngine(this.config.get('markdown.options'));\n\n    /**\n     * Expose site data from config file.\n     * @type {Object}\n     */\n    this.data.site = this.config.get('site');\n\n    // Load data files.\n    const dataFiles = await DataFiles.update(this.config.get('path.data'));\n\n    // Expose it on the site object.\n    this.data.site.data = dataFiles;\n\n    // Update our collection configs.\n    _.map(\n      this.config.get('collections'),\n      (collectionConfig, collectionName) => {\n        const instance = createCollection(\n          collectionName,\n          collectionConfig,\n          this.getConfig\n        );\n\n        this.collections[instance.id] = instance;\n      }\n    );\n\n    // Read theme files, processing any files that it needs to so that we get\n    // the final path to the ready to write files.\n    await wrapCommand(\n      'Reading theme files.\\t\\t',\n      async () => {\n        await this.theme.read();\n        // Expose theme data globally.\n        this.data.theme = this.theme.data;\n      }\n    );\n\n    await wrapCommand(\n      'Loading plugins.\\t\\t',\n      () => {\n        // Built-in plugins.\n        Plugin.loadFromPackageJson(\n          Url.pathFromRoot('./'),\n          this.config.get('plugins')\n        );\n        [\n          this.theme.config.path.plugins, // Active theme plug-ins\n          this.config.get('path.plugins') // Site plug-ins\n        ].forEach(path => Plugin.loadFromDirectory(path));\n      }\n    );\n\n    await wrapCommand(\n      'Reading files.\\t\\t',\n      this.readFiles.bind(this)\n    );\n\n    await wrapCommand(\n      'Reading collections.\\t\\t',\n      this.readCollections.bind(this)\n    );\n  }\n\n  async readFiles() {\n    const configPathSource = this.config.get('path.source');\n\n    // Create an array of patterns that we should ignore when reading the source\n    // files of the Reptar site from disk.\n    // This primarily includes the '_config.yml' file as well as every path\n    // directory that isn't our source path, primarily '_site', '_plugins',\n    // and '_themes'.\n    const ignorePatterns = _.values(CONSTANTS.YAML).concat(\n      _.values(this.config.get('path')).filter(path =>\n        path !== configPathSource\n      )\n    );\n\n    // Ignore package.json file as well.\n    ignorePatterns.push('package.json');\n\n    // Read all files from disk and get their file paths.\n    const files = await Promise.fromCallback(cb => {\n      glob(configPathSource + '/**/*', {\n        // Do not match directories, only files.\n        nodir: true,\n        // Array of glob patterns to exclude from matching.\n        ignore: ignorePatterns.map(path => `**/${path}/**`).concat(\n          `${configPathSource}/node_modules/**`\n        ),\n        // Follow symlinks.\n        follow: true\n      }, cb);\n    });\n\n    const filePromises = files.map(filePath => {\n      // Correct the filePath created by glob to be compatible with Windows.\n      // Known issue in node-glob https://github.com/isaacs/node-glob/pull/263.\n      filePath = path.normalize(filePath.replace(/\\//g, path.sep));\n\n      const sourceFile = new File(filePath, this.getConfig);\n      this.files[sourceFile.id] = sourceFile;\n\n      return sourceFile.update();\n    });\n\n    return Promise.all(filePromises);\n  }\n\n  readCollections() {\n    // Populate every collection with its files.\n    _.each(this.collections, collection => {\n      collection.populate(this.files, this.collections);\n\n      // Add collection data to our global data object.\n      this.data.collections[collection.name] = collection.data;\n    });\n  }\n\n  /**\n   * Removes configured destination directory and all files contained.\n   * @return {Promise} Promise object.\n   */\n  cleanDestination() {\n    return wrapCommand(\n      'Cleaning destination.\\t\\t',\n      async () => {\n        await Promise.fromCallback(cb => {\n          rimraf(this.config.get('path.destination'), cb);\n        });\n\n        // Clear cache.\n        cache.clear();\n      }\n    );\n  }\n\n  /**\n   * Builds the Reptar site in its entirety.\n   */\n  async build() {\n    if (this.config.get('clean_destination') || this.options.clean) {\n      await this.cleanDestination();\n    }\n\n    this.data.reptar = Reptar.getReptarData();\n\n    // Writes Theme files and assets to file system.\n    await wrapCommand(\n      'Writing theme files.\\t\\t',\n      this.theme.write.bind(this.theme)\n    );\n\n    await wrapCommand(\n      'Writing files.\\t\\t',\n      () => {\n        return Promise.all(_.reduce(this.files, (result, file) => {\n          return result.concat(file.write(this.data));\n        }, []));\n      }\n    );\n\n    await wrapCommand(\n      'Writing collection pages.\\t',\n      () => {\n        return Promise.all(_.map(this.collections, collection => {\n          return collection.write(this.data);\n        }));\n      }\n    );\n  }\n\n  /**\n   * Get information about the Reptar installation from its package.json.\n   * @return {Object}\n   */\n  static getReptarData() {\n    let packageJson = {};\n    try {\n      packageJson = require(Url.pathFromRoot('./package.json'));\n    } catch (e) { /* swallow */ }\n\n    return {\n      version: packageJson.version,\n      time: moment((new Date()).getTime()).format()\n    };\n  }\n}\n"
+    "content": "import Promise from 'bluebird';\nimport _ from 'lodash';\nimport fp from 'lodash/fp';\nimport moment from 'moment';\nimport path from 'path';\nimport rimraf from 'rimraf';\nimport glob from 'glob';\nimport ora from 'ora';\nimport cache from './cache';\nimport * as CONSTANTS from './constants';\nimport { createChecksum } from './checksum';\nimport Config from './config';\nimport log from './log';\nimport Url from './url';\nimport DataFiles from './data-files';\nimport {\n  configureTemplateEngine,\n} from './template';\nimport {\n  configureMarkdownEngine,\n} from './markdown';\nimport Plugin from './plugin/index';\nimport Theme from './theme';\nimport {\n  createCollection,\n} from './collection';\nimport File from './file';\n\n/**\n * Helper function to wrap commands with a log.startActivity command so we can\n * see how long a command takes.\n * @param {string} label A label to use for this command.\n * @param {Function} cmd A function to run as the command.\n */\nasync function wrapCommand(label, cmd) {\n  const startTime = Date.now();\n  const spinner = ora({\n    text: label,\n    spinner: 'dot4',\n  }).start();\n\n  try {\n    await cmd();\n    spinner.text = `${label} (${Date.now() - startTime}ms)`;\n    spinner.succeed();\n  } catch (e) {\n    spinner.fail();\n    throw e;\n  }\n}\n\nexport default class Reptar {\n  /**\n   * Create a new Reptar instance.\n   * @param {Object} options Options object.\n   * @param {string} options.rootPath Where the root path of this Reptar\n   *   instance points to.\n   * @param {boolean} options.incremental If we should incremental build files.\n   * @param {boolean} options.noTemplateCache Should templates be cached.\n   *   Typically this is only off when developing or in watch mode.\n   */\n  constructor(options = {}) {\n    /**\n     * Expose config object on instance.\n     * @type {Config}\n     */\n    this.config = new Config(options.rootPath);\n\n    /**\n     * Returns our config instance.\n     * @return {Object}\n     */\n    this.getConfig = () => {\n      return this.config;\n    };\n\n    /**\n     * Save options passed into instance.\n     * @type {Object}\n     */\n    this.options = _.defaults(options, {\n      noTemplateCache: false,\n      clean: false,\n    });\n\n    /**\n     * All files found in our source path.\n     * Key is the full path to the file, value is the actual File object.\n     * @type {Object.<string, File>}\n     */\n    this.files = Object.create(null);\n\n    /**\n     * Site wide data available in all templates.\n     * @type {Object.<string, Object>}\n     */\n    this.data = Object.create(null);\n\n    /**\n     * Mapping of Collection IDs to the instance.\n     * @type {Object.<string, Collection>}\n     */\n    this.collections = Object.create(null);\n\n    /**\n     * Class responsible for handling themes.\n     * @type {Theme}\n     */\n    this.theme = new Theme();\n    this.theme.setGetConfig(this.getConfig);\n\n    /**\n     * Expose collections.\n     * @type {Object}\n     */\n    this.data.collections = Object.create(null);\n  }\n\n  async update() {\n    this.config.update();\n\n    const { base, dir } = path.parse(this.config.root);\n    cache.setNamespace(`${base}-${createChecksum(dir).slice(0, 10)}`);\n\n    // Options passed into constructor take precedence over the config value.\n    // We default to loading cache, unless explicitly set to false.\n    const shouldLoadCache = !_.isNil(this.options.incremental) ?\n      this.options.incremental !== false :\n      this.config.get('incremental') !== false;\n    if (shouldLoadCache) {\n      cache.load();\n    }\n\n    Url.setSlugOptions(this.config.get('slug'));\n\n    this.theme.update();\n\n    // Configure template engine.\n    configureTemplateEngine({\n      config: this.config,\n      paths: this.theme.config.path.templates,\n      noCache: this.options.noTemplateCache,\n    });\n\n    // Configure markdown engine.\n    configureMarkdownEngine(this.config.get('markdown.options'));\n\n    /**\n     * Expose site data from config file.\n     * @type {Object}\n     */\n    this.data.site = this.config.get('site');\n\n    // Load data files.\n    const dataFiles = await DataFiles.update(this.config.get('path.data'));\n\n    // Expose it on the site object.\n    this.data.site.data = dataFiles;\n\n    // Update our collection configs.\n    _.map(\n      this.config.get('collections'),\n      (collectionConfig, collectionName) => {\n        const instance = createCollection(\n          collectionName,\n          collectionConfig,\n          this.getConfig\n        );\n\n        this.collections[instance.id] = instance;\n      }\n    );\n\n    // Read theme files, processing any files that it needs to so that we get\n    // the final path to the ready to write files.\n    await wrapCommand(\n      'Reading theme files.\\t\\t',\n      async () => {\n        await this.theme.read();\n        // Expose theme data globally.\n        this.data.theme = this.theme.data;\n      }\n    );\n\n    await wrapCommand(\n      'Loading plugins.\\t\\t',\n      () => {\n        // Built-in plugins.\n        Plugin.loadFromPackageJson(\n          Url.pathFromRoot('./'),\n          this.config.get('plugins')\n        );\n        [\n          this.theme.config.path.plugins, // Active theme plug-ins\n          this.config.get('path.plugins') // Site plug-ins\n        ].forEach(path => Plugin.loadFromDirectory(path));\n      }\n    );\n\n    await wrapCommand(\n      'Reading files.\\t\\t',\n      this.readFiles.bind(this)\n    );\n\n    await wrapCommand(\n      'Reading collections.\\t\\t',\n      this.readCollections.bind(this)\n    );\n  }\n\n  async readFiles() {\n    const configPathSource = this.config.get('path.source');\n\n    // Create an array of patterns that we should ignore when reading the source\n    // files of the Reptar site from disk.\n    // This primarily includes the '_config.yml' file as well as every path\n    // directory that isn't our source path, primarily '_site', '_plugins',\n    // and '_themes'.\n    const ignorePatterns = _.values(CONSTANTS.YAML).concat(\n      _.values(this.config.get('path')).filter(path =>\n        path !== configPathSource\n      )\n    );\n\n    // Ignore package.json file as well.\n    ignorePatterns.push('package.json');\n\n    // Read all files from disk and get their file paths.\n    const files = await Promise.fromCallback(cb => {\n      glob(configPathSource + '/**/*', {\n        // Do not match directories, only files.\n        nodir: true,\n        // Array of glob patterns to exclude from matching.\n        ignore: ignorePatterns.map(path => `**/${path}/**`).concat(\n          `${configPathSource}/node_modules/**`\n        ),\n        // Follow symlinks.\n        follow: true\n      }, cb);\n    });\n\n    const filePromises = files.map(filePath => {\n      // Correct the filePath created by glob to be compatible with Windows.\n      // Known issue in node-glob https://github.com/isaacs/node-glob/pull/263.\n      filePath = path.normalize(filePath.replace(/\\//g, path.sep));\n\n      const sourceFile = new File(filePath, this.getConfig);\n      this.files[sourceFile.id] = sourceFile;\n\n      return sourceFile.update();\n    });\n\n    return Promise.all(filePromises);\n  }\n\n  readCollections() {\n    // Populate every collection with its files.\n    _.each(this.collections, collection => {\n      collection.populate(this.files, this.collections);\n\n      // Add collection data to our global data object.\n      this.data.collections[collection.name] = collection.data;\n    });\n  }\n\n  /**\n   * Removes configured destination directory and all files contained.\n   * @return {Promise} Promise object.\n   */\n  cleanDestination() {\n    return wrapCommand(\n      'Cleaning destination.\\t\\t',\n      async () => {\n        await Promise.fromCallback(cb => {\n          rimraf(this.config.get('path.destination'), cb);\n        });\n\n        // Clear cache.\n        cache.clear();\n      }\n    );\n  }\n\n  /**\n   * Builds the Reptar site in its entirety.\n   */\n  async build() {\n    if (this.config.get('clean_destination') || this.options.clean) {\n      await this.cleanDestination();\n    }\n\n    // Collect all Files and CollectionPages\n    const allFiles = _.concat(\n      _.values(this.files),\n      _.flatMap(this.collections, 'pages')\n    );\n\n    // See if any two objects have the same destination path.\n    const destinationCollisions = _.flow(\n      fp.groupBy('destination'),\n      fp.pickBy(val => val.length > 1)\n    )(allFiles);\n\n    // Show a warning for any collisions detected.\n    _.forEach(destinationCollisions, (files, dest) => {\n      log.warn(\n        `Destination collision detected at ${dest}\\n` +\n        `\\t Source files:\\n\\t\\t${files.map(f => f.id).join('\\n\\t\\t')}`\n      );\n    });\n\n    this.data.reptar = Reptar.getReptarData();\n\n    // Writes Theme files and assets to file system.\n    await wrapCommand(\n      'Writing theme files.\\t\\t',\n      this.theme.write.bind(this.theme)\n    );\n\n    await wrapCommand(\n      'Writing files.\\t\\t',\n      () => {\n        return Promise.all(_.reduce(this.files, (result, file) => {\n          return result.concat(file.write(this.data));\n        }, []));\n      }\n    );\n\n    await wrapCommand(\n      'Writing collection pages.\\t',\n      () => {\n        return Promise.all(_.map(this.collections, collection => {\n          return collection.write(this.data);\n        }));\n      }\n    );\n  }\n\n  /**\n   * Get information about the Reptar installation from its package.json.\n   * @return {Object}\n   */\n  static getReptarData() {\n    let packageJson = {};\n    try {\n      packageJson = require(Url.pathFromRoot('./package.json'));\n    } catch (e) { /* swallow */ }\n\n    return {\n      version: packageJson.version,\n      time: moment((new Date()).getTime()).format()\n    };\n  }\n}\n"
   },
   {
     "__docId__": 120,
@@ -2818,7 +2818,7 @@
     "importPath": "reptar/lib/index.js",
     "importStyle": null,
     "description": "Helper function to wrap commands with a log.startActivity command so we can\nsee how long a command takes.",
-    "lineNumber": 33,
+    "lineNumber": 35,
     "params": [
       {
         "nullable": null,
@@ -2856,7 +2856,7 @@
     "importPath": "reptar/lib/index.js",
     "importStyle": "Reptar",
     "description": null,
-    "lineNumber": 50,
+    "lineNumber": 52,
     "undocument": true,
     "interface": false
   },
@@ -2870,7 +2870,7 @@
     "longname": "lib/index.js~Reptar#constructor",
     "access": null,
     "description": "Create a new Reptar instance.",
-    "lineNumber": 60,
+    "lineNumber": 62,
     "params": [
       {
         "nullable": null,
@@ -2925,7 +2925,7 @@
     "longname": "lib/index.js~Reptar#config",
     "access": null,
     "description": "Expose config object on instance.",
-    "lineNumber": 65,
+    "lineNumber": 67,
     "type": {
       "nullable": null,
       "types": [
@@ -2945,7 +2945,7 @@
     "longname": "lib/index.js~Reptar#getConfig",
     "access": null,
     "description": "Returns our config instance.",
-    "lineNumber": 71,
+    "lineNumber": 73,
     "return": {
       "nullable": null,
       "types": [
@@ -2970,7 +2970,7 @@
     "longname": "lib/index.js~Reptar#options",
     "access": null,
     "description": "Save options passed into instance.",
-    "lineNumber": 79,
+    "lineNumber": 81,
     "type": {
       "nullable": null,
       "types": [
@@ -2990,7 +2990,7 @@
     "longname": "lib/index.js~Reptar#files",
     "access": null,
     "description": "All files found in our source path.\nKey is the full path to the file, value is the actual File object.",
-    "lineNumber": 89,
+    "lineNumber": 91,
     "type": {
       "nullable": null,
       "types": [
@@ -3010,7 +3010,7 @@
     "longname": "lib/index.js~Reptar#data",
     "access": null,
     "description": "Site wide data available in all templates.",
-    "lineNumber": 95,
+    "lineNumber": 97,
     "type": {
       "nullable": null,
       "types": [
@@ -3030,7 +3030,7 @@
     "longname": "lib/index.js~Reptar#collections",
     "access": null,
     "description": "Mapping of Collection IDs to the instance.",
-    "lineNumber": 101,
+    "lineNumber": 103,
     "type": {
       "nullable": null,
       "types": [
@@ -3050,7 +3050,7 @@
     "longname": "lib/index.js~Reptar#theme",
     "access": null,
     "description": "Class responsible for handling themes.",
-    "lineNumber": 107,
+    "lineNumber": 109,
     "type": {
       "nullable": null,
       "types": [
@@ -3070,7 +3070,7 @@
     "longname": "lib/index.js~Reptar#update",
     "access": null,
     "description": null,
-    "lineNumber": 117,
+    "lineNumber": 119,
     "undocument": true,
     "params": [],
     "generator": false
@@ -3085,7 +3085,7 @@
     "longname": "lib/index.js~Reptar#readFiles",
     "access": null,
     "description": null,
-    "lineNumber": 209,
+    "lineNumber": 211,
     "undocument": true,
     "params": [],
     "return": {
@@ -3105,7 +3105,7 @@
     "longname": "lib/index.js~Reptar#readCollections",
     "access": null,
     "description": null,
-    "lineNumber": 254,
+    "lineNumber": 256,
     "undocument": true,
     "params": [],
     "generator": false
@@ -3120,7 +3120,7 @@
     "longname": "lib/index.js~Reptar#cleanDestination",
     "access": null,
     "description": "Removes configured destination directory and all files contained.",
-    "lineNumber": 268,
+    "lineNumber": 270,
     "params": [],
     "return": {
       "nullable": null,
@@ -3142,7 +3142,7 @@
     "longname": "lib/index.js~Reptar#build",
     "access": null,
     "description": "Builds the Reptar site in its entirety.",
-    "lineNumber": 285,
+    "lineNumber": 287,
     "params": [],
     "generator": false
   },
@@ -3156,7 +3156,7 @@
     "longname": "lib/index.js~Reptar.getReptarData",
     "access": null,
     "description": "Get information about the Reptar installation from its package.json.",
-    "lineNumber": 321,
+    "lineNumber": 343,
     "params": [],
     "return": {
       "nullable": null,
@@ -3293,7 +3293,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import chalk from 'chalk';\nimport activity from 'activity-logger';\n\nlet verboseMode = false;\nlet isSilent = false;\n\nexport default {\n  setLogLevel(logLevel) {\n    if (logLevel === 'verbose') {\n      verboseMode = true;\n    }\n  },\n\n  setSilent(newSilent = false) {\n    isSilent = newSilent;\n  },\n\n  info(...args) {\n    const prefix = chalk.green('info') + ':\\t';\n    args.unshift(prefix);\n    console.log.apply(console, args);\n  },\n\n  warn(...args) {\n    if (!verboseMode) {\n      return;\n    }\n    const prefix = chalk.yellow('warn') + ':\\t';\n    args.unshift(prefix);\n    console.log.apply(console, args);\n  },\n\n  error(...args) {\n    const prefix = chalk.red('error') + ':\\t';\n    args.unshift(prefix);\n    console.log.apply(console, args);\n  },\n\n  startActivity(name) {\n    if (isSilent) {\n      return;\n    }\n    return activity.start(name);\n  },\n\n  endActivity(id) {\n    if (isSilent) {\n      return;\n    }\n    return activity.end(id);\n  },\n};"
+    "content": "import chalk from 'chalk';\nimport activity from 'activity-logger';\n\nlet verboseMode = true;\nlet isSilent = false;\n\nexport default {\n  setLogLevel(logLevel) {\n    verboseMode = logLevel === 'verbose';\n  },\n\n  setSilent(newSilent = false) {\n    isSilent = newSilent;\n  },\n\n  info(...args) {\n    const prefix = chalk.green('info') + ':\\t';\n    args.unshift(prefix);\n    console.log.apply(console, args);\n  },\n\n  warn(...args) {\n    if (!verboseMode) {\n      return;\n    }\n    const prefix = chalk.yellow('warn') + ':\\t';\n    args.unshift(prefix);\n    console.log.apply(console, args);\n  },\n\n  error(...args) {\n    const prefix = chalk.red('error') + ':\\t';\n    args.unshift(prefix);\n    console.log.apply(console, args);\n  },\n\n  startActivity(name) {\n    if (isSilent) {\n      return;\n    }\n    return activity.start(name);\n  },\n\n  endActivity(id) {\n    if (isSilent) {\n      return;\n    }\n    return activity.end(id);\n  },\n};\n"
   },
   {
     "__docId__": 142,

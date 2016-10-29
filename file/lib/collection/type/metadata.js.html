@@ -77,6 +77,7 @@
 <div class="content" data-ice="content"><h1 data-ice="title">lib/collection/type/metadata.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import _ from &apos;lodash&apos;;
 
+import Url from &apos;../../url&apos;;
 import CollectionBase from &apos;../base&apos;;
 
 /**
@@ -125,7 +126,12 @@ export default class MetadataCollection extends CollectionBase {
       metadataValues = [metadataValues];
     }
 
-    metadataValues.forEach(value =&gt; {
+    metadataValues.forEach(rawValue =&gt; {
+      // Slugify each value to make sure there&apos;s no collisions when we write
+      // CollectionPages to disk. This prevents `open source` and `open-source`
+      // from being in two different keys but both writing to the same
+      // file-system destination.
+      const value = _.isString(rawValue) ? Url.slug(rawValue) : rawValue;
       this.metadataFiles[value] = this.metadataFiles[value] || [];
       this.metadataFiles[value].push(file);
 
