@@ -6,18 +6,6 @@
 
 Static sites that roar.
 
-![](./docs/images/reptar.png)
-
-The static site generator formerly known as yarn.
-
----
-
-Looking for documentation? [Go to the website.](http://reptar.github.io/)
-
-Looking to hack on Reptar? [Go to DEVELOPMENT.md.](./docs/DEVELOPMENT.md)
-
-Looking for contributions guidelines? [Go to CONTRIBUTING.md.](./docs/CONTRIBUTING.md)
-
 [npm-badge]: https://badge.fury.io/js/reptar.svg
 [npm-url]: http://badge.fury.io/js/reptar
 [travis-badge]: https://travis-ci.org/reptar/reptar.svg?branch=master
