@@ -12,6 +12,7 @@
     "gh-pages": "npm run docs && gdd --branch gh-pages --src esdocs --remote origin",
     "compile": "babel lib --out-dir dist/lib && babel bin --out-dir dist/bin && cp lib/config/config_example.yml dist/lib/config/config_example.yml",
     "prepublish": "NODE_ENV=production npm run compile",
+    "pretest": "npm run lint",
     "test": "mocha --recursive --require ./test/setup.js --reporter spec",
     "test:unit": "npm test -- test/unit",
     "test:e2e": "npm test -- test/e2e",
