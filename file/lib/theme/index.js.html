@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">lib/theme/index.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <a data-ice="repoURL" href="https://github.com/reptar/reptar" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/file.js~File.html">File</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getReptarPackageNames">getReptarPackageNames</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureMarkdownEngine">configureMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderFileWithPlugins">renderFileWithPlugins</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBuiltinFilters">addBuiltinFilters</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addTemplateFilter">addTemplateFilter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureTemplateEngine">configureTemplateEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderTemplate">renderTemplate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderTemplateString">renderTemplateString</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-cache">cache</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-KEY">KEY</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-YAML">YAML</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-packageNameRegex">packageNameRegex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Url">Url</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collection</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/base.js~CollectionBase.html">CollectionBase</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/page.js~CollectionPage.html">CollectionPage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createCollection">createCollection</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collection/type</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/type/file-system.js~FileSystemCollection.html">FileSystemCollection</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/type/metadata.js~MetadataCollection.html">MetadataCollection</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">config</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/config/index.js~Config.html">Config</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">filter</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-futureDatesFilter">futureDatesFilter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-metadataFilter">metadataFilter</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">parse</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fileHasFrontmatter">fileHasFrontmatter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/asset.js~Asset.html">Asset</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/index.js~Theme.html">Theme</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor-base.js~ProcessorBase.html">ProcessorBase</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme/processor</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor/browserify.js~Browserify.html">Browserify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor/less.js~Less.html">Less</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor/sass.js~Sass.html">Sass</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">lib/theme/index.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import glob from &apos;glob&apos;;
+import path from &apos;path&apos;;
+import fs from &apos;fs-extra&apos;;
+import resolve from &apos;resolve&apos;;
+import _ from &apos;lodash&apos;;
+import {getReptarPackageNames} from &apos;../json&apos;;
+import Parse from &apos;../parse&apos;;
+import * as CONSTANTS from &apos;../constants&apos;;
+import Asset from &apos;./asset&apos;;
+
+/**
+ * Find all theme.yml files in node_modules.
+ * @param {string} directory Directory to load package.json from.
+ * @return {Array.&lt;string&gt;} Array of paths to theme.yml files.
+ */
+function getThemesFromPackageJson(directory = &apos;&apos;) {
+  const reptarThemePackageNameRegex = /^reptar\-theme\-/;
+
+  // All packages that exist in our root package.json file.
+  const reptarPackages = getReptarPackageNames(directory);
+
+  // Return only the path to the theme.yml file.
+  return reptarPackages.reduce((packageThemes, packageName) =&gt; {
+    if (!reptarThemePackageNameRegex.test(packageName)) {
+      return packageThemes;
+    }
+
+    // Use module&apos;s main field which should reference the config yaml file.
+    const yamlPath = resolve.sync(packageName, {
+      basedir: directory
+    });
+
+    packageThemes.push(yamlPath);
+
+    return packageThemes;
+  }, []);
+}
+
+export default class Theme {
+  constructor() {
+    /**
+     * The current theme name.
+     * @type {string}
+     */
+    this.name = &apos;&apos;;
+
+    /**
+     * Raw object that holds the theme config object.
+     * @type {Object}
+     */
+    this.config;
+
+    /**
+     * Collection of all assets for this theme.
+     * @type {Object.&lt;string, Asset&gt;}
+     */
+    this.assets = Object.create(null);
+
+    /**
+     * Data of asset names and paths that is exposed to templates.
+     * @type {Object}
+     */
+    this.data = Object.create(null);
+  }
+
+  /**
+   * Set global config delegate function.
+   * @param {Object} getConfig Config object.
+   */
+  setGetConfig(getConfig) {
+    this._getConfig = getConfig;
+  }
+
+  update() {
+    this.name = this._getConfig().get(&apos;theme&apos;);
+
+    const configPath = this._getConfig().get(&apos;path&apos;);
+
+    // Find all theme config files that might exist.
+    const fileSystemYamls = glob.sync(
+      configPath.themes + `/**/${CONSTANTS.YAML.THEME}`,
+      { nodir: true }
+    );
+
+    const moduleYamls = getThemesFromPackageJson(configPath.source);
+
+    const allYamls = [].concat(fileSystemYamls, moduleYamls);
+
+    const files = allYamls.reduce((allFiles, file) =&gt; {
+      let parsedFile;
+      try {
+        parsedFile = Parse.fromYaml(
+          fs.readFileSync(file, &apos;utf8&apos;)
+        );
+      } catch (e) {
+        return allFiles;
+      }
+
+      // If the found theme config file name matches our set theme name
+      // then save it.
+      if (parsedFile.name === this.name) {
+        // Save the directory where the correct theme file was found.
+        parsedFile.path[CONSTANTS.KEY.SOURCE] = path.dirname(file);
+        allFiles.push(parsedFile);
+      }
+
+      return allFiles;
+    }, []);
+
+    if (files.length === 0) {
+      throw new Error(`Did not find any theme named &apos;${this.name}&apos; installed.`);
+    } else if (files.length !== 1) {
+      throw new Error(&apos;Found multiple themes with the same name: &apos; +
+        files.join(&apos;,&apos;));
+    }
+
+    const parsedFile = files[0];
+
+    // Save raw theme config.
+    this.config = parsedFile;
+
+    // Calculate absolute path of &apos;paths&apos; keys.
+    _.each(this.config.path, (val, key) =&gt; {
+      if (key !== CONSTANTS.KEY.SOURCE) {
+        // The root of the theme&apos;s destination is the site&apos;s destination.
+        const rootPath = key === CONSTANTS.KEY.DESTINATION ?
+          configPath.destination : this.config.path.source;
+
+        const keyValue = this.config.path[key];
+
+        // Support converting array of values to their absolute path.
+        if (_.isArray(keyValue)) {
+          this.config.path[key] = keyValue.map(value =&gt; {
+            return path.resolve(
+              rootPath,
+              value
+            );
+          });
+        } else {
+          this.config.path[key] = path.resolve(rootPath, keyValue);
+        }
+      }
+    });
+
+    this._createAssets();
+  }
+
+  _createAssets() {
+    // Instantiate an Asset for every asset the theme configures.
+    this.assets = _.reduce(
+      this.config.assets,
+      (assets, assetConfig, assetType) =&gt; {
+        assetConfig.destination = path.resolve(
+          this.config.path.destination,
+          assetConfig.source
+        );
+
+        assetConfig.source = path.resolve(
+          this.config.path.source,
+          assetConfig.source
+        );
+
+        const asset = new Asset(assetType, assetConfig);
+        assets[asset.id] = asset;
+        return assets;
+      },
+      Object.create(null)
+    );
+  }
+
+  async read() {
+    const pathDestination = this._getConfig().get(&apos;path.destination&apos;);
+
+    // Have every asset write itself to the destination folder.
+    await Promise.all(
+      _.map(this.assets, asset =&gt; {
+        return asset.process(pathDestination);
+      })
+    );
+
+    // Expose every asset&apos;s data onto the theme&apos;s data object.
+    _.each(this.assets, asset =&gt; {
+      if (asset.data) {
+        this.data[asset.type] = asset.data.url;
+      }
+    });
+  }
+
+  async write() {
+    // Have every asset write itself to the destination folder.
+    await Promise.all(
+      _.map(this.assets, asset =&gt; {
+        return asset.write();
+      })
+    );
+  }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.8)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

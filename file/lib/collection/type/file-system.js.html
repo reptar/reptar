@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">lib/collection/type/file-system.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <a data-ice="repoURL" href="https://github.com/reptar/reptar" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/file.js~File.html">File</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getReptarPackageNames">getReptarPackageNames</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureMarkdownEngine">configureMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderFileWithPlugins">renderFileWithPlugins</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBuiltinFilters">addBuiltinFilters</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addTemplateFilter">addTemplateFilter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureTemplateEngine">configureTemplateEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderTemplate">renderTemplate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderTemplateString">renderTemplateString</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-cache">cache</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-KEY">KEY</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-YAML">YAML</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-packageNameRegex">packageNameRegex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Url">Url</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collection</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/base.js~CollectionBase.html">CollectionBase</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/page.js~CollectionPage.html">CollectionPage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createCollection">createCollection</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collection/type</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/type/file-system.js~FileSystemCollection.html">FileSystemCollection</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/type/metadata.js~MetadataCollection.html">MetadataCollection</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">config</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/config/index.js~Config.html">Config</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">filter</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-futureDatesFilter">futureDatesFilter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-metadataFilter">metadataFilter</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">parse</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fileHasFrontmatter">fileHasFrontmatter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/asset.js~Asset.html">Asset</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/index.js~Theme.html">Theme</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor-base.js~ProcessorBase.html">ProcessorBase</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme/processor</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor/browserify.js~Browserify.html">Browserify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor/less.js~Less.html">Less</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor/sass.js~Sass.html">Sass</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">lib/collection/type/file-system.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import _ from &apos;lodash&apos;;
+
+import CollectionBase from &apos;../base&apos;;
+
+/**
+ * A collection that derives its content from the location of a file in the
+ * file system.
+ */
+export default class FileSystemCollection extends CollectionBase {
+  constructor(name, collectionConfig, getConfig) {
+    super(name, collectionConfig, getConfig);
+
+    /**
+     * Array of file id&apos;s that belong in this collection.
+     * @type {Object.&lt;string, File&gt;}
+     */
+    this.files = {};
+
+    /**
+     * Array of paths to exclude from including in this collection.
+     * @type {Array.&lt;string&gt;}
+     */
+    this.excludePaths = [];
+  }
+
+  /**
+   * Set what paths to exclude from including in this collection.
+   * @param {Object.&lt;string, CollectionBase&gt;} collections Array of Collections.
+   */
+  _setExcludePaths(collections) {
+    this.excludePaths = _.reduce(collections, (allPaths, collection) =&gt; {
+      // Only include a collection path if it exists and isn&apos;t the app source,
+      // and isn&apos;t this collection&apos;s path.
+      if (collection.path &amp;&amp;
+          collection.path !== this.path &amp;&amp;
+          collection.path !== this._getConfig().get(&apos;path.source&apos;)) {
+        allPaths.push(collection.path);
+      }
+
+      return allPaths;
+    }, []);
+  }
+
+  /**
+   * Is this file&apos;s path included in this collection&apos;s excludePaths.
+   * @param {File} file File object.
+   * @return {boolean} true if the file&apos;s path includes an exclude path.
+   * @private
+   */
+  _isFileExcluded(file) {
+    return this.excludePaths.some(path =&gt; file.path.includes(path));
+  }
+
+  /**
+   * Checks to see if this file passes all requirements to be considered a part
+   * of this collection.
+   * @param {File} file File object.
+   * @return {boolean} true if the file meets all requirements.
+   */
+  _isFileInCollection(file) {
+    return file.path.includes(this.path) &amp;&amp;
+      !this._isFileExcluded(file) &amp;&amp;
+      !this.isFiltered(file);
+  }
+
+  /**
+   * Add a file to the collection.
+   * @param {File} file File object.
+   * @return {boolean} True if the file was added to the collection.
+   */
+  addFile(file) {
+    if (!this._isFileInCollection(file)) {
+      return false;
+    }
+
+    // Add file.
+    this.files[file.id] = file;
+
+    // Add data to template accessible object.
+    this.data.files.push(file.data);
+
+    return true;
+  }
+
+  /**
+   * Populate the Collection&apos;s files via file system path or metadata attribute.
+   * @param {Object.&lt;string, Files&gt;} files All Files.
+   * @param {?Object.&lt;string, CollectionBase&gt;} collections Object of all
+   *   collections.
+   * @return {Collection}
+   */
+  populate(files, collections) {
+    if (!_.isUndefined(collections)) {
+      this._setExcludePaths(collections);
+    }
+
+    // Add data to template accessible object.
+    this.data.files = [];
+
+    _.each(files, file =&gt; {
+      // Don&apos;t return value so we iterate over every file.
+      this.addFile(file);
+    });
+
+    this.createCollectionPages();
+
+    return this;
+  }
+
+  /**
+   * Create CollectionPage objects for our Collection.
+   * @return {boolean} True if we successfully created CollectionPages.
+   */
+  createCollectionPages() {
+    // If no permalink paths are set then we don&apos;t render a CollectionPage.
+    if (!(this.permalink &amp;&amp; this.permalink.index &amp;&amp; this.permalink.page)) {
+      return false;
+    }
+
+    if (!_.isEmpty(this.files)) {
+      this.pages = [];
+
+      // Sort files according to config.
+      const files = CollectionBase.sortFiles(
+        _.values(this.files),
+        this.sort,
+        this._getConfig().get(&apos;file.date_format&apos;)
+      );
+
+      // Break up our array of files into arrays that match our defined
+      // pagination size.
+      const pages = _.chunk(files, this.pageSize);
+
+      pages.forEach((pageFiles, index) =&gt; {
+        const collectionPage = this.createPage(index);
+
+        // Files in the page.
+        collectionPage.setFiles(pageFiles);
+
+        // Update CollectionPage template data.
+        collectionPage.setData({
+          // How many pages in the collection.
+          total_pages: pages.length,
+
+          // Posts displayed per page.
+          per_page: this.pageSize,
+
+          // Total number of posts.
+          total: files.length
+        });
+
+        // Add to our array of pages.
+        this.pages.push(collectionPage);
+      });
+    }
+
+    this._linkPages(
+      // ShouldLinkPrevious
+      (previous) =&gt; {
+        return previous;
+      },
+      // ShouldLinkNext
+      (next) =&gt; {
+        return next;
+      }
+    );
+
+    return true;
+  }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.8)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

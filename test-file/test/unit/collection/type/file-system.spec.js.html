@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../../">
+  <title data-ice="title">test/unit/collection/type/file-system.spec.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <a data-ice="repoURL" href="https://github.com/reptar/reptar" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/file.js~File.html">File</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getReptarPackageNames">getReptarPackageNames</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureMarkdownEngine">configureMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderFileWithPlugins">renderFileWithPlugins</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBuiltinFilters">addBuiltinFilters</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addTemplateFilter">addTemplateFilter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureTemplateEngine">configureTemplateEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderTemplate">renderTemplate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderTemplateString">renderTemplateString</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-cache">cache</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-KEY">KEY</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-YAML">YAML</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-packageNameRegex">packageNameRegex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Url">Url</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collection</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/base.js~CollectionBase.html">CollectionBase</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/page.js~CollectionPage.html">CollectionPage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createCollection">createCollection</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collection/type</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/type/file-system.js~FileSystemCollection.html">FileSystemCollection</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/type/metadata.js~MetadataCollection.html">MetadataCollection</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">config</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/config/index.js~Config.html">Config</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">filter</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-futureDatesFilter">futureDatesFilter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-metadataFilter">metadataFilter</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">parse</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fileHasFrontmatter">fileHasFrontmatter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/asset.js~Asset.html">Asset</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/index.js~Theme.html">Theme</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor-base.js~ProcessorBase.html">ProcessorBase</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme/processor</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor/browserify.js~Browserify.html">Browserify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor/less.js~Less.html">Less</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor/sass.js~Sass.html">Sass</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">test/unit/collection/type/file-system.spec.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import assert from &apos;power-assert&apos;;
+import sinon from &apos;sinon&apos;;
+
+import fixture from &apos;../../../fixture&apos;;
+import {
+  createMockConfig,
+} from &apos;../../../utils&apos;;
+
+import _ from &apos;lodash&apos;;
+
+import Plugin from &apos;../../../../lib/plugin/index.js&apos;;
+import CollectionPage from &apos;../../../../lib/collection/page.js&apos;;
+
+import CollectionBase from &apos;../../../../lib/collection/base.js&apos;;
+import FileSystemCollection
+  from &apos;../../../../lib/collection/type/file-system.js&apos;;
+
+describe(&apos;collection/type/file-system FileSystemCollection&apos;, () =&gt; {
+  const config = createMockConfig();
+  const getConfig = () =&gt; config;
+
+  let sandbox;
+  beforeEach(() =&gt; {
+    sandbox = sinon.sandbox.create();
+
+    Plugin._reset();
+  });
+
+  afterEach(() =&gt; {
+    sandbox.restore();
+  });
+
+  describe(&apos;_isFileInCollection&apos;, () =&gt; {
+    it(&apos;is false if file\&apos;s path is not within collection\&apos;s path&apos;, () =&gt; {
+      const path = &apos;my/file/path&apos;;
+      const instance = new FileSystemCollection(&apos;name&apos;);
+      instance.path = path;
+
+      let file = {
+        path: &apos;my/file&apos;
+      };
+
+      assert.equal(instance._isFileInCollection(file), false);
+
+      file = {
+        path: &apos;my/file/pat&apos;
+      };
+
+      assert.equal(instance._isFileInCollection(file), false);
+
+      file = {
+        path: &apos;your/file/path/is/close&apos;
+      };
+
+      assert.equal(instance._isFileInCollection(file), false);
+    });
+
+    it(&apos;is true if file\&apos;s path includes collection\&apos;s path&apos;, () =&gt; {
+      const path = &apos;my/file/path&apos;;
+      const instance = new FileSystemCollection(&apos;name&apos;);
+      instance.path = path;
+      sinon.stub(instance, &apos;_isFileExcluded&apos;).returns(false);
+
+      let file = {
+        path: &apos;my/file/path&apos;
+      };
+
+      assert.equal(instance._isFileInCollection(file), true);
+
+      file = {
+        path: &apos;my/file/path/is/deeper&apos;
+      };
+
+      assert.equal(instance._isFileInCollection(file), true);
+    });
+
+    it(&apos;is false if file\&apos;s path is excluded from collection&apos;, () =&gt; {
+      const path = &apos;my/file/path&apos;;
+      const instance = new FileSystemCollection(&apos;name&apos;);
+      instance.path = path;
+      sinon.stub(instance, &apos;_isFileExcluded&apos;).returns(true);
+
+      let file = {
+        path: &apos;my/file/path&apos;
+      };
+
+      assert.equal(instance._isFileInCollection(file), false);
+
+      file = {
+        path: &apos;my/file/path/is/deeper&apos;
+      };
+
+      assert.equal(instance._isFileInCollection(file), false);
+    });
+  });
+
+  describe(&apos;populate&apos;, () =&gt; {
+    it(&apos;adds files to collection&apos;, () =&gt; {
+      const instance = new FileSystemCollection(&apos;name&apos;);
+      instance.path = &apos;ok&apos;;
+      instance.permalink = &apos;/my/:permalink&apos;;
+      sinon.spy(instance, &apos;addFile&apos;);
+      sinon.stub(instance, &apos;createCollectionPages&apos;).returns(sinon.spy());
+      sinon.stub(instance, &apos;_isFileInCollection&apos;).returns(true);
+      sandbox.spy(CollectionBase, &apos;sortFiles&apos;);
+      assert(_.isObject(instance.files));
+
+      const files = fixture.collectionFiles();
+      assert.deepEqual(instance.populate(files), instance);
+      assert.equal(instance.addFile.callCount, 3);
+      assert.equal(instance.createCollectionPages.calledOnce, true);
+      assert.equal(CollectionBase.sortFiles.calledOnce, false);
+      assert(_.isUndefined(instance.metadataFiles));
+
+      files.forEach((file, index)=&gt; {
+        assert.equal(file.data, instance.data.files[index]);
+      });
+    });
+
+    it(&apos;does not add files to collection&apos;, () =&gt; {
+      const instance = new FileSystemCollection(&apos;name&apos;);
+      instance.path = &apos;ok&apos;;
+      instance.permalink = &apos;/my/:permalink&apos;;
+      sinon.spy(instance, &apos;addFile&apos;);
+      sinon.stub(instance, &apos;createCollectionPages&apos;).returns(sinon.spy());
+      sinon.stub(instance, &apos;_isFileInCollection&apos;).returns(false);
+      sandbox.spy(CollectionBase, &apos;sortFiles&apos;);
+      assert(_.isObject(instance.files));
+
+      const files = fixture.collectionFiles();
+      assert.deepEqual(instance.populate(files), instance);
+      assert.equal(instance.addFile.callCount, 3);
+      assert.equal(instance.createCollectionPages.calledOnce, true);
+      assert.equal(CollectionBase.sortFiles.calledOnce, false);
+
+      files.forEach((file)=&gt; {
+        assert(_.isUndefined(file.permalink));
+      });
+
+      assert(_.isUndefined(instance.metadataFiles));
+      assert.equal(_.isEmpty(instance.files), true);
+
+      assert(_.isArray(instance.data.files));
+      assert.equal(instance.data.files.length, 0);
+    });
+  });
+
+  describe(&apos;createCollectionPages&apos;, () =&gt; {
+    it(&apos;adds files to collectionPages&apos;, () =&gt; {
+      const pageSize = 1;
+
+      const instance = new FileSystemCollection(&apos;name&apos;, undefined, getConfig);
+      const filesArray = fixture.collectionFiles();
+      filesArray.forEach((file, index) =&gt; {
+        instance.files[index] = file;
+      });
+      instance.pageSize = pageSize;
+      instance.permalink = {};
+      instance.permalink.index = &apos;index.html&apos;;
+      instance.permalink.page = &apos;/page.html&apos;;
+      sinon.spy(instance, &apos;createPage&apos;);
+      sinon.spy(instance, &apos;_linkPages&apos;);
+      sandbox.spy(CollectionBase, &apos;sortFiles&apos;);
+      assert.equal(instance.pages.length, 0);
+
+      assert.equal(instance.createCollectionPages(), true);
+
+      assert.equal(instance.pages.length, 3);
+      assert.equal(instance.createPage.callCount, 3);
+      assert.equal(instance._linkPages.calledOnce, true);
+      assert.equal(CollectionBase.sortFiles.calledOnce, true);
+
+      instance.pages.forEach((page, index) =&gt; {
+        assert(page instanceof CollectionPage);
+        assert.deepEqual(page.data.files, [instance.files[index].data]);
+
+        const expectedPermalink = index === 0 ?
+          instance.permalink.index :
+          instance.permalink.page;
+
+        assert.equal(page.permalink, expectedPermalink);
+
+        assert.equal(page.data.total_pages, filesArray.length / pageSize);
+        assert.equal(page.data.per_page, pageSize);
+        assert.equal(page.data.total, filesArray.length);
+
+        if (index === 0) {
+          assert(_.isUndefined(page.data.prev));
+          assert(_.isUndefined(page.data.prev_link));
+        } else {
+          const previous = instance.pages[index - 1];
+          assert.equal(page.data.prev, previous.data.page);
+          assert.equal(page.data.prev_link, previous.data.url);
+        }
+
+        if (index === (instance.pages.length - 1)) {
+          assert(_.isUndefined(page.data.next));
+          assert(_.isUndefined(page.data.next_link));
+        } else {
+          const next = instance.pages[index + 1];
+          assert.equal(page.data.next, next.data.page);
+          assert.equal(page.data.next_link, next.data.url);
+        }
+
+        assert.deepEqual(instance.data.pages[index], page.data);
+      });
+    });
+  });
+
+  describe(&apos;createCollectionPages&apos;, () =&gt; {
+    it(&apos;returns early if no pagination permalinks are set&apos;, () =&gt; {
+      sandbox.spy(CollectionBase, &apos;sortFiles&apos;);
+      const instance = new FileSystemCollection(&apos;name&apos;);
+      assert.equal(instance.createCollectionPages(), false);
+
+      instance.permalink = {};
+      instance.permalink.index = &apos;index.html&apos;;
+      instance.permalink.page = undefined;
+      assert.equal(instance.createCollectionPages(), false);
+      assert.equal(CollectionBase.sortFiles.calledOnce, false);
+
+      instance.permalink.index = undefined;
+      instance.permalink.page = &apos;/page.html&apos;;
+      assert.equal(instance.createCollectionPages(), false);
+      assert.equal(CollectionBase.sortFiles.calledOnce, false);
+    });
+  });
+
+  describe(&apos;_setExcludePaths&apos;, () =&gt; {
+    const excludeCollections = [
+      {
+        path: &apos;/my/path&apos;
+      },
+      {
+        path: &apos;your/path&apos;
+      }
+    ];
+
+    const excludePaths = excludeCollections.map(coll =&gt; coll.path);
+
+    it(&apos;can set exclude paths&apos;, () =&gt; {
+      const instance = new FileSystemCollection(&apos;name&apos;, undefined, getConfig);
+      assert(_.isUndefined(instance.path));
+      assert(_.isArray(instance.excludePaths));
+      assert.equal(instance.excludePaths.length, 0);
+
+      instance._setExcludePaths(Array.from(excludeCollections));
+      assert.deepEqual(instance.excludePaths, excludePaths);
+    });
+
+    it(&apos;does not add its own path to the exclude path array&apos;, () =&gt; {
+      const instance = new FileSystemCollection(&apos;name&apos;, undefined, getConfig);
+      instance.path = excludePaths[0];
+      assert(_.isArray(instance.excludePaths));
+      assert.equal(instance.excludePaths.length, 0);
+
+      instance._setExcludePaths(Array.from(excludeCollections));
+      assert.deepEqual(instance.excludePaths, [excludePaths[1]]);
+    });
+  });
+
+  describe(&apos;_isFileExcluded&apos;, () =&gt; {
+    it(&apos;is false when FileSystemCollection has no path&apos;, () =&gt; {
+      const instance = new FileSystemCollection(&apos;name&apos;);
+      assert(_.isUndefined(instance.path));
+
+      assert.equal(instance._isFileExcluded(), false);
+      assert.equal(instance._isFileExcluded({}), false);
+    });
+
+    it(&apos;is false when FileSystemCollection has metadata&apos;, () =&gt; {
+      const instance = new FileSystemCollection(&apos;name&apos;);
+      instance.metadata = &apos;dummy/path&apos;;
+      instance.metadata = &apos;fixture.collectionMetadataKey&apos;;
+
+      assert.equal(instance._isFileExcluded(), false);
+      assert.equal(instance._isFileExcluded({}), false);
+      assert.equal(instance._isFileExcluded({}), false);
+    });
+
+    it(&apos;is false when no excludePaths are set&apos;, () =&gt; {
+      const instance = new FileSystemCollection(&apos;name&apos;);
+      instance.path = &apos;/dummy/path&apos;;
+      assert(_.isArray(instance.excludePaths));
+      assert.equal(instance.excludePaths.length, 0);
+
+      assert.equal(instance._isFileExcluded(), false);
+      assert.equal(instance._isFileExcluded({}), false);
+
+      instance.excludePaths = [];
+
+      assert.equal(instance._isFileExcluded(), false);
+      assert.equal(instance._isFileExcluded({}), false);
+    });
+
+    it(&apos;is true if the file path is contained in our excludePaths&apos;, () =&gt; {
+      const path = &apos;/dummy/path&apos;;
+      const instance = new FileSystemCollection(&apos;name&apos;);
+      instance.path = path;
+      instance.excludePaths = [
+        &apos;another/path&apos;,
+        path
+      ];
+
+      const file = {
+        path: `a/long${path}`
+      };
+
+      assert.equal(instance._isFileExcluded(file), true);
+    });
+
+    it(&apos;is false if the file path is not in our excludePaths&apos;, () =&gt; {
+      const path = &apos;/dummy/path&apos;;
+      const instance = new FileSystemCollection(&apos;name&apos;);
+      instance.path = path;
+      instance.excludePaths = [
+        &apos;another/path&apos;,
+        path
+      ];
+
+      const file = {
+        path: &apos;a/long/time/ago&apos;
+      };
+
+      assert.equal(instance._isFileExcluded(file), false);
+    });
+  });
+
+});
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.8)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

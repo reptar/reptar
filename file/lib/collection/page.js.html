@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">lib/collection/page.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <a data-ice="repoURL" href="https://github.com/reptar/reptar" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/file.js~File.html">File</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getReptarPackageNames">getReptarPackageNames</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureMarkdownEngine">configureMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderFileWithPlugins">renderFileWithPlugins</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBuiltinFilters">addBuiltinFilters</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addTemplateFilter">addTemplateFilter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureTemplateEngine">configureTemplateEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderTemplate">renderTemplate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderTemplateString">renderTemplateString</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-cache">cache</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-KEY">KEY</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-YAML">YAML</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-packageNameRegex">packageNameRegex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Url">Url</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collection</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/base.js~CollectionBase.html">CollectionBase</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/page.js~CollectionPage.html">CollectionPage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createCollection">createCollection</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collection/type</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/type/file-system.js~FileSystemCollection.html">FileSystemCollection</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/type/metadata.js~MetadataCollection.html">MetadataCollection</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">config</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/config/index.js~Config.html">Config</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">filter</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-futureDatesFilter">futureDatesFilter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-metadataFilter">metadataFilter</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">parse</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fileHasFrontmatter">fileHasFrontmatter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/asset.js~Asset.html">Asset</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/index.js~Theme.html">Theme</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor-base.js~ProcessorBase.html">ProcessorBase</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme/processor</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor/browserify.js~Browserify.html">Browserify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor/less.js~Less.html">Less</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor/sass.js~Sass.html">Sass</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">lib/collection/page.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import _ from &apos;lodash&apos;;
+import path from &apos;path&apos;;
+import Promise from &apos;bluebird&apos;;
+import fs from &apos;fs-extra&apos;;
+import cache from &apos;../cache&apos;;
+import { createChecksum } from &apos;../checksum&apos;;
+import Plugin from &apos;../plugin&apos;;
+import {
+  renderTemplate,
+} from &apos;../template&apos;;
+import Url from &apos;../url&apos;;
+import {
+  renderFileWithPlugins,
+} from &apos;../render&apos;;
+
+export default class CollectionPage {
+  /**
+   * Constructor for a CollectionPage.
+   * @param {string} collectionId Collection ID.
+   * @param {number} pageIndex Page index.
+   * @constructor
+   */
+  constructor(collectionId, pageIndex) {
+    if (_.isUndefined(collectionId)) {
+      throw new Error(&apos;CollectionPage requires a collection ID as a string.&apos;);
+    }
+
+    if (!_.isNumber(pageIndex)) {
+      throw new Error(&apos;CollectionPage requires a page index.&apos;);
+    }
+
+    /**
+     * Unique ID of this CollectionPage. Comprised of its Collection&apos;s ID and
+     * its page index.
+     * @type {string}
+     */
+    this.id = `${collectionId}:${pageIndex}`;
+
+    /**
+     * Collection ID this page is a part of.
+     * @type {string}
+     */
+    this.collectionId = collectionId;
+
+    /**
+     * Page index, 0-indexed.
+     * @type {number}
+     */
+    this.index = pageIndex;
+
+    /**
+     * An array of Files that are in this page.
+     * @type {Array.&lt;string&gt;}
+     */
+    this.files = [];
+
+    /**
+     * The permalink template.
+     * @type {string}
+     */
+    this.permalink;
+
+    /**
+     * Data accessible from template.
+     * @type {Object}
+     */
+    this.data = Object.create(null);
+
+    // Current page number, 1-indexed for display purposes.
+    this.data.page = this.index + 1;
+  }
+
+  setGetConfig(getConfig) {
+    this._getConfig = getConfig;
+  }
+
+  setData(data = {}) {
+    // Current page number.
+    if (!_.isUndefined(data.page) &amp;&amp; !_.isNumber(data.page)) {
+      throw new Error(&apos;CollectionPage requires \&apos;page\&apos; as a number.&apos;);
+    }
+
+    // How many pages in the collection.
+    if (!_.isUndefined(data.total_pages) &amp;&amp; !_.isNumber(data.total_pages)) {
+      throw new Error(&apos;CollectionPage requires \&apos;total_pages\&apos; as a number.&apos;);
+    }
+
+    // Posts displayed per page.
+    if (!_.isUndefined(data.per_page) &amp;&amp; !_.isNumber(data.per_page)) {
+      throw new Error(&apos;CollectionPage requires \&apos;per_page\&apos; as a number.&apos;);
+    }
+
+    // Total number of posts.
+    if (!_.isUndefined(data.total) &amp;&amp; !_.isNumber(data.total)) {
+      throw new Error(&apos;CollectionPage requires \&apos;total\&apos; as a number.&apos;);
+    }
+
+    // Update content that&apos;s accessible from template.
+    Object.assign(this.data, data);
+
+    this._calculateDestination();
+  }
+
+  /**
+   * Set what files belong in this page.
+   * @param {Array.&lt;File&gt;} files Array of files.
+   */
+  setFiles(files) {
+    if (!_.isUndefined(files) &amp;&amp; !_.isArray(files)) {
+      throw new Error(&apos;Files must be an array.&apos;);
+    }
+
+    // Save Files in this Page.
+    this.files = files;
+
+    /**
+     * Array of File data in this page.
+     * @type {Array.&lt;File&gt;}
+     */
+    this.data.files = files.map(file =&gt; file.data);
+  }
+
+  /**
+   * Generate the checksum of this CollectionPage. It&apos;s derived from the Files
+   * that exist in this collection.
+   * @return {string}
+   */
+  getChecksum() {
+    const fileChecksums = this.files.map(file =&gt; file.checksum);
+
+    const checksum = createChecksum(fileChecksums.join(&apos;&apos;));
+
+    return checksum;
+  }
+
+  /**
+   * Link this page with its previus page, for use in templates.
+   * @param {CollectionPage} previous CollectionPage instance.
+   */
+  setPreviousPage(previous) {
+    Object.assign(this.data, {
+      // Previous page number. 0 if the current page is the first.
+      prev: previous.data.page,
+
+      // The URL of previous page. &apos;&apos; if the current page is the first.
+      prev_link: previous.data.url
+    });
+  }
+
+  /**
+  * Link this page with its next page, for use in templates.
+  * @param {CollectionPage} next CollectionPage instance.
+   */
+  setNextPage(next) {
+    Object.assign(this.data, {
+      // Next page number. 0 if the current page is the last.
+      next: next.data.page,
+
+      // The URL of next page. &apos;&apos; if the current page is the last.
+      next_link: next.data.url
+    });
+  }
+
+  /**
+   * Calculate both relative and absolute destination path for where to write
+   * the file.
+   * @private
+   */
+  _calculateDestination() {
+    // Calculate the permalink value.
+    const relativeDestination = Url.interpolatePermalink(
+      this.permalink,
+      this.data
+    );
+
+    const fileSystemSafeDestination = Url.makeUrlFileSystemSafe(
+      relativeDestination
+    );
+
+    /**
+     * The URL without the domain, but with a leading slash,
+     * e.g.  /2008/12/14/my-post.html
+     * @type {string} url Relative path to file.
+     */
+    this.data.url = Url.makePretty(fileSystemSafeDestination);
+
+    /**
+     * Absolute destination path.
+     * @type {string} destination Absolute path to file.
+     */
+    this.destination = path.join(
+      this._getConfig().get(&apos;path.destination&apos;),
+      fileSystemSafeDestination
+    );
+  }
+
+  /**
+   * Update a CollectionPage&apos;s content via updating every File&apos;s content.
+   * @param {Object} globalData Site wide data.
+   */
+  async update(globalData) {
+    await Promise.all(this.files.map(file =&gt; file.update()));
+    await Promise.all(this.files.map(file =&gt;
+      file.renderWithPlugins(globalData))
+    );
+
+    this.data.files = this.files.map(file =&gt; file.data);
+  }
+
+  render(globalData) {
+    const templateData = {
+      ...globalData,
+      pagination: this.data,
+    };
+
+    const template = this.data.template;
+
+    if (_.isNil(template)) {
+      throw new Error(`CollectionPage: No template given.\nData object: ` +
+        JSON.stringify(this.data));
+    }
+
+    return renderTemplate(template, templateData);
+  }
+
+  async renderWithPlugins(globalData) {
+    const [, result] = await renderFileWithPlugins(
+      this,
+      globalData,
+      Plugin.Event.page.beforeRender,
+      Plugin.Event.page.afterRender
+    );
+
+    return result;
+  }
+
+  /**
+   * Writes a given CollectionPage to the file system.
+   * @param {Object} globalData Site wide data.
+   * @return {Promise} Array of promises.
+   */
+  async write(globalData) {
+    const checksum = this.getChecksum();
+
+    if (this._getConfig().get(&apos;incremental&apos;) &amp;&amp;
+        cache.get(this.id) === checksum) {
+      return;
+    }
+
+    const content = await this.renderWithPlugins(globalData);
+
+    const result = await Promise.fromCallback(cb =&gt; {
+      fs.outputFile(this.destination, content, &apos;utf8&apos;, cb);
+    });
+
+    // Save checksum to cache for incremental builds.
+    cache.put(this.id, checksum);
+
+    return result;
+  }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.8)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

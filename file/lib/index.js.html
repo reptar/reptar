@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">lib/index.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <a data-ice="repoURL" href="https://github.com/reptar/reptar" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/file.js~File.html">File</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getReptarPackageNames">getReptarPackageNames</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureMarkdownEngine">configureMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderFileWithPlugins">renderFileWithPlugins</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBuiltinFilters">addBuiltinFilters</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addTemplateFilter">addTemplateFilter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureTemplateEngine">configureTemplateEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderTemplate">renderTemplate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderTemplateString">renderTemplateString</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-cache">cache</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-KEY">KEY</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-YAML">YAML</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-packageNameRegex">packageNameRegex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Url">Url</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collection</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/base.js~CollectionBase.html">CollectionBase</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/page.js~CollectionPage.html">CollectionPage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createCollection">createCollection</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collection/type</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/type/file-system.js~FileSystemCollection.html">FileSystemCollection</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/type/metadata.js~MetadataCollection.html">MetadataCollection</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">config</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/config/index.js~Config.html">Config</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">filter</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-futureDatesFilter">futureDatesFilter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-metadataFilter">metadataFilter</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">parse</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fileHasFrontmatter">fileHasFrontmatter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/asset.js~Asset.html">Asset</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/index.js~Theme.html">Theme</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor-base.js~ProcessorBase.html">ProcessorBase</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme/processor</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor/browserify.js~Browserify.html">Browserify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor/less.js~Less.html">Less</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor/sass.js~Sass.html">Sass</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">lib/index.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Promise from &apos;bluebird&apos;;
+import _ from &apos;lodash&apos;;
+import moment from &apos;moment&apos;;
+import path from &apos;path&apos;;
+import rimraf from &apos;rimraf&apos;;
+import glob from &apos;glob&apos;;
+import ora from &apos;ora&apos;;
+import cache from &apos;./cache&apos;;
+import * as CONSTANTS from &apos;./constants&apos;;
+import { createChecksum } from &apos;./checksum&apos;;
+import Config from &apos;./config&apos;;
+import Url from &apos;./url&apos;;
+import DataFiles from &apos;./data-files&apos;;
+import {
+  configureTemplateEngine,
+} from &apos;./template&apos;;
+import {
+  configureMarkdownEngine,
+} from &apos;./markdown&apos;;
+import Plugin from &apos;./plugin/index&apos;;
+import Theme from &apos;./theme&apos;;
+import {
+  createCollection,
+} from &apos;./collection&apos;;
+import File from &apos;./file&apos;;
+
+/**
+ * Helper function to wrap commands with a log.startActivity command so we can
+ * see how long a command takes.
+ * @param {string} label A label to use for this command.
+ * @param {Function} cmd A function to run as the command.
+ */
+async function wrapCommand(label, cmd) {
+  const startTime = Date.now();
+  const spinner = ora({
+    text: label,
+    spinner: &apos;dot4&apos;,
+  }).start();
+
+  try {
+    await cmd();
+    spinner.text = `${label} (${Date.now() - startTime}ms)`;
+    spinner.succeed();
+  } catch (e) {
+    spinner.fail();
+    throw e;
+  }
+}
+
+export default class Reptar {
+  /**
+   * Create a new Reptar instance.
+   * @param {Object} options Options object.
+   * @param {string} options.rootPath Where the root path of this Reptar
+   *   instance points to.
+   * @param {boolean} options.incremental If we should incremental build files.
+   * @param {boolean} options.noTemplateCache Should templates be cached.
+   *   Typically this is only off when developing or in watch mode.
+   */
+  constructor(options = {}) {
+    /**
+     * Expose config object on instance.
+     * @type {Config}
+     */
+    this.config = new Config(options.rootPath);
+
+    /**
+     * Returns our config instance.
+     * @return {Object}
+     */
+    this.getConfig = () =&gt; {
+      return this.config;
+    };
+
+    /**
+     * Save options passed into instance.
+     * @type {Object}
+     */
+    this.options = _.defaults(options, {
+      noTemplateCache: false,
+      clean: false,
+    });
+
+    /**
+     * All files found in our source path.
+     * Key is the full path to the file, value is the actual File object.
+     * @type {Object.&lt;string, File&gt;}
+     */
+    this.files = Object.create(null);
+
+    /**
+     * Site wide data available in all templates.
+     * @type {Object.&lt;string, Object&gt;}
+     */
+    this.data = Object.create(null);
+
+    /**
+     * Mapping of Collection IDs to the instance.
+     * @type {Object.&lt;string, Collection&gt;}
+     */
+    this.collections = Object.create(null);
+
+    /**
+     * Class responsible for handling themes.
+     * @type {Theme}
+     */
+    this.theme = new Theme();
+    this.theme.setGetConfig(this.getConfig);
+
+    /**
+     * Expose collections.
+     * @type {Object}
+     */
+    this.data.collections = Object.create(null);
+  }
+
+  async update() {
+    this.config.update();
+
+    const { base, dir } = path.parse(this.config.root);
+    cache.setNamespace(`${base}-${createChecksum(dir).slice(0, 10)}`);
+
+    // Options passed into constructor take precedence over the config value.
+    // We default to loading cache, unless explicitly set to false.
+    const shouldLoadCache = !_.isNil(this.options.incremental) ?
+      this.options.incremental !== false :
+      this.config.get(&apos;incremental&apos;) !== false;
+    if (shouldLoadCache) {
+      cache.load();
+    }
+
+    Url.setSlugOptions(this.config.get(&apos;slug&apos;));
+
+    this.theme.update();
+
+    // Configure template engine.
+    configureTemplateEngine({
+      config: this.config,
+      paths: this.theme.config.path.templates,
+      noCache: this.options.noTemplateCache,
+    });
+
+    // Configure markdown engine.
+    configureMarkdownEngine(this.config.get(&apos;markdown.options&apos;));
+
+    /**
+     * Expose site data from config file.
+     * @type {Object}
+     */
+    this.data.site = this.config.get(&apos;site&apos;);
+
+    // Load data files.
+    const dataFiles = await DataFiles.update(this.config.get(&apos;path.data&apos;));
+
+    // Expose it on the site object.
+    this.data.site.data = dataFiles;
+
+    // Update our collection configs.
+    _.map(
+      this.config.get(&apos;collections&apos;),
+      (collectionConfig, collectionName) =&gt; {
+        const instance = createCollection(
+          collectionName,
+          collectionConfig,
+          this.getConfig
+        );
+
+        this.collections[instance.id] = instance;
+      }
+    );
+
+    // Read theme files, processing any files that it needs to so that we get
+    // the final path to the ready to write files.
+    await wrapCommand(
+      &apos;Reading theme files.\t\t&apos;,
+      async () =&gt; {
+        await this.theme.read();
+        // Expose theme data globally.
+        this.data.theme = this.theme.data;
+      }
+    );
+
+    await wrapCommand(
+      &apos;Loading plugins.\t\t&apos;,
+      () =&gt; {
+        // Built-in plugins.
+        Plugin.loadFromPackageJson(
+          Url.pathFromRoot(&apos;./&apos;),
+          this.config.get(&apos;plugins&apos;)
+        );
+        [
+          this.theme.config.path.plugins, // Active theme plug-ins
+          this.config.get(&apos;path.plugins&apos;) // Site plug-ins
+        ].forEach(path =&gt; Plugin.loadFromDirectory(path));
+      }
+    );
+
+    await wrapCommand(
+      &apos;Reading files.\t\t&apos;,
+      this.readFiles.bind(this)
+    );
+
+    await wrapCommand(
+      &apos;Reading collections.\t\t&apos;,
+      this.readCollections.bind(this)
+    );
+  }
+
+  async readFiles() {
+    const configPathSource = this.config.get(&apos;path.source&apos;);
+
+    // Create an array of patterns that we should ignore when reading the source
+    // files of the Reptar site from disk.
+    // This primarily includes the &apos;_config.yml&apos; file as well as every path
+    // directory that isn&apos;t our source path, primarily &apos;_site&apos;, &apos;_plugins&apos;,
+    // and &apos;_themes&apos;.
+    const ignorePatterns = _.values(CONSTANTS.YAML).concat(
+      _.values(this.config.get(&apos;path&apos;)).filter(path =&gt;
+        path !== configPathSource
+      )
+    );
+
+    // Ignore package.json file as well.
+    ignorePatterns.push(&apos;package.json&apos;);
+
+    // Read all files from disk and get their file paths.
+    const files = await Promise.fromCallback(cb =&gt; {
+      glob(configPathSource + &apos;/**/*&apos;, {
+        // Do not match directories, only files.
+        nodir: true,
+        // Array of glob patterns to exclude from matching.
+        ignore: ignorePatterns.map(path =&gt; `**/${path}/**`).concat(
+          `${configPathSource}/node_modules/**`
+        ),
+        // Follow symlinks.
+        follow: true
+      }, cb);
+    });
+
+    const filePromises = files.map(filePath =&gt; {
+      // Correct the filePath created by glob to be compatible with Windows.
+      // Known issue in node-glob https://github.com/isaacs/node-glob/pull/263.
+      filePath = path.normalize(filePath.replace(/\//g, path.sep));
+
+      const sourceFile = new File(filePath, this.getConfig);
+      this.files[sourceFile.id] = sourceFile;
+
+      return sourceFile.update();
+    });
+
+    return Promise.all(filePromises);
+  }
+
+  readCollections() {
+    // Populate every collection with its files.
+    _.each(this.collections, collection =&gt; {
+      collection.populate(this.files, this.collections);
+
+      // Add collection data to our global data object.
+      this.data.collections[collection.name] = collection.data;
+    });
+  }
+
+  /**
+   * Removes configured destination directory and all files contained.
+   * @return {Promise} Promise object.
+   */
+  cleanDestination() {
+    return wrapCommand(
+      &apos;Cleaning destination.\t\t&apos;,
+      async () =&gt; {
+        await Promise.fromCallback(cb =&gt; {
+          rimraf(this.config.get(&apos;path.destination&apos;), cb);
+        });
+
+        // Clear cache.
+        cache.clear();
+      }
+    );
+  }
+
+  /**
+   * Builds the Reptar site in its entirety.
+   */
+  async build() {
+    if (this.config.get(&apos;clean_destination&apos;) || this.options.clean) {
+      await this.cleanDestination();
+    }
+
+    this.data.reptar = Reptar.getReptarData();
+
+    // Writes Theme files and assets to file system.
+    await wrapCommand(
+      &apos;Writing theme files.\t\t&apos;,
+      this.theme.write.bind(this.theme)
+    );
+
+    await wrapCommand(
+      &apos;Writing files.\t\t&apos;,
+      () =&gt; {
+        return Promise.all(_.reduce(this.files, (result, file) =&gt; {
+          return result.concat(file.write(this.data));
+        }, []));
+      }
+    );
+
+    await wrapCommand(
+      &apos;Writing collection pages.\t&apos;,
+      () =&gt; {
+        return Promise.all(_.map(this.collections, collection =&gt; {
+          return collection.write(this.data);
+        }));
+      }
+    );
+  }
+
+  /**
+   * Get information about the Reptar installation from its package.json.
+   * @return {Object}
+   */
+  static getReptarData() {
+    let packageJson = {};
+    try {
+      packageJson = require(Url.pathFromRoot(&apos;./package.json&apos;));
+    } catch (e) { /* swallow */ }
+
+    return {
+      version: packageJson.version,
+      time: moment((new Date()).getTime()).format()
+    };
+  }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.8)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

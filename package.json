@@ -1,1 +1,133 @@
-{}
+{
+  "name": "reptar",
+  "version": "2.1.0",
+  "description": "a static site generator that roars",
+  "main": "./dist/lib/index.js",
+  "bin": {
+    "reptar": "./dist/bin/reptar.js",
+    "reptar-debug": "./bin/reptar-debug.js"
+  },
+  "scripts": {
+    "docs": "./node_modules/.bin/esdoc -c esdoc.json",
+    "gh-pages": "npm run docs && gdd --branch gh-pages --src esdocs --remote origin",
+    "compile": "babel lib --out-dir dist/lib && babel bin --out-dir dist/bin && cp lib/config/config_example.yml dist/lib/config/config_example.yml",
+    "prepublish": "NODE_ENV=production npm run compile",
+    "test": "mocha --recursive --require ./test/setup.js --reporter spec",
+    "test:unit": "npm test -- test/unit",
+    "test:e2e": "npm test -- test/e2e",
+    "lint": "eslint .",
+    "coverage": "./node_modules/.bin/nyc npm run test",
+    "coveralls": "./node_modules/.bin/nyc report --reporter=text-lcov | coveralls",
+    "release": "standard-version"
+  },
+  "config": {
+    "validate-commit-msg": {
+      "types": [
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "perf",
+        "test",
+        "chore",
+        "revert"
+      ],
+      "helpMessage": "\nReptar is using standard-version as its commit message convention.\nPlease consult https://github.com/conventional-changelog/standard-version#commit-message-convention-at-a-glance \nfor documentation on how to format your commit message."
+    },
+    "ghooks": {
+      "commit-msg": "validate-commit-msg"
+    }
+  },
+  "repository": "reptar/reptar",
+  "keywords": [
+    "reptar",
+    "blog",
+    "blogging",
+    "static",
+    "static site",
+    "static site generator"
+  ],
+  "author": "Harry Wolff <hello@hswolff.com> (http://hswolff.com/)",
+  "license": "MIT",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "preferGlobal": false,
+  "nyc": {
+    "sourceMap": false,
+    "instrument": false
+  },
+  "dependencies": {
+    "activity-logger": "^1.4.0",
+    "babel-polyfill": "^6.16.0",
+    "babel-runtime": "^6.11.6",
+    "babelify": "^7.3.0",
+    "bluebird": "^3.4.6",
+    "boom": "^4.2.0",
+    "browserify": "^13.1.0",
+    "chalk": "^1.1.3",
+    "chokidar": "^1.6.1",
+    "cross-spawn": "^4.0.2",
+    "find-up": "^2.0.0",
+    "fs-extra": "^0.30.0",
+    "glob": "^7.1.1",
+    "gray-matter": "^2.0.2",
+    "hapi": "^15.1.1",
+    "highlight.js": "^9.7.0",
+    "home-or-tmp": "^2.0.0",
+    "inert": "^4.0.2",
+    "inquirer": "^1.2.2",
+    "joi": "^9.2.0",
+    "js-yaml": "^3.6.1",
+    "less": "^2.7.1",
+    "less-plugin-autoprefix": "^1.5.1",
+    "less-plugin-clean-css": "^1.5.1",
+    "less-plugin-npm-import": "reptar/less-plugin-npm-import#basedir",
+    "lodash": "^4.16.4",
+    "markdown-it": "^8.0.1",
+    "markdown-it-prism": "^1.0.1",
+    "moment": "^2.15.1",
+    "node-sass": "^3.10.1",
+    "nunjucks": "^2.5.2",
+    "ora": "^0.3.0",
+    "reptar-excerpt": "0.7.0",
+    "reptar-html-minifier": "^0.7.0",
+    "resolve": "^1.1.7",
+    "rimraf": "^2.5.4",
+    "slug": "^0.9.1",
+    "uglifyify": "^3.0.4",
+    "yargs": "^6.2.0"
+  },
+  "devDependencies": {
+    "@hswolff/git-directory-deploy": "^0.6.0",
+    "babel-cli": "^6.16.0",
+    "babel-eslint": "^7.0.0",
+    "babel-plugin-espower": "^2.3.1",
+    "babel-plugin-istanbul": "^2.0.3",
+    "babel-plugin-lodash": "^3.2.9",
+    "babel-plugin-transform-async-to-generator": "^6.16.0",
+    "babel-plugin-transform-class-properties": "^6.16.0",
+    "babel-plugin-transform-es2015-destructuring": "^6.16.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.16.0",
+    "babel-plugin-transform-es2015-parameters": "^6.17.0",
+    "babel-plugin-transform-es2015-spread": "^6.8.0",
+    "babel-plugin-transform-object-rest-spread": "^6.16.0",
+    "babel-plugin-transform-regenerator": "^6.16.1",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-register": "^6.16.3",
+    "coveralls": "^2.11.14",
+    "esdoc": "^0.4.8",
+    "esdoc-es7-plugin": "0.0.3",
+    "eslint": "^3.8.1",
+    "ghooks": "^1.3.2",
+    "mocha": "^3.1.2",
+    "mock-fs": "^3.11.0",
+    "nyc": "^8.3.1",
+    "power-assert": "^1.4.1",
+    "rewire": "^2.5.2",
+    "sinon": "^2.0.0-pre.3",
+    "standard-version": "^3.0.0",
+    "validate-commit-msg": "^2.8.2"
+  }
+}

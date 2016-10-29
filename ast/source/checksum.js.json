@@ -1,0 +1,487 @@
+{
+  "type": "Program",
+  "start": 0,
+  "end": 297,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 13,
+      "column": 0
+    }
+  },
+  "sourceType": "module",
+  "body": [
+    {
+      "type": "ImportDeclaration",
+      "start": 0,
+      "end": 28,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 28
+        }
+      },
+      "specifiers": [
+        {
+          "type": "ImportDefaultSpecifier",
+          "start": 7,
+          "end": 13,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 7
+            },
+            "end": {
+              "line": 1,
+              "column": 13
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "start": 7,
+            "end": 13,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 7
+              },
+              "end": {
+                "line": 1,
+                "column": 13
+              }
+            },
+            "name": "crypto"
+          }
+        }
+      ],
+      "importKind": "value",
+      "source": {
+        "type": "Literal",
+        "start": 19,
+        "end": 27,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 19
+          },
+          "end": {
+            "line": 1,
+            "column": 27
+          }
+        },
+        "value": "crypto",
+        "rawValue": "crypto",
+        "raw": "'crypto'"
+      },
+      "trailingComments": [
+        {
+          "type": "Block",
+          "value": "*\n * Create checksum hash of input.\n * @example\n *   '50de70409f11f87b430f248daaa94d67'\n * @param {string} input Input to hash.\n * @return {string}\n ",
+          "start": 30,
+          "end": 183,
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 0
+            },
+            "end": {
+              "line": 9,
+              "column": 3
+            }
+          },
+          "range": [
+            30,
+            183
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ExportNamedDeclaration",
+      "start": 184,
+      "end": 296,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 0
+        },
+        "end": {
+          "line": 12,
+          "column": 1
+        }
+      },
+      "declaration": {
+        "type": "FunctionDeclaration",
+        "start": 191,
+        "end": 296,
+        "loc": {
+          "start": {
+            "line": 10,
+            "column": 7
+          },
+          "end": {
+            "line": 12,
+            "column": 1
+          }
+        },
+        "id": {
+          "type": "Identifier",
+          "start": 200,
+          "end": 214,
+          "loc": {
+            "start": {
+              "line": 10,
+              "column": 16
+            },
+            "end": {
+              "line": 10,
+              "column": 30
+            }
+          },
+          "name": "createChecksum",
+          "leadingComments": null
+        },
+        "generator": false,
+        "expression": false,
+        "async": false,
+        "params": [
+          {
+            "type": "Identifier",
+            "start": 215,
+            "end": 220,
+            "loc": {
+              "start": {
+                "line": 10,
+                "column": 31
+              },
+              "end": {
+                "line": 10,
+                "column": 36
+              }
+            },
+            "name": "input"
+          }
+        ],
+        "body": {
+          "type": "BlockStatement",
+          "start": 222,
+          "end": 296,
+          "loc": {
+            "start": {
+              "line": 10,
+              "column": 38
+            },
+            "end": {
+              "line": 12,
+              "column": 1
+            }
+          },
+          "body": [
+            {
+              "type": "ReturnStatement",
+              "start": 226,
+              "end": 294,
+              "loc": {
+                "start": {
+                  "line": 11,
+                  "column": 2
+                },
+                "end": {
+                  "line": 11,
+                  "column": 70
+                }
+              },
+              "argument": {
+                "type": "CallExpression",
+                "start": 233,
+                "end": 293,
+                "loc": {
+                  "start": {
+                    "line": 11,
+                    "column": 9
+                  },
+                  "end": {
+                    "line": 11,
+                    "column": 69
+                  }
+                },
+                "callee": {
+                  "type": "MemberExpression",
+                  "start": 233,
+                  "end": 286,
+                  "loc": {
+                    "start": {
+                      "line": 11,
+                      "column": 9
+                    },
+                    "end": {
+                      "line": 11,
+                      "column": 62
+                    }
+                  },
+                  "object": {
+                    "type": "CallExpression",
+                    "start": 233,
+                    "end": 279,
+                    "loc": {
+                      "start": {
+                        "line": 11,
+                        "column": 9
+                      },
+                      "end": {
+                        "line": 11,
+                        "column": 55
+                      }
+                    },
+                    "callee": {
+                      "type": "MemberExpression",
+                      "start": 233,
+                      "end": 264,
+                      "loc": {
+                        "start": {
+                          "line": 11,
+                          "column": 9
+                        },
+                        "end": {
+                          "line": 11,
+                          "column": 40
+                        }
+                      },
+                      "object": {
+                        "type": "CallExpression",
+                        "start": 233,
+                        "end": 257,
+                        "loc": {
+                          "start": {
+                            "line": 11,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 11,
+                            "column": 33
+                          }
+                        },
+                        "callee": {
+                          "type": "MemberExpression",
+                          "start": 233,
+                          "end": 250,
+                          "loc": {
+                            "start": {
+                              "line": 11,
+                              "column": 9
+                            },
+                            "end": {
+                              "line": 11,
+                              "column": 26
+                            }
+                          },
+                          "object": {
+                            "type": "Identifier",
+                            "start": 233,
+                            "end": 239,
+                            "loc": {
+                              "start": {
+                                "line": 11,
+                                "column": 9
+                              },
+                              "end": {
+                                "line": 11,
+                                "column": 15
+                              }
+                            },
+                            "name": "crypto"
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "start": 240,
+                            "end": 250,
+                            "loc": {
+                              "start": {
+                                "line": 11,
+                                "column": 16
+                              },
+                              "end": {
+                                "line": 11,
+                                "column": 26
+                              }
+                            },
+                            "name": "createHash"
+                          },
+                          "computed": false
+                        },
+                        "arguments": [
+                          {
+                            "type": "Literal",
+                            "start": 251,
+                            "end": 256,
+                            "loc": {
+                              "start": {
+                                "line": 11,
+                                "column": 27
+                              },
+                              "end": {
+                                "line": 11,
+                                "column": 32
+                              }
+                            },
+                            "value": "md5",
+                            "rawValue": "md5",
+                            "raw": "'md5'"
+                          }
+                        ]
+                      },
+                      "property": {
+                        "type": "Identifier",
+                        "start": 258,
+                        "end": 264,
+                        "loc": {
+                          "start": {
+                            "line": 11,
+                            "column": 34
+                          },
+                          "end": {
+                            "line": 11,
+                            "column": 40
+                          }
+                        },
+                        "name": "update"
+                      },
+                      "computed": false
+                    },
+                    "arguments": [
+                      {
+                        "type": "Identifier",
+                        "start": 265,
+                        "end": 270,
+                        "loc": {
+                          "start": {
+                            "line": 11,
+                            "column": 41
+                          },
+                          "end": {
+                            "line": 11,
+                            "column": 46
+                          }
+                        },
+                        "name": "input"
+                      },
+                      {
+                        "type": "Literal",
+                        "start": 272,
+                        "end": 278,
+                        "loc": {
+                          "start": {
+                            "line": 11,
+                            "column": 48
+                          },
+                          "end": {
+                            "line": 11,
+                            "column": 54
+                          }
+                        },
+                        "value": "utf8",
+                        "rawValue": "utf8",
+                        "raw": "'utf8'"
+                      }
+                    ]
+                  },
+                  "property": {
+                    "type": "Identifier",
+                    "start": 280,
+                    "end": 286,
+                    "loc": {
+                      "start": {
+                        "line": 11,
+                        "column": 56
+                      },
+                      "end": {
+                        "line": 11,
+                        "column": 62
+                      }
+                    },
+                    "name": "digest"
+                  },
+                  "computed": false
+                },
+                "arguments": [
+                  {
+                    "type": "Literal",
+                    "start": 287,
+                    "end": 292,
+                    "loc": {
+                      "start": {
+                        "line": 11,
+                        "column": 63
+                      },
+                      "end": {
+                        "line": 11,
+                        "column": 68
+                      }
+                    },
+                    "value": "hex",
+                    "rawValue": "hex",
+                    "raw": "'hex'"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "leadingComments": [
+          {
+            "type": "Block",
+            "value": "*\n * Create checksum hash of input.\n * @example\n *   '50de70409f11f87b430f248daaa94d67'\n * @param {string} input Input to hash.\n * @return {string}\n ",
+            "start": 30,
+            "end": 183,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 0
+              },
+              "end": {
+                "line": 9,
+                "column": 3
+              }
+            },
+            "range": [
+              30,
+              183
+            ]
+          }
+        ],
+        "trailingComments": []
+      },
+      "specifiers": [],
+      "source": null,
+      "leadingComments": [
+        {
+          "type": "Block",
+          "value": "*\n * Create checksum hash of input.\n * @example\n *   '50de70409f11f87b430f248daaa94d67'\n * @param {string} input Input to hash.\n * @return {string}\n ",
+          "start": 30,
+          "end": 183,
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 0
+            },
+            "end": {
+              "line": 9,
+              "column": 3
+            }
+          },
+          "range": [
+            30,
+            183
+          ]
+        }
+      ]
+    }
+  ]
+}

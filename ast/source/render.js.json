@@ -1,0 +1,916 @@
+{
+  "type": "Program",
+  "start": 0,
+  "end": 838,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 32,
+      "column": 0
+    }
+  },
+  "sourceType": "module",
+  "body": [
+    {
+      "type": "ImportDeclaration",
+      "start": 0,
+      "end": 30,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 30
+        }
+      },
+      "specifiers": [
+        {
+          "type": "ImportDefaultSpecifier",
+          "start": 7,
+          "end": 13,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 7
+            },
+            "end": {
+              "line": 1,
+              "column": 13
+            }
+          },
+          "local": {
+            "type": "Identifier",
+            "start": 7,
+            "end": 13,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 7
+              },
+              "end": {
+                "line": 1,
+                "column": 13
+              }
+            },
+            "name": "Plugin"
+          }
+        }
+      ],
+      "importKind": "value",
+      "source": {
+        "type": "Literal",
+        "start": 19,
+        "end": 29,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 19
+          },
+          "end": {
+            "line": 1,
+            "column": 29
+          }
+        },
+        "value": "./plugin",
+        "rawValue": "./plugin",
+        "raw": "'./plugin'"
+      },
+      "trailingComments": [
+        {
+          "type": "Block",
+          "value": "*\n * Write a file to the file system. Calls all plugin events.\n * @param {(File|CollectionPage)} file File or CollectionPage object.\n * @param {Object} siteData Site wide template data.\n * @param {Plugin.Event} eventBefore Which event handler to process before\n *   rendering the file.\n * @param {Plugin.Event} eventAfter Which event handler to process after\n *   rendering the file.\n * @return {Promise}\n ",
+          "start": 32,
+          "end": 442,
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 0
+            },
+            "end": {
+              "line": 12,
+              "column": 3
+            }
+          },
+          "range": [
+            32,
+            442
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ExportNamedDeclaration",
+      "start": 443,
+      "end": 837,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 0
+        },
+        "end": {
+          "line": 31,
+          "column": 1
+        }
+      },
+      "declaration": {
+        "type": "FunctionDeclaration",
+        "start": 450,
+        "end": 837,
+        "loc": {
+          "start": {
+            "line": 13,
+            "column": 7
+          },
+          "end": {
+            "line": 31,
+            "column": 1
+          }
+        },
+        "id": {
+          "type": "Identifier",
+          "start": 465,
+          "end": 486,
+          "loc": {
+            "start": {
+              "line": 13,
+              "column": 22
+            },
+            "end": {
+              "line": 13,
+              "column": 43
+            }
+          },
+          "name": "renderFileWithPlugins",
+          "leadingComments": null
+        },
+        "generator": false,
+        "expression": false,
+        "async": true,
+        "params": [
+          {
+            "type": "Identifier",
+            "start": 487,
+            "end": 491,
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 44
+              },
+              "end": {
+                "line": 13,
+                "column": 48
+              }
+            },
+            "name": "file"
+          },
+          {
+            "type": "Identifier",
+            "start": 493,
+            "end": 501,
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 50
+              },
+              "end": {
+                "line": 13,
+                "column": 58
+              }
+            },
+            "name": "siteData"
+          },
+          {
+            "type": "Identifier",
+            "start": 505,
+            "end": 516,
+            "loc": {
+              "start": {
+                "line": 14,
+                "column": 2
+              },
+              "end": {
+                "line": 14,
+                "column": 13
+              }
+            },
+            "name": "eventBefore"
+          },
+          {
+            "type": "Identifier",
+            "start": 518,
+            "end": 528,
+            "loc": {
+              "start": {
+                "line": 14,
+                "column": 15
+              },
+              "end": {
+                "line": 14,
+                "column": 25
+              }
+            },
+            "name": "eventAfter"
+          }
+        ],
+        "body": {
+          "type": "BlockStatement",
+          "start": 530,
+          "end": 837,
+          "loc": {
+            "start": {
+              "line": 14,
+              "column": 27
+            },
+            "end": {
+              "line": 31,
+              "column": 1
+            }
+          },
+          "body": [
+            {
+              "type": "IfStatement",
+              "start": 535,
+              "end": 615,
+              "loc": {
+                "start": {
+                  "line": 16,
+                  "column": 2
+                },
+                "end": {
+                  "line": 18,
+                  "column": 3
+                }
+              },
+              "test": {
+                "type": "Identifier",
+                "start": 539,
+                "end": 550,
+                "loc": {
+                  "start": {
+                    "line": 16,
+                    "column": 6
+                  },
+                  "end": {
+                    "line": 16,
+                    "column": 17
+                  }
+                },
+                "name": "eventBefore"
+              },
+              "consequent": {
+                "type": "BlockStatement",
+                "start": 552,
+                "end": 615,
+                "loc": {
+                  "start": {
+                    "line": 16,
+                    "column": 19
+                  },
+                  "end": {
+                    "line": 18,
+                    "column": 3
+                  }
+                },
+                "body": [
+                  {
+                    "type": "ExpressionStatement",
+                    "start": 558,
+                    "end": 611,
+                    "loc": {
+                      "start": {
+                        "line": 17,
+                        "column": 4
+                      },
+                      "end": {
+                        "line": 17,
+                        "column": 57
+                      }
+                    },
+                    "expression": {
+                      "type": "AwaitExpression",
+                      "start": 558,
+                      "end": 610,
+                      "loc": {
+                        "start": {
+                          "line": 17,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 17,
+                          "column": 56
+                        }
+                      },
+                      "all": false,
+                      "argument": {
+                        "type": "CallExpression",
+                        "start": 564,
+                        "end": 610,
+                        "loc": {
+                          "start": {
+                            "line": 17,
+                            "column": 10
+                          },
+                          "end": {
+                            "line": 17,
+                            "column": 56
+                          }
+                        },
+                        "callee": {
+                          "type": "MemberExpression",
+                          "start": 564,
+                          "end": 591,
+                          "loc": {
+                            "start": {
+                              "line": 17,
+                              "column": 10
+                            },
+                            "end": {
+                              "line": 17,
+                              "column": 37
+                            }
+                          },
+                          "object": {
+                            "type": "Identifier",
+                            "start": 564,
+                            "end": 570,
+                            "loc": {
+                              "start": {
+                                "line": 17,
+                                "column": 10
+                              },
+                              "end": {
+                                "line": 17,
+                                "column": 16
+                              }
+                            },
+                            "name": "Plugin"
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "start": 571,
+                            "end": 591,
+                            "loc": {
+                              "start": {
+                                "line": 17,
+                                "column": 17
+                              },
+                              "end": {
+                                "line": 17,
+                                "column": 37
+                              }
+                            },
+                            "name": "processEventHandlers"
+                          },
+                          "computed": false
+                        },
+                        "arguments": [
+                          {
+                            "type": "Identifier",
+                            "start": 592,
+                            "end": 603,
+                            "loc": {
+                              "start": {
+                                "line": 17,
+                                "column": 38
+                              },
+                              "end": {
+                                "line": 17,
+                                "column": 49
+                              }
+                            },
+                            "name": "eventBefore"
+                          },
+                          {
+                            "type": "Identifier",
+                            "start": 605,
+                            "end": 609,
+                            "loc": {
+                              "start": {
+                                "line": 17,
+                                "column": 51
+                              },
+                              "end": {
+                                "line": 17,
+                                "column": 55
+                              }
+                            },
+                            "name": "file"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              },
+              "alternate": null
+            },
+            {
+              "type": "VariableDeclaration",
+              "start": 619,
+              "end": 660,
+              "loc": {
+                "start": {
+                  "line": 20,
+                  "column": 2
+                },
+                "end": {
+                  "line": 20,
+                  "column": 43
+                }
+              },
+              "declarations": [
+                {
+                  "type": "VariableDeclarator",
+                  "start": 623,
+                  "end": 659,
+                  "loc": {
+                    "start": {
+                      "line": 20,
+                      "column": 6
+                    },
+                    "end": {
+                      "line": 20,
+                      "column": 42
+                    }
+                  },
+                  "id": {
+                    "type": "Identifier",
+                    "start": 623,
+                    "end": 635,
+                    "loc": {
+                      "start": {
+                        "line": 20,
+                        "column": 6
+                      },
+                      "end": {
+                        "line": 20,
+                        "column": 18
+                      }
+                    },
+                    "name": "renderedFile"
+                  },
+                  "init": {
+                    "type": "CallExpression",
+                    "start": 638,
+                    "end": 659,
+                    "loc": {
+                      "start": {
+                        "line": 20,
+                        "column": 21
+                      },
+                      "end": {
+                        "line": 20,
+                        "column": 42
+                      }
+                    },
+                    "callee": {
+                      "type": "MemberExpression",
+                      "start": 638,
+                      "end": 649,
+                      "loc": {
+                        "start": {
+                          "line": 20,
+                          "column": 21
+                        },
+                        "end": {
+                          "line": 20,
+                          "column": 32
+                        }
+                      },
+                      "object": {
+                        "type": "Identifier",
+                        "start": 638,
+                        "end": 642,
+                        "loc": {
+                          "start": {
+                            "line": 20,
+                            "column": 21
+                          },
+                          "end": {
+                            "line": 20,
+                            "column": 25
+                          }
+                        },
+                        "name": "file"
+                      },
+                      "property": {
+                        "type": "Identifier",
+                        "start": 643,
+                        "end": 649,
+                        "loc": {
+                          "start": {
+                            "line": 20,
+                            "column": 26
+                          },
+                          "end": {
+                            "line": 20,
+                            "column": 32
+                          }
+                        },
+                        "name": "render"
+                      },
+                      "computed": false
+                    },
+                    "arguments": [
+                      {
+                        "type": "Identifier",
+                        "start": 650,
+                        "end": 658,
+                        "loc": {
+                          "start": {
+                            "line": 20,
+                            "column": 33
+                          },
+                          "end": {
+                            "line": 20,
+                            "column": 41
+                          }
+                        },
+                        "name": "siteData"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "kind": "let"
+            },
+            {
+              "type": "IfStatement",
+              "start": 664,
+              "end": 803,
+              "loc": {
+                "start": {
+                  "line": 22,
+                  "column": 2
+                },
+                "end": {
+                  "line": 28,
+                  "column": 3
+                }
+              },
+              "test": {
+                "type": "Identifier",
+                "start": 668,
+                "end": 678,
+                "loc": {
+                  "start": {
+                    "line": 22,
+                    "column": 6
+                  },
+                  "end": {
+                    "line": 22,
+                    "column": 16
+                  }
+                },
+                "name": "eventAfter"
+              },
+              "consequent": {
+                "type": "BlockStatement",
+                "start": 680,
+                "end": 803,
+                "loc": {
+                  "start": {
+                    "line": 22,
+                    "column": 18
+                  },
+                  "end": {
+                    "line": 28,
+                    "column": 3
+                  }
+                },
+                "body": [
+                  {
+                    "type": "ExpressionStatement",
+                    "start": 686,
+                    "end": 799,
+                    "loc": {
+                      "start": {
+                        "line": 23,
+                        "column": 4
+                      },
+                      "end": {
+                        "line": 27,
+                        "column": 6
+                      }
+                    },
+                    "expression": {
+                      "type": "AssignmentExpression",
+                      "start": 686,
+                      "end": 798,
+                      "loc": {
+                        "start": {
+                          "line": 23,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 27,
+                          "column": 5
+                        }
+                      },
+                      "operator": "=",
+                      "left": {
+                        "type": "ArrayPattern",
+                        "start": 686,
+                        "end": 706,
+                        "loc": {
+                          "start": {
+                            "line": 23,
+                            "column": 4
+                          },
+                          "end": {
+                            "line": 23,
+                            "column": 24
+                          }
+                        },
+                        "elements": [
+                          {
+                            "type": "Identifier",
+                            "start": 687,
+                            "end": 691,
+                            "loc": {
+                              "start": {
+                                "line": 23,
+                                "column": 5
+                              },
+                              "end": {
+                                "line": 23,
+                                "column": 9
+                              }
+                            },
+                            "name": "file"
+                          },
+                          {
+                            "type": "Identifier",
+                            "start": 693,
+                            "end": 705,
+                            "loc": {
+                              "start": {
+                                "line": 23,
+                                "column": 11
+                              },
+                              "end": {
+                                "line": 23,
+                                "column": 23
+                              }
+                            },
+                            "name": "renderedFile"
+                          }
+                        ]
+                      },
+                      "right": {
+                        "type": "AwaitExpression",
+                        "start": 709,
+                        "end": 798,
+                        "loc": {
+                          "start": {
+                            "line": 23,
+                            "column": 27
+                          },
+                          "end": {
+                            "line": 27,
+                            "column": 5
+                          }
+                        },
+                        "all": false,
+                        "argument": {
+                          "type": "CallExpression",
+                          "start": 715,
+                          "end": 798,
+                          "loc": {
+                            "start": {
+                              "line": 23,
+                              "column": 33
+                            },
+                            "end": {
+                              "line": 27,
+                              "column": 5
+                            }
+                          },
+                          "callee": {
+                            "type": "MemberExpression",
+                            "start": 715,
+                            "end": 742,
+                            "loc": {
+                              "start": {
+                                "line": 23,
+                                "column": 33
+                              },
+                              "end": {
+                                "line": 23,
+                                "column": 60
+                              }
+                            },
+                            "object": {
+                              "type": "Identifier",
+                              "start": 715,
+                              "end": 721,
+                              "loc": {
+                                "start": {
+                                  "line": 23,
+                                  "column": 33
+                                },
+                                "end": {
+                                  "line": 23,
+                                  "column": 39
+                                }
+                              },
+                              "name": "Plugin"
+                            },
+                            "property": {
+                              "type": "Identifier",
+                              "start": 722,
+                              "end": 742,
+                              "loc": {
+                                "start": {
+                                  "line": 23,
+                                  "column": 40
+                                },
+                                "end": {
+                                  "line": 23,
+                                  "column": 60
+                                }
+                              },
+                              "name": "processEventHandlers"
+                            },
+                            "computed": false
+                          },
+                          "arguments": [
+                            {
+                              "type": "Identifier",
+                              "start": 750,
+                              "end": 760,
+                              "loc": {
+                                "start": {
+                                  "line": 24,
+                                  "column": 6
+                                },
+                                "end": {
+                                  "line": 24,
+                                  "column": 16
+                                }
+                              },
+                              "name": "eventAfter"
+                            },
+                            {
+                              "type": "Identifier",
+                              "start": 768,
+                              "end": 772,
+                              "loc": {
+                                "start": {
+                                  "line": 25,
+                                  "column": 6
+                                },
+                                "end": {
+                                  "line": 25,
+                                  "column": 10
+                                }
+                              },
+                              "name": "file"
+                            },
+                            {
+                              "type": "Identifier",
+                              "start": 780,
+                              "end": 792,
+                              "loc": {
+                                "start": {
+                                  "line": 26,
+                                  "column": 6
+                                },
+                                "end": {
+                                  "line": 26,
+                                  "column": 18
+                                }
+                              },
+                              "name": "renderedFile"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "alternate": null
+            },
+            {
+              "type": "ReturnStatement",
+              "start": 807,
+              "end": 835,
+              "loc": {
+                "start": {
+                  "line": 30,
+                  "column": 2
+                },
+                "end": {
+                  "line": 30,
+                  "column": 30
+                }
+              },
+              "argument": {
+                "type": "ArrayExpression",
+                "start": 814,
+                "end": 834,
+                "loc": {
+                  "start": {
+                    "line": 30,
+                    "column": 9
+                  },
+                  "end": {
+                    "line": 30,
+                    "column": 29
+                  }
+                },
+                "elements": [
+                  {
+                    "type": "Identifier",
+                    "start": 815,
+                    "end": 819,
+                    "loc": {
+                      "start": {
+                        "line": 30,
+                        "column": 10
+                      },
+                      "end": {
+                        "line": 30,
+                        "column": 14
+                      }
+                    },
+                    "name": "file"
+                  },
+                  {
+                    "type": "Identifier",
+                    "start": 821,
+                    "end": 833,
+                    "loc": {
+                      "start": {
+                        "line": 30,
+                        "column": 16
+                      },
+                      "end": {
+                        "line": 30,
+                        "column": 28
+                      }
+                    },
+                    "name": "renderedFile"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "leadingComments": [
+          {
+            "type": "Block",
+            "value": "*\n * Write a file to the file system. Calls all plugin events.\n * @param {(File|CollectionPage)} file File or CollectionPage object.\n * @param {Object} siteData Site wide template data.\n * @param {Plugin.Event} eventBefore Which event handler to process before\n *   rendering the file.\n * @param {Plugin.Event} eventAfter Which event handler to process after\n *   rendering the file.\n * @return {Promise}\n ",
+            "start": 32,
+            "end": 442,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 0
+              },
+              "end": {
+                "line": 12,
+                "column": 3
+              }
+            },
+            "range": [
+              32,
+              442
+            ]
+          }
+        ],
+        "trailingComments": []
+      },
+      "specifiers": [],
+      "source": null,
+      "leadingComments": [
+        {
+          "type": "Block",
+          "value": "*\n * Write a file to the file system. Calls all plugin events.\n * @param {(File|CollectionPage)} file File or CollectionPage object.\n * @param {Object} siteData Site wide template data.\n * @param {Plugin.Event} eventBefore Which event handler to process before\n *   rendering the file.\n * @param {Plugin.Event} eventAfter Which event handler to process after\n *   rendering the file.\n * @return {Promise}\n ",
+          "start": 32,
+          "end": 442,
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 0
+            },
+            "end": {
+              "line": 12,
+              "column": 3
+            }
+          },
+          "range": [
+            32,
+            442
+          ]
+        }
+      ]
+    }
+  ]
+}

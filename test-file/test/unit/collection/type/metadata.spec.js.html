@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../../">
+  <title data-ice="title">test/unit/collection/type/metadata.spec.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <a data-ice="repoURL" href="https://github.com/reptar/reptar" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/file.js~File.html">File</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getReptarPackageNames">getReptarPackageNames</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureMarkdownEngine">configureMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderFileWithPlugins">renderFileWithPlugins</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBuiltinFilters">addBuiltinFilters</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addTemplateFilter">addTemplateFilter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureTemplateEngine">configureTemplateEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderTemplate">renderTemplate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderTemplateString">renderTemplateString</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-cache">cache</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-KEY">KEY</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-YAML">YAML</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-packageNameRegex">packageNameRegex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Url">Url</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collection</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/base.js~CollectionBase.html">CollectionBase</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/page.js~CollectionPage.html">CollectionPage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createCollection">createCollection</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collection/type</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/type/file-system.js~FileSystemCollection.html">FileSystemCollection</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/type/metadata.js~MetadataCollection.html">MetadataCollection</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">config</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/config/index.js~Config.html">Config</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">filter</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-futureDatesFilter">futureDatesFilter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-metadataFilter">metadataFilter</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">parse</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fileHasFrontmatter">fileHasFrontmatter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/asset.js~Asset.html">Asset</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/index.js~Theme.html">Theme</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor-base.js~ProcessorBase.html">ProcessorBase</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme/processor</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor/browserify.js~Browserify.html">Browserify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor/less.js~Less.html">Less</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor/sass.js~Sass.html">Sass</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">test/unit/collection/type/metadata.spec.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import assert from &apos;power-assert&apos;;
+import sinon from &apos;sinon&apos;;
+import _ from &apos;lodash&apos;;
+
+import fixture from &apos;../../../fixture&apos;;
+import {
+  createMockConfig,
+} from &apos;../../../utils&apos;;
+
+import Plugin from &apos;../../../../lib/plugin/index.js&apos;;
+import CollectionPage from &apos;../../../../lib/collection/page.js&apos;;
+
+import CollectionBase from &apos;../../../../lib/collection/base.js&apos;;
+import MetadataCollection from
+  &apos;../../../../lib/collection/type/metadata.js&apos;;
+
+describe(&apos;collection/type/metadata MetadataCollection&apos;, () =&gt; {
+  const config = createMockConfig();
+  const getConfig = () =&gt; config;
+
+  let sandbox;
+  beforeEach(() =&gt; {
+    sandbox = sinon.sandbox.create();
+
+    Plugin._reset();
+  });
+
+  afterEach(() =&gt; {
+    sandbox.restore();
+  });
+
+  describe(&apos;_isFileInCollection&apos;, () =&gt; {
+    it(&apos;is false if file does not have collection\&apos;s metadata key&apos;, () =&gt; {
+      const instance = new MetadataCollection(&apos;name&apos;);
+      instance.metadata = &apos;soMeta&apos;;
+
+      const file = {
+        data: {}
+      };
+
+      file.data.someMeta = &apos;ok&apos;;
+      assert.equal(instance._isFileInCollection(file), false);
+
+      file.data[instance.metadata] = undefined;
+      assert.equal(instance._isFileInCollection(file), false);
+    });
+
+    it(&apos;is true if file has collection\&apos;s metadata key&apos;, () =&gt; {
+      const instance = new MetadataCollection(&apos;name&apos;);
+      instance.metadata = &apos;soMeta&apos;;
+
+      const file = {
+        data: {}
+      };
+
+      file.data[instance.metadata] = null;
+      assert.equal(instance._isFileInCollection(file), true);
+
+      file.data[instance.metadata] = &apos;&apos;;
+      assert.equal(instance._isFileInCollection(file), true);
+
+      file.data[instance.metadata] = [];
+      assert.equal(instance._isFileInCollection(file), true);
+    });
+  });
+
+  describe(&apos;populate&apos;, () =&gt; {
+    it(&apos;adds files to collection&apos;, () =&gt; {
+      const instance = new MetadataCollection(&apos;name&apos;);
+      instance.metadata = fixture.collectionMetadataKey;
+      sinon.stub(instance, &apos;createCollectionPages&apos;).returns(sinon.spy());
+      sinon.stub(instance, &apos;_isFileInCollection&apos;).returns(true);
+      sandbox.spy(CollectionBase, &apos;sortFiles&apos;);
+      assert(_.isUndefined(instance.files));
+      assert(_.isUndefined(instance.metadataFiles));
+
+      const files = fixture.collectionFiles();
+      assert.deepEqual(instance.populate(files), instance);
+      assert.equal(instance.createCollectionPages.calledOnce, true);
+      assert.equal(CollectionBase.sortFiles.called, false);
+
+      assert(_.isUndefined(instance.files));
+      assert(typeof instance.metadataFiles === &apos;object&apos;);
+
+      assert.equal(
+        Object.keys(instance.metadataFiles).length,
+        files.length
+      );
+
+      assert.equal(instance.metadataFiles[&apos;norman&apos;].length, 2);
+      assert.equal(instance.metadataFiles[&apos;rockwell&apos;].length, 1);
+      assert.equal(instance.metadataFiles[&apos;null&apos;].length, 1);
+
+      assert(_.isEqual(
+        instance.metadataFiles[&apos;norman&apos;],
+        [files[0], files[1]]
+      ));
+
+      assert(_.isEqual(
+        Object.keys(instance.metadataFiles),
+        Object.keys(instance.data.metadata)
+      ));
+    });
+
+    it(&apos;does not add files to collection&apos;, () =&gt; {
+      const instance = new MetadataCollection(&apos;name&apos;);
+      instance.metadata = fixture.collectionMetadataKey;
+      sinon.stub(instance, &apos;createCollectionPages&apos;).returns(sinon.spy());
+      sinon.stub(instance, &apos;_isFileInCollection&apos;).returns(false);
+      sandbox.spy(CollectionBase, &apos;sortFiles&apos;);
+      assert(_.isUndefined(instance.files));
+      assert(_.isUndefined(instance.metadataFiles));
+
+      const files = fixture.collectionFiles();
+      assert.deepEqual(instance.populate(files), instance);
+      assert.equal(instance.createCollectionPages.calledOnce, true);
+      assert.equal(CollectionBase.sortFiles.called, false);
+
+      assert(_.isUndefined(instance.files));
+      assert(typeof instance.metadataFiles === &apos;object&apos;);
+
+      assert.equal(
+        Object.keys(instance.metadataFiles).length,
+        0
+      );
+
+      assert.equal(
+        Object.keys(instance.data.metadata).length,
+        0
+      );
+    });
+  });
+
+
+  describe(&apos;createCollectionPages&apos;, () =&gt; {
+    it(&apos;returns early if no pagination permalinks are set&apos;, () =&gt; {
+      const instance = new MetadataCollection(&apos;name&apos;, undefined, getConfig);
+      assert.equal(instance.createCollectionPages(), false);
+
+      instance.permalink = {};
+      instance.permalink.index = &apos;index.html&apos;;
+      instance.permalink.page = undefined;
+      assert.equal(instance.createCollectionPages(), false);
+
+      instance.permalink.index = undefined;
+      instance.permalink.page = &apos;/page.html&apos;;
+      assert.equal(instance.createCollectionPages(), false);
+    });
+
+    const pageSize = 1;
+    it(&apos;adds files to collectionPages&apos;, () =&gt; {
+      const files = fixture.collectionFiles();
+      const instance = new MetadataCollection(&apos;name&apos;, undefined, getConfig);
+      instance.metadata = fixture.collectionMetadataKey;
+      instance.permalink = {};
+      instance.pageSize = pageSize;
+      instance.permalink.index = &apos;index.html&apos;;
+      instance.permalink.page = &apos;/page/:metadata/:page.html&apos;;
+      assert.equal(instance.pages.length, 0);
+      assert(_.isUndefined(instance.metadataFiles));
+      sinon.spy(instance, &apos;createCollectionPages&apos;);
+      sandbox.spy(CollectionBase, &apos;sortFiles&apos;);
+
+      // Use instance.populate so we have proper instance.metadataFiles
+      // structure.
+      instance.populate(files);
+      assert.ok(instance.createCollectionPages.returned(true));
+
+      assert(typeof instance.metadataFiles === &apos;object&apos;);
+      assert.equal(CollectionBase.sortFiles.callCount, 3);
+      assert.equal(instance.pages.length, 4);
+
+      instance.pages.forEach((page, realIndex) =&gt; {
+        // Since we have two files with same tag, they&apos;re in multiple pages.
+        // This if statement just moves the pointer so we&apos;re interacting with
+        // the right page data.
+        let index = realIndex;
+        let expectedPermalink = index === 0 ?
+          instance.permalink.index :
+          instance.permalink.page;
+        if (realIndex === 2) {
+          index = 0;
+          expectedPermalink = instance.permalink.index;
+        } else if (realIndex === 3) {
+          index = 0;
+          expectedPermalink = instance.permalink.index;
+        }
+
+        const files = instance.metadataFiles[page.data.metadata];
+
+        assert(page instanceof CollectionPage);
+
+        assert.deepEqual(page.data.files, [files[index].data]);
+
+        assert.equal(page.permalink, expectedPermalink);
+        assert.equal(page.data.total_pages, files.length / pageSize);
+        assert.equal(page.data.per_page, pageSize);
+        assert.equal(page.data.total, files.length);
+
+        if (index === 0) {
+          assert(_.isUndefined(page.data.prev));
+          assert(_.isUndefined(page.data.prev_link));
+        } else {
+          assert(_.isUndefined(page.data.next));
+          assert(_.isUndefined(page.data.next_link));
+
+          const previous = instance.pages[index - 1];
+          assert.equal(page.data.prev, previous.data.page);
+          assert.equal(page.data.prev_link, previous.data.url);
+
+          assert(_.isUndefined(page.data.next));
+          assert(_.isUndefined(page.data.next_link));
+        }
+
+        assert.deepEqual(instance.data.pages[realIndex], page.data);
+      });
+    });
+  });
+
+});
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.8)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

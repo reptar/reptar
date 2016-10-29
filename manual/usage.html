@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../">
+  <title data-ice="title">Usage</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container manual-root" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <a data-ice="repoURL" href="https://github.com/reptar/reptar" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div class="manual-toc-root">
+  
+<div data-ice="manual" data-toc-name="usage">
+    <h1 class="manual-toc-title"><a href="manual/usage.html" data-ice="title">Usage</a></h1>
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1"><span class="manual-dot"></span><a href="manual/usage.html#development" data-ice="link">Development</a></li>
+<li data-ice="manualNav" class="indent-h1"><span class="manual-dot"></span><a href="manual/usage.html#commit-messages" data-ice="link">Commit Messages</a></li>
+<li data-ice="manualNav" class="indent-h1"><span class="manual-dot"></span><a href="manual/usage.html#cutting-a-release" data-ice="link">Cutting a release</a></li>
+<li data-ice="manualNav" class="indent-h1"><span class="manual-dot"></span><a href="manual/usage.html#contributing-to-reptar" data-ice="link">Contributing to Reptar</a></li>
+<li data-ice="manualNav" class="indent-h2"><span class="manual-dot"></span><a href="manual/usage.html#development" data-ice="link">Development</a></li>
+<li data-ice="manualNav" class="indent-h2"><span class="manual-dot"></span><a href="manual/usage.html#tests" data-ice="link">Tests</a></li>
+<li data-ice="manualNav" class="indent-h2"><span class="manual-dot"></span><a href="manual/usage.html#linting" data-ice="link">Linting</a></li>
+</ul>
+  </div>
+<div data-ice="manual" data-toc-name="reference">
+    <h1 class="manual-toc-title"><a href="identifiers.html" data-ice="title">Reference</a></h1>
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1"><span class="manual-dot"></span><a href="identifiers.html#class" data-ice="link">Class</a></li>
+<li data-ice="manualNav" class="indent-h1"><span class="manual-dot"></span><a href="identifiers.html#function" data-ice="link">Function</a></li>
+<li data-ice="manualNav" class="indent-h1"><span class="manual-dot"></span><a href="identifiers.html#variable" data-ice="link">Variable</a></li>
+</ul>
+  </div>
+<div data-ice="manual" data-toc-name="changelog">
+    <h1 class="manual-toc-title"><a href="manual/changelog.html" data-ice="title">Changelog</a></h1>
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1"><span class="manual-dot"></span><a href="manual/changelog.html#change-log" data-ice="link">Change Log</a></li>
+<li data-ice="manualNav" class="indent-h1"><span class="manual-dot"></span><a href="manual/changelog.html#-2-1-0-https-github-com-reptar-reptar-compare-v2-0-0-v2-1-0-2016-10-21-" data-ice="link">2.1.0 (2016-10-21)</a></li>
+<li data-ice="manualNav" class="indent-h3"><span class="manual-dot"></span><a href="manual/changelog.html#bug-fixes" data-ice="link">Bug Fixes</a></li>
+<li data-ice="manualNav" class="indent-h3"><span class="manual-dot"></span><a href="manual/changelog.html#features" data-ice="link">Features</a></li>
+<li data-ice="manualNav" class="indent-h1"><span class="manual-dot"></span><a href="manual/changelog.html#-2-0-0-https-github-com-reptar-reptar-compare-v1-4-0-v2-0-0-2016-10-19-" data-ice="link">2.0.0 (2016-10-19)</a></li>
+<li data-ice="manualNav" class="indent-h3"><span class="manual-dot"></span><a href="manual/changelog.html#bug-fixes" data-ice="link">Bug Fixes</a></li>
+<li data-ice="manualNav" class="indent-h3"><span class="manual-dot"></span><a href="manual/changelog.html#code-refactoring" data-ice="link">Code Refactoring</a></li>
+<li data-ice="manualNav" class="indent-h3"><span class="manual-dot"></span><a href="manual/changelog.html#features" data-ice="link">Features</a></li>
+<li data-ice="manualNav" class="indent-h3"><span class="manual-dot"></span><a href="manual/changelog.html#performance-improvements" data-ice="link">Performance Improvements</a></li>
+<li data-ice="manualNav" class="indent-h3"><span class="manual-dot"></span><a href="manual/changelog.html#breaking-changes" data-ice="link">BREAKING CHANGES</a></li>
+</ul>
+  </div>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div class="github-markdown">
+  <div class="manual-breadcrumb-list">
+    <a href="./manual/./index.html">Manual</a>
+    <span>&#xBB;</span>
+    <span data-ice="title">Usage</span>
+  </div>
+  <div data-ice="content"><h1 id="development">Development</h1>
+<p>To get started developing Reptar locally:</p>
+<pre><code class="lang-shell"><code class="source-code prettyprint">git clone git@github.com:reptar/reptar.git
+cd reptar
+npm install</code>
+</code></pre>
+<p>From there you&apos;re good to go!</p>
+<p>Easiest way to add/modify/test features is by writing a test and then interacting with Reptar through there.</p>
+<p>You can start mocha in watch mode and then begin coding:</p>
+<pre><code class="lang-shell"><code class="source-code prettyprint">npm run test:unit -- --watch</code>
+</code></pre>
+<h1 id="commit-messages">Commit Messages</h1>
+<p>Reptar is using <a href="https://github.com/conventional-changelog/standard-version">standard-version</a> to standardize its commit messages. For a quick overview of what that looks like <a href="https://github.com/conventional-changelog/standard-version#commit-message-convention-at-a-glance">consult the quick start guide</a> or look at previous commits.</p>
+<p>By default a git-hook is installed to validate your commit message.</p>
+<p>Additionally you should use <a href="https://github.com/commitizen/cz-cli">commitizen</a> to automate and streamline the process of creating properly formatted commit messages.</p>
+<h1 id="cutting-a-release">Cutting a release</h1>
+<p>When ready to cut a release just run <code>npm run release</code>. We&apos;re closely following the <a href="https://github.com/conventional-changelog/standard-version#cut-a-release">instructions on the standard-version documentation page</a>.</p>
+<h1 id="contributing-to-reptar">Contributing to Reptar</h1>
+<h2 id="development">Development</h2>
+<p>Refer to <a href="./manual/DEVELOPMENT.md">DEVELOPMENT.md</a> for docs on how to develop Reptar.</p>
+<h2 id="tests">Tests</h2>
+<p>Tests are ran with mocha and written with ES2015+ JavaScript.</p>
+<p>Run tests via:</p>
+<pre><code class="lang-shell"><code class="source-code prettyprint">npm test</code>
+</code></pre>
+<h2 id="linting">Linting</h2>
+<p>We&apos;re using eslint for linting.</p>
+<p>Lint locally via:</p>
+<pre><code class="lang-shell"><code class="source-code prettyprint">npm run lint</code>
+</code></pre>
+</div>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.8)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

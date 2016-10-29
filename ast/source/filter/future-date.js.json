@@ -1,0 +1,730 @@
+{
+  "type": "Program",
+  "start": 0,
+  "end": 507,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 14,
+      "column": 1
+    }
+  },
+  "sourceType": "module",
+  "body": [
+    {
+      "type": "ExportDefaultDeclaration",
+      "start": 232,
+      "end": 507,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 0
+        },
+        "end": {
+          "line": 14,
+          "column": 1
+        }
+      },
+      "declaration": {
+        "type": "FunctionDeclaration",
+        "start": 247,
+        "end": 507,
+        "loc": {
+          "start": {
+            "line": 8,
+            "column": 15
+          },
+          "end": {
+            "line": 14,
+            "column": 1
+          }
+        },
+        "id": {
+          "type": "Identifier",
+          "start": 256,
+          "end": 273,
+          "loc": {
+            "start": {
+              "line": 8,
+              "column": 24
+            },
+            "end": {
+              "line": 8,
+              "column": 41
+            }
+          },
+          "name": "futureDatesFilter",
+          "leadingComments": null
+        },
+        "generator": false,
+        "expression": false,
+        "async": false,
+        "params": [
+          {
+            "type": "Identifier",
+            "start": 274,
+            "end": 278,
+            "loc": {
+              "start": {
+                "line": 8,
+                "column": 42
+              },
+              "end": {
+                "line": 8,
+                "column": 46
+              }
+            },
+            "name": "file"
+          },
+          {
+            "type": "AssignmentPattern",
+            "start": 280,
+            "end": 297,
+            "loc": {
+              "start": {
+                "line": 8,
+                "column": 48
+              },
+              "end": {
+                "line": 8,
+                "column": 65
+              }
+            },
+            "operator": "=",
+            "left": {
+              "type": "Identifier",
+              "start": 280,
+              "end": 292,
+              "loc": {
+                "start": {
+                  "line": 8,
+                  "column": 48
+                },
+                "end": {
+                  "line": 8,
+                  "column": 60
+                }
+              },
+              "name": "filterConfig"
+            },
+            "right": {
+              "type": "ObjectExpression",
+              "start": 295,
+              "end": 297,
+              "loc": {
+                "start": {
+                  "line": 8,
+                  "column": 63
+                },
+                "end": {
+                  "line": 8,
+                  "column": 65
+                }
+              },
+              "properties": []
+            }
+          }
+        ],
+        "body": {
+          "type": "BlockStatement",
+          "start": 299,
+          "end": 507,
+          "loc": {
+            "start": {
+              "line": 8,
+              "column": 67
+            },
+            "end": {
+              "line": 14,
+              "column": 1
+            }
+          },
+          "body": [
+            {
+              "type": "VariableDeclaration",
+              "start": 303,
+              "end": 346,
+              "loc": {
+                "start": {
+                  "line": 9,
+                  "column": 2
+                },
+                "end": {
+                  "line": 9,
+                  "column": 45
+                }
+              },
+              "declarations": [
+                {
+                  "type": "VariableDeclarator",
+                  "start": 309,
+                  "end": 345,
+                  "loc": {
+                    "start": {
+                      "line": 9,
+                      "column": 8
+                    },
+                    "end": {
+                      "line": 9,
+                      "column": 44
+                    }
+                  },
+                  "id": {
+                    "type": "Identifier",
+                    "start": 309,
+                    "end": 316,
+                    "loc": {
+                      "start": {
+                        "line": 9,
+                        "column": 8
+                      },
+                      "end": {
+                        "line": 9,
+                        "column": 15
+                      }
+                    },
+                    "name": "dateKey"
+                  },
+                  "init": {
+                    "type": "LogicalExpression",
+                    "start": 319,
+                    "end": 345,
+                    "loc": {
+                      "start": {
+                        "line": 9,
+                        "column": 18
+                      },
+                      "end": {
+                        "line": 9,
+                        "column": 44
+                      }
+                    },
+                    "left": {
+                      "type": "MemberExpression",
+                      "start": 319,
+                      "end": 335,
+                      "loc": {
+                        "start": {
+                          "line": 9,
+                          "column": 18
+                        },
+                        "end": {
+                          "line": 9,
+                          "column": 34
+                        }
+                      },
+                      "object": {
+                        "type": "Identifier",
+                        "start": 319,
+                        "end": 331,
+                        "loc": {
+                          "start": {
+                            "line": 9,
+                            "column": 18
+                          },
+                          "end": {
+                            "line": 9,
+                            "column": 30
+                          }
+                        },
+                        "name": "filterConfig"
+                      },
+                      "property": {
+                        "type": "Identifier",
+                        "start": 332,
+                        "end": 335,
+                        "loc": {
+                          "start": {
+                            "line": 9,
+                            "column": 31
+                          },
+                          "end": {
+                            "line": 9,
+                            "column": 34
+                          }
+                        },
+                        "name": "key"
+                      },
+                      "computed": false
+                    },
+                    "operator": "||",
+                    "right": {
+                      "type": "Literal",
+                      "start": 339,
+                      "end": 345,
+                      "loc": {
+                        "start": {
+                          "line": 9,
+                          "column": 38
+                        },
+                        "end": {
+                          "line": 9,
+                          "column": 44
+                        }
+                      },
+                      "value": "date",
+                      "rawValue": "date",
+                      "raw": "'date'"
+                    }
+                  }
+                }
+              ],
+              "kind": "const"
+            },
+            {
+              "type": "VariableDeclaration",
+              "start": 349,
+              "end": 405,
+              "loc": {
+                "start": {
+                  "line": 10,
+                  "column": 2
+                },
+                "end": {
+                  "line": 10,
+                  "column": 58
+                }
+              },
+              "declarations": [
+                {
+                  "type": "VariableDeclarator",
+                  "start": 355,
+                  "end": 404,
+                  "loc": {
+                    "start": {
+                      "line": 10,
+                      "column": 8
+                    },
+                    "end": {
+                      "line": 10,
+                      "column": 57
+                    }
+                  },
+                  "id": {
+                    "type": "Identifier",
+                    "start": 355,
+                    "end": 363,
+                    "loc": {
+                      "start": {
+                        "line": 10,
+                        "column": 8
+                      },
+                      "end": {
+                        "line": 10,
+                        "column": 16
+                      }
+                    },
+                    "name": "fileDate"
+                  },
+                  "init": {
+                    "type": "CallExpression",
+                    "start": 366,
+                    "end": 404,
+                    "loc": {
+                      "start": {
+                        "line": 10,
+                        "column": 19
+                      },
+                      "end": {
+                        "line": 10,
+                        "column": 57
+                      }
+                    },
+                    "callee": {
+                      "type": "MemberExpression",
+                      "start": 366,
+                      "end": 402,
+                      "loc": {
+                        "start": {
+                          "line": 10,
+                          "column": 19
+                        },
+                        "end": {
+                          "line": 10,
+                          "column": 55
+                        }
+                      },
+                      "object": {
+                        "type": "NewExpression",
+                        "start": 366,
+                        "end": 394,
+                        "loc": {
+                          "start": {
+                            "line": 10,
+                            "column": 19
+                          },
+                          "end": {
+                            "line": 10,
+                            "column": 47
+                          }
+                        },
+                        "callee": {
+                          "type": "Identifier",
+                          "start": 370,
+                          "end": 374,
+                          "loc": {
+                            "start": {
+                              "line": 10,
+                              "column": 23
+                            },
+                            "end": {
+                              "line": 10,
+                              "column": 27
+                            }
+                          },
+                          "name": "Date"
+                        },
+                        "arguments": [
+                          {
+                            "type": "MemberExpression",
+                            "start": 375,
+                            "end": 393,
+                            "loc": {
+                              "start": {
+                                "line": 10,
+                                "column": 28
+                              },
+                              "end": {
+                                "line": 10,
+                                "column": 46
+                              }
+                            },
+                            "object": {
+                              "type": "MemberExpression",
+                              "start": 375,
+                              "end": 384,
+                              "loc": {
+                                "start": {
+                                  "line": 10,
+                                  "column": 28
+                                },
+                                "end": {
+                                  "line": 10,
+                                  "column": 37
+                                }
+                              },
+                              "object": {
+                                "type": "Identifier",
+                                "start": 375,
+                                "end": 379,
+                                "loc": {
+                                  "start": {
+                                    "line": 10,
+                                    "column": 28
+                                  },
+                                  "end": {
+                                    "line": 10,
+                                    "column": 32
+                                  }
+                                },
+                                "name": "file"
+                              },
+                              "property": {
+                                "type": "Identifier",
+                                "start": 380,
+                                "end": 384,
+                                "loc": {
+                                  "start": {
+                                    "line": 10,
+                                    "column": 33
+                                  },
+                                  "end": {
+                                    "line": 10,
+                                    "column": 37
+                                  }
+                                },
+                                "name": "data"
+                              },
+                              "computed": false
+                            },
+                            "property": {
+                              "type": "Identifier",
+                              "start": 385,
+                              "end": 392,
+                              "loc": {
+                                "start": {
+                                  "line": 10,
+                                  "column": 38
+                                },
+                                "end": {
+                                  "line": 10,
+                                  "column": 45
+                                }
+                              },
+                              "name": "dateKey"
+                            },
+                            "computed": true
+                          }
+                        ]
+                      },
+                      "property": {
+                        "type": "Identifier",
+                        "start": 395,
+                        "end": 402,
+                        "loc": {
+                          "start": {
+                            "line": 10,
+                            "column": 48
+                          },
+                          "end": {
+                            "line": 10,
+                            "column": 55
+                          }
+                        },
+                        "name": "getTime"
+                      },
+                      "computed": false
+                    },
+                    "arguments": []
+                  }
+                }
+              ],
+              "kind": "const",
+              "trailingComments": [
+                {
+                  "type": "CommentLine",
+                  "value": " If the date is in the future we have a positive number.",
+                  "start": 409,
+                  "end": 467,
+                  "loc": {
+                    "start": {
+                      "line": 12,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 12,
+                      "column": 60
+                    }
+                  },
+                  "range": [
+                    409,
+                    467
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "ReturnStatement",
+              "start": 470,
+              "end": 505,
+              "loc": {
+                "start": {
+                  "line": 13,
+                  "column": 2
+                },
+                "end": {
+                  "line": 13,
+                  "column": 37
+                }
+              },
+              "argument": {
+                "type": "BinaryExpression",
+                "start": 477,
+                "end": 504,
+                "loc": {
+                  "start": {
+                    "line": 13,
+                    "column": 9
+                  },
+                  "end": {
+                    "line": 13,
+                    "column": 36
+                  }
+                },
+                "left": {
+                  "type": "BinaryExpression",
+                  "start": 478,
+                  "end": 499,
+                  "loc": {
+                    "start": {
+                      "line": 13,
+                      "column": 10
+                    },
+                    "end": {
+                      "line": 13,
+                      "column": 31
+                    }
+                  },
+                  "left": {
+                    "type": "Identifier",
+                    "start": 478,
+                    "end": 486,
+                    "loc": {
+                      "start": {
+                        "line": 13,
+                        "column": 10
+                      },
+                      "end": {
+                        "line": 13,
+                        "column": 18
+                      }
+                    },
+                    "name": "fileDate",
+                    "leadingComments": null
+                  },
+                  "operator": "-",
+                  "right": {
+                    "type": "CallExpression",
+                    "start": 489,
+                    "end": 499,
+                    "loc": {
+                      "start": {
+                        "line": 13,
+                        "column": 21
+                      },
+                      "end": {
+                        "line": 13,
+                        "column": 31
+                      }
+                    },
+                    "callee": {
+                      "type": "MemberExpression",
+                      "start": 489,
+                      "end": 497,
+                      "loc": {
+                        "start": {
+                          "line": 13,
+                          "column": 21
+                        },
+                        "end": {
+                          "line": 13,
+                          "column": 29
+                        }
+                      },
+                      "object": {
+                        "type": "Identifier",
+                        "start": 489,
+                        "end": 493,
+                        "loc": {
+                          "start": {
+                            "line": 13,
+                            "column": 21
+                          },
+                          "end": {
+                            "line": 13,
+                            "column": 25
+                          }
+                        },
+                        "name": "Date"
+                      },
+                      "property": {
+                        "type": "Identifier",
+                        "start": 494,
+                        "end": 497,
+                        "loc": {
+                          "start": {
+                            "line": 13,
+                            "column": 26
+                          },
+                          "end": {
+                            "line": 13,
+                            "column": 29
+                          }
+                        },
+                        "name": "now"
+                      },
+                      "computed": false
+                    },
+                    "arguments": []
+                  },
+                  "leadingComments": null,
+                  "parenthesizedExpression": true
+                },
+                "operator": ">",
+                "right": {
+                  "type": "Literal",
+                  "start": 503,
+                  "end": 504,
+                  "loc": {
+                    "start": {
+                      "line": 13,
+                      "column": 35
+                    },
+                    "end": {
+                      "line": 13,
+                      "column": 36
+                    }
+                  },
+                  "value": 0,
+                  "rawValue": 0,
+                  "raw": "0"
+                },
+                "leadingComments": null
+              },
+              "leadingComments": [
+                {
+                  "type": "CommentLine",
+                  "value": " If the date is in the future we have a positive number.",
+                  "start": 409,
+                  "end": 467,
+                  "loc": {
+                    "start": {
+                      "line": 12,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 12,
+                      "column": 60
+                    }
+                  },
+                  "range": [
+                    409,
+                    467
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "leadingComments": [
+          {
+            "type": "Block",
+            "value": "*\n * Future date filter. Checks if a file's date occurs in the future.\n * @param {File} file File we're checking.\n * @param {Object} filterConfig Filter config object.\n * @return {boolean} If the File's date is in the future\n ",
+            "start": 1,
+            "end": 231,
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 0
+              },
+              "end": {
+                "line": 7,
+                "column": 3
+              }
+            },
+            "range": [
+              1,
+              231
+            ]
+          }
+        ],
+        "trailingComments": []
+      },
+      "leadingComments": [
+        {
+          "type": "Block",
+          "value": "*\n * Future date filter. Checks if a file's date occurs in the future.\n * @param {File} file File we're checking.\n * @param {Object} filterConfig Filter config object.\n * @return {boolean} If the File's date is in the future\n ",
+          "start": 1,
+          "end": 231,
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 0
+            },
+            "end": {
+              "line": 7,
+              "column": 3
+            }
+          },
+          "range": [
+            1,
+            231
+          ]
+        }
+      ]
+    }
+  ]
+}

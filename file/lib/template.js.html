@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">lib/template.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <a data-ice="repoURL" href="https://github.com/reptar/reptar" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/file.js~File.html">File</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getReptarPackageNames">getReptarPackageNames</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureMarkdownEngine">configureMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderFileWithPlugins">renderFileWithPlugins</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBuiltinFilters">addBuiltinFilters</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addTemplateFilter">addTemplateFilter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureTemplateEngine">configureTemplateEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderTemplate">renderTemplate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderTemplateString">renderTemplateString</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-cache">cache</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-KEY">KEY</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-YAML">YAML</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-packageNameRegex">packageNameRegex</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Url">Url</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collection</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/base.js~CollectionBase.html">CollectionBase</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/page.js~CollectionPage.html">CollectionPage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createCollection">createCollection</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collection/type</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/type/file-system.js~FileSystemCollection.html">FileSystemCollection</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/type/metadata.js~MetadataCollection.html">MetadataCollection</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">config</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/config/index.js~Config.html">Config</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">filter</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-futureDatesFilter">futureDatesFilter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-metadataFilter">metadataFilter</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">parse</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fileHasFrontmatter">fileHasFrontmatter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/asset.js~Asset.html">Asset</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/index.js~Theme.html">Theme</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor-base.js~ProcessorBase.html">ProcessorBase</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme/processor</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor/browserify.js~Browserify.html">Browserify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor/less.js~Less.html">Less</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor/sass.js~Sass.html">Sass</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">lib/template.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * Methods for rendering a template.
+ */
+import _ from &apos;lodash&apos;;
+import nunjucks from &apos;nunjucks&apos;;
+import moment from &apos;moment&apos;;
+import Url from &apos;./url&apos;;
+
+const TemplateErrorMessage = {
+  NO_TEMPLATE: &apos;template not found&apos;
+};
+
+let env;
+
+/**
+ * Render a template with given context variables.
+ * @param {string} template  Template name, excluding the extension.
+ * @param {object} variables Object of variables to interpolate in the
+ *   template.
+ * @return {string} Rendered template.
+ */
+export function renderTemplate(template, variables) {
+  if (!env) {
+    return &apos;&apos;;
+  }
+
+  let result = &apos;&apos;;
+  try {
+    result = env.render(`${template}.html`, variables);
+  } catch (e) {
+    if (e.message.includes(TemplateErrorMessage.NO_TEMPLATE)) {
+      // The message given from nunjucks looks like:
+      //   Template render error: (/reptar/templates/page.html)
+      //   Template render error: (/reptar/templates/page.html)
+      //   Error: template not found: mistake.html
+      // This takes the multi line message and just grabs the last line.
+      const message = _.last(e.message.split(&apos;\n&apos;))
+        .trim()
+        // Format the last line of `Error: template` to remove anything
+        // preceding our known error message. (Basically remove `Error: `)
+        .replace(
+          new RegExp(`.*${TemplateErrorMessage.NO_TEMPLATE}`),
+          TemplateErrorMessage.NO_TEMPLATE
+        );
+
+      // Re-throw formatted error message.
+      throw new Error(message);
+    } else {
+      throw e;
+    }
+  }
+
+  return result;
+}
+
+/**
+ * Render a string template with given context variables.
+ * @param {string} str  Template string.
+ * @param {object} variables Object of variables to interpolate in the
+ *   template.
+ * @return {string} Rendered template.
+ */
+export function renderTemplateString(str, variables) {
+  if (!env) {
+    return &apos;&apos;;
+  }
+
+  return env.renderString(str, variables);
+}
+
+/**
+ * Allow adding custom filters to the template engine.
+ * @see {@link
+ *   http://mozilla.github.io/nunjucks/api#custom-filters
+ * @param {string} name Filter name.
+ * @param {Function} func Filter function.
+ * @param {boolean} async Whether the filter should be async.
+ */
+export function addTemplateFilter(name, func, async = false) {
+  env.addFilter(name, func, async);
+}
+
+/**
+ * Adds built in filters to template renderer.
+ * @param {Object} config Config instance.
+ */
+export function addBuiltinFilters(config) {
+  function dateFilter(date, momentTemplate) {
+    if (date == null) {
+      return &apos;&apos;;
+    }
+
+    return moment(date, config.get(&apos;file.date_format&apos;))
+      .format(momentTemplate);
+  }
+
+  [
+    [
+      &apos;date&apos;,
+      dateFilter,
+    ],
+    [
+      &apos;groupbydate&apos;,
+      // Group items by formating their date via momentjs.
+      // Useful for creating archive pages:
+      // eslint-disable-next-line
+      // {% for date, files in collections.post.files | reverse | groupbydate(&apos;MMMM YYYY&apos;) %}
+      function(data, momentTemplate, dateKey = &apos;date&apos;) {
+        return _.groupBy(data, (datum) =&gt;
+          dateFilter(datum[dateKey], momentTemplate)
+        );
+      }
+    ],
+    [
+      &apos;slug&apos;,
+      function(str) {
+        return Url.slug(str);
+      }
+    ],
+    [
+      &apos;absolute_url&apos;,
+      function(relativePath, basePath) {
+        var base = basePath || &apos;&apos;;
+        var baseLength = base.length - 1;
+        base = base[baseLength] === &apos;/&apos; ? base.substr(0, baseLength) : base;
+
+        var input = relativePath || &apos;&apos;;
+        var inputLength = input.length - 1;
+        if (input[inputLength] !== &apos;/&apos;) {
+          input = input + &apos;/&apos;;
+        }
+        if (input[0] !== &apos;/&apos;) {
+          input = &apos;/&apos; + input;
+        }
+
+        return base + input;
+      }
+    ],
+    [
+      &apos;limit&apos;,
+      function(arr, length) {
+        return arr.slice(0, length);
+      }
+    ]
+  ].forEach(filter =&gt; {
+    addTemplateFilter.apply(null, filter);
+  });
+}
+
+/**
+ * Exposed method to configure template engine.
+ * @param {Object} options Options object with following properties:
+ * @param {Object} options.config Config object.
+ * @param {string|Array.&lt;string&gt;} options.paths Either an array of paths or a
+ *   singular path that we can load templates from.
+ * @param {boolean} options.noCache Whether our template engine should cache
+ *   its templates. Only set to true when in watch mode.
+ */
+export function configureTemplateEngine({
+  config,
+  paths,
+  noCache = false
+}) {
+  const fileSystemLoader = new nunjucks.FileSystemLoader(paths, {
+    noCache: noCache
+  });
+  env = new nunjucks.Environment(fileSystemLoader, {
+    autoescape: false
+  });
+
+  addBuiltinFilters(config);
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.8)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
