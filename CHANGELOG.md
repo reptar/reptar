@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.2.0"></a>
+# [2.2.0](https://github.com/reptar/reptar/compare/v2.1.0...v2.2.0) (2016-10-29)
+
+
+### Bug Fixes
+
+* **eslint:** Ignore esdocs folder ([df9cbfd](https://github.com/reptar/reptar/commit/df9cbfd))
+* **metadata:** Slugify all metadata values when creating collections. ([1eb51a4](https://github.com/reptar/reptar/commit/1eb51a4))
+
+
+### Features
+
+* Generate documentation with esdocs. ([7ca3371](https://github.com/reptar/reptar/commit/7ca3371)), closes [#20](https://github.com/reptar/reptar/issues/20)
+* **log:** Always log out warn level messages by default. ([b67f170](https://github.com/reptar/reptar/commit/b67f170))
+* **template:** Better error message when templates are missing. ([468147e](https://github.com/reptar/reptar/commit/468147e)), closes [#49](https://github.com/reptar/reptar/issues/49)
+* Warn when there are two duplicate destination paths being used. ([a33ae95](https://github.com/reptar/reptar/commit/a33ae95)), closes [#53](https://github.com/reptar/reptar/issues/53)
+
+
+
 <a name="2.1.0"></a>
 # [2.1.0](https://github.com/reptar/reptar/compare/v2.0.0...v2.1.0) (2016-10-21)
 
