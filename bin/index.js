@@ -36,10 +36,6 @@ yargs
     boolean: true,
     default: true
   })
-  .option('verbose', {
-    description: 'log out additional log information',
-    boolean: true
-  })
   .option('version', {
     alias: 'v',
     description: 'installed version',
@@ -51,10 +47,6 @@ yargs
 const argv = yargs.argv;
 
 console.log('reptar\n');
-
-if (argv.verbose) {
-  log.setLogLevel('verbose');
-}
 
 if (argv.version) {
   let packageJson;
