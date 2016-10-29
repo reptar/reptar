@@ -18,6 +18,8 @@ Looking to hack on Reptar? [Go to DEVELOPMENT.md.](./docs/DEVELOPMENT.md)
 
 Looking for contributions guidelines? [Go to CONTRIBUTING.md.](./docs/CONTRIBUTING.md)
 
+[Read the source code documentation.](http://reptar.github.io/reptar/)
+
 [npm-badge]: https://badge.fury.io/js/reptar.svg
 [npm-url]: http://badge.fury.io/js/reptar
 [travis-badge]: https://travis-ci.org/reptar/reptar.svg?branch=master
