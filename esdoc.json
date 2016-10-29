@@ -1,0 +1,17 @@
+{
+  "source": "./lib",
+  "destination": "./esdocs",
+  "index": "./docs/INDEX.md",
+  "manual": {
+    "asset": "./docs/images",
+    "usage": ["./docs/DEVELOPMENT.md", "./docs/CONTRIBUTING.md"],
+    "changelog": ["./CHANGELOG.md"]
+ },
+  "test": {
+    "type": "mocha",
+    "source": "./test"
+  },
+  "plugins": [
+    {"name": "esdoc-es7-plugin"}
+  ]
+}
