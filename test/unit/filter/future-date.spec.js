@@ -1,46 +1,45 @@
 import assert from 'power-assert';
 
-import futureDate from '../../../lib/filter/future-date.js';
+import futureDate from '../../../lib/filter/future-date';
 
 describe('filter/future-date futureDate', () => {
-
   it('should default to use date as key value', () => {
     assert.equal(futureDate({
       data: {
-        date: Date.now() - 1000
-      }
+        date: Date.now() - 1000,
+      },
     }), false);
 
     assert.equal(futureDate({
       data: {
-        date: Date.now() + 1000
-      }
+        date: Date.now() + 1000,
+      },
     }), true);
 
     assert.equal(futureDate({
       data: {
-        dateKey: Date.now() + 1000
-      }
+        dateKey: Date.now() + 1000,
+      },
     }), false);
   });
 
   it('should allow setting of what date key to use', () => {
     assert.equal(futureDate({
       data: {
-        whee: Date.now() - 1000
-      }
-    }, {key: 'whee'}), false);
+        whee: Date.now() - 1000,
+      },
+    }, { key: 'whee' }), false);
 
     assert.equal(futureDate({
       data: {
-        whee: Date.now() + 1000
-      }
-    }, {key: 'whee'}), true);
+        whee: Date.now() + 1000,
+      },
+    }, { key: 'whee' }), true);
 
     assert.equal(futureDate({
       data: {
-        date: Date.now() + 1000
-      }
-    }, {key: 'whee'}), false);
+        date: Date.now() + 1000,
+      },
+    }, { key: 'whee' }), false);
   });
 });

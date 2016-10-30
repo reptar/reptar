@@ -1,12 +1,11 @@
 import assert from 'power-assert';
-import * as frontMatter from '../../../lib/parse/front-matter.js';
+import * as frontMatter from '../../../lib/parse/front-matter';
 
 import fixture from '../../fixture';
 
-describe('parse/front-matter', function() {
-
-  describe('parse', function() {
-    it('correctly takes a string and produces a json object', function() {
+describe('parse/front-matter', () => {
+  describe('parse', () => {
+    it('correctly takes a string and produces a json object', () => {
       assert.deepEqual(
         frontMatter.parse(fixture.frontmatterString),
         fixture.frontmatterJSON
@@ -14,16 +13,15 @@ describe('parse/front-matter', function() {
     });
   });
 
-  describe('stringify', function() {
-    it('correctly takes json object and produces a string', function() {
+  describe('stringify', () => {
+    it('correctly takes json object and produces a string', () => {
       assert.equal(
         frontMatter.stringify(
           fixture.frontmatterJSON.content,
           fixture.frontmatterJSON.data
         ),
-        fixture.frontmatterString + '\n'
+        `${fixture.frontmatterString}\n`
       );
     });
   });
-
 });

@@ -1,10 +1,10 @@
 // Allow mock-fs to hijack fs module.
-require('mock-fs');
+require('mock-fs'); // eslint-disable-line import/no-extraneous-dependencies
 
 const fs = require('fs');
 
-var babelRcFile = JSON.parse(
-  fs.readFileSync(__dirname + '/../.babelrc', 'utf8')
+const babelRcFile = JSON.parse(
+  fs.readFileSync(`${__dirname}/../.babelrc`, 'utf8')
 );
 
 babelRcFile.plugins.push('babel-plugin-espower');

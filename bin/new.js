@@ -14,20 +14,20 @@ const newTypes = {
         name: 'title',
         type: 'input',
         message: 'Title of new file.',
-        validate: (input) => !_.isNil(input)
-      }
+        validate: input => !_.isNil(input),
+      },
     ],
-    template: (data) => (
+    template: data => (
 `---
 title: ${data.title}
 date: ${data.date}
 ---
 `
-    )
+    ),
   },
 };
 
-export default function(args) {
+export default function (args) {
   log.info('Create new file');
 
   const newTypeKey = args._[1];

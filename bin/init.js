@@ -31,7 +31,7 @@ date: ${dateNowFormatted}
 ---
 
 Find out more about me.
-`
+`,
   ],
 ];
 /* eslint-enable indent */
@@ -45,10 +45,9 @@ export default function init() {
     {
       type: 'confirm',
       name: 'destinationOk',
-      message: 'OK to create new Reptar site at path: ' +
-        destination + '?',
-      default: true
-    }
+      message: `OK to create new Reptar site at path: ${destination}?`,
+      default: true,
+    },
   ];
 
   inquirer.prompt(questions).then((answers) => {
@@ -88,7 +87,7 @@ export default function init() {
     function runCmd(cmd, args) {
       return spawn.sync(cmd, args, {
         stdio: 'inherit',
-        cwd: destination
+        cwd: destination,
       });
     }
 
@@ -104,7 +103,7 @@ export default function init() {
 
     runCmd('npm', ['install', '--save'].concat(npmPackages));
 
-    log.info('New Reptar site created at ' + destination);
+    log.info(`New Reptar site created at ${destination}`);
     log.info('Now run `reptar build` and `reptar serve`');
   });
 }

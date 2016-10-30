@@ -41,7 +41,7 @@ class Server {
       method: 'GET',
       path: '/{p*}',
       handler: (request, reply) => {
-        this.routeHandler(request, reply).catch(e => {
+        this.routeHandler(request, reply).catch((e) => {
           reply(Boom.badData(e.message));
         });
       },
@@ -66,9 +66,7 @@ class Server {
    * Update's our index.
    */
   updateIndex() {
-    const createIndexKey = (file) => {
-      return this.relativeDestination(file.destination);
-    };
+    const createIndexKey = file => this.relativeDestination(file.destination);
 
     this.index = _.extend(
       _.keyBy(this.reptar.files, createIndexKey),
@@ -166,7 +164,7 @@ class Server {
     const requestPath = request.path;
 
     // Find an associated theme asset.
-    const asset = _.find(this.reptar.theme.assets, asset => {
+    const requestAsset = _.find(this.reptar.theme.assets, (asset) => {
       const destination = this.relativeDestination(
         asset.processor && asset.destination ?
           asset.destination :
@@ -176,22 +174,22 @@ class Server {
       return requestPath.includes(destination);
     });
 
-    if (asset == null) {
-      return;
+    if (requestAsset == null) {
+      return null;
     }
 
-    if (asset.processor != null && asset.content) {
+    if (requestAsset.processor != null && requestAsset.content) {
       const contentType = request.server.mime.path(request.path).type;
-      return reply(asset.content).type(contentType);
+      return reply(requestAsset.content).type(contentType);
     }
 
     const relativeRequestPath = requestPath.replace(
-      this.relativeDestination(asset.config.destination),
+      this.relativeDestination(requestAsset.config.destination),
       ''
     );
 
     return reply.file(
-      path.join(asset.config.source, relativeRequestPath)
+      path.join(requestAsset.config.source, relativeRequestPath)
     );
   }
 
@@ -206,7 +204,9 @@ class Server {
           return;
         }
         fn.running = true;
-        fn(...args).then(() => fn.running = false);
+        fn(...args).then(() => {
+          fn.running = false;
+        });
       };
     }
 
@@ -230,7 +230,7 @@ class Server {
     }));
 
     chokidar.watch([
-      path.join(this.reptar.config.root, YAML.CONFIG)
+      path.join(this.reptar.config.root, YAML.CONFIG),
     ]).on('change', debounceFunction(async (changePath) => {
       log.info(`_config.yml updated at ${changePath}`);
 
@@ -266,5 +266,6 @@ export default async function watch(options = {}) {
 
   activity.end(startActivity);
 
+  process.stdout.write('\n');
   log.info('Server running at:', server.server.info.uri);
 }

@@ -3,17 +3,17 @@ import sinon from 'sinon';
 import _ from 'lodash';
 import Promise from 'bluebird';
 
-import Plugin from '../../../lib/plugin/index.js';
+import Plugin from '../../../lib/plugin/index';
 
-describe('plugin/index Plugin', function() {
+describe('plugin/index Plugin', () => {
   const handlerName = 'test:handler';
 
   afterEach(() => {
     Plugin._handlers = {};
   });
 
-  describe('addEventHandler', function() {
-    it('can add handlers', function() {
+  describe('addEventHandler', () => {
+    it('can add handlers', () => {
       const handlerFn = sinon.spy();
 
       Plugin.addEventHandler(handlerName, handlerFn);
@@ -34,7 +34,7 @@ describe('plugin/index Plugin', function() {
     });
   });
 
-  describe('processEventHandlers', function() {
+  describe('processEventHandlers', () => {
     describe('can invoke handlers when none exist', () => {
       it('with one passed argument', async () => {
         const eventArg = 'hey man';
@@ -42,7 +42,7 @@ describe('plugin/index Plugin', function() {
         try {
           newVal = await Plugin.processEventHandlers('bogus', eventArg);
         } catch (e) {
-          console.log(e);
+          // noop
         }
 
         assert.deepEqual(newVal, eventArg);
@@ -52,7 +52,7 @@ describe('plugin/index Plugin', function() {
         const eventArgs = [
           'the chicken',
           'is',
-          5
+          5,
         ];
 
         let newVal;
@@ -64,7 +64,7 @@ describe('plugin/index Plugin', function() {
             eventArgs[2]
           );
         } catch (e) {
-          console.log(e);
+          // noop
         }
 
         assert.deepEqual(newVal, eventArgs);
@@ -76,11 +76,11 @@ describe('plugin/index Plugin', function() {
         // noop
       });
 
-      const promiseFn = sinon.spy((val) => {
-        return new Promise(resolve => {
+      const promiseFn = sinon.spy(val =>
+        new Promise((resolve) => {
           resolve(val);
-        });
-      });
+        })
+      );
 
       Plugin.addEventHandler(handlerName, noopFunc);
       Plugin.addEventHandler(handlerName, promiseFn);
@@ -105,9 +105,7 @@ describe('plugin/index Plugin', function() {
 
       assert.equal(newVal, handlerValue);
 
-      const modifierFn = sinon.spy((val) => {
-        return val * val;
-      });
+      const modifierFn = sinon.spy(val => val * val);
       const trailingNoopFn = sinon.spy();
 
       Plugin.addEventHandler(handlerName, modifierFn);
@@ -129,7 +127,7 @@ describe('plugin/index Plugin', function() {
     });
 
     it('invokes handlers with multiple arguments', async () => {
-      const blankReturnFn = sinon.spy(() => {
+      const blankReturnFn = sinon.spy(() => { // eslint-disable-line
         return;
       });
 
@@ -138,7 +136,7 @@ describe('plugin/index Plugin', function() {
       assert(_.isArray(Plugin._handlers[handlerName]));
       assert.equal(Plugin._handlers[handlerName].length, 1);
 
-      const argValue1 = {foo: 'bar'};
+      const argValue1 = { foo: 'bar' };
       const argValue2 = 'a wonderful world';
       let processedEventValue;
 
@@ -149,7 +147,7 @@ describe('plugin/index Plugin', function() {
           argValue2
         );
       } catch (e) {
-        console.log(e);
+        // noop
       }
 
       assert.equal(blankReturnFn.callCount, 1);
@@ -161,16 +159,14 @@ describe('plugin/index Plugin', function() {
 
     describe('throws when plugin handlers', () => {
       it('return only part of the arguments given', (done) => {
-        const eventHandlerFn = sinon.spy((arg1, arg2) => {
-          return arg2;
-        });
+        const eventHandlerFn = sinon.spy((arg1, arg2) => arg2);
 
         Plugin.addEventHandler(handlerName, eventHandlerFn);
 
         assert(_.isArray(Plugin._handlers[handlerName]));
         assert.equal(Plugin._handlers[handlerName].length, 1);
 
-        const argValue1 = {foo: 'bar'};
+        const argValue1 = { foo: 'bar' };
         const argValue2 = 'a wonderful world';
 
         Plugin.processEventHandlers(
@@ -183,16 +179,14 @@ describe('plugin/index Plugin', function() {
       });
 
       it('returns arguments in wrong order given', (done) => {
-        const eventHandlerFn = sinon.spy((arg1, arg2) => {
-          return [arg2, arg1];
-        });
+        const eventHandlerFn = sinon.spy((arg1, arg2) => [arg2, arg1]);
 
         Plugin.addEventHandler(handlerName, eventHandlerFn);
 
         assert(_.isArray(Plugin._handlers[handlerName]));
         assert.equal(Plugin._handlers[handlerName].length, 1);
 
-        const argValue1 = {foo: 'bar'};
+        const argValue1 = { foo: 'bar' };
         const argValue2 = 'a wonderful world';
 
         Plugin.processEventHandlers(

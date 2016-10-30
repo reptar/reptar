@@ -1,43 +1,43 @@
 import assert from 'power-assert';
-import Url from '../../lib/url.js';
+import Url from '../../lib/url';
 
-describe('url Url', function() {
+describe('url Url', () => {
   Url.setSlugOptions({
-    lower: true
+    lower: true,
   });
 
-  describe('interpolatePermalink', function() {
-    it('handles simple interpolations', function() {
+  describe('interpolatePermalink', () => {
+    it('handles simple interpolations', () => {
       assert.equal(Url.interpolatePermalink('/:title/', {
-        title: 'banana'
+        title: 'banana',
       }), '/banana/');
     });
 
-    it('handles duplicate param interpolations', function() {
+    it('handles duplicate param interpolations', () => {
       assert.equal(Url.interpolatePermalink('/:title/:title/', {
-        title: 'banana'
+        title: 'banana',
       }), '/banana/banana/');
     });
 
-    it('handles permalink with no interpolation', function() {
+    it('handles permalink with no interpolation', () => {
       assert.equal(Url.interpolatePermalink('/index.html', {
-        title: 'banana'
+        title: 'banana',
       }), '/index.html');
     });
 
-    it('throw if it can\'t find value to interpolate in permalink', function() {
+    it('throw if it can\'t find value to interpolate in permalink', () => {
       assert.throws(() => {
         Url.interpolatePermalink('/:title/:unknown/', {
-          title: 'banana'
+          title: 'banana',
         });
       });
     });
 
-    it('handles special date permalink values', function() {
+    it('handles special date permalink values', () => {
       assert.equal(
         Url.interpolatePermalink('/:date|YYYY/:date|MM/:date|D/:title/', {
           title: '  In the future, the past will be history.  ',
-          date: new Date('2000-02-28T00:00:00-05:00')
+          date: new Date('2000-02-28T00:00:00-05:00'),
         }), '/2000/02/28/in-the-future-the-past-will-be-history/'
       );
 
@@ -45,13 +45,13 @@ describe('url Url', function() {
         .interpolatePermalink('/:date_future|YYYY/:date|MM/:date|D/:title/', {
           title: 'Does jello dance, or does it just jiggle?  ',
           date: new Date('2000-02-28T00:00:00-05:00'),
-          date_future: new Date('2020-10-01T00:00:00-05:00')
+          date_future: new Date('2020-10-01T00:00:00-05:00'),
         }), '/2020/02/28/does-jello-dance-or-does-it-just-jiggle/');
     });
   });
 
-  describe('replaceMarkdownExtension', function() {
-    it('replaces known markdown extensions', function() {
+  describe('replaceMarkdownExtension', () => {
+    it('replaces known markdown extensions', () => {
       const markdownExtensions = [
         'md',
         'markdown',
@@ -91,8 +91,8 @@ describe('url Url', function() {
     });
   });
 
-  describe('makeUrlFileSystemSafe', function() {
-    it('appends index.html to a url that has no file extension', function() {
+  describe('makeUrlFileSystemSafe', () => {
+    it('appends index.html to a url that has no file extension', () => {
       assert.equal(Url.makeUrlFileSystemSafe('/my-beautiful-html-permalink'),
         '/my-beautiful-html-permalink/index.html'
       );
@@ -106,7 +106,7 @@ describe('url Url', function() {
       );
     });
 
-    it('does not append index.html to a url that does not need it', function() {
+    it('does not append index.html to a url that does not need it', () => {
       assert.equal(Url.makeUrlFileSystemSafe('/html/goes-here.html'),
         '/html/goes-here.html'
       );
@@ -121,8 +121,8 @@ describe('url Url', function() {
     });
   });
 
-  describe('makePretty', function() {
-    it('works', function() {
+  describe('makePretty', () => {
+    it('works', () => {
       let url = '/html/goes-here.html';
       assert.equal(
         Url.makePretty(url),
@@ -137,7 +137,7 @@ describe('url Url', function() {
 
       url = '/have-you-got-a-minute/';
       assert.equal(
-        Url.makePretty(url + 'index.html'),
+        Url.makePretty(`${url}index.html`),
         url
       );
 

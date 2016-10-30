@@ -1,15 +1,15 @@
+/* eslint-disable no-new */
 import assert from 'power-assert';
 import sinon from 'sinon';
 import _ from 'lodash';
 
 import fixture from '../../fixture';
 
-import Plugin from '../../../lib/plugin/index.js';
+import Plugin from '../../../lib/plugin/index';
 
-import CollectionBase from '../../../lib/collection/base.js';
+import CollectionBase from '../../../lib/collection/base';
 
 describe('collection/base CollectionBase', () => {
-
   let sandbox;
   beforeEach(() => {
     sandbox = sinon.sandbox.create();
@@ -95,7 +95,7 @@ describe('collection/base CollectionBase', () => {
     it('sorts integer value descending', () => {
       const sortConfig = {
         key: 'number',
-        order: 'descending'
+        order: 'descending',
       };
 
       assert.deepEqual(
@@ -107,7 +107,7 @@ describe('collection/base CollectionBase', () => {
     it('sorts integer value ascending', () => {
       const sortConfig = {
         key: 'number',
-        order: 'ascending'
+        order: 'ascending',
       };
 
       assert.deepEqual(
@@ -119,7 +119,7 @@ describe('collection/base CollectionBase', () => {
     it('sorts date value descending', () => {
       const sortConfig = {
         key: 'date',
-        order: 'descending'
+        order: 'descending',
       };
 
       assert.deepEqual(
@@ -131,7 +131,7 @@ describe('collection/base CollectionBase', () => {
     it('sorts date value ascending', () => {
       const sortConfig = {
         key: 'date',
-        order: 'ascending'
+        order: 'ascending',
       };
 
       assert.deepEqual(

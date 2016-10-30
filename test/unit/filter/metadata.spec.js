@@ -1,38 +1,37 @@
 import assert from 'power-assert';
 
-import metadata from '../../../lib/filter/metadata.js';
+import metadata from '../../../lib/filter/metadata';
 
 describe('filter/metadata metadata', () => {
-
   it('should return true when a match is found', () => {
     assert.equal(metadata({
       data: {
         draft: true,
-        title: 'test'
-      }
-    }, {
-      draft: true
-    }), true);
-
-    assert.equal(metadata({
-      data: {
-        draft: true,
-        title: 'test'
-      }
+        title: 'test',
+      },
     }, {
       draft: true,
-      title: 'test'
     }), true);
 
     assert.equal(metadata({
       data: {
         draft: true,
         title: 'test',
-        date: 'ok'
-      }
+      },
     }, {
       draft: true,
-      title: 'test'
+      title: 'test',
+    }), true);
+
+    assert.equal(metadata({
+      data: {
+        draft: true,
+        title: 'test',
+        date: 'ok',
+      },
+    }, {
+      draft: true,
+      title: 'test',
     }), true);
   });
 
@@ -40,40 +39,40 @@ describe('filter/metadata metadata', () => {
     assert.equal(metadata({
       data: {
         draft: false,
-        title: 'test'
-      }
-    }, {
-      draft: true
-    }), false);
-
-    assert.equal(metadata({
-      data: {
-        draft: true
-      }
+        title: 'test',
+      },
     }, {
       draft: true,
-      title: 'test'
     }), false);
 
     assert.equal(metadata({
       data: {
         draft: true,
-        title: 'surprise'
-      }
+      },
     }, {
       draft: true,
-      title: 'test'
+      title: 'test',
     }), false);
 
     assert.equal(metadata({
       data: {
         draft: true,
         title: 'surprise',
-        date: 'ok'
-      }
+      },
     }, {
       draft: true,
-      title: 'test'
+      title: 'test',
+    }), false);
+
+    assert.equal(metadata({
+      data: {
+        draft: true,
+        title: 'surprise',
+        date: 'ok',
+      },
+    }, {
+      draft: true,
+      title: 'test',
     }), false);
   });
 });

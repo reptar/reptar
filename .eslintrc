@@ -1,5 +1,6 @@
 {
   "parser": "babel-eslint",
+  "extends": "airbnb-base",
   "env": {
     "es6": true,
     "browser": false,
@@ -52,6 +53,16 @@
       "destructuring": "all",
       "ignoreReadBeforeAssign": true
     }],
-    "no-undef": 2
+    "no-undef": 2,
+    "no-param-reassign": [2, { "props": false }],
+    "no-restricted-syntax": [2,
+      "ForInStatement",
+      "LabeledStatement",
+      "WithStatement",
+    ],
+
+    "import/no-extraneous-dependencies": [2, {
+      "devDependencies": ["**/*.spec.js"]
+    }]
   }
 }

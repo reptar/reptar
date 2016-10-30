@@ -1,8 +1,8 @@
 import assert from 'power-assert';
 import path from 'path';
-import DataFiles from '../../lib/data-files.js';
+import DataFiles from '../../lib/data-files';
 
-describe('data-files DataFiles', function() {
+describe('data-files DataFiles', () => {
   describe('update', () => {
     it('returns empty object when no data objects found', async () => {
       const result = await DataFiles.update('foo');
@@ -21,31 +21,31 @@ describe('data-files DataFiles', function() {
         cities: [
           {
             name: 'New York City',
-            cuisine: 'bagel'
+            cuisine: 'bagel',
           },
           {
             name: 'Los Angeles',
-            cuisine: 'kale'
+            cuisine: 'kale',
           },
           {
             name: 'New Orleans',
-            cuisine: 'beignets'
-          }
+            cuisine: 'beignets',
+          },
         ],
         friends: {
           'angelica': {
             name: 'Angelica',
-            birthday: 'May 12, 1988'
+            birthday: 'May 12, 1988',
           },
           chuckie: {
             name: 'Chuckie',
-            birthday: 'April 15, 1989'
+            birthday: 'April 15, 1989',
           },
           tommy: {
             name: 'Tommy',
-            birthday: 'June 11th, 1990'
-          }
-        }
+            birthday: 'June 11th, 1990',
+          },
+        },
       });
     });
   });

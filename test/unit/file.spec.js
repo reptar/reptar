@@ -11,10 +11,10 @@ import {
 
 import Url from '../../lib/url';
 import Parse from '../../lib/parse';
-import {configureMarkdownEngine} from '../../lib/markdown.js';
-configureMarkdownEngine();
+import File from '../../lib/file';
+import { configureMarkdownEngine } from '../../lib/markdown';
 
-import File from '../../lib/file.js';
+configureMarkdownEngine();
 
 describe('file File', () => {
   const filePath = '/fixture/_posts/hello-world.md';
@@ -75,7 +75,7 @@ describe('file File', () => {
         },
         values: {
           post: false,
-        }
+        },
       },
       {
         scope: {
@@ -87,7 +87,7 @@ describe('file File', () => {
         values: {
           post: true,
           layout: 'post',
-        }
+        },
       },
       {
         scope: {
@@ -95,20 +95,23 @@ describe('file File', () => {
         },
         values: {
           newAge: true,
-        }
+        },
       },
     ];
+    // eslint-disable-next-line no-shadow
     const config = createMockConfig({
       file: {
         defaults,
       },
     });
+    // eslint-disable-next-line no-shadow
     const getConfig = () => config;
 
     function createFile(filePathParts, additionalFrontmatter = {}) {
       return async () => {
         sandbox.restore();
 
+        // eslint-disable-next-line no-shadow
         const filePath = path.join(config.get('path.source'), ...filePathParts);
 
         const readFileStub = (file, opts, cb) =>
@@ -141,7 +144,7 @@ describe('file File', () => {
           }),
           _.defaults(
             defaults[0].values,
-          )
+          ),
         ],
         [
           createFile(['_posts', 'hello-world.md'], {
@@ -150,7 +153,7 @@ describe('file File', () => {
           _.defaults(
             defaults[1].values,
             defaults[0].values,
-          )
+          ),
         ],
         [
           createFile(['_posts', '2016', 'its-me-again.md'], {
@@ -161,7 +164,7 @@ describe('file File', () => {
             defaults[2].values,
             defaults[1].values,
             defaults[0].values,
-          )
+          ),
         ],
       ].map(async ([creator, expectedValue]) => {
         const instance = await creator();
@@ -171,7 +174,7 @@ describe('file File', () => {
         // Make sure that for every expected default it should at least exist
         // as a property on the data object. The value might be different
         // depending if it is over-written but it should exist.
-        Object.keys(expectedValue).forEach(expectedKey => {
+        Object.keys(expectedValue).forEach((expectedKey) => {
           assert.ok(instance.data[expectedKey] != null);
         });
       });
@@ -241,7 +244,7 @@ describe('file File', () => {
       permalink,
       url: Url.makePretty(
         Url.makeUrlFileSystemSafe(instance.data.permalink)
-      )
+      ),
     });
   });
 
@@ -254,40 +257,40 @@ describe('file File', () => {
 
       config._raw.file.filters = {
         metadata: {
-          draft: false
-        }
+          draft: false,
+        },
       };
       await instance.update();
       assert.equal(instance.filtered, false);
 
       config._raw.file.filters = {
         metadata: {
-          draft: true
-        }
+          draft: true,
+        },
       };
       await instance.update();
       assert.equal(instance.filtered, true);
 
       config._raw.file.filters = {
         future_date: {
-          key: 'draft'
-        }
+          key: 'draft',
+        },
       };
       await instance.update();
       assert.equal(instance.filtered, false);
 
       config._raw.file.filters = {
         future_date: {
-          key: 'future_date'
-        }
+          key: 'future_date',
+        },
       };
       await instance.update();
       assert.equal(instance.filtered, true);
 
       config._raw.file.filters = {
         future_date: {
-          key: 'date'
-        }
+          key: 'date',
+        },
       };
       await instance.update();
       assert.equal(instance.filtered, false);

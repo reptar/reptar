@@ -10,7 +10,6 @@ const ConfigRewire = rewire('../../../lib/config/index.js');
 const Config = ConfigRewire.default;
 
 describe('config/index Config', () => {
-
   let sandbox;
   beforeEach(() => {
     sandbox = sinon.sandbox.create();
@@ -103,10 +102,10 @@ describe('config/index Config', () => {
         },
         {
           site: 'Test',
-        }
+        },
       ];
 
-      invalidConfigs.forEach(config => {
+      invalidConfigs.forEach((config) => {
         revert = ConfigRewire.__set__(
           'loadAndParseYaml',
           sinon.stub().returns(config)
@@ -133,7 +132,7 @@ describe('config/index Config', () => {
         },
         {
           scope: {
-            path: './'
+            path: './',
           },
           values: {},
         },
@@ -163,7 +162,7 @@ describe('config/index Config', () => {
         },
         {
           scope: {
-            path: './_posts/2016'
+            path: './_posts/2016',
           },
           values: {},
         },
@@ -176,7 +175,7 @@ describe('config/index Config', () => {
           sinon.stub().returns({
             ...fixture.configDefault(),
             path: {
-              source: './'
+              source: './',
             },
             file: {
               defaults: _.shuffle(expectedFileDefaultsOrder),

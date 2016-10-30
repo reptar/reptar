@@ -2,14 +2,15 @@ import assert from 'power-assert';
 import fs from 'fs-extra';
 import sinon from 'sinon';
 import fixture from '../fixture';
-import Plugin from '../../lib/plugin/index.js';
-const PluginAPI = Plugin.API;
-import CollectionBase from '../../lib/collection/base.js';
+import Plugin from '../../lib/plugin/index';
+import CollectionBase from '../../lib/collection/base';
 import {
   renderFileWithPlugins,
-} from '../../lib/render.js';
+} from '../../lib/render';
 
-describe('render Render', function() {
+const PluginAPI = Plugin.API;
+
+describe('render Render', () => {
   let sandbox;
   beforeEach(() => {
     sandbox = sinon.sandbox.create();
@@ -24,7 +25,7 @@ describe('render Render', function() {
   describe('renderFileWithPlugins', () => {
     it('calls all functions in expected order', async () => {
       // Disallow actually writing to disk.
-      sandbox.stub(fs, 'outputFile', function(...args) {
+      sandbox.stub(fs, 'outputFile', (...args) => {
         // Call callback.
         args[args.length - 1]();
       });
@@ -32,10 +33,8 @@ describe('render Render', function() {
       const renderContent = 'hello world';
 
       const instance = new CollectionBase('name');
-      instance.files = fixture.collectionFiles().map(file => {
-        file.render = sinon.spy(() => {
-          return renderContent;
-        });
+      instance.files = fixture.collectionFiles().map((file) => {
+        file.render = sinon.spy(() => renderContent);
         return file;
       });
 
@@ -53,7 +52,7 @@ describe('render Render', function() {
           Plugin.Event.file.afterRender
         );
       } catch (e) {
-        console.log(e);
+        // noop
       }
 
       assert.equal(beforeSpy.callCount, 1);

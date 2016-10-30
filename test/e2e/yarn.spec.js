@@ -9,17 +9,17 @@ import {
   filterOnlyFiles,
   restoreMockFs,
 } from '../fixtures';
-import fs from 'fs-extra';
+import fs from 'fs-extra'; // eslint-disable-line import/first
 
-import Reptar from '../../lib/index.js';
-import cache from '../../lib/cache.js';
-import Config from '../../lib/config/index.js';
-import Theme from '../../lib/theme/index.js';
+import Reptar from '../../lib/index';
+import cache from '../../lib/cache';
+import Config from '../../lib/config/index';
+import Theme from '../../lib/theme/index';
+import log from '../../lib/log';
 
-import log from '../../lib/log.js';
 log.setSilent(true);
 
-describe('reptar Reptar', function() {
+describe('reptar Reptar', function test() {
   this.timeout(5000);
 
   let sandbox;
@@ -40,13 +40,13 @@ describe('reptar Reptar', function() {
     restoreMockFs();
   });
 
-  it('instantiates correctly', async function() {
+  it('instantiates correctly', async () => {
     sandbox.spy(Reptar.prototype, 'update');
     sandbox.spy(Config.prototype, 'update');
     sandbox.spy(Theme.prototype, 'setGetConfig');
 
     const instance = new Reptar({
-      rootPath: getPathToSimpleMock()
+      rootPath: getPathToSimpleMock(),
     });
     assert.equal(instance.update.callCount, 0);
 
@@ -65,18 +65,19 @@ describe('reptar Reptar', function() {
     assert(_.isObject(instance.data.collections));
   });
 
-  it('builds site correctly', async function() {
+  it('builds site correctly', async () => {
     sandbox.spy(fs, 'outputFile');
 
     // Build site.
     const instance = new Reptar({
-      rootPath: getPathToSimpleMock()
+      rootPath: getPathToSimpleMock(),
     });
     await instance.update();
     await instance.build();
 
     assert(fs.outputFile.callCount > 0);
 
+    // eslint-disable-next-line no-plusplus
     for (let i = 0; i < fs.outputFile.callCount; i++) {
       const fileDestination = fs.outputFile.getCall(i).args[0];
       const fileDestinationRelative = fileDestination.replace(
@@ -88,5 +89,4 @@ describe('reptar Reptar', function() {
       assert.equal(fileWritten, simpleOneOutput[fileDestinationRelative]);
     }
   });
-
 });

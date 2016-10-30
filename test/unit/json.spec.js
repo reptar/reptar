@@ -1,10 +1,9 @@
 import assert from 'power-assert';
 import path from 'path';
 import _ from 'lodash';
-import * as json from '../../lib/json.js';
+import * as json from '../../lib/json';
 
-describe('json JSON', function() {
-
+describe('json JSON', () => {
   describe('getReptarPackageNames', () => {
     it('returns the Reptar package names', () => {
       const rootDir = path.resolve(__dirname, '../../');

@@ -7,12 +7,12 @@ import {
   createMockConfig,
 } from '../../../utils';
 
-import Plugin from '../../../../lib/plugin/index.js';
-import CollectionPage from '../../../../lib/collection/page.js';
+import Plugin from '../../../../lib/plugin/index';
+import CollectionPage from '../../../../lib/collection/page';
 
-import CollectionBase from '../../../../lib/collection/base.js';
+import CollectionBase from '../../../../lib/collection/base';
 import MetadataCollection from
-  '../../../../lib/collection/type/metadata.js';
+  '../../../../lib/collection/type/metadata';
 
 describe('collection/type/metadata MetadataCollection', () => {
   const config = createMockConfig();
@@ -35,7 +35,7 @@ describe('collection/type/metadata MetadataCollection', () => {
       instance.metadata = 'soMeta';
 
       const file = {
-        data: {}
+        data: {},
       };
 
       file.data.someMeta = 'ok';
@@ -50,7 +50,7 @@ describe('collection/type/metadata MetadataCollection', () => {
       instance.metadata = 'soMeta';
 
       const file = {
-        data: {}
+        data: {},
       };
 
       file.data[instance.metadata] = null;
@@ -72,7 +72,7 @@ describe('collection/type/metadata MetadataCollection', () => {
       sinon.stub(instance, '_isFileInCollection').returns(true);
       sandbox.spy(CollectionBase, 'sortFiles');
       assert(_.isUndefined(instance.files));
-      assert(_.isUndefined(instance.metadataFiles));
+      assert(_.isEmpty(instance.metadataFiles));
 
       const files = fixture.collectionFiles();
       assert.deepEqual(instance.populate(files), instance);
@@ -109,7 +109,7 @@ describe('collection/type/metadata MetadataCollection', () => {
       sinon.stub(instance, '_isFileInCollection').returns(false);
       sandbox.spy(CollectionBase, 'sortFiles');
       assert(_.isUndefined(instance.files));
-      assert(_.isUndefined(instance.metadataFiles));
+      assert(_.isEmpty(instance.metadataFiles));
 
       const files = fixture.collectionFiles();
       assert.deepEqual(instance.populate(files), instance);
@@ -157,7 +157,7 @@ describe('collection/type/metadata MetadataCollection', () => {
       instance.permalink.index = 'index.html';
       instance.permalink.page = '/page/:metadata/:page.html';
       assert.equal(instance.pages.length, 0);
-      assert(_.isUndefined(instance.metadataFiles));
+      assert(_.isEmpty(instance.metadataFiles));
       sinon.spy(instance, 'createCollectionPages');
       sandbox.spy(CollectionBase, 'sortFiles');
 
@@ -186,6 +186,7 @@ describe('collection/type/metadata MetadataCollection', () => {
           expectedPermalink = instance.permalink.index;
         }
 
+        // eslint-disable-next-line no-shadow
         const files = instance.metadataFiles[page.data.metadata];
 
         assert(page instanceof CollectionPage);
@@ -216,5 +217,4 @@ describe('collection/type/metadata MetadataCollection', () => {
       });
     });
   });
-
 });

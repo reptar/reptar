@@ -1,19 +1,18 @@
 import assert from 'power-assert';
 import sinon from 'sinon';
+import _ from 'lodash';
 
 import fixture from '../../../fixture';
 import {
   createMockConfig,
 } from '../../../utils';
 
-import _ from 'lodash';
+import Plugin from '../../../../lib/plugin/index';
+import CollectionPage from '../../../../lib/collection/page';
 
-import Plugin from '../../../../lib/plugin/index.js';
-import CollectionPage from '../../../../lib/collection/page.js';
-
-import CollectionBase from '../../../../lib/collection/base.js';
+import CollectionBase from '../../../../lib/collection/base';
 import FileSystemCollection
-  from '../../../../lib/collection/type/file-system.js';
+  from '../../../../lib/collection/type/file-system';
 
 describe('collection/type/file-system FileSystemCollection', () => {
   const config = createMockConfig();
@@ -37,19 +36,19 @@ describe('collection/type/file-system FileSystemCollection', () => {
       instance.path = path;
 
       let file = {
-        path: 'my/file'
+        path: 'my/file',
       };
 
       assert.equal(instance._isFileInCollection(file), false);
 
       file = {
-        path: 'my/file/pat'
+        path: 'my/file/pat',
       };
 
       assert.equal(instance._isFileInCollection(file), false);
 
       file = {
-        path: 'your/file/path/is/close'
+        path: 'your/file/path/is/close',
       };
 
       assert.equal(instance._isFileInCollection(file), false);
@@ -62,13 +61,13 @@ describe('collection/type/file-system FileSystemCollection', () => {
       sinon.stub(instance, '_isFileExcluded').returns(false);
 
       let file = {
-        path: 'my/file/path'
+        path: 'my/file/path',
       };
 
       assert.equal(instance._isFileInCollection(file), true);
 
       file = {
-        path: 'my/file/path/is/deeper'
+        path: 'my/file/path/is/deeper',
       };
 
       assert.equal(instance._isFileInCollection(file), true);
@@ -81,13 +80,13 @@ describe('collection/type/file-system FileSystemCollection', () => {
       sinon.stub(instance, '_isFileExcluded').returns(true);
 
       let file = {
-        path: 'my/file/path'
+        path: 'my/file/path',
       };
 
       assert.equal(instance._isFileInCollection(file), false);
 
       file = {
-        path: 'my/file/path/is/deeper'
+        path: 'my/file/path/is/deeper',
       };
 
       assert.equal(instance._isFileInCollection(file), false);
@@ -112,7 +111,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
       assert.equal(CollectionBase.sortFiles.calledOnce, false);
       assert(_.isUndefined(instance.metadataFiles));
 
-      files.forEach((file, index)=> {
+      files.forEach((file, index) => {
         assert.equal(file.data, instance.data.files[index]);
       });
     });
@@ -133,7 +132,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
       assert.equal(instance.createCollectionPages.calledOnce, true);
       assert.equal(CollectionBase.sortFiles.calledOnce, false);
 
-      files.forEach((file)=> {
+      files.forEach((file) => {
         assert(_.isUndefined(file.permalink));
       });
 
@@ -229,11 +228,11 @@ describe('collection/type/file-system FileSystemCollection', () => {
   describe('_setExcludePaths', () => {
     const excludeCollections = [
       {
-        path: '/my/path'
+        path: '/my/path',
       },
       {
-        path: 'your/path'
-      }
+        path: 'your/path',
+      },
     ];
 
     const excludePaths = excludeCollections.map(coll => coll.path);
@@ -299,11 +298,11 @@ describe('collection/type/file-system FileSystemCollection', () => {
       instance.path = path;
       instance.excludePaths = [
         'another/path',
-        path
+        path,
       ];
 
       const file = {
-        path: `a/long${path}`
+        path: `a/long${path}`,
       };
 
       assert.equal(instance._isFileExcluded(file), true);
@@ -315,15 +314,14 @@ describe('collection/type/file-system FileSystemCollection', () => {
       instance.path = path;
       instance.excludePaths = [
         'another/path',
-        path
+        path,
       ];
 
       const file = {
-        path: 'a/long/time/ago'
+        path: 'a/long/time/ago',
       };
 
       assert.equal(instance._isFileExcluded(file), false);
     });
   });
-
 });

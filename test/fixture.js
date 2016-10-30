@@ -18,57 +18,57 @@ exports.frontmatterJSON = {
     date: '2016-10-11',
     future_date: '2020-2-29',
   },
-  content: '\nWhat *great* **joy**.'
+  content: '\nWhat *great* **joy**.',
 };
 
 exports.collectionMetadataKey = 'soMeta';
 
-exports.collectionFiles = function() {
+exports.collectionFiles = function collectionFiles() {
   return _.cloneDeep(
     [
       {
         id: 'Coffee',
         data: {
           some: 'data',
-          [exports.collectionMetadataKey]: 'norman'
+          [exports.collectionMetadataKey]: 'norman',
         },
-        collections: {add: function(){}},
-        destination: './destination/path'
+        collections: { add() {} },
+        destination: './destination/path',
       },
       {
         id: 'All',
         data: {
           good: 'morning',
-          [exports.collectionMetadataKey]: ['norman', 'rockwell']
+          [exports.collectionMetadataKey]: ['norman', 'rockwell'],
         },
-        collections: {add: function(){}},
-        destination: './destination/path'
+        collections: { add() {} },
+        destination: './destination/path',
       },
       {
         id: 'Bagels',
         data: {
           happy: 'wednesday',
-          [exports.collectionMetadataKey]: null
+          [exports.collectionMetadataKey]: null,
         },
-        collections: {add: function(){}},
-        destination: './destination/path'
-      }
+        collections: { add() {} },
+        destination: './destination/path',
+      },
     ]
   );
 };
 
-exports.configDefault = function() {
+exports.configDefault = function configDefault() {
   return _.cloneDeep(
     {
       site: {
-        title: 'Good Morning GitHub'
+        title: 'Good Morning GitHub',
       },
       path: {
         source: './source/',
         destination: './destination/',
         plugins: './plugins/',
         themes: './themes/',
-      }
+      },
     }
   );
 };

@@ -1,6 +1,6 @@
 import assert from 'power-assert';
 
-import filter from '../../../lib/filter/index.js';
+import filter from '../../../lib/filter/index';
 
 describe('filter/index', () => {
   const mockFile = {
@@ -14,23 +14,23 @@ describe('filter/index', () => {
     assert.equal(filter.isFileFiltered({}, mockFile), false);
     assert.equal(filter.isFileFiltered({
       future_date: {
-        key: 'foo'
-      }
+        key: 'foo',
+      },
     }, mockFile), false);
     assert.equal(filter.isFileFiltered({
       future_date: {
-        key: 'date'
-      }
+        key: 'date',
+      },
     }, mockFile), true);
     assert.equal(filter.isFileFiltered({
       metadata: {
-        foo: 'date'
-      }
+        foo: 'date',
+      },
     }, mockFile), false);
     assert.equal(filter.isFileFiltered({
       metadata: {
-        foo: 'bar'
-      }
+        foo: 'bar',
+      },
     }, mockFile), true);
   });
 });

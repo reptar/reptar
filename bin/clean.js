@@ -1,14 +1,15 @@
+import log from '../lib/log';
 import Reptar from '../lib';
 
-export default function() {
+export default function () {
   const reptar = new Reptar();
   reptar.update()
     .then(reptar.cleanDestination.bind(reptar))
-    .then(function() {
+    .then(() => {
       process.exit(0);
     })
-    .catch(function(e) {
-      console.log(e.stack);
+    .catch((e) => {
+      log.error(e.stack);
       throw e;
     });
 }

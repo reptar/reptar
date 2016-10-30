@@ -10,6 +10,7 @@ import watch from './watch';
 import clean from './clean';
 import init from './init';
 import serve from './serve';
+
 const commands = {
   build,
   new: newFile,
@@ -22,8 +23,8 @@ const commands = {
 yargs
   .command('init', 'scaffold a new site')
   .command('new', 'create new content')
-  .command('build', 'build your site', (yargs) => (
-    yargs.option('clean', {
+  .command('build', 'build your site', commandYargs => (
+    commandYargs.option('clean', {
       alias: 'c',
       default: false,
     })
@@ -34,29 +35,31 @@ yargs
   .option('incremental', {
     description: 'only build files that have changed',
     boolean: true,
-    default: true
+    default: true,
   })
   .option('version', {
     alias: 'v',
     description: 'installed version',
-    boolean: true
+    boolean: true,
   })
   .help('help')
   .default('help');
 
 const argv = yargs.argv;
 
-console.log('reptar\n');
+process.stdout.write('reptar\n\n');
 
 if (argv.version) {
   let packageJson;
   try {
+    // eslint-disable-next-line
     packageJson = require(findUp.sync('package.json', {
-      cwd: __dirname
+      cwd: __dirname,
     }));
   } catch (e) { /* noop */ }
 
-  console.log(packageJson.version);
+  process.stdout.write(packageJson.version);
+  process.stdout.write('\n');
 } else if (argv._.length === 0) {
   yargs.showHelp('log');
   process.exit(0);
@@ -65,7 +68,7 @@ if (argv.version) {
   const commandHandler = commands[command];
 
   if (!commandHandler) {
-    log.error('Unknown command: ' + argv._.join(' '));
+    log.error(`Unknown command: ${argv._.join(' ')}`);
     process.stdout.write('\n');
     yargs.showHelp();
   } else {

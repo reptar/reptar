@@ -8,7 +8,7 @@ import {
 
 import Url from '../../../lib/url';
 
-import CollectionPage from '../../../lib/collection/page.js';
+import CollectionPage from '../../../lib/collection/page';
 
 describe('collection/page CollectionPage', () => {
   const config = createMockConfig();
@@ -33,16 +33,18 @@ describe('collection/page CollectionPage', () => {
     per_page: 1,
 
     // Total number of posts
-    total: 3
+    total: 3,
   };
 
   describe('constructor', () => {
     it('throws an error if it doesn\'t get expected values', () => {
       assert.throws(() => {
+        // eslint-disable-next-line no-new
         new CollectionPage();
       }, /ID as a string.$/);
 
       assert.throws(() => {
+        // eslint-disable-next-line no-new
         new CollectionPage('idHere');
       }, /index.$/);
     });

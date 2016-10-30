@@ -2,24 +2,24 @@ import assert from 'power-assert';
 import _ from 'lodash';
 import sinon from 'sinon';
 
-import {addTemplateFilter} from '../../../lib/template.js';
-import Plugin from '../../../lib/plugin/index.js';
+import { addTemplateFilter } from '../../../lib/template';
+import Plugin from '../../../lib/plugin/index';
 
 const PluginAPI = Plugin.API;
 
-describe('plugin/api PluginAPI', function() {
+describe('plugin/api PluginAPI', () => {
   beforeEach(() => {
     Plugin._handlers = {};
   });
 
-  it('provides a proxy to template.addFilter method', function() {
+  it('provides a proxy to template.addFilter method', () => {
     assert.deepEqual(
       PluginAPI.template.addFilter,
       addTemplateFilter
     );
   });
 
-  it('creates methods for registering event handlers', function() {
+  it('creates methods for registering event handlers', () => {
     const beforeSpy = sinon.spy();
     PluginAPI.event.file.beforeRender(beforeSpy);
 

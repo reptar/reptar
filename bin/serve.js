@@ -34,9 +34,9 @@ export default async function serve() {
       directory: {
         path: '.',
         redirectToSlash: true,
-        index: true
+        index: true,
       },
-    }
+    },
   });
 
   server.start();
