@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.3.0"></a>
+# [2.3.0](https://github.com/reptar/reptar/compare/v2.2.0...v2.3.0) (2016-11-06)
+
+
+### Bug Fixes
+
+* **theme:** Safely access parsed _theme.yml file object. ([77c0e4e](https://github.com/reptar/reptar/commit/77c0e4e)), closes [#55](https://github.com/reptar/reptar/issues/55)
+
+
+### Features
+
+* **plugin:** Add Plugin.markdown.configure extension point. ([1638e12](https://github.com/reptar/reptar/commit/1638e12)), closes [#54](https://github.com/reptar/reptar/issues/54)
+
+
+
 <a name="2.2.0"></a>
 # [2.2.0](https://github.com/reptar/reptar/compare/v2.1.0...v2.2.0) (2016-10-29)
 
