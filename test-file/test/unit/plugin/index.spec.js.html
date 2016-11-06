@@ -36,7 +36,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getReptarPackageNames">getReptarPackageNames</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureMarkdownEngine">configureMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createMarkdownEngine">createMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMarkdownEngine">getMarkdownEngine</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderFileWithPlugins">renderFileWithPlugins</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBuiltinFilters">addBuiltinFilters</a></span></span></li>
@@ -62,8 +63,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/event-handler.js~EventHandler.html">EventHandler</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createPluginApi">createPluginApi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PluginEvents">PluginEvents</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/asset.js~Asset.html">Asset</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/index.js~Theme.html">Theme</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor-base.js~ProcessorBase.html">ProcessorBase</a></span></span></li>
@@ -76,223 +79,12 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">test/unit/plugin/index.spec.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import assert from &apos;power-assert&apos;;
-import sinon from &apos;sinon&apos;;
-import _ from &apos;lodash&apos;;
-import Promise from &apos;bluebird&apos;;
 
-import Plugin from &apos;../../../lib/plugin/index.js&apos;;
+import Plugin from &apos;../../../lib/plugin/index&apos;;
 
-describe(&apos;plugin/index Plugin&apos;, function() {
-  const handlerName = &apos;test:handler&apos;;
-
-  afterEach(() =&gt; {
-    Plugin._handlers = {};
-  });
-
-  describe(&apos;addEventHandler&apos;, function() {
-    it(&apos;can add handlers&apos;, function() {
-      const handlerFn = sinon.spy();
-
-      Plugin.addEventHandler(handlerName, handlerFn);
-
-      assert(_.isArray(Plugin._handlers[handlerName]));
-      assert.equal(Plugin._handlers[handlerName].length, 1);
-
-      assert.deepEqual(
-        Plugin._handlers[handlerName][0],
-        handlerFn
-      );
-
-      assert.equal(handlerFn.called, false);
-
-      Plugin.addEventHandler(handlerName, handlerFn);
-
-      assert.equal(Plugin._handlers[handlerName].length, 2);
-    });
-  });
-
-  describe(&apos;processEventHandlers&apos;, function() {
-    describe(&apos;can invoke handlers when none exist&apos;, () =&gt; {
-      it(&apos;with one passed argument&apos;, async () =&gt; {
-        const eventArg = &apos;hey man&apos;;
-        let newVal;
-        try {
-          newVal = await Plugin.processEventHandlers(&apos;bogus&apos;, eventArg);
-        } catch (e) {
-          console.log(e);
-        }
-
-        assert.deepEqual(newVal, eventArg);
-      });
-
-      it(&apos;with multiple passed arguments&apos;, async () =&gt; {
-        const eventArgs = [
-          &apos;the chicken&apos;,
-          &apos;is&apos;,
-          5
-        ];
-
-        let newVal;
-        try {
-          newVal = await Plugin.processEventHandlers(
-            &apos;bogus&apos;,
-            eventArgs[0],
-            eventArgs[1],
-            eventArgs[2]
-          );
-        } catch (e) {
-          console.log(e);
-        }
-
-        assert.deepEqual(newVal, eventArgs);
-      });
-    });
-
-    it(&apos;can invoke handlers sequentionally&apos;, async () =&gt; {
-      const noopFunc = sinon.spy(() =&gt; {
-        // noop
-      });
-
-      const promiseFn = sinon.spy((val) =&gt; {
-        return new Promise(resolve =&gt; {
-          resolve(val);
-        });
-      });
-
-      Plugin.addEventHandler(handlerName, noopFunc);
-      Plugin.addEventHandler(handlerName, promiseFn);
-
-      assert(_.isArray(Plugin._handlers[handlerName]));
-      assert.equal(Plugin._handlers[handlerName].length, 2);
-
-      const handlerValue = 5;
-      let newVal;
-
-      try {
-        newVal = await Plugin.processEventHandlers(handlerName, handlerValue);
-      } catch (e) {
-        throw e;
-      }
-
-      assert.equal(noopFunc.callCount, 1);
-      assert.ok(noopFunc.calledWith(5));
-
-      assert.equal(promiseFn.callCount, 1);
-      assert.ok(promiseFn.calledWith(5));
-
-      assert.equal(newVal, handlerValue);
-
-      const modifierFn = sinon.spy((val) =&gt; {
-        return val * val;
-      });
-      const trailingNoopFn = sinon.spy();
-
-      Plugin.addEventHandler(handlerName, modifierFn);
-      Plugin.addEventHandler(handlerName, trailingNoopFn);
-
-      try {
-        newVal = await Plugin.processEventHandlers(handlerName, handlerValue);
-      } catch (e) {
-        throw e;
-      }
-
-      assert.equal(noopFunc.callCount, 2);
-      assert.equal(promiseFn.callCount, 2);
-      assert.equal(modifierFn.callCount, 1);
-      assert.ok(modifierFn.calledWith(5));
-      assert.equal(trailingNoopFn.callCount, 1);
-
-      assert.equal(newVal, handlerValue * handlerValue);
-    });
-
-    it(&apos;invokes handlers with multiple arguments&apos;, async () =&gt; {
-      const blankReturnFn = sinon.spy(() =&gt; {
-        return;
-      });
-
-      Plugin.addEventHandler(handlerName, blankReturnFn);
-
-      assert(_.isArray(Plugin._handlers[handlerName]));
-      assert.equal(Plugin._handlers[handlerName].length, 1);
-
-      const argValue1 = {foo: &apos;bar&apos;};
-      const argValue2 = &apos;a wonderful world&apos;;
-      let processedEventValue;
-
-      try {
-        processedEventValue = await Plugin.processEventHandlers(
-          handlerName,
-          argValue1,
-          argValue2
-        );
-      } catch (e) {
-        console.log(e);
-      }
-
-      assert.equal(blankReturnFn.callCount, 1);
-      assert.ok(blankReturnFn.calledWith(argValue1, argValue2));
-
-      assert.equal(argValue1, processedEventValue[0]);
-      assert.equal(argValue2, processedEventValue[1]);
-    });
-
-    describe(&apos;throws when plugin handlers&apos;, () =&gt; {
-      it(&apos;return only part of the arguments given&apos;, (done) =&gt; {
-        const eventHandlerFn = sinon.spy((arg1, arg2) =&gt; {
-          return arg2;
-        });
-
-        Plugin.addEventHandler(handlerName, eventHandlerFn);
-
-        assert(_.isArray(Plugin._handlers[handlerName]));
-        assert.equal(Plugin._handlers[handlerName].length, 1);
-
-        const argValue1 = {foo: &apos;bar&apos;};
-        const argValue2 = &apos;a wonderful world&apos;;
-
-        Plugin.processEventHandlers(
-          handlerName,
-          argValue1,
-          argValue2
-        ).catch(() =&gt; {
-          done();
-        });
-      });
-
-      it(&apos;returns arguments in wrong order given&apos;, (done) =&gt; {
-        const eventHandlerFn = sinon.spy((arg1, arg2) =&gt; {
-          return [arg2, arg1];
-        });
-
-        Plugin.addEventHandler(handlerName, eventHandlerFn);
-
-        assert(_.isArray(Plugin._handlers[handlerName]));
-        assert.equal(Plugin._handlers[handlerName].length, 1);
-
-        const argValue1 = {foo: &apos;bar&apos;};
-        const argValue2 = &apos;a wonderful world&apos;;
-
-        Plugin.processEventHandlers(
-          handlerName,
-          argValue1,
-          argValue2
-        ).catch(() =&gt; {
-          done();
-        });
-      });
-    });
-  });
-
-  describe(&apos;loadFromPackageJson&apos;, () =&gt; {
-    it(&apos;TODO&apos;, () =&gt; {
-
-    });
-  });
-
-  describe(&apos;loadFromDirectory&apos;, () =&gt; {
-    it(&apos;TODO&apos;, () =&gt; {
-
-    });
+describe(&apos;plugin/index Plugin&apos;, () =&gt; {
+  it(&apos;has expected public methods&apos;, () =&gt; {
+    assert(typeof Plugin.API === &apos;object&apos;);
   });
 });
 </code></pre>

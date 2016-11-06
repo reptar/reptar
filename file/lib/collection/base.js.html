@@ -36,7 +36,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getReptarPackageNames">getReptarPackageNames</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureMarkdownEngine">configureMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createMarkdownEngine">createMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMarkdownEngine">getMarkdownEngine</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderFileWithPlugins">renderFileWithPlugins</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBuiltinFilters">addBuiltinFilters</a></span></span></li>
@@ -62,8 +63,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/event-handler.js~EventHandler.html">EventHandler</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createPluginApi">createPluginApi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PluginEvents">PluginEvents</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/asset.js~Asset.html">Asset</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/index.js~Theme.html">Theme</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor-base.js~ProcessorBase.html">ProcessorBase</a></span></span></li>
@@ -76,8 +79,6 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/collection/base.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Promise from &apos;bluebird&apos;;
-import fs from &apos;fs-extra&apos;;
-Promise.promisifyAll(fs);
 import path from &apos;path&apos;;
 import moment from &apos;moment&apos;;
 import _ from &apos;lodash&apos;;
@@ -167,7 +168,7 @@ export default class CollectionBase {
        */
       this.sort = {
         key: collectionConfig.sort.key,
-        order: collectionConfig.sort.order
+        order: collectionConfig.sort.order,
       };
     }
 
@@ -209,7 +210,7 @@ export default class CollectionBase {
    * @param {File} file File object.
    * @return {boolean} Whether this file should be filtered out.
    */
-  isFiltered(file) {
+  isFiltered(file) { // eslint-disable-line class-methods-use-this
     return file.filtered === true;
   }
 
@@ -227,15 +228,15 @@ export default class CollectionBase {
   /**
    * Create a CollectionPage instance.
    * @param {number} index Index of the page.
-   * @param {string?} pageId Optionally give a custom ID for a CollectionPage.
+   * @param {string?} pageIdArg Optional custom ID for a CollectionPage.
    * @return {CollectionPage} CollectionPage instance.
    */
-  createPage(index, pageId) {
+  createPage(index, pageIdArg) {
     if (!_.isNumber(index)) {
       throw new Error(&apos;Must give an index when creating a CollectionPage.&apos;);
     }
 
-    pageId = _.isUndefined(pageId) ? this.id : pageId;
+    const pageId = _.isUndefined(pageIdArg) ? this.id : pageIdArg;
 
     const page = new CollectionPage(pageId, index);
     page.setGetConfig(this._getConfig);
@@ -284,9 +285,9 @@ export default class CollectionBase {
 
     // Write CollectionPage files.
     if (this.pages.length) {
-      pagePromises = this.pages.map(collectionPage =&gt; {
-        return collectionPage.write(siteData);
-      });
+      pagePromises = this.pages.map(collectionPage =&gt;
+        collectionPage.write(siteData)
+      );
     }
 
     return Promise.all(pagePromises);
@@ -306,13 +307,15 @@ export default class CollectionBase {
 
     if (validSortConfig &amp;&amp; hasFiles) {
       // Convert a File&apos;s date value to a time stamp for sorting.
-      const getFileDateTime = (file) =&gt; {
-        return moment(file.data[sortConfig.key], dateFormat).toDate().getTime();
-      };
+      const getFileDateTime = file =&gt;
+         moment(file.data[sortConfig.key], dateFormat)
+          .toDate()
+          .getTime();
 
       // Quick sniff to see if the sort value is a date object.
       const sortIsDate = getFileDateTime(files[0]) &gt; 0;
 
+      // eslint-disable-next-line no-param-reassign
       files = _.sortBy(files, sortIsDate ?
         getFileDateTime :
         `data[${sortConfig.key}]`

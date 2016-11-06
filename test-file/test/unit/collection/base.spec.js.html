@@ -36,7 +36,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getReptarPackageNames">getReptarPackageNames</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureMarkdownEngine">configureMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createMarkdownEngine">createMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMarkdownEngine">getMarkdownEngine</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderFileWithPlugins">renderFileWithPlugins</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBuiltinFilters">addBuiltinFilters</a></span></span></li>
@@ -62,8 +63,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/event-handler.js~EventHandler.html">EventHandler</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createPluginApi">createPluginApi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PluginEvents">PluginEvents</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/asset.js~Asset.html">Asset</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/index.js~Theme.html">Theme</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor-base.js~ProcessorBase.html">ProcessorBase</a></span></span></li>
@@ -75,23 +78,23 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">test/unit/collection/base.spec.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import assert from &apos;power-assert&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/* eslint-disable no-new */
+import assert from &apos;power-assert&apos;;
 import sinon from &apos;sinon&apos;;
 import _ from &apos;lodash&apos;;
 
 import fixture from &apos;../../fixture&apos;;
 
-import Plugin from &apos;../../../lib/plugin/index.js&apos;;
+import Plugin from &apos;../../../lib/plugin/index&apos;;
 
-import CollectionBase from &apos;../../../lib/collection/base.js&apos;;
+import CollectionBase from &apos;../../../lib/collection/base&apos;;
 
 describe(&apos;collection/base CollectionBase&apos;, () =&gt; {
-
   let sandbox;
   beforeEach(() =&gt; {
     sandbox = sinon.sandbox.create();
 
-    Plugin._reset();
+    Plugin.eventHandler._reset();
   });
 
   afterEach(() =&gt; {
@@ -172,7 +175,7 @@ describe(&apos;collection/base CollectionBase&apos;, () =&gt; {
     it(&apos;sorts integer value descending&apos;, () =&gt; {
       const sortConfig = {
         key: &apos;number&apos;,
-        order: &apos;descending&apos;
+        order: &apos;descending&apos;,
       };
 
       assert.deepEqual(
@@ -184,7 +187,7 @@ describe(&apos;collection/base CollectionBase&apos;, () =&gt; {
     it(&apos;sorts integer value ascending&apos;, () =&gt; {
       const sortConfig = {
         key: &apos;number&apos;,
-        order: &apos;ascending&apos;
+        order: &apos;ascending&apos;,
       };
 
       assert.deepEqual(
@@ -196,7 +199,7 @@ describe(&apos;collection/base CollectionBase&apos;, () =&gt; {
     it(&apos;sorts date value descending&apos;, () =&gt; {
       const sortConfig = {
         key: &apos;date&apos;,
-        order: &apos;descending&apos;
+        order: &apos;descending&apos;,
       };
 
       assert.deepEqual(
@@ -208,7 +211,7 @@ describe(&apos;collection/base CollectionBase&apos;, () =&gt; {
     it(&apos;sorts date value ascending&apos;, () =&gt; {
       const sortConfig = {
         key: &apos;date&apos;,
-        order: &apos;ascending&apos;
+        order: &apos;ascending&apos;,
       };
 
       assert.deepEqual(

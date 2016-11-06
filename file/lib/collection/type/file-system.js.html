@@ -36,7 +36,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getReptarPackageNames">getReptarPackageNames</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureMarkdownEngine">configureMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createMarkdownEngine">createMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMarkdownEngine">getMarkdownEngine</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderFileWithPlugins">renderFileWithPlugins</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBuiltinFilters">addBuiltinFilters</a></span></span></li>
@@ -62,8 +63,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/event-handler.js~EventHandler.html">EventHandler</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createPluginApi">createPluginApi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PluginEvents">PluginEvents</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/asset.js~Asset.html">Asset</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/index.js~Theme.html">Theme</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor-base.js~ProcessorBase.html">ProcessorBase</a></span></span></li>
@@ -174,7 +177,7 @@ export default class FileSystemCollection extends CollectionBase {
     // Add data to template accessible object.
     this.data.files = [];
 
-    _.each(files, file =&gt; {
+    _.each(files, (file) =&gt; {
       // Don&apos;t return value so we iterate over every file.
       this.addFile(file);
     });
@@ -223,7 +226,7 @@ export default class FileSystemCollection extends CollectionBase {
           per_page: this.pageSize,
 
           // Total number of posts.
-          total: files.length
+          total: files.length,
         });
 
         // Add to our array of pages.
@@ -233,13 +236,9 @@ export default class FileSystemCollection extends CollectionBase {
 
     this._linkPages(
       // ShouldLinkPrevious
-      (previous) =&gt; {
-        return previous;
-      },
+      previous =&gt; previous,
       // ShouldLinkNext
-      (next) =&gt; {
-        return next;
-      }
+      next =&gt; next
     );
 
     return true;

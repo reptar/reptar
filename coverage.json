@@ -1,16 +1,14 @@
 {
-  "coverage": "67.34%",
-  "expectCount": 147,
-  "actualCount": 99,
+  "coverage": "72.18%",
+  "expectCount": 151,
+  "actualCount": 109,
   "files": {
     "lib/theme/asset.js": {
       "expectCount": 11,
-      "actualCount": 5,
+      "actualCount": 7,
       "undocumentLines": [
         15,
         16,
-        82,
-        81,
         73,
         92
       ]
@@ -26,16 +24,16 @@
       "expectCount": 17,
       "actualCount": 16,
       "undocumentLines": [
-        10
+        8
       ]
     },
     "lib/collection/page.js": {
-      "expectCount": 18,
-      "actualCount": 13,
+      "expectCount": 19,
+      "actualCount": 14,
       "undocumentLines": [
         16,
         210,
-        226,
+        227,
         77,
         73
       ]
@@ -48,14 +46,21 @@
         52
       ]
     },
+    "lib/plugin/event-handler.js": {
+      "expectCount": 3,
+      "actualCount": 1,
+      "undocumentLines": [
+        3,
+        15
+      ]
+    },
     "lib/file.js": {
       "expectCount": 15,
-      "actualCount": 10,
+      "actualCount": 11,
       "undocumentLines": [
         23,
         24,
         131,
-        235,
         243
       ]
     },
@@ -81,23 +86,24 @@
     },
     "lib/collection/type/metadata.js": {
       "expectCount": 6,
-      "actualCount": 3,
+      "actualCount": 4,
       "undocumentLines": [
         11,
-        76,
         104
       ]
     },
     "lib/plugin/index.js": {
-      "expectCount": 7,
+      "expectCount": 4,
       "actualCount": 2,
       "undocumentLines": [
-        9,
-        45,
-        10,
-        142,
-        109
+        8,
+        9
       ]
+    },
+    "lib/plugin/events.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
     },
     "lib/theme/processor-base.js": {
       "expectCount": 8,
@@ -113,9 +119,9 @@
       "actualCount": 11,
       "undocumentLines": [
         52,
-        256,
-        211,
-        119
+        254,
+        209,
+        117
       ]
     },
     "lib/theme/processor/sass.js": {
@@ -127,14 +133,13 @@
     },
     "lib/theme/index.js": {
       "expectCount": 10,
-      "actualCount": 4,
+      "actualCount": 5,
       "undocumentLines": [
         39,
-        120,
         40,
-        171,
+        168,
         74,
-        189
+        184
       ]
     },
     "lib/url.js": {
@@ -156,11 +161,6 @@
         21
       ]
     },
-    "lib/markdown.js": {
-      "expectCount": 2,
-      "actualCount": 2,
-      "undocumentLines": []
-    },
     "lib/checksum.js": {
       "expectCount": 1,
       "actualCount": 1,
@@ -170,8 +170,18 @@
       "expectCount": 1,
       "actualCount": 0,
       "undocumentLines": [
-        4
+        5
       ]
+    },
+    "lib/markdown.js": {
+      "expectCount": 3,
+      "actualCount": 3,
+      "undocumentLines": []
+    },
+    "lib/plugin/api.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
     },
     "lib/parse/front-matter.js": {
       "expectCount": 3,

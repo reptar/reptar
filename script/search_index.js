@@ -30,6 +30,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "reptar/lib/plugin/event-handler.js~eventhandler",
+    "class/lib/plugin/event-handler.js~EventHandler.html",
+    "<span>EventHandler</span> <span class=\"search-result-import-path\">reptar/lib/plugin/event-handler.js</span>",
+    "class"
+  ],
+  [
     "reptar/lib/file.js~file",
     "class/lib/file.js~File.html",
     "<span>File</span> <span class=\"search-result-import-path\">reptar/lib/file.js</span>",
@@ -64,6 +70,12 @@ window.esdocSearchIndex = [
     "class/lib/plugin/index.js~Plugin.html",
     "<span>Plugin</span> <span class=\"search-result-import-path\">reptar/lib/plugin/index.js</span>",
     "class"
+  ],
+  [
+    "reptar/lib/plugin/events.js~pluginevents",
+    "variable/index.html#static-variable-PluginEvents",
+    "<span>PluginEvents</span> <span class=\"search-result-import-path\">reptar/lib/plugin/events.js</span>",
+    "variable"
   ],
   [
     "reptar/lib/theme/processor-base.js~processorbase",
@@ -120,12 +132,6 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
-    "reptar/lib/markdown.js~configuremarkdownengine",
-    "function/index.html#static-function-configureMarkdownEngine",
-    "<span>configureMarkdownEngine</span> <span class=\"search-result-import-path\">reptar/lib/markdown.js</span>",
-    "function"
-  ],
-  [
     "reptar/lib/template.js~configuretemplateengine",
     "function/index.html#static-function-configureTemplateEngine",
     "<span>configureTemplateEngine</span> <span class=\"search-result-import-path\">reptar/lib/template.js</span>",
@@ -144,6 +150,18 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "reptar/lib/markdown.js~createmarkdownengine",
+    "function/index.html#static-function-createMarkdownEngine",
+    "<span>createMarkdownEngine</span> <span class=\"search-result-import-path\">reptar/lib/markdown.js</span>",
+    "function"
+  ],
+  [
+    "reptar/lib/plugin/api.js~createpluginapi",
+    "function/index.html#static-function-createPluginApi",
+    "<span>createPluginApi</span> <span class=\"search-result-import-path\">reptar/lib/plugin/api.js</span>",
+    "function"
+  ],
+  [
     "reptar/lib/parse/front-matter.js~filehasfrontmatter",
     "function/index.html#static-function-fileHasFrontmatter",
     "<span>fileHasFrontmatter</span> <span class=\"search-result-import-path\">reptar/lib/parse/front-matter.js</span>",
@@ -156,16 +174,16 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "reptar/lib/markdown.js~getmarkdownengine",
+    "function/index.html#static-function-getMarkdownEngine",
+    "<span>getMarkdownEngine</span> <span class=\"search-result-import-path\">reptar/lib/markdown.js</span>",
+    "function"
+  ],
+  [
     "reptar/lib/json.js~getreptarpackagenames",
     "function/index.html#static-function-getReptarPackageNames",
     "<span>getReptarPackageNames</span> <span class=\"search-result-import-path\">reptar/lib/json.js</span>",
     "function"
-  ],
-  [
-    "reptar/lib/plugin/index.js~instance",
-    "variable/index.html#static-variable-instance",
-    "<span>instance</span> <span class=\"search-result-import-path\">reptar/lib/plugin/index.js</span>",
-    "variable"
   ],
   [
     "reptar/lib/filter/metadata.js~metadatafilter",
@@ -577,7 +595,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/collection/base.spec.js.html#lineNumber11",
+    "test-file/test/unit/collection/base.spec.js.html#lineNumber12",
     "collection/base CollectionBase",
     "test"
   ],
@@ -649,13 +667,13 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/collection/index.spec.js.html#lineNumber12",
+    "test-file/test/unit/collection/index.spec.js.html#lineNumber11",
     "collection/index create",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/index.spec.js.html#lineNumber13",
+    "test-file/test/unit/collection/index.spec.js.html#lineNumber12",
     "collection/index create creates the right Collection class",
     "test"
   ],
@@ -673,7 +691,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/collection/page.spec.js.html#lineNumber50",
+    "test-file/test/unit/collection/page.spec.js.html#lineNumber52",
     "collection/page CollectionPage constructor creates a unique id",
     "test"
   ],
@@ -685,139 +703,139 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/collection/page.spec.js.html#lineNumber63",
+    "test-file/test/unit/collection/page.spec.js.html#lineNumber65",
     "collection/page CollectionPage setData",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/page.spec.js.html#lineNumber64",
+    "test-file/test/unit/collection/page.spec.js.html#lineNumber66",
     "collection/page CollectionPage setData saves passed in values",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber18",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber17",
     "collection/type/file-system FileSystemCollection",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber262",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber261",
     "collection/type/file-system FileSystemCollection _isFileExcluded",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber312",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber311",
     "collection/type/file-system FileSystemCollection _isFileExcluded is false if the file path is not in our excludePaths",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber271",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber270",
     "collection/type/file-system FileSystemCollection _isFileExcluded is false when FileSystemCollection has metadata",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber263",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber262",
     "collection/type/file-system FileSystemCollection _isFileExcluded is false when FileSystemCollection has no path",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber281",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber280",
     "collection/type/file-system FileSystemCollection _isFileExcluded is false when no excludePaths are set",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber296",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber295",
     "collection/type/file-system FileSystemCollection _isFileExcluded is true if the file path is contained in our excludePaths",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber33",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber32",
     "collection/type/file-system FileSystemCollection _isFileInCollection",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber77",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber76",
     "collection/type/file-system FileSystemCollection _isFileInCollection is false if file's path is excluded from collection",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber34",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber33",
     "collection/type/file-system FileSystemCollection _isFileInCollection is false if file's path is not within collection's path",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber58",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber57",
     "collection/type/file-system FileSystemCollection _isFileInCollection is true if file's path includes collection's path",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber229",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber228",
     "collection/type/file-system FileSystemCollection _setExcludePaths",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber241",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber240",
     "collection/type/file-system FileSystemCollection _setExcludePaths can set exclude paths",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber251",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber250",
     "collection/type/file-system FileSystemCollection _setExcludePaths does not add its own path to the exclude path array",
     "test"
   ],
   [
     "",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber209",
+    "collection/type/file-system FileSystemCollection createCollectionPages",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber147",
+    "collection/type/file-system FileSystemCollection createCollectionPages",
+    "test"
+  ],
+  [
+    "",
     "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber148",
-    "collection/type/file-system FileSystemCollection createCollectionPages",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber210",
-    "collection/type/file-system FileSystemCollection createCollectionPages",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber149",
     "collection/type/file-system FileSystemCollection createCollectionPages adds files to collectionPages",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber211",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber210",
     "collection/type/file-system FileSystemCollection createCollectionPages returns early if no pagination permalinks are set",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber97",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber96",
     "collection/type/file-system FileSystemCollection populate",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber98",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber97",
     "collection/type/file-system FileSystemCollection populate adds files to collection",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber120",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber119",
     "collection/type/file-system FileSystemCollection populate does not add files to collection",
     "test"
   ],
@@ -889,37 +907,37 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber23",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber22",
     "config/index Config constructor",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber24",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber23",
     "config/index Config constructor can create an instance",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber36",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber35",
     "config/index Config update",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber46",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber45",
     "config/index Config update calculates paths correctly",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber119",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber118",
     "config/index Config update sorts file defaults in correct precedence order",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber94",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber93",
     "config/index Config update throws when given an invalid config object",
     "test"
   ],
@@ -955,13 +973,13 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber183",
+    "test-file/test/unit/file.spec.js.html#lineNumber186",
     "file File _calculateDestination",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber184",
+    "test-file/test/unit/file.spec.js.html#lineNumber187",
     "file File _calculateDestination allows custom file url property",
     "test"
   ],
@@ -991,25 +1009,25 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber132",
+    "test-file/test/unit/file.spec.js.html#lineNumber135",
     "file File default values from config applies default values that match",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber248",
+    "test-file/test/unit/file.spec.js.html#lineNumber251",
     "file File filtered",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber249",
+    "test-file/test/unit/file.spec.js.html#lineNumber252",
     "file File filtered set correctly",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber220",
+    "test-file/test/unit/file.spec.js.html#lineNumber223",
     "file File has all proper values on its data object",
     "test"
   ],
@@ -1021,13 +1039,13 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/filter/future-date.spec.js.html#lineNumber27",
+    "test-file/test/unit/filter/future-date.spec.js.html#lineNumber26",
     "filter/future-date futureDate should allow setting of what date key to use",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/filter/future-date.spec.js.html#lineNumber7",
+    "test-file/test/unit/filter/future-date.spec.js.html#lineNumber6",
     "filter/future-date futureDate should default to use date as key value",
     "test"
   ],
@@ -1051,13 +1069,13 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/filter/metadata.spec.js.html#lineNumber39",
+    "test-file/test/unit/filter/metadata.spec.js.html#lineNumber38",
     "filter/metadata metadata should return false when a match is not found",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/filter/metadata.spec.js.html#lineNumber7",
+    "test-file/test/unit/filter/metadata.spec.js.html#lineNumber6",
     "filter/metadata metadata should return true when a match is found",
     "test"
   ],
@@ -1069,13 +1087,13 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/json.spec.js.html#lineNumber8",
+    "test-file/test/unit/json.spec.js.html#lineNumber7",
     "json JSON getReptarPackageNames",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/json.spec.js.html#lineNumber9",
+    "test-file/test/unit/json.spec.js.html#lineNumber8",
     "json JSON getReptarPackageNames returns the Reptar package names",
     "test"
   ],
@@ -1251,6 +1269,12 @@ window.esdocSearchIndex = [
     "lib/collection/page.js~collectionpage#index",
     "class/lib/collection/page.js~CollectionPage.html#instance-member-index",
     "lib/collection/page.js~CollectionPage#index",
+    "member"
+  ],
+  [
+    "lib/collection/page.js~collectionpage#permalink",
+    "class/lib/collection/page.js~CollectionPage.html#instance-member-permalink",
+    "lib/collection/page.js~CollectionPage#permalink",
     "member"
   ],
   [
@@ -1686,9 +1710,27 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/plugin/event.js",
-    "file/lib/plugin/event.js.html",
-    "lib/plugin/event.js",
+    "lib/plugin/event-handler.js",
+    "file/lib/plugin/event-handler.js.html",
+    "lib/plugin/event-handler.js",
+    "file"
+  ],
+  [
+    "lib/plugin/event-handler.js~eventhandler#addeventhandler",
+    "class/lib/plugin/event-handler.js~EventHandler.html#instance-method-addEventHandler",
+    "lib/plugin/event-handler.js~EventHandler#addEventHandler",
+    "method"
+  ],
+  [
+    "lib/plugin/event-handler.js~eventhandler#processeventhandlers",
+    "class/lib/plugin/event-handler.js~EventHandler.html#instance-method-processEventHandlers",
+    "lib/plugin/event-handler.js~EventHandler#processEventHandlers",
+    "method"
+  ],
+  [
+    "lib/plugin/events.js",
+    "file/lib/plugin/events.js.html",
+    "lib/plugin/events.js",
     "file"
   ],
   [
@@ -1698,33 +1740,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/plugin/index.js~plugin#addeventhandler",
-    "class/lib/plugin/index.js~Plugin.html#instance-method-addEventHandler",
-    "lib/plugin/index.js~Plugin#addEventHandler",
+    "lib/plugin/index.js~plugin.loadfromdirectory",
+    "class/lib/plugin/index.js~Plugin.html#static-method-loadFromDirectory",
+    "lib/plugin/index.js~Plugin.loadFromDirectory",
     "method"
   ],
   [
-    "lib/plugin/index.js~plugin#constructor",
-    "class/lib/plugin/index.js~Plugin.html#instance-constructor-constructor",
-    "lib/plugin/index.js~Plugin#constructor",
+    "lib/plugin/index.js~plugin.loadfrompackagejson",
+    "class/lib/plugin/index.js~Plugin.html#static-method-loadFromPackageJson",
+    "lib/plugin/index.js~Plugin.loadFromPackageJson",
     "method"
   ],
   [
-    "lib/plugin/index.js~plugin#loadfromdirectory",
-    "class/lib/plugin/index.js~Plugin.html#instance-method-loadFromDirectory",
-    "lib/plugin/index.js~Plugin#loadFromDirectory",
-    "method"
-  ],
-  [
-    "lib/plugin/index.js~plugin#loadfrompackagejson",
-    "class/lib/plugin/index.js~Plugin.html#instance-method-loadFromPackageJson",
-    "lib/plugin/index.js~Plugin#loadFromPackageJson",
-    "method"
-  ],
-  [
-    "lib/plugin/index.js~plugin#processeventhandlers",
-    "class/lib/plugin/index.js~Plugin.html#instance-method-processEventHandlers",
-    "lib/plugin/index.js~Plugin#processEventHandlers",
+    "lib/plugin/index.js~plugin.loadplugin",
+    "class/lib/plugin/index.js~Plugin.html#static-method-loadPlugin",
+    "lib/plugin/index.js~Plugin.loadPlugin",
     "method"
   ],
   [
@@ -1945,157 +1975,181 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/parse/front-matter.spec.js.html#lineNumber8",
+    "test-file/test/unit/parse/front-matter.spec.js.html#lineNumber7",
     "parse/front-matter parse",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/parse/front-matter.spec.js.html#lineNumber9",
+    "test-file/test/unit/parse/front-matter.spec.js.html#lineNumber8",
     "parse/front-matter parse correctly takes a string and produces a json object",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/parse/front-matter.spec.js.html#lineNumber17",
+    "test-file/test/unit/parse/front-matter.spec.js.html#lineNumber16",
     "parse/front-matter stringify",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/parse/front-matter.spec.js.html#lineNumber18",
+    "test-file/test/unit/parse/front-matter.spec.js.html#lineNumber17",
     "parse/front-matter stringify correctly takes json object and produces a string",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/plugin/api.spec.js.html#lineNumber10",
+    "test-file/test/unit/parse/yaml.spec.js.html#lineNumber4",
+    "parse/yaml",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/parse/yaml.spec.js.html#lineNumber21",
+    "parse/yaml parse",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/parse/yaml.spec.js.html#lineNumber22",
+    "parse/yaml parse empty string",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/parse/yaml.spec.js.html#lineNumber36",
+    "parse/yaml parse proper yaml string",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/parse/yaml.spec.js.html#lineNumber29",
+    "parse/yaml parse undefined",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/plugin/api.spec.js.html#lineNumber11",
     "plugin/api PluginAPI",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/plugin/api.spec.js.html#lineNumber22",
+    "test-file/test/unit/plugin/api.spec.js.html#lineNumber20",
+    "plugin/api PluginAPI allows you to configure markdown engine",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/plugin/api.spec.js.html#lineNumber28",
     "plugin/api PluginAPI creates methods for registering event handlers",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/plugin/api.spec.js.html#lineNumber15",
+    "test-file/test/unit/plugin/api.spec.js.html#lineNumber12",
     "plugin/api PluginAPI provides a proxy to template.addFilter method",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/plugin/index.spec.js.html#lineNumber8",
+    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber7",
+    "plugin/event-handler EventHandler",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber15",
+    "plugin/event-handler EventHandler addEventHandler",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber16",
+    "plugin/event-handler EventHandler addEventHandler can add handlers",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber37",
+    "plugin/event-handler EventHandler processEventHandlers",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber74",
+    "plugin/event-handler EventHandler processEventHandlers can invoke handlers sequentionally",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber38",
+    "plugin/event-handler EventHandler processEventHandlers can invoke handlers when none exist",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber51",
+    "plugin/event-handler EventHandler processEventHandlers can invoke handlers when none exist with multiple passed arguments",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber39",
+    "plugin/event-handler EventHandler processEventHandlers can invoke handlers when none exist with one passed argument",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber129",
+    "plugin/event-handler EventHandler processEventHandlers invokes handlers with multiple arguments",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber160",
+    "plugin/event-handler EventHandler processEventHandlers throws when plugin handlers",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber161",
+    "plugin/event-handler EventHandler processEventHandlers throws when plugin handlers return only part of the arguments given",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber181",
+    "plugin/event-handler EventHandler processEventHandlers throws when plugin handlers returns arguments in wrong order given",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/plugin/index.spec.js.html#lineNumber5",
     "plugin/index Plugin",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/plugin/index.spec.js.html#lineNumber15",
-    "plugin/index Plugin addEventHandler",
+    "test-file/test/unit/plugin/index.spec.js.html#lineNumber6",
+    "plugin/index Plugin has expected public methods",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/plugin/index.spec.js.html#lineNumber16",
-    "plugin/index Plugin addEventHandler can add handlers",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/index.spec.js.html#lineNumber215",
-    "plugin/index Plugin loadFromDirectory",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/index.spec.js.html#lineNumber216",
-    "plugin/index Plugin loadFromDirectory TODO",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/index.spec.js.html#lineNumber209",
-    "plugin/index Plugin loadFromPackageJson",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/index.spec.js.html#lineNumber210",
-    "plugin/index Plugin loadFromPackageJson TODO",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/index.spec.js.html#lineNumber37",
-    "plugin/index Plugin processEventHandlers",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/index.spec.js.html#lineNumber74",
-    "plugin/index Plugin processEventHandlers can invoke handlers sequentionally",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/index.spec.js.html#lineNumber38",
-    "plugin/index Plugin processEventHandlers can invoke handlers when none exist",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/index.spec.js.html#lineNumber51",
-    "plugin/index Plugin processEventHandlers can invoke handlers when none exist with multiple passed arguments",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/index.spec.js.html#lineNumber39",
-    "plugin/index Plugin processEventHandlers can invoke handlers when none exist with one passed argument",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/index.spec.js.html#lineNumber131",
-    "plugin/index Plugin processEventHandlers invokes handlers with multiple arguments",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/index.spec.js.html#lineNumber162",
-    "plugin/index Plugin processEventHandlers throws when plugin handlers",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/index.spec.js.html#lineNumber163",
-    "plugin/index Plugin processEventHandlers throws when plugin handlers return only part of the arguments given",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/index.spec.js.html#lineNumber185",
-    "plugin/index Plugin processEventHandlers throws when plugin handlers returns arguments in wrong order given",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/render.spec.js.html#lineNumber12",
+    "test-file/test/unit/render.spec.js.html#lineNumber14",
     "render Render",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/render.spec.js.html#lineNumber24",
+    "test-file/test/unit/render.spec.js.html#lineNumber26",
     "render Render renderFileWithPlugins",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/render.spec.js.html#lineNumber25",
+    "test-file/test/unit/render.spec.js.html#lineNumber27",
     "render Render renderFileWithPlugins calls all functions in expected order",
     "test"
   ],
@@ -2202,9 +2256,21 @@ window.esdocSearchIndex = [
     "testFile"
   ],
   [
+    "test/unit/parse/yaml.spec.js",
+    "test-file/test/unit/parse/yaml.spec.js.html",
+    "test/unit/parse/yaml.spec.js",
+    "testFile"
+  ],
+  [
     "test/unit/plugin/api.spec.js",
     "test-file/test/unit/plugin/api.spec.js.html",
     "test/unit/plugin/api.spec.js",
+    "testFile"
+  ],
+  [
+    "test/unit/plugin/event-handler.spec.js",
+    "test-file/test/unit/plugin/event-handler.spec.js.html",
+    "test/unit/plugin/event-handler.spec.js",
     "testFile"
   ],
   [

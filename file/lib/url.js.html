@@ -36,7 +36,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getReptarPackageNames">getReptarPackageNames</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureMarkdownEngine">configureMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createMarkdownEngine">createMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMarkdownEngine">getMarkdownEngine</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderFileWithPlugins">renderFileWithPlugins</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBuiltinFilters">addBuiltinFilters</a></span></span></li>
@@ -62,8 +63,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/event-handler.js~EventHandler.html">EventHandler</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createPluginApi">createPluginApi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PluginEvents">PluginEvents</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/asset.js~Asset.html">Asset</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/index.js~Theme.html">Theme</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor-base.js~ProcessorBase.html">ProcessorBase</a></span></span></li>
@@ -102,6 +105,7 @@ const Url = {
    * @return {string} Actual permalink value.
    */
   interpolatePermalink(permalink, context) {
+    // eslint-disable-next-line no-useless-escape
     const PERMALINK_REGEX = /:(\w+[\|A-Z]*)/g;
 
     const params = permalink.match(PERMALINK_REGEX);
@@ -111,7 +115,9 @@ const Url = {
       return permalink;
     }
 
-    params.forEach(param =&gt; {
+    let result = permalink;
+
+    params.forEach((param) =&gt; {
       // Replace &apos;:title&apos; -&gt; &apos;title&apos;.
       let paramKey = param.substr(1);
 
@@ -126,15 +132,15 @@ const Url = {
         if (paramPipe) {
           paramValue = moment(paramValue).format(paramPipe);
         }
-        var sanitized = Url.slug(paramValue);
-        permalink = permalink.replace(param, sanitized);
+        const sanitized = Url.slug(paramValue);
+        result = result.replace(param, sanitized);
       } else {
-        throw new Error(&apos;interpolatePermalink: could not find param value &apos; +
-          &apos;for key: &apos; + paramKey);
+        throw new Error(`${&apos;interpolatePermalink: could not find param value &apos; +
+          &apos;for key: &apos;}${paramKey}`);
       }
     });
 
-    return permalink;
+    return result;
   },
 
   /**
@@ -171,16 +177,18 @@ const Url = {
     const fileExtension = path.extname(filePath).replace(/^\./, &apos;&apos;);
     const index = markdownExtensions.indexOf(fileExtension);
 
+    let result = filePath;
+
     // Is this file&apos;s extension one of our known markdown extensions?
     if (index &gt; -1) {
       const foundExtension = markdownExtensions[index];
-      filePath = filePath.replace(
+      result = filePath.replace(
         new RegExp(`.${foundExtension}$`),
         &apos;.html&apos;
       );
     }
 
-    return filePath;
+    return result;
   },
 
   /**
@@ -193,23 +201,25 @@ const Url = {
    * @return {string} Safe url.
    */
   makeUrlFileSystemSafe(url) {
+    let result = url;
+
     // If the url does not end with an extension then we need to modify the URL.
     if (!path.extname(url)) {
       // If we don&apos;t have a leading / then add it.
       if (!url.startsWith(&apos;/&apos;)) {
-        url = &apos;/&apos; + url;
+        result = `/${url}`;
       }
 
       // If we don&apos;t have a trailing / then add it.
       if (!url.endsWith(&apos;/&apos;)) {
-        url += &apos;/&apos;;
+        result += &apos;/&apos;;
       }
 
       // Append the default file name.
-      url += &apos;index.html&apos;;
+      result += &apos;index.html&apos;;
     }
 
-    return url;
+    return result;
   },
 
   /**
@@ -239,11 +249,12 @@ const Url = {
     // Add dirname relative from.
     args.unshift(__dirname);
 
-    return path.resolve.apply(path, args);
+    return path.resolve(...args);
   },
 };
 
-export default Url;</code></pre>
+export default Url;
+</code></pre>
 
 </div>
 

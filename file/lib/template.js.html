@@ -36,7 +36,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getReptarPackageNames">getReptarPackageNames</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureMarkdownEngine">configureMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createMarkdownEngine">createMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMarkdownEngine">getMarkdownEngine</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderFileWithPlugins">renderFileWithPlugins</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBuiltinFilters">addBuiltinFilters</a></span></span></li>
@@ -62,8 +63,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/event-handler.js~EventHandler.html">EventHandler</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createPluginApi">createPluginApi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PluginEvents">PluginEvents</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/asset.js~Asset.html">Asset</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/index.js~Theme.html">Theme</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor-base.js~ProcessorBase.html">ProcessorBase</a></span></span></li>
@@ -84,7 +87,7 @@ import moment from &apos;moment&apos;;
 import Url from &apos;./url&apos;;
 
 const TemplateErrorMessage = {
-  NO_TEMPLATE: &apos;template not found&apos;
+  NO_TEMPLATE: &apos;template not found&apos;,
 };
 
 let env;
@@ -182,45 +185,45 @@ export function addBuiltinFilters(config) {
       // Useful for creating archive pages:
       // eslint-disable-next-line
       // {% for date, files in collections.post.files | reverse | groupbydate(&apos;MMMM YYYY&apos;) %}
-      function(data, momentTemplate, dateKey = &apos;date&apos;) {
-        return _.groupBy(data, (datum) =&gt;
+      function groupbydate(data, momentTemplate, dateKey = &apos;date&apos;) {
+        return _.groupBy(data, datum =&gt;
           dateFilter(datum[dateKey], momentTemplate)
         );
-      }
+      },
     ],
     [
       &apos;slug&apos;,
-      function(str) {
+      function slug(str) {
         return Url.slug(str);
-      }
+      },
     ],
     [
       &apos;absolute_url&apos;,
-      function(relativePath, basePath) {
-        var base = basePath || &apos;&apos;;
-        var baseLength = base.length - 1;
+      function absoluteUrl(relativePath, basePath) {
+        let base = basePath || &apos;&apos;;
+        const baseLength = base.length - 1;
         base = base[baseLength] === &apos;/&apos; ? base.substr(0, baseLength) : base;
 
-        var input = relativePath || &apos;&apos;;
-        var inputLength = input.length - 1;
+        let input = relativePath || &apos;&apos;;
+        const inputLength = input.length - 1;
         if (input[inputLength] !== &apos;/&apos;) {
-          input = input + &apos;/&apos;;
+          input = `${input}/`;
         }
         if (input[0] !== &apos;/&apos;) {
-          input = &apos;/&apos; + input;
+          input = `/${input}`;
         }
 
         return base + input;
-      }
+      },
     ],
     [
       &apos;limit&apos;,
-      function(arr, length) {
+      function limit(arr, length) {
         return arr.slice(0, length);
-      }
-    ]
-  ].forEach(filter =&gt; {
-    addTemplateFilter.apply(null, filter);
+      },
+    ],
+  ].forEach((filter) =&gt; {
+    addTemplateFilter(...filter);
   });
 }
 
@@ -236,13 +239,13 @@ export function addBuiltinFilters(config) {
 export function configureTemplateEngine({
   config,
   paths,
-  noCache = false
+  noCache = false,
 }) {
   const fileSystemLoader = new nunjucks.FileSystemLoader(paths, {
-    noCache: noCache
+    noCache,
   });
   env = new nunjucks.Environment(fileSystemLoader, {
-    autoescape: false
+    autoescape: false,
   });
 
   addBuiltinFilters(config);

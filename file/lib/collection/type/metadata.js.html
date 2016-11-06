@@ -36,7 +36,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getReptarPackageNames">getReptarPackageNames</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureMarkdownEngine">configureMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createMarkdownEngine">createMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMarkdownEngine">getMarkdownEngine</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderFileWithPlugins">renderFileWithPlugins</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBuiltinFilters">addBuiltinFilters</a></span></span></li>
@@ -62,8 +63,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/event-handler.js~EventHandler.html">EventHandler</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createPluginApi">createPluginApi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PluginEvents">PluginEvents</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/asset.js~Asset.html">Asset</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/index.js~Theme.html">Theme</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor-base.js~ProcessorBase.html">ProcessorBase</a></span></span></li>
@@ -93,12 +96,12 @@ export default class MetadataCollection extends CollectionBase {
      * the metadata property.
      * For example with metadata of &apos;tags&apos; you&apos;d have:
      * {
-     * 	&apos;tag-name&apos;: [file, file],
-     * 	&apos;other-tag&apos;: [file, file]
+     *  &apos;tag-name&apos;: [file, file],
+     *  &apos;other-tag&apos;: [file, file]
      * }
      * @type {Object.&lt;string, Array.&lt;File&gt;&gt;}
      */
-    this.metadataFiles;
+    this.metadataFiles = Object.create(null);
   }
 
   /**
@@ -126,7 +129,7 @@ export default class MetadataCollection extends CollectionBase {
       metadataValues = [metadataValues];
     }
 
-    metadataValues.forEach(rawValue =&gt; {
+    metadataValues.forEach((rawValue) =&gt; {
       // Slugify each value to make sure there&apos;s no collisions when we write
       // CollectionPages to disk. This prevents `open source` and `open-source`
       // from being in two different keys but both writing to the same
@@ -156,7 +159,7 @@ export default class MetadataCollection extends CollectionBase {
     this.data.metadata = {};
 
     // Store files that are in our collection.
-    _.each(files, file =&gt; {
+    _.each(files, (file) =&gt; {
       // Don&apos;t return value so we iterate over every file.
       this.addFile(file);
     });
@@ -177,14 +180,14 @@ export default class MetadataCollection extends CollectionBase {
       return false;
     }
 
-    if (this.metadataFiles) {
+    if (!_.isEmpty(this.metadataFiles)) {
       this.pages = [];
 
       // Create CollectionPage objects to represent our pagination pages.
-      _.each(this.metadataFiles, (files, metadataKey) =&gt; {
+      _.each(this.metadataFiles, (rawFiles, metadataKey) =&gt; {
         // Sort files.
-        files = CollectionBase.sortFiles(
-          files,
+        const files = CollectionBase.sortFiles(
+          rawFiles,
           this.sort,
           this._getConfig().get(&apos;file.date_format&apos;)
         );
@@ -211,7 +214,7 @@ export default class MetadataCollection extends CollectionBase {
             per_page: this.pageSize,
 
             // Total number of posts
-            total: files.length
+            total: files.length,
           });
 
           // Files in the page.
@@ -219,7 +222,7 @@ export default class MetadataCollection extends CollectionBase {
 
           // Create a map of the metadataKey to its full URL on the file object.
           // Useful when rendering and wanting to link out to the metadata page.
-          pageFiles.forEach(file =&gt; {
+          pageFiles.forEach((file) =&gt; {
             file.data.metadataUrls = file.data.metadataUrls || {};
             file.data.metadataUrls[metadataKey] = collectionPage.data.url;
           });
@@ -232,23 +235,23 @@ export default class MetadataCollection extends CollectionBase {
 
     this._linkPages(
       // ShouldLinkPrevious
-      (previous, collectionPage) =&gt; {
+      (previous, collectionPage) =&gt; (
         // With metadata collections all pages aren&apos;t made in the same context.
         // i.e. for a tag metadata collection you&apos;ll have 3 pages with metadata
         // value of &apos;review&apos;, and 2 pages of value &apos;tutorial&apos;. These different
         // metadata values should not be linked.
-        return previous &amp;&amp; this.metadataFiles &amp;&amp;
-          previous.data.metadata === collectionPage.data.metadata;
-      },
+        previous &amp;&amp; this.metadataFiles &amp;&amp;
+          previous.data.metadata === collectionPage.data.metadata
+      ),
       // ShouldLinkNext
-      (next, collectionPage) =&gt; {
+      (next, collectionPage) =&gt; (
         // With metadata collections all pages aren&apos;t made in the same context.
         // i.e. for a tag metadata collection you&apos;ll have 3 pages with metadata
         // value of &apos;review&apos;, and 2 pages of value &apos;tutorial&apos;. These different
         // metadata values should not be linked.
-        return next &amp;&amp; this.metadataFiles &amp;&amp;
-          next.data.metadata === collectionPage.data.metadata;
-      }
+        next &amp;&amp; this.metadataFiles &amp;&amp;
+          next.data.metadata === collectionPage.data.metadata
+      )
     );
 
     return true;

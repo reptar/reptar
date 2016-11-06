@@ -36,7 +36,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getReptarPackageNames">getReptarPackageNames</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureMarkdownEngine">configureMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createMarkdownEngine">createMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMarkdownEngine">getMarkdownEngine</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderFileWithPlugins">renderFileWithPlugins</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBuiltinFilters">addBuiltinFilters</a></span></span></li>
@@ -62,8 +63,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/event-handler.js~EventHandler.html">EventHandler</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createPluginApi">createPluginApi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PluginEvents">PluginEvents</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/asset.js~Asset.html">Asset</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/index.js~Theme.html">Theme</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor-base.js~ProcessorBase.html">ProcessorBase</a></span></span></li>
@@ -75,13 +78,13 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import CollectionBase from &apos;<span><a href="file/lib/collection/base.js.html#lineNumber10">reptar/lib/collection/base.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import CollectionBase from &apos;<span><a href="file/lib/collection/base.js.html#lineNumber8">reptar/lib/collection/base.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/lib/collection/base.js.html#lineNumber10">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/lib/collection/base.js.html#lineNumber8">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -462,7 +465,7 @@ collection.</p>
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/lib/collection/base.js~CollectionBase.html#instance-method-createPage">createPage</a></span></span><span data-ice="signature">(index: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, pageId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="class/lib/collection/page.js~CollectionPage.html">CollectionPage</a></span></span>
+           <span data-ice="name"><span><a href="class/lib/collection/base.js~CollectionBase.html#instance-method-createPage">createPage</a></span></span><span data-ice="signature">(index: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, pageIdArg: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="class/lib/collection/page.js~CollectionPage.html">CollectionPage</a></span></span>
         </p>
       </div>
       <div>
@@ -575,7 +578,7 @@ collection.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber226">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber224">source</a></span></span>
     </span>
   </h3>
 
@@ -661,7 +664,7 @@ collection.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber17">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber15">source</a></span></span>
     </span>
   </h3>
 
@@ -736,7 +739,7 @@ collection.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber38">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber36">source</a></span></span>
     </span>
   </h3>
 
@@ -777,7 +780,7 @@ collection.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber26">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber24">source</a></span></span>
     </span>
   </h3>
 
@@ -818,7 +821,7 @@ collection.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber63">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber61">source</a></span></span>
     </span>
   </h3>
 
@@ -860,7 +863,7 @@ collection.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber32">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber30">source</a></span></span>
     </span>
   </h3>
 
@@ -901,7 +904,7 @@ collection.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber83">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber81">source</a></span></span>
     </span>
   </h3>
 
@@ -942,7 +945,7 @@ collection.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber127">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber125">source</a></span></span>
     </span>
   </h3>
 
@@ -983,7 +986,7 @@ collection.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber51">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber49">source</a></span></span>
     </span>
   </h3>
 
@@ -1024,7 +1027,7 @@ collection.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber104">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber102">source</a></span></span>
     </span>
   </h3>
 
@@ -1065,7 +1068,7 @@ collection.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber91">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber89">source</a></span></span>
     </span>
   </h3>
 
@@ -1106,7 +1109,7 @@ collection.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber71">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber69">source</a></span></span>
     </span>
   </h3>
 
@@ -1146,11 +1149,11 @@ collection.</p>
     
     
     
-    <span data-ice="name">createPage</span><span data-ice="signature">(index: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, pageId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="class/lib/collection/page.js~CollectionPage.html">CollectionPage</a></span></span>
+    <span data-ice="name">createPage</span><span data-ice="signature">(index: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, pageIdArg: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="class/lib/collection/page.js~CollectionPage.html">CollectionPage</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber156">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber154">source</a></span></span>
     </span>
   </h3>
 
@@ -1178,10 +1181,10 @@ collection.</p>
 </td>
     </tr>
 <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">pageId</td>
+      <td data-ice="name" data-depth="0">pageIdArg</td>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>Optionally give a custom ID for a CollectionPage.</p>
+      <td data-ice="description"><p>Optional custom ID for a CollectionPage.</p>
 </td>
     </tr>
 </tbody>
@@ -1226,7 +1229,7 @@ collection.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber135">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber133">source</a></span></span>
     </span>
   </h3>
 
@@ -1295,7 +1298,7 @@ collection.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber146">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber144">source</a></span></span>
     </span>
   </h3>
 
@@ -1371,7 +1374,7 @@ collection.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber205">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/collection/base.js.html#lineNumber203">source</a></span></span>
     </span>
   </h3>
 

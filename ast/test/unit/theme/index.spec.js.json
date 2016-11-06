@@ -1,7 +1,7 @@
 {
   "type": "Program",
   "start": 0,
-  "end": 205,
+  "end": 190,
   "loc": {
     "start": {
       "line": 1,
@@ -17,7 +17,7 @@
     {
       "type": "ExpressionStatement",
       "start": 96,
-      "end": 204,
+      "end": 189,
       "loc": {
         "start": {
           "line": 5,
@@ -31,7 +31,7 @@
       "expression": {
         "type": "CallExpression",
         "start": 96,
-        "end": 203,
+        "end": 188,
         "loc": {
           "start": {
             "line": 5,
@@ -79,9 +79,9 @@
             "raw": "'Theme'"
           },
           {
-            "type": "FunctionExpression",
+            "type": "ArrowFunctionExpression",
             "start": 114,
-            "end": 202,
+            "end": 187,
             "loc": {
               "start": {
                 "line": 5,
@@ -99,12 +99,12 @@
             "params": [],
             "body": {
               "type": "BlockStatement",
-              "start": 125,
-              "end": 202,
+              "start": 120,
+              "end": 187,
               "loc": {
                 "start": {
                   "line": 5,
-                  "column": 29
+                  "column": 24
                 },
                 "end": {
                   "line": 10,
@@ -114,8 +114,8 @@
               "body": [
                 {
                   "type": "ExpressionStatement",
-                  "start": 129,
-                  "end": 200,
+                  "start": 124,
+                  "end": 185,
                   "loc": {
                     "start": {
                       "line": 6,
@@ -128,8 +128,8 @@
                   },
                   "expression": {
                     "type": "CallExpression",
-                    "start": 129,
-                    "end": 199,
+                    "start": 124,
+                    "end": 184,
                     "loc": {
                       "start": {
                         "line": 6,
@@ -142,8 +142,8 @@
                     },
                     "callee": {
                       "type": "Identifier",
-                      "start": 129,
-                      "end": 137,
+                      "start": 124,
+                      "end": 132,
                       "loc": {
                         "start": {
                           "line": 6,
@@ -159,8 +159,8 @@
                     "arguments": [
                       {
                         "type": "Literal",
-                        "start": 138,
-                        "end": 144,
+                        "start": 133,
+                        "end": 139,
                         "loc": {
                           "start": {
                             "line": 6,
@@ -176,9 +176,9 @@
                         "raw": "'TODO'"
                       },
                       {
-                        "type": "FunctionExpression",
-                        "start": 146,
-                        "end": 198,
+                        "type": "ArrowFunctionExpression",
+                        "start": 141,
+                        "end": 183,
                         "loc": {
                           "start": {
                             "line": 6,
@@ -196,12 +196,12 @@
                         "params": [],
                         "body": {
                           "type": "BlockStatement",
-                          "start": 157,
-                          "end": 198,
+                          "start": 147,
+                          "end": 183,
                           "loc": {
                             "start": {
                               "line": 6,
-                              "column": 30
+                              "column": 25
                             },
                             "end": {
                               "line": 9,
@@ -211,8 +211,8 @@
                           "body": [
                             {
                               "type": "ExpressionStatement",
-                              "start": 163,
-                              "end": 194,
+                              "start": 153,
+                              "end": 179,
                               "loc": {
                                 "start": {
                                   "line": 7,
@@ -225,8 +225,8 @@
                               },
                               "expression": {
                                 "type": "CallExpression",
-                                "start": 163,
-                                "end": 193,
+                                "start": 153,
+                                "end": 178,
                                 "loc": {
                                   "start": {
                                     "line": 7,
@@ -239,8 +239,8 @@
                                 },
                                 "callee": {
                                   "type": "Identifier",
-                                  "start": 163,
-                                  "end": 165,
+                                  "start": 153,
+                                  "end": 155,
                                   "loc": {
                                     "start": {
                                       "line": 7,
@@ -256,8 +256,8 @@
                                 "arguments": [
                                   {
                                     "type": "Literal",
-                                    "start": 166,
-                                    "end": 172,
+                                    "start": 156,
+                                    "end": 162,
                                     "loc": {
                                       "start": {
                                         "line": 7,
@@ -273,9 +273,9 @@
                                     "raw": "'TODO'"
                                   },
                                   {
-                                    "type": "FunctionExpression",
-                                    "start": 174,
-                                    "end": 192,
+                                    "type": "ArrowFunctionExpression",
+                                    "start": 164,
+                                    "end": 177,
                                     "loc": {
                                       "start": {
                                         "line": 7,
@@ -293,12 +293,12 @@
                                     "params": [],
                                     "body": {
                                       "type": "BlockStatement",
-                                      "start": 185,
-                                      "end": 192,
+                                      "start": 170,
+                                      "end": 177,
                                       "loc": {
                                         "start": {
                                           "line": 7,
-                                          "column": 26
+                                          "column": 21
                                         },
                                         "end": {
                                           "line": 8,
@@ -309,16 +309,16 @@
                                     }
                                   }
                                 ],
-                                "_esdocTestId": 116,
-                                "_esdocTestName": "it116"
+                                "_esdocTestId": 120,
+                                "_esdocTestName": "it120"
                               }
                             }
                           ]
                         }
                       }
                     ],
-                    "_esdocTestId": 115,
-                    "_esdocTestName": "describe115"
+                    "_esdocTestId": 119,
+                    "_esdocTestName": "describe119"
                   }
                 }
               ]
@@ -326,8 +326,8 @@
           }
         ],
         "leadingComments": null,
-        "_esdocTestId": 114,
-        "_esdocTestName": "describe114"
+        "_esdocTestId": 118,
+        "_esdocTestName": "describe118"
       },
       "leadingComments": [
         {

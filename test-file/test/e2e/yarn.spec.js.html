@@ -36,7 +36,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getReptarPackageNames">getReptarPackageNames</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureMarkdownEngine">configureMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createMarkdownEngine">createMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMarkdownEngine">getMarkdownEngine</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderFileWithPlugins">renderFileWithPlugins</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBuiltinFilters">addBuiltinFilters</a></span></span></li>
@@ -62,8 +63,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/event-handler.js~EventHandler.html">EventHandler</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createPluginApi">createPluginApi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PluginEvents">PluginEvents</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/asset.js~Asset.html">Asset</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/index.js~Theme.html">Theme</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor-base.js~ProcessorBase.html">ProcessorBase</a></span></span></li>
@@ -86,17 +89,17 @@ import {
   filterOnlyFiles,
   restoreMockFs,
 } from &apos;../fixtures&apos;;
-import fs from &apos;fs-extra&apos;;
+import fs from &apos;fs-extra&apos;; // eslint-disable-line import/first
 
-import Reptar from &apos;../../lib/index.js&apos;;
-import cache from &apos;../../lib/cache.js&apos;;
-import Config from &apos;../../lib/config/index.js&apos;;
-import Theme from &apos;../../lib/theme/index.js&apos;;
+import Reptar from &apos;../../lib/index&apos;;
+import cache from &apos;../../lib/cache&apos;;
+import Config from &apos;../../lib/config/index&apos;;
+import Theme from &apos;../../lib/theme/index&apos;;
+import log from &apos;../../lib/log&apos;;
 
-import log from &apos;../../lib/log.js&apos;;
 log.setSilent(true);
 
-describe(&apos;reptar Reptar&apos;, function() {
+describe(&apos;reptar Reptar&apos;, function test() {
   this.timeout(5000);
 
   let sandbox;
@@ -117,13 +120,13 @@ describe(&apos;reptar Reptar&apos;, function() {
     restoreMockFs();
   });
 
-  it(&apos;instantiates correctly&apos;, async function() {
+  it(&apos;instantiates correctly&apos;, async () =&gt; {
     sandbox.spy(Reptar.prototype, &apos;update&apos;);
     sandbox.spy(Config.prototype, &apos;update&apos;);
     sandbox.spy(Theme.prototype, &apos;setGetConfig&apos;);
 
     const instance = new Reptar({
-      rootPath: getPathToSimpleMock()
+      rootPath: getPathToSimpleMock(),
     });
     assert.equal(instance.update.callCount, 0);
 
@@ -142,18 +145,19 @@ describe(&apos;reptar Reptar&apos;, function() {
     assert(_.isObject(instance.data.collections));
   });
 
-  it(&apos;builds site correctly&apos;, async function() {
+  it(&apos;builds site correctly&apos;, async () =&gt; {
     sandbox.spy(fs, &apos;outputFile&apos;);
 
     // Build site.
     const instance = new Reptar({
-      rootPath: getPathToSimpleMock()
+      rootPath: getPathToSimpleMock(),
     });
     await instance.update();
     await instance.build();
 
     assert(fs.outputFile.callCount &gt; 0);
 
+    // eslint-disable-next-line no-plusplus
     for (let i = 0; i &lt; fs.outputFile.callCount; i++) {
       const fileDestination = fs.outputFile.getCall(i).args[0];
       const fileDestinationRelative = fileDestination.replace(
@@ -165,7 +169,6 @@ describe(&apos;reptar Reptar&apos;, function() {
       assert.equal(fileWritten, simpleOneOutput[fileDestinationRelative]);
     }
   });
-
 });
 </code></pre>
 

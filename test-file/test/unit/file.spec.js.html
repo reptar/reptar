@@ -36,7 +36,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getReptarPackageNames">getReptarPackageNames</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureMarkdownEngine">configureMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createMarkdownEngine">createMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMarkdownEngine">getMarkdownEngine</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderFileWithPlugins">renderFileWithPlugins</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBuiltinFilters">addBuiltinFilters</a></span></span></li>
@@ -62,8 +63,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/event-handler.js~EventHandler.html">EventHandler</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createPluginApi">createPluginApi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PluginEvents">PluginEvents</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/asset.js~Asset.html">Asset</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/index.js~Theme.html">Theme</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor-base.js~ProcessorBase.html">ProcessorBase</a></span></span></li>
@@ -88,10 +91,10 @@ import {
 
 import Url from &apos;../../lib/url&apos;;
 import Parse from &apos;../../lib/parse&apos;;
-import {configureMarkdownEngine} from &apos;../../lib/markdown.js&apos;;
-configureMarkdownEngine();
+import File from &apos;../../lib/file&apos;;
+import { createMarkdownEngine } from &apos;../../lib/markdown&apos;;
 
-import File from &apos;../../lib/file.js&apos;;
+createMarkdownEngine();
 
 describe(&apos;file File&apos;, () =&gt; {
   const filePath = &apos;/fixture/_posts/hello-world.md&apos;;
@@ -152,7 +155,7 @@ describe(&apos;file File&apos;, () =&gt; {
         },
         values: {
           post: false,
-        }
+        },
       },
       {
         scope: {
@@ -164,7 +167,7 @@ describe(&apos;file File&apos;, () =&gt; {
         values: {
           post: true,
           layout: &apos;post&apos;,
-        }
+        },
       },
       {
         scope: {
@@ -172,20 +175,23 @@ describe(&apos;file File&apos;, () =&gt; {
         },
         values: {
           newAge: true,
-        }
+        },
       },
     ];
+    // eslint-disable-next-line no-shadow
     const config = createMockConfig({
       file: {
         defaults,
       },
     });
+    // eslint-disable-next-line no-shadow
     const getConfig = () =&gt; config;
 
     function createFile(filePathParts, additionalFrontmatter = {}) {
       return async () =&gt; {
         sandbox.restore();
 
+        // eslint-disable-next-line no-shadow
         const filePath = path.join(config.get(&apos;path.source&apos;), ...filePathParts);
 
         const readFileStub = (file, opts, cb) =&gt;
@@ -218,7 +224,7 @@ describe(&apos;file File&apos;, () =&gt; {
           }),
           _.defaults(
             defaults[0].values,
-          )
+          ),
         ],
         [
           createFile([&apos;_posts&apos;, &apos;hello-world.md&apos;], {
@@ -227,7 +233,7 @@ describe(&apos;file File&apos;, () =&gt; {
           _.defaults(
             defaults[1].values,
             defaults[0].values,
-          )
+          ),
         ],
         [
           createFile([&apos;_posts&apos;, &apos;2016&apos;, &apos;its-me-again.md&apos;], {
@@ -238,7 +244,7 @@ describe(&apos;file File&apos;, () =&gt; {
             defaults[2].values,
             defaults[1].values,
             defaults[0].values,
-          )
+          ),
         ],
       ].map(async ([creator, expectedValue]) =&gt; {
         const instance = await creator();
@@ -248,7 +254,7 @@ describe(&apos;file File&apos;, () =&gt; {
         // Make sure that for every expected default it should at least exist
         // as a property on the data object. The value might be different
         // depending if it is over-written but it should exist.
-        Object.keys(expectedValue).forEach(expectedKey =&gt; {
+        Object.keys(expectedValue).forEach((expectedKey) =&gt; {
           assert.ok(instance.data[expectedKey] != null);
         });
       });
@@ -318,7 +324,7 @@ describe(&apos;file File&apos;, () =&gt; {
       permalink,
       url: Url.makePretty(
         Url.makeUrlFileSystemSafe(instance.data.permalink)
-      )
+      ),
     });
   });
 
@@ -331,40 +337,40 @@ describe(&apos;file File&apos;, () =&gt; {
 
       config._raw.file.filters = {
         metadata: {
-          draft: false
-        }
+          draft: false,
+        },
       };
       await instance.update();
       assert.equal(instance.filtered, false);
 
       config._raw.file.filters = {
         metadata: {
-          draft: true
-        }
+          draft: true,
+        },
       };
       await instance.update();
       assert.equal(instance.filtered, true);
 
       config._raw.file.filters = {
         future_date: {
-          key: &apos;draft&apos;
-        }
+          key: &apos;draft&apos;,
+        },
       };
       await instance.update();
       assert.equal(instance.filtered, false);
 
       config._raw.file.filters = {
         future_date: {
-          key: &apos;future_date&apos;
-        }
+          key: &apos;future_date&apos;,
+        },
       };
       await instance.update();
       assert.equal(instance.filtered, true);
 
       config._raw.file.filters = {
         future_date: {
-          key: &apos;date&apos;
-        }
+          key: &apos;date&apos;,
+        },
       };
       await instance.update();
       assert.equal(instance.filtered, false);

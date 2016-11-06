@@ -36,7 +36,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getReptarPackageNames">getReptarPackageNames</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureMarkdownEngine">configureMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createMarkdownEngine">createMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMarkdownEngine">getMarkdownEngine</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderFileWithPlugins">renderFileWithPlugins</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBuiltinFilters">addBuiltinFilters</a></span></span></li>
@@ -62,8 +63,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/event-handler.js~EventHandler.html">EventHandler</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createPluginApi">createPluginApi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PluginEvents">PluginEvents</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/asset.js~Asset.html">Asset</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/index.js~Theme.html">Theme</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor-base.js~ProcessorBase.html">ProcessorBase</a></span></span></li>
@@ -75,23 +78,19 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode"></code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import Plugin from &apos;<span><a href="file/lib/plugin/index.js.html#lineNumber8">reptar/lib/plugin/index.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/lib/plugin/index.js.html#lineNumber9">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/lib/plugin/index.js.html#lineNumber8">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
   <h1 data-ice="name">Plugin</h1>
 
-  <div data-ice="instanceDocs" class="instance-docs">
-    <span>You can directly use an instance of this class.</span>
-    
-  <span data-ice="instanceDoc"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span>
-</div>
+  
 
   
   
@@ -117,48 +116,14 @@
 </div>
 
 
-
-<div data-ice="constructorSummary"><h2>Constructor Summary</h2><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">Public Constructor</td></tr></thead>
+<div data-ice="staticMethodSummary"><h2>Static Method Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Static Public Methods</td></tr></thead>
   <tbody>
   
   <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-           <span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html#instance-constructor-constructor">constructor</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-</tbody>
-</table>
-</div>
-
-<div data-ice="methodSummary"><h2>Method Summary</h2><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">Public Methods</td></tr></thead>
-  <tbody>
-  
-  <tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
+      <span data-ice="static">static</span>
       
       
       <span class="override" data-ice="override"></span>
@@ -166,32 +131,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html#instance-method-addEventHandler">addEventHandler</a></span></span><span data-ice="signature">(eventName: <span>*</span>, handler: <span>*</span>)</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-           <span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html#instance-method-loadFromDirectory">loadFromDirectory</a></span></span><span data-ice="signature">(directory: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>)</span>
+           <span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html#static-method-loadFromDirectory">loadFromDirectory</a></span></span><span data-ice="signature">(directory: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>)</span>
         </p>
       </div>
       <div>
@@ -209,7 +149,7 @@
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-      
+      <span data-ice="static">static</span>
       
       
       <span class="override" data-ice="override"></span>
@@ -217,7 +157,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html#instance-method-loadFromPackageJson">loadFromPackageJson</a></span></span><span data-ice="signature">(directory: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, pluginConfigs: <span>*</span>)</span>
+           <span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html#static-method-loadFromPackageJson">loadFromPackageJson</a></span></span><span data-ice="signature">(directory: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, pluginConfigs: <span>*</span>)</span>
         </p>
       </div>
       <div>
@@ -234,7 +174,7 @@
 <tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
-      
+      <span data-ice="static">static</span>
       
       
       <span class="override" data-ice="override"></span>
@@ -242,13 +182,15 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html#instance-method-processEventHandlers">processEventHandlers</a></span></span><span data-ice="signature">(eventName: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, args: <span>*</span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></span></span>
+           <span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html#static-method-loadPlugin">loadPlugin</a></span></span><span data-ice="signature">(pluginPath: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, options: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>)</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Processes our queue of event handlers for a given eventName.</p>
+        <div data-ice="description"><p>Using node&apos;s require function, load a plugin and invoke it, passing it
+the API object and any other additional objects defined from the
+_config.yml file.</p>
 </div>
       </div>
     </td>
@@ -265,118 +207,14 @@
 
 
 
-<div data-ice="constructorDetails"><h2 data-ice="title">Public Constructors</h2>
+
+
+<div data-ice="staticMethodDetails"><h2 data-ice="title">Static Public Methods</h2>
 
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-constructor-constructor">
+  <h3 data-ice="anchor" id="static-method-loadFromDirectory">
     <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    <span data-ice="name">constructor</span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/lib/plugin/index.js.html#lineNumber10">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-</div>
-
-<div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
-
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-addEventHandler">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    <span data-ice="name">addEventHandler</span><span data-ice="signature">(eventName: <span>*</span>, handler: <span>*</span>)</span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/lib/plugin/index.js.html#lineNumber45">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">eventName</td>
-      <td data-ice="type"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">handler</td>
-      <td data-ice="type"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-loadFromDirectory">
-    <span class="access" data-ice="access">public</span>
-    
+    <span data-ice="static">static</span>
     
     
     
@@ -384,7 +222,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/plugin/index.js.html#lineNumber124">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/plugin/index.js.html#lineNumber24">source</a></span></span>
     </span>
   </h3>
 
@@ -432,9 +270,9 @@
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-loadFromPackageJson">
+  <h3 data-ice="anchor" id="static-method-loadFromPackageJson">
     <span class="access" data-ice="access">public</span>
-    
+    <span data-ice="static">static</span>
     
     
     
@@ -442,7 +280,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/plugin/index.js.html#lineNumber109">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/plugin/index.js.html#lineNumber9">source</a></span></span>
     </span>
   </h3>
 
@@ -495,27 +333,26 @@
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-processEventHandlers">
+  <h3 data-ice="anchor" id="static-method-loadPlugin">
     <span class="access" data-ice="access">public</span>
+    <span data-ice="static">static</span>
     
     
     
-    
-    <span data-ice="name">processEventHandlers</span><span data-ice="signature">(eventName: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, args: <span>*</span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></span></span>
+    <span data-ice="name">loadPlugin</span><span data-ice="signature">(pluginPath: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, options: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/lib/plugin/index.js.html#lineNumber59">source</a></span></span>
+      <span data-ice="source"><span><a href="file/lib/plugin/index.js.html#lineNumber43">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Processes our queue of event handlers for a given eventName.
-If a handler returns &apos;undefined&apos; then we give the next handler
-the original arguments so that every handler gets to touch the
-data.</p>
+  <div data-ice="description"><p>Using node&apos;s require function, load a plugin and invoke it, passing it
+the API object and any other additional objects defined from the
+_config.yml file.</p>
 </div>
 
   
@@ -529,17 +366,17 @@ data.</p>
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">eventName</td>
+      <td data-ice="name" data-depth="0">pluginPath</td>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>Event key where the handlers live.</p>
+      <td data-ice="description"><p>Path to the plugin module.</p>
 </td>
     </tr>
 <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">args</td>
-      <td data-ice="type"><span>*</span></td>
+      <td data-ice="name" data-depth="0">options</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>Arguments.</p>
+      <td data-ice="description"><p>Plugin options.</p>
 </td>
     </tr>
 </tbody>
@@ -547,19 +384,7 @@ data.</p>
 </div>
 </div>
 
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tr>
-        <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></span></td>
-        <td class="return-desc" data-ice="returnDescription"><p>Promise that resolves to the ending value of the
-  promise chain.</p>
-</td>
-      </tr>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
+  
 
   
 
@@ -575,6 +400,9 @@ data.</p>
   
 </div>
 </div>
+
+
+
 </div>
 
 <footer class="footer">

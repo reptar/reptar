@@ -36,7 +36,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getReptarPackageNames">getReptarPackageNames</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureMarkdownEngine">configureMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createMarkdownEngine">createMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMarkdownEngine">getMarkdownEngine</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderFileWithPlugins">renderFileWithPlugins</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBuiltinFilters">addBuiltinFilters</a></span></span></li>
@@ -62,8 +63,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/event-handler.js~EventHandler.html">EventHandler</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createPluginApi">createPluginApi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PluginEvents">PluginEvents</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/asset.js~Asset.html">Asset</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/index.js~Theme.html">Theme</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor-base.js~ProcessorBase.html">ProcessorBase</a></span></span></li>
@@ -77,20 +80,19 @@
 <div class="content" data-ice="content"><h1 data-ice="title">test/unit/collection/type/file-system.spec.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import assert from &apos;power-assert&apos;;
 import sinon from &apos;sinon&apos;;
+import _ from &apos;lodash&apos;;
 
 import fixture from &apos;../../../fixture&apos;;
 import {
   createMockConfig,
 } from &apos;../../../utils&apos;;
 
-import _ from &apos;lodash&apos;;
+import Plugin from &apos;../../../../lib/plugin/index&apos;;
+import CollectionPage from &apos;../../../../lib/collection/page&apos;;
 
-import Plugin from &apos;../../../../lib/plugin/index.js&apos;;
-import CollectionPage from &apos;../../../../lib/collection/page.js&apos;;
-
-import CollectionBase from &apos;../../../../lib/collection/base.js&apos;;
+import CollectionBase from &apos;../../../../lib/collection/base&apos;;
 import FileSystemCollection
-  from &apos;../../../../lib/collection/type/file-system.js&apos;;
+  from &apos;../../../../lib/collection/type/file-system&apos;;
 
 describe(&apos;collection/type/file-system FileSystemCollection&apos;, () =&gt; {
   const config = createMockConfig();
@@ -100,7 +102,7 @@ describe(&apos;collection/type/file-system FileSystemCollection&apos;, () =&gt; 
   beforeEach(() =&gt; {
     sandbox = sinon.sandbox.create();
 
-    Plugin._reset();
+    Plugin.eventHandler._reset();
   });
 
   afterEach(() =&gt; {
@@ -114,19 +116,19 @@ describe(&apos;collection/type/file-system FileSystemCollection&apos;, () =&gt; 
       instance.path = path;
 
       let file = {
-        path: &apos;my/file&apos;
+        path: &apos;my/file&apos;,
       };
 
       assert.equal(instance._isFileInCollection(file), false);
 
       file = {
-        path: &apos;my/file/pat&apos;
+        path: &apos;my/file/pat&apos;,
       };
 
       assert.equal(instance._isFileInCollection(file), false);
 
       file = {
-        path: &apos;your/file/path/is/close&apos;
+        path: &apos;your/file/path/is/close&apos;,
       };
 
       assert.equal(instance._isFileInCollection(file), false);
@@ -139,13 +141,13 @@ describe(&apos;collection/type/file-system FileSystemCollection&apos;, () =&gt; 
       sinon.stub(instance, &apos;_isFileExcluded&apos;).returns(false);
 
       let file = {
-        path: &apos;my/file/path&apos;
+        path: &apos;my/file/path&apos;,
       };
 
       assert.equal(instance._isFileInCollection(file), true);
 
       file = {
-        path: &apos;my/file/path/is/deeper&apos;
+        path: &apos;my/file/path/is/deeper&apos;,
       };
 
       assert.equal(instance._isFileInCollection(file), true);
@@ -158,13 +160,13 @@ describe(&apos;collection/type/file-system FileSystemCollection&apos;, () =&gt; 
       sinon.stub(instance, &apos;_isFileExcluded&apos;).returns(true);
 
       let file = {
-        path: &apos;my/file/path&apos;
+        path: &apos;my/file/path&apos;,
       };
 
       assert.equal(instance._isFileInCollection(file), false);
 
       file = {
-        path: &apos;my/file/path/is/deeper&apos;
+        path: &apos;my/file/path/is/deeper&apos;,
       };
 
       assert.equal(instance._isFileInCollection(file), false);
@@ -189,7 +191,7 @@ describe(&apos;collection/type/file-system FileSystemCollection&apos;, () =&gt; 
       assert.equal(CollectionBase.sortFiles.calledOnce, false);
       assert(_.isUndefined(instance.metadataFiles));
 
-      files.forEach((file, index)=&gt; {
+      files.forEach((file, index) =&gt; {
         assert.equal(file.data, instance.data.files[index]);
       });
     });
@@ -210,7 +212,7 @@ describe(&apos;collection/type/file-system FileSystemCollection&apos;, () =&gt; 
       assert.equal(instance.createCollectionPages.calledOnce, true);
       assert.equal(CollectionBase.sortFiles.calledOnce, false);
 
-      files.forEach((file)=&gt; {
+      files.forEach((file) =&gt; {
         assert(_.isUndefined(file.permalink));
       });
 
@@ -306,11 +308,11 @@ describe(&apos;collection/type/file-system FileSystemCollection&apos;, () =&gt; 
   describe(&apos;_setExcludePaths&apos;, () =&gt; {
     const excludeCollections = [
       {
-        path: &apos;/my/path&apos;
+        path: &apos;/my/path&apos;,
       },
       {
-        path: &apos;your/path&apos;
-      }
+        path: &apos;your/path&apos;,
+      },
     ];
 
     const excludePaths = excludeCollections.map(coll =&gt; coll.path);
@@ -376,11 +378,11 @@ describe(&apos;collection/type/file-system FileSystemCollection&apos;, () =&gt; 
       instance.path = path;
       instance.excludePaths = [
         &apos;another/path&apos;,
-        path
+        path,
       ];
 
       const file = {
-        path: `a/long${path}`
+        path: `a/long${path}`,
       };
 
       assert.equal(instance._isFileExcluded(file), true);
@@ -392,17 +394,16 @@ describe(&apos;collection/type/file-system FileSystemCollection&apos;, () =&gt; 
       instance.path = path;
       instance.excludePaths = [
         &apos;another/path&apos;,
-        path
+        path,
       ];
 
       const file = {
-        path: &apos;a/long/time/ago&apos;
+        path: &apos;a/long/time/ago&apos;,
       };
 
       assert.equal(instance._isFileExcluded(file), false);
     });
   });
-
 });
 </code></pre>
 

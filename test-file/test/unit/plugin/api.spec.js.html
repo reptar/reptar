@@ -36,7 +36,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getReptarPackageNames">getReptarPackageNames</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureMarkdownEngine">configureMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createMarkdownEngine">createMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMarkdownEngine">getMarkdownEngine</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderFileWithPlugins">renderFileWithPlugins</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBuiltinFilters">addBuiltinFilters</a></span></span></li>
@@ -62,8 +63,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/event-handler.js~EventHandler.html">EventHandler</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createPluginApi">createPluginApi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PluginEvents">PluginEvents</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/asset.js~Asset.html">Asset</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/index.js~Theme.html">Theme</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor-base.js~ProcessorBase.html">ProcessorBase</a></span></span></li>
@@ -76,50 +79,67 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">test/unit/plugin/api.spec.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import assert from &apos;power-assert&apos;;
-import _ from &apos;lodash&apos;;
 import sinon from &apos;sinon&apos;;
+import _ from &apos;lodash&apos;;
 
-import {addTemplateFilter} from &apos;../../../lib/template.js&apos;;
-import Plugin from &apos;../../../lib/plugin/index.js&apos;;
+import { addTemplateFilter } from &apos;../../../lib/template&apos;;
+import { getMarkdownEngine } from &apos;../../../lib/markdown&apos;;
+import createPluginApi from &apos;../../../lib/plugin/api&apos;;
+import PluginEvents from &apos;../../../lib/plugin/events&apos;;
+import EventHandler from &apos;../../../lib/plugin/event-handler&apos;;
 
-const PluginAPI = Plugin.API;
-
-describe(&apos;plugin/api PluginAPI&apos;, function() {
-  beforeEach(() =&gt; {
-    Plugin._handlers = {};
-  });
-
-  it(&apos;provides a proxy to template.addFilter method&apos;, function() {
+describe(&apos;plugin/api PluginAPI&apos;, () =&gt; {
+  it(&apos;provides a proxy to template.addFilter method&apos;, () =&gt; {
+    const API = createPluginApi();
     assert.deepEqual(
-      PluginAPI.template.addFilter,
+      API.template.addFilter,
       addTemplateFilter
     );
   });
 
-  it(&apos;creates methods for registering event handlers&apos;, function() {
-    const beforeSpy = sinon.spy();
-    PluginAPI.event.file.beforeRender(beforeSpy);
+  it(&apos;allows you to configure markdown engine&apos;, () =&gt; {
+    const API = createPluginApi();
+    assert(typeof API.markdown.configure === &apos;function&apos;);
+    API.markdown.configure((md) =&gt; {
+      assert.equal(md, getMarkdownEngine());
+    });
+  });
 
-    assert(_.isArray(Plugin._handlers[Plugin.Event.file.beforeRender]));
-    assert.equal(Plugin._handlers[Plugin.Event.file.beforeRender].length, 1);
+  it(&apos;creates methods for registering event handlers&apos;, () =&gt; {
+    const eventHandler = new EventHandler();
+    const API = createPluginApi({
+      addEventHandler: eventHandler.addEventHandler.bind(eventHandler),
+    });
+
+    const beforeSpy = sinon.spy();
+    API.event.file.beforeRender(beforeSpy);
+
+    assert(_.isArray(eventHandler._handlers[PluginEvents.file.beforeRender]));
+    assert.equal(
+      eventHandler._handlers[PluginEvents.file.beforeRender].length,
+      1
+    );
     assert.deepEqual(
-      Plugin._handlers[Plugin.Event.file.beforeRender][0],
+      eventHandler._handlers[PluginEvents.file.beforeRender][0],
       beforeSpy
     );
     assert.equal(beforeSpy.called, false);
 
     const afterSpy = sinon.spy();
-    PluginAPI.event.file.afterRender(afterSpy);
-    PluginAPI.event.file.afterRender(afterSpy);
+    API.event.file.afterRender(afterSpy);
+    API.event.file.afterRender(afterSpy);
 
-    assert(_.isArray(Plugin._handlers[Plugin.Event.file.afterRender]));
-    assert.equal(Plugin._handlers[Plugin.Event.file.afterRender].length, 2);
+    assert(_.isArray(eventHandler._handlers[PluginEvents.file.afterRender]));
+    assert.equal(
+      eventHandler._handlers[PluginEvents.file.afterRender].length,
+      2
+    );
     assert.deepEqual(
-      Plugin._handlers[Plugin.Event.file.afterRender][0],
+      eventHandler._handlers[PluginEvents.file.afterRender][0],
       afterSpy
     );
     assert.deepEqual(
-      Plugin._handlers[Plugin.Event.file.afterRender][1],
+      eventHandler._handlers[PluginEvents.file.afterRender][1],
       afterSpy
     );
     assert.equal(afterSpy.called, false);

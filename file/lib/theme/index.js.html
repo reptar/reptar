@@ -36,7 +36,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getReptarPackageNames">getReptarPackageNames</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureMarkdownEngine">configureMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createMarkdownEngine">createMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMarkdownEngine">getMarkdownEngine</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderFileWithPlugins">renderFileWithPlugins</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBuiltinFilters">addBuiltinFilters</a></span></span></li>
@@ -62,8 +63,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/event-handler.js~EventHandler.html">EventHandler</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createPluginApi">createPluginApi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PluginEvents">PluginEvents</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/asset.js~Asset.html">Asset</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/index.js~Theme.html">Theme</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor-base.js~ProcessorBase.html">ProcessorBase</a></span></span></li>
@@ -80,7 +83,7 @@ import path from &apos;path&apos;;
 import fs from &apos;fs-extra&apos;;
 import resolve from &apos;resolve&apos;;
 import _ from &apos;lodash&apos;;
-import {getReptarPackageNames} from &apos;../json&apos;;
+import { getReptarPackageNames } from &apos;../json&apos;;
 import Parse from &apos;../parse&apos;;
 import * as CONSTANTS from &apos;../constants&apos;;
 import Asset from &apos;./asset&apos;;
@@ -91,7 +94,7 @@ import Asset from &apos;./asset&apos;;
  * @return {Array.&lt;string&gt;} Array of paths to theme.yml files.
  */
 function getThemesFromPackageJson(directory = &apos;&apos;) {
-  const reptarThemePackageNameRegex = /^reptar\-theme\-/;
+  const reptarThemePackageNameRegex = /^reptar-theme-/;
 
   // All packages that exist in our root package.json file.
   const reptarPackages = getReptarPackageNames(directory);
@@ -104,7 +107,7 @@ function getThemesFromPackageJson(directory = &apos;&apos;) {
 
     // Use module&apos;s main field which should reference the config yaml file.
     const yamlPath = resolve.sync(packageName, {
-      basedir: directory
+      basedir: directory,
     });
 
     packageThemes.push(yamlPath);
@@ -125,7 +128,7 @@ export default class Theme {
      * Raw object that holds the theme config object.
      * @type {Object}
      */
-    this.config;
+    this.config = Object.create(null);
 
     /**
      * Collection of all assets for this theme.
@@ -155,7 +158,7 @@ export default class Theme {
 
     // Find all theme config files that might exist.
     const fileSystemYamls = glob.sync(
-      configPath.themes + `/**/${CONSTANTS.YAML.THEME}`,
+      `${configPath.themes}/**/${CONSTANTS.YAML.THEME}`,
       { nodir: true }
     );
 
@@ -175,7 +178,7 @@ export default class Theme {
 
       // If the found theme config file name matches our set theme name
       // then save it.
-      if (parsedFile.name === this.name) {
+      if (_.get(parsedFile, &apos;name&apos;) === this.name) {
         // Save the directory where the correct theme file was found.
         parsedFile.path[CONSTANTS.KEY.SOURCE] = path.dirname(file);
         allFiles.push(parsedFile);
@@ -187,8 +190,8 @@ export default class Theme {
     if (files.length === 0) {
       throw new Error(`Did not find any theme named &apos;${this.name}&apos; installed.`);
     } else if (files.length !== 1) {
-      throw new Error(&apos;Found multiple themes with the same name: &apos; +
-        files.join(&apos;,&apos;));
+      const names = files.join(&apos;,&apos;);
+      throw new Error(`Found multiple themes with the same name: ${names}`);
     }
 
     const parsedFile = files[0];
@@ -207,12 +210,9 @@ export default class Theme {
 
         // Support converting array of values to their absolute path.
         if (_.isArray(keyValue)) {
-          this.config.path[key] = keyValue.map(value =&gt; {
-            return path.resolve(
-              rootPath,
-              value
-            );
-          });
+          this.config.path[key] = keyValue.map(value =&gt;
+            path.resolve(rootPath, value)
+          );
         } else {
           this.config.path[key] = path.resolve(rootPath, keyValue);
         }
@@ -250,13 +250,11 @@ export default class Theme {
 
     // Have every asset write itself to the destination folder.
     await Promise.all(
-      _.map(this.assets, asset =&gt; {
-        return asset.process(pathDestination);
-      })
+      _.map(this.assets, asset =&gt; asset.process(pathDestination))
     );
 
     // Expose every asset&apos;s data onto the theme&apos;s data object.
-    _.each(this.assets, asset =&gt; {
+    _.each(this.assets, (asset) =&gt; {
       if (asset.data) {
         this.data[asset.type] = asset.data.url;
       }
@@ -266,9 +264,7 @@ export default class Theme {
   async write() {
     // Have every asset write itself to the destination folder.
     await Promise.all(
-      _.map(this.assets, asset =&gt; {
-        return asset.write();
-      })
+      _.map(this.assets, asset =&gt; asset.write())
     );
   }
 }

@@ -36,7 +36,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getReptarPackageNames">getReptarPackageNames</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureMarkdownEngine">configureMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createMarkdownEngine">createMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMarkdownEngine">getMarkdownEngine</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderFileWithPlugins">renderFileWithPlugins</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBuiltinFilters">addBuiltinFilters</a></span></span></li>
@@ -62,8 +63,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/event-handler.js~EventHandler.html">EventHandler</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createPluginApi">createPluginApi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PluginEvents">PluginEvents</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/asset.js~Asset.html">Asset</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/index.js~Theme.html">Theme</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor-base.js~ProcessorBase.html">ProcessorBase</a></span></span></li>
@@ -84,12 +87,12 @@ import {
   createMockConfig,
 } from &apos;../../../utils&apos;;
 
-import Plugin from &apos;../../../../lib/plugin/index.js&apos;;
-import CollectionPage from &apos;../../../../lib/collection/page.js&apos;;
+import Plugin from &apos;../../../../lib/plugin/index&apos;;
+import CollectionPage from &apos;../../../../lib/collection/page&apos;;
 
-import CollectionBase from &apos;../../../../lib/collection/base.js&apos;;
+import CollectionBase from &apos;../../../../lib/collection/base&apos;;
 import MetadataCollection from
-  &apos;../../../../lib/collection/type/metadata.js&apos;;
+  &apos;../../../../lib/collection/type/metadata&apos;;
 
 describe(&apos;collection/type/metadata MetadataCollection&apos;, () =&gt; {
   const config = createMockConfig();
@@ -99,7 +102,7 @@ describe(&apos;collection/type/metadata MetadataCollection&apos;, () =&gt; {
   beforeEach(() =&gt; {
     sandbox = sinon.sandbox.create();
 
-    Plugin._reset();
+    Plugin.eventHandler._reset();
   });
 
   afterEach(() =&gt; {
@@ -112,7 +115,7 @@ describe(&apos;collection/type/metadata MetadataCollection&apos;, () =&gt; {
       instance.metadata = &apos;soMeta&apos;;
 
       const file = {
-        data: {}
+        data: {},
       };
 
       file.data.someMeta = &apos;ok&apos;;
@@ -127,7 +130,7 @@ describe(&apos;collection/type/metadata MetadataCollection&apos;, () =&gt; {
       instance.metadata = &apos;soMeta&apos;;
 
       const file = {
-        data: {}
+        data: {},
       };
 
       file.data[instance.metadata] = null;
@@ -149,7 +152,7 @@ describe(&apos;collection/type/metadata MetadataCollection&apos;, () =&gt; {
       sinon.stub(instance, &apos;_isFileInCollection&apos;).returns(true);
       sandbox.spy(CollectionBase, &apos;sortFiles&apos;);
       assert(_.isUndefined(instance.files));
-      assert(_.isUndefined(instance.metadataFiles));
+      assert(_.isEmpty(instance.metadataFiles));
 
       const files = fixture.collectionFiles();
       assert.deepEqual(instance.populate(files), instance);
@@ -186,7 +189,7 @@ describe(&apos;collection/type/metadata MetadataCollection&apos;, () =&gt; {
       sinon.stub(instance, &apos;_isFileInCollection&apos;).returns(false);
       sandbox.spy(CollectionBase, &apos;sortFiles&apos;);
       assert(_.isUndefined(instance.files));
-      assert(_.isUndefined(instance.metadataFiles));
+      assert(_.isEmpty(instance.metadataFiles));
 
       const files = fixture.collectionFiles();
       assert.deepEqual(instance.populate(files), instance);
@@ -234,7 +237,7 @@ describe(&apos;collection/type/metadata MetadataCollection&apos;, () =&gt; {
       instance.permalink.index = &apos;index.html&apos;;
       instance.permalink.page = &apos;/page/:metadata/:page.html&apos;;
       assert.equal(instance.pages.length, 0);
-      assert(_.isUndefined(instance.metadataFiles));
+      assert(_.isEmpty(instance.metadataFiles));
       sinon.spy(instance, &apos;createCollectionPages&apos;);
       sandbox.spy(CollectionBase, &apos;sortFiles&apos;);
 
@@ -263,6 +266,7 @@ describe(&apos;collection/type/metadata MetadataCollection&apos;, () =&gt; {
           expectedPermalink = instance.permalink.index;
         }
 
+        // eslint-disable-next-line no-shadow
         const files = instance.metadataFiles[page.data.metadata];
 
         assert(page instanceof CollectionPage);
@@ -293,7 +297,6 @@ describe(&apos;collection/type/metadata MetadataCollection&apos;, () =&gt; {
       });
     });
   });
-
 });
 </code></pre>
 

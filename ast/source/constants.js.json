@@ -1,7 +1,7 @@
 {
   "type": "Program",
   "start": 0,
-  "end": 611,
+  "end": 613,
   "loc": {
     "start": {
       "line": 1,
@@ -17,7 +17,7 @@
     {
       "type": "ExportNamedDeclaration",
       "start": 89,
-      "end": 160,
+      "end": 161,
       "loc": {
         "start": {
           "line": 6,
@@ -31,7 +31,7 @@
       "declaration": {
         "type": "VariableDeclaration",
         "start": 96,
-        "end": 160,
+        "end": 161,
         "loc": {
           "start": {
             "line": 6,
@@ -46,7 +46,7 @@
           {
             "type": "VariableDeclarator",
             "start": 102,
-            "end": 159,
+            "end": 160,
             "loc": {
               "start": {
                 "line": 6,
@@ -77,7 +77,7 @@
             "init": {
               "type": "ObjectExpression",
               "start": 109,
-              "end": 159,
+              "end": 160,
               "loc": {
                 "start": {
                   "line": 6,
@@ -227,8 +227,8 @@
           {
             "type": "Block",
             "value": "*\n * Key import assert from 'power-assert';, used when looking up values in\n * objects.\n * @enum {string}\n * @const\n ",
-            "start": 162,
-            "end": 283,
+            "start": 163,
+            "end": 284,
             "loc": {
               "start": {
                 "line": 11,
@@ -240,8 +240,8 @@
               }
             },
             "range": [
-              162,
-              283
+              163,
+              284
             ]
           }
         ]
@@ -274,8 +274,8 @@
         {
           "type": "Block",
           "value": "*\n * Key import assert from 'power-assert';, used when looking up values in\n * objects.\n * @enum {string}\n * @const\n ",
-          "start": 162,
-          "end": 283,
+          "start": 163,
+          "end": 284,
           "loc": {
             "start": {
               "line": 11,
@@ -287,16 +287,16 @@
             }
           },
           "range": [
-            162,
-            283
+            163,
+            284
           ]
         }
       ]
     },
     {
       "type": "ExportNamedDeclaration",
-      "start": 284,
-      "end": 610,
+      "start": 285,
+      "end": 612,
       "loc": {
         "start": {
           "line": 17,
@@ -309,8 +309,8 @@
       },
       "declaration": {
         "type": "VariableDeclaration",
-        "start": 291,
-        "end": 610,
+        "start": 292,
+        "end": 612,
         "loc": {
           "start": {
             "line": 17,
@@ -324,8 +324,8 @@
         "declarations": [
           {
             "type": "VariableDeclarator",
-            "start": 297,
-            "end": 609,
+            "start": 298,
+            "end": 611,
             "loc": {
               "start": {
                 "line": 17,
@@ -338,8 +338,8 @@
             },
             "id": {
               "type": "Identifier",
-              "start": 297,
-              "end": 300,
+              "start": 298,
+              "end": 301,
               "loc": {
                 "start": {
                   "line": 17,
@@ -355,8 +355,8 @@
             },
             "init": {
               "type": "ObjectExpression",
-              "start": 303,
-              "end": 609,
+              "start": 304,
+              "end": 611,
               "loc": {
                 "start": {
                   "line": 17,
@@ -370,8 +370,8 @@
               "properties": [
                 {
                   "type": "Property",
-                  "start": 431,
-                  "end": 447,
+                  "start": 432,
+                  "end": 448,
                   "loc": {
                     "start": {
                       "line": 23,
@@ -387,8 +387,8 @@
                   "computed": false,
                   "key": {
                     "type": "Identifier",
-                    "start": 431,
-                    "end": 437,
+                    "start": 432,
+                    "end": 438,
                     "loc": {
                       "start": {
                         "line": 23,
@@ -404,8 +404,8 @@
                   },
                   "value": {
                     "type": "Literal",
-                    "start": 439,
-                    "end": 447,
+                    "start": 440,
+                    "end": 448,
                     "loc": {
                       "start": {
                         "line": 23,
@@ -425,8 +425,8 @@
                     {
                       "type": "Block",
                       "value": "*\n   * Key used on the config.path object to dictate where to find the site source\n   * path.\n   * @type {string}\n   ",
-                      "start": 307,
-                      "end": 428,
+                      "start": 308,
+                      "end": 429,
                       "loc": {
                         "start": {
                           "line": 18,
@@ -438,16 +438,16 @@
                         }
                       },
                       "range": [
-                        307,
-                        428
+                        308,
+                        429
                       ]
                     }
                   ]
                 },
                 {
                   "type": "Property",
-                  "start": 581,
-                  "end": 607,
+                  "start": 582,
+                  "end": 608,
                   "loc": {
                     "start": {
                       "line": 30,
@@ -463,8 +463,8 @@
                   "computed": false,
                   "key": {
                     "type": "Identifier",
-                    "start": 581,
-                    "end": 592,
+                    "start": 582,
+                    "end": 593,
                     "loc": {
                       "start": {
                         "line": 30,
@@ -480,8 +480,8 @@
                   },
                   "value": {
                     "type": "Literal",
-                    "start": 594,
-                    "end": 607,
+                    "start": 595,
+                    "end": 608,
                     "loc": {
                       "start": {
                         "line": 30,
@@ -501,8 +501,8 @@
                     {
                       "type": "Block",
                       "value": "*\n   * Key used on the config.path object to dictate where to find the site\n   * destination path.\n   * @type {string}\n   ",
-                      "start": 452,
-                      "end": 578,
+                      "start": 453,
+                      "end": 579,
                       "loc": {
                         "start": {
                           "line": 25,
@@ -514,8 +514,8 @@
                         }
                       },
                       "range": [
-                        452,
-                        578
+                        453,
+                        579
                       ]
                     }
                   ]
@@ -530,8 +530,8 @@
           {
             "type": "Block",
             "value": "*\n * Key import assert from 'power-assert';, used when looking up values in\n * objects.\n * @enum {string}\n * @const\n ",
-            "start": 162,
-            "end": 283,
+            "start": 163,
+            "end": 284,
             "loc": {
               "start": {
                 "line": 11,
@@ -543,8 +543,8 @@
               }
             },
             "range": [
-              162,
-              283
+              163,
+              284
             ]
           }
         ],
@@ -556,8 +556,8 @@
         {
           "type": "Block",
           "value": "*\n * Key import assert from 'power-assert';, used when looking up values in\n * objects.\n * @enum {string}\n * @const\n ",
-          "start": 162,
-          "end": 283,
+          "start": 163,
+          "end": 284,
           "loc": {
             "start": {
               "line": 11,
@@ -569,8 +569,8 @@
             }
           },
           "range": [
-            162,
-            283
+            163,
+            284
           ]
         }
       ]

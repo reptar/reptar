@@ -36,7 +36,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getReptarPackageNames">getReptarPackageNames</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureMarkdownEngine">configureMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createMarkdownEngine">createMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMarkdownEngine">getMarkdownEngine</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderFileWithPlugins">renderFileWithPlugins</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBuiltinFilters">addBuiltinFilters</a></span></span></li>
@@ -62,8 +63,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/event-handler.js~EventHandler.html">EventHandler</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createPluginApi">createPluginApi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PluginEvents">PluginEvents</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/asset.js~Asset.html">Asset</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/index.js~Theme.html">Theme</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor-base.js~ProcessorBase.html">ProcessorBase</a></span></span></li>
@@ -79,19 +82,21 @@
 import fs from &apos;fs-extra&apos;;
 import sinon from &apos;sinon&apos;;
 import fixture from &apos;../fixture&apos;;
-import Plugin from &apos;../../lib/plugin/index.js&apos;;
-const PluginAPI = Plugin.API;
-import CollectionBase from &apos;../../lib/collection/base.js&apos;;
+import Plugin from &apos;../../lib/plugin/index&apos;;
+import PluginEvents from &apos;../../lib/plugin/events&apos;;
+import CollectionBase from &apos;../../lib/collection/base&apos;;
 import {
   renderFileWithPlugins,
-} from &apos;../../lib/render.js&apos;;
+} from &apos;../../lib/render&apos;;
 
-describe(&apos;render Render&apos;, function() {
+const PluginAPI = Plugin.API;
+
+describe(&apos;render Render&apos;, () =&gt; {
   let sandbox;
   beforeEach(() =&gt; {
     sandbox = sinon.sandbox.create();
 
-    Plugin._reset();
+    Plugin.eventHandler._reset();
   });
 
   afterEach(() =&gt; {
@@ -101,7 +106,7 @@ describe(&apos;render Render&apos;, function() {
   describe(&apos;renderFileWithPlugins&apos;, () =&gt; {
     it(&apos;calls all functions in expected order&apos;, async () =&gt; {
       // Disallow actually writing to disk.
-      sandbox.stub(fs, &apos;outputFile&apos;, function(...args) {
+      sandbox.stub(fs, &apos;outputFile&apos;, (...args) =&gt; {
         // Call callback.
         args[args.length - 1]();
       });
@@ -109,10 +114,8 @@ describe(&apos;render Render&apos;, function() {
       const renderContent = &apos;hello world&apos;;
 
       const instance = new CollectionBase(&apos;name&apos;);
-      instance.files = fixture.collectionFiles().map(file =&gt; {
-        file.render = sinon.spy(() =&gt; {
-          return renderContent;
-        });
+      instance.files = fixture.collectionFiles().map((file) =&gt; {
+        file.render = sinon.spy(() =&gt; renderContent);
         return file;
       });
 
@@ -126,11 +129,11 @@ describe(&apos;render Render&apos;, function() {
         await renderFileWithPlugins(
           file,
           {},
-          Plugin.Event.file.beforeRender,
-          Plugin.Event.file.afterRender
+          PluginEvents.file.beforeRender,
+          PluginEvents.file.afterRender
         );
       } catch (e) {
-        console.log(e);
+        // noop
       }
 
       assert.equal(beforeSpy.callCount, 1);

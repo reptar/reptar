@@ -36,7 +36,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getReptarPackageNames">getReptarPackageNames</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureMarkdownEngine">configureMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createMarkdownEngine">createMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getMarkdownEngine">getMarkdownEngine</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderFileWithPlugins">renderFileWithPlugins</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addBuiltinFilters">addBuiltinFilters</a></span></span></li>
@@ -62,8 +63,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-instance">instance</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">plugin</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/event-handler.js~EventHandler.html">EventHandler</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/plugin/index.js~Plugin.html">Plugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createPluginApi">createPluginApi</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PluginEvents">PluginEvents</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">theme</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/asset.js~Asset.html">Asset</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/index.js~Theme.html">Theme</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/theme/processor-base.js~ProcessorBase.html">ProcessorBase</a></span></span></li>
@@ -80,8 +83,8 @@ import path from &apos;path&apos;;
 import Promise from &apos;bluebird&apos;;
 import fs from &apos;fs-extra&apos;;
 import cache from &apos;../cache&apos;;
-import { createChecksum } from &apos;../checksum&apos;;
-import Plugin from &apos;../plugin&apos;;
+import createChecksum from &apos;../checksum&apos;;
+import PluginEvents from &apos;../plugin/events&apos;;
 import {
   renderTemplate,
 } from &apos;../template&apos;;
@@ -135,7 +138,7 @@ export default class CollectionPage {
      * The permalink template.
      * @type {string}
      */
-    this.permalink;
+    this.permalink = &apos;&apos;;
 
     /**
      * Data accessible from template.
@@ -220,7 +223,7 @@ export default class CollectionPage {
       prev: previous.data.page,
 
       // The URL of previous page. &apos;&apos; if the current page is the first.
-      prev_link: previous.data.url
+      prev_link: previous.data.url,
     });
   }
 
@@ -234,7 +237,7 @@ export default class CollectionPage {
       next: next.data.page,
 
       // The URL of next page. &apos;&apos; if the current page is the last.
-      next_link: next.data.url
+      next_link: next.data.url,
     });
   }
 
@@ -293,8 +296,9 @@ export default class CollectionPage {
     const template = this.data.template;
 
     if (_.isNil(template)) {
-      throw new Error(`CollectionPage: No template given.\nData object: ` +
-        JSON.stringify(this.data));
+      let errMsg = &apos;CollectionPage: No template given.\nData object: &apos;;
+      errMsg += JSON.stringify(this.data);
+      throw new Error(errMsg);
     }
 
     return renderTemplate(template, templateData);
@@ -304,8 +308,8 @@ export default class CollectionPage {
     const [, result] = await renderFileWithPlugins(
       this,
       globalData,
-      Plugin.Event.page.beforeRender,
-      Plugin.Event.page.afterRender
+      PluginEvents.page.beforeRender,
+      PluginEvents.page.afterRender
     );
 
     return result;
@@ -314,7 +318,6 @@ export default class CollectionPage {
   /**
    * Writes a given CollectionPage to the file system.
    * @param {Object} globalData Site wide data.
-   * @return {Promise} Array of promises.
    */
   async write(globalData) {
     const checksum = this.getChecksum();
@@ -326,14 +329,12 @@ export default class CollectionPage {
 
     const content = await this.renderWithPlugins(globalData);
 
-    const result = await Promise.fromCallback(cb =&gt; {
+    await Promise.fromCallback((cb) =&gt; {
       fs.outputFile(this.destination, content, &apos;utf8&apos;, cb);
     });
 
     // Save checksum to cache for incremental builds.
     cache.put(this.id, checksum);
-
-    return result;
   }
 }
 </code></pre>
