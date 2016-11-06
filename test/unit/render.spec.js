@@ -3,6 +3,7 @@ import fs from 'fs-extra';
 import sinon from 'sinon';
 import fixture from '../fixture';
 import Plugin from '../../lib/plugin/index';
+import PluginEvents from '../../lib/plugin/events';
 import CollectionBase from '../../lib/collection/base';
 import {
   renderFileWithPlugins,
@@ -15,7 +16,7 @@ describe('render Render', () => {
   beforeEach(() => {
     sandbox = sinon.sandbox.create();
 
-    Plugin._reset();
+    Plugin.eventHandler._reset();
   });
 
   afterEach(() => {
@@ -48,8 +49,8 @@ describe('render Render', () => {
         await renderFileWithPlugins(
           file,
           {},
-          Plugin.Event.file.beforeRender,
-          Plugin.Event.file.afterRender
+          PluginEvents.file.beforeRender,
+          PluginEvents.file.afterRender
         );
       } catch (e) {
         // noop

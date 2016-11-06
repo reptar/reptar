@@ -22,7 +22,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
   beforeEach(() => {
     sandbox = sinon.sandbox.create();
 
-    Plugin._reset();
+    Plugin.eventHandler._reset();
   });
 
   afterEach(() => {

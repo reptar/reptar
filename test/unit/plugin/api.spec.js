@@ -1,48 +1,56 @@
 import assert from 'power-assert';
-import _ from 'lodash';
 import sinon from 'sinon';
+import _ from 'lodash';
 
 import { addTemplateFilter } from '../../../lib/template';
-import Plugin from '../../../lib/plugin/index';
-
-const PluginAPI = Plugin.API;
+import createPluginApi from '../../../lib/plugin/api';
+import PluginEvents from '../../../lib/plugin/events';
+import EventHandler from '../../../lib/plugin/event-handler';
 
 describe('plugin/api PluginAPI', () => {
-  beforeEach(() => {
-    Plugin._handlers = {};
-  });
-
   it('provides a proxy to template.addFilter method', () => {
+    const API = createPluginApi();
     assert.deepEqual(
-      PluginAPI.template.addFilter,
+      API.template.addFilter,
       addTemplateFilter
     );
   });
 
   it('creates methods for registering event handlers', () => {
-    const beforeSpy = sinon.spy();
-    PluginAPI.event.file.beforeRender(beforeSpy);
+    const eventHandler = new EventHandler();
+    const API = createPluginApi({
+      addEventHandler: eventHandler.addEventHandler.bind(eventHandler),
+    });
 
-    assert(_.isArray(Plugin._handlers[Plugin.Event.file.beforeRender]));
-    assert.equal(Plugin._handlers[Plugin.Event.file.beforeRender].length, 1);
+    const beforeSpy = sinon.spy();
+    API.event.file.beforeRender(beforeSpy);
+
+    assert(_.isArray(eventHandler._handlers[PluginEvents.file.beforeRender]));
+    assert.equal(
+      eventHandler._handlers[PluginEvents.file.beforeRender].length,
+      1
+    );
     assert.deepEqual(
-      Plugin._handlers[Plugin.Event.file.beforeRender][0],
+      eventHandler._handlers[PluginEvents.file.beforeRender][0],
       beforeSpy
     );
     assert.equal(beforeSpy.called, false);
 
     const afterSpy = sinon.spy();
-    PluginAPI.event.file.afterRender(afterSpy);
-    PluginAPI.event.file.afterRender(afterSpy);
+    API.event.file.afterRender(afterSpy);
+    API.event.file.afterRender(afterSpy);
 
-    assert(_.isArray(Plugin._handlers[Plugin.Event.file.afterRender]));
-    assert.equal(Plugin._handlers[Plugin.Event.file.afterRender].length, 2);
+    assert(_.isArray(eventHandler._handlers[PluginEvents.file.afterRender]));
+    assert.equal(
+      eventHandler._handlers[PluginEvents.file.afterRender].length,
+      2
+    );
     assert.deepEqual(
-      Plugin._handlers[Plugin.Event.file.afterRender][0],
+      eventHandler._handlers[PluginEvents.file.afterRender][0],
       afterSpy
     );
     assert.deepEqual(
-      Plugin._handlers[Plugin.Event.file.afterRender][1],
+      eventHandler._handlers[PluginEvents.file.afterRender][1],
       afterSpy
     );
     assert.equal(afterSpy.called, false);
