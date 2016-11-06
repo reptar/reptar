@@ -12,9 +12,9 @@ import {
 import Url from '../../lib/url';
 import Parse from '../../lib/parse';
 import File from '../../lib/file';
-import { configureMarkdownEngine } from '../../lib/markdown';
+import { createMarkdownEngine } from '../../lib/markdown';
 
-configureMarkdownEngine();
+createMarkdownEngine();
 
 describe('file File', () => {
   const filePath = '/fixture/_posts/hello-world.md';

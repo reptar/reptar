@@ -3,6 +3,7 @@ import sinon from 'sinon';
 import _ from 'lodash';
 
 import { addTemplateFilter } from '../../../lib/template';
+import { getMarkdownEngine } from '../../../lib/markdown';
 import createPluginApi from '../../../lib/plugin/api';
 import PluginEvents from '../../../lib/plugin/events';
 import EventHandler from '../../../lib/plugin/event-handler';
@@ -14,6 +15,14 @@ describe('plugin/api PluginAPI', () => {
       API.template.addFilter,
       addTemplateFilter
     );
+  });
+
+  it('allows you to configure markdown engine', () => {
+    const API = createPluginApi();
+    assert(typeof API.markdown.configure === 'function');
+    API.markdown.configure((md) => {
+      assert.equal(md, getMarkdownEngine());
+    });
   });
 
   it('creates methods for registering event handlers', () => {
