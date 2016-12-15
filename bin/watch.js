@@ -222,7 +222,14 @@ class Server {
         spinner: 'dot4',
       }).start();
 
-      await this.reptar.theme.read();
+      try {
+        await this.reptar.theme.read();
+      } catch (e) {
+        spinner.text += ` ${e.message}`;
+        spinner.fail();
+        return;
+      }
+
       this.updateIndex();
 
       spinner.text = `${label} (${Date.now() - startTime}ms)`;
@@ -234,7 +241,12 @@ class Server {
     ]).on('change', debounceFunction(async (changePath) => {
       log.info(`_config.yml updated at ${changePath}`);
 
-      await this.reptar.update();
+      try {
+        await this.reptar.update();
+      } catch (e) {
+        log.error(e);
+      }
+
       this.updateIndex();
     }));
 
@@ -243,7 +255,12 @@ class Server {
     ]).on('change', debounceFunction(async (changePath) => {
       log.info(`Data updated at ${changePath}`);
 
-      await this.reptar.update();
+      try {
+        await this.reptar.update();
+      } catch (e) {
+        log.error(e);
+      }
+
       this.updateIndex();
     }));
   }
