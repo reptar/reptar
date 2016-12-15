@@ -60,6 +60,13 @@
       "LabeledStatement",
       "WithStatement",
     ],
+    "comma-dangle": [2, {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "never",
+    }],
 
     "import/no-extraneous-dependencies": [2, {
       "devDependencies": ["**/*.spec.js"]

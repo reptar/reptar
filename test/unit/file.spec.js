@@ -143,7 +143,7 @@ describe('file File', () => {
             draft: true,
           }),
           _.defaults(
-            defaults[0].values,
+            defaults[0].values
           ),
         ],
         [
@@ -152,7 +152,7 @@ describe('file File', () => {
           }),
           _.defaults(
             defaults[1].values,
-            defaults[0].values,
+            defaults[0].values
           ),
         ],
         [
@@ -163,7 +163,7 @@ describe('file File', () => {
           _.defaults(
             defaults[2].values,
             defaults[1].values,
-            defaults[0].values,
+            defaults[0].values
           ),
         ],
       ].map(async ([creator, expectedValue]) => {
