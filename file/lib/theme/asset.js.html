@@ -161,7 +161,6 @@ export default class Asset {
       this.destination = processedFile.destination;
       this.content = processedFile.asset;
     } catch (e) {
-      log.error(&apos;Could not process file.&apos;);
       throw e;
     }
 

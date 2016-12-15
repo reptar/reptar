@@ -115,9 +115,7 @@ const cache = {
 
     try {
       data = JSON.parse(fs.readFileSync(filename));
-    } catch (err) {
-      return;
-    }
+    } catch (err) { }
   },
 
   save() {

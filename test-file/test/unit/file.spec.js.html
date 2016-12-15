@@ -223,7 +223,7 @@ describe(&apos;file File&apos;, () =&gt; {
             draft: true,
           }),
           _.defaults(
-            defaults[0].values,
+            defaults[0].values
           ),
         ],
         [
@@ -232,7 +232,7 @@ describe(&apos;file File&apos;, () =&gt; {
           }),
           _.defaults(
             defaults[1].values,
-            defaults[0].values,
+            defaults[0].values
           ),
         ],
         [
@@ -243,7 +243,7 @@ describe(&apos;file File&apos;, () =&gt; {
           _.defaults(
             defaults[2].values,
             defaults[1].values,
-            defaults[0].values,
+            defaults[0].values
           ),
         ],
       ].map(async ([creator, expectedValue]) =&gt; {

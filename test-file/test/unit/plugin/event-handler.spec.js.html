@@ -207,9 +207,7 @@ describe(&apos;plugin/event-handler EventHandler&apos;, () =&gt; {
     });
 
     it(&apos;invokes handlers with multiple arguments&apos;, async () =&gt; {
-      const blankReturnFn = sinon.spy(() =&gt; { // eslint-disable-line
-        return;
-      });
+      const blankReturnFn = sinon.spy(() =&gt; {});
 
       instance.addEventHandler(handlerName, blankReturnFn);
 

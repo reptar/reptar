@@ -2107,19 +2107,19 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber160",
+    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber158",
     "plugin/event-handler EventHandler processEventHandlers throws when plugin handlers",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber161",
+    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber159",
     "plugin/event-handler EventHandler processEventHandlers throws when plugin handlers return only part of the arguments given",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber181",
+    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber179",
     "plugin/event-handler EventHandler processEventHandlers throws when plugin handlers returns arguments in wrong order given",
     "test"
   ],
