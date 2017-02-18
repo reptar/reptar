@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import mockFs from 'mock-fs';
 import fs from 'fs-extra';
+import klaw from 'klaw';
 import path from 'path';
 import {
   getReptarPackageNames,
@@ -15,7 +16,7 @@ function getAllFilePaths(directory) {
   let filePaths = [];
 
   return new Promise((resolve) => {
-    fs.walk(directory)
+    klaw(directory)
       .on('data', function(item) {
         if (item.stats.isFile()) {
           filePaths.push(item.path);
