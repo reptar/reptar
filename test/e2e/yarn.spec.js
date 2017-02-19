@@ -59,10 +59,10 @@ describe('reptar Reptar', function test() {
     assert(instance.theme instanceof Theme);
     assert.equal(instance.theme.setGetConfig.callCount, 1);
 
-    assert(_.isObject(instance.files));
+    assert(_.isObject(instance.fileSystem.files));
     assert(_.isObject(instance.collections));
-    assert(_.isObject(instance.data));
-    assert(_.isObject(instance.data.collections));
+    assert(_.isObject(instance.metadata.get()));
+    assert(_.isObject(instance.metadata.get('collections')));
   });
 
   it('builds site correctly', async () => {
