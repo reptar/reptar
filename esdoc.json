@@ -11,7 +11,8 @@
     "type": "mocha",
     "source": "./test"
   },
-  "plugins": [
-    {"name": "esdoc-es7-plugin"}
-  ]
+  "experimentalProposal": {
+    "classProperties": true,
+    "objectRestSpread": true
+  }
 }
