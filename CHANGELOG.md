@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.3.2"></a>
+## [2.3.2](https://github.com/reptar/reptar/compare/v2.3.1...v2.3.2) (2017-02-19)
+
+
+### Bug Fixes
+
+* Make scripts work on Windows ([6c6fa1d](https://github.com/reptar/reptar/commit/6c6fa1d))
+
+
+
 <a name="2.3.1"></a>
 ## [2.3.1](https://github.com/reptar/reptar/compare/v2.3.0...v2.3.1) (2016-12-15)
 
