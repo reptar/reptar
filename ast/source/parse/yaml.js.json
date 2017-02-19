@@ -1,5 +1,5 @@
 {
-  "type": "Program",
+  "type": "File",
   "start": 0,
   "end": 480,
   "loc": {
@@ -12,39 +12,39 @@
       "column": 0
     }
   },
-  "sourceType": "module",
-  "body": [
-    {
-      "type": "ImportDeclaration",
-      "start": 48,
-      "end": 77,
-      "loc": {
-        "start": {
-          "line": 4,
-          "column": 0
-        },
-        "end": {
-          "line": 4,
-          "column": 29
-        }
+  "program": {
+    "type": "Program",
+    "start": 0,
+    "end": 480,
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
       },
-      "specifiers": [
-        {
-          "type": "ImportDefaultSpecifier",
-          "start": 55,
-          "end": 61,
-          "loc": {
-            "start": {
-              "line": 4,
-              "column": 7
-            },
-            "end": {
-              "line": 4,
-              "column": 13
-            }
+      "end": {
+        "line": 23,
+        "column": 0
+      }
+    },
+    "sourceType": "module",
+    "body": [
+      {
+        "type": "ImportDeclaration",
+        "start": 48,
+        "end": 77,
+        "loc": {
+          "start": {
+            "line": 4,
+            "column": 0
           },
-          "local": {
-            "type": "Identifier",
+          "end": {
+            "line": 4,
+            "column": 29
+          }
+        },
+        "specifiers": [
+          {
+            "type": "ImportDefaultSpecifier",
             "start": 55,
             "end": 61,
             "loc": {
@@ -57,259 +57,68 @@
                 "column": 13
               }
             },
-            "name": "jsYaml",
-            "leadingComments": null
-          },
-          "leadingComments": null
-        }
-      ],
-      "importKind": "value",
-      "source": {
-        "type": "Literal",
-        "start": 67,
-        "end": 76,
-        "loc": {
-          "start": {
-            "line": 4,
-            "column": 19
-          },
-          "end": {
-            "line": 4,
-            "column": 28
-          }
-        },
-        "value": "js-yaml",
-        "rawValue": "js-yaml",
-        "raw": "'js-yaml'"
-      },
-      "leadingComments": [
-        {
-          "type": "Block",
-          "value": "*\n * YAML operations, parse or stringify.\n ",
-          "start": 0,
-          "end": 47,
-          "loc": {
-            "start": {
-              "line": 1,
-              "column": 0
-            },
-            "end": {
-              "line": 3,
-              "column": 3
-            }
-          },
-          "range": [
-            0,
-            47
-          ]
-        }
-      ],
-      "trailingComments": [
-        {
-          "type": "Block",
-          "value": "*\n * Parse a YAML string into an object.\n * @param {string} str String containing YAML information.\n * @return {Object} Parsed YAML object.\n ",
-          "start": 79,
-          "end": 224,
-          "loc": {
-            "start": {
-              "line": 6,
-              "column": 0
-            },
-            "end": {
-              "line": 10,
-              "column": 3
-            }
-          },
-          "range": [
-            79,
-            224
-          ]
-        }
-      ]
-    },
-    {
-      "type": "ExportNamedDeclaration",
-      "start": 225,
-      "end": 286,
-      "loc": {
-        "start": {
-          "line": 11,
-          "column": 0
-        },
-        "end": {
-          "line": 13,
-          "column": 1
-        }
-      },
-      "declaration": {
-        "type": "FunctionDeclaration",
-        "start": 232,
-        "end": 286,
-        "loc": {
-          "start": {
-            "line": 11,
-            "column": 7
-          },
-          "end": {
-            "line": 13,
-            "column": 1
-          }
-        },
-        "id": {
-          "type": "Identifier",
-          "start": 241,
-          "end": 246,
-          "loc": {
-            "start": {
-              "line": 11,
-              "column": 16
-            },
-            "end": {
-              "line": 11,
-              "column": 21
-            }
-          },
-          "name": "parse",
-          "leadingComments": null
-        },
-        "generator": false,
-        "expression": false,
-        "async": false,
-        "params": [
-          {
-            "type": "Identifier",
-            "start": 247,
-            "end": 250,
-            "loc": {
-              "start": {
-                "line": 11,
-                "column": 22
-              },
-              "end": {
-                "line": 11,
-                "column": 25
-              }
-            },
-            "name": "str"
-          }
-        ],
-        "body": {
-          "type": "BlockStatement",
-          "start": 252,
-          "end": 286,
-          "loc": {
-            "start": {
-              "line": 11,
-              "column": 27
-            },
-            "end": {
-              "line": 13,
-              "column": 1
-            }
-          },
-          "body": [
-            {
-              "type": "ReturnStatement",
-              "start": 256,
-              "end": 284,
+            "local": {
+              "type": "Identifier",
+              "start": 55,
+              "end": 61,
               "loc": {
                 "start": {
-                  "line": 12,
-                  "column": 2
+                  "line": 4,
+                  "column": 7
                 },
                 "end": {
-                  "line": 12,
-                  "column": 30
-                }
+                  "line": 4,
+                  "column": 13
+                },
+                "identifierName": "jsYaml"
               },
-              "argument": {
-                "type": "CallExpression",
-                "start": 263,
-                "end": 283,
-                "loc": {
-                  "start": {
-                    "line": 12,
-                    "column": 9
-                  },
-                  "end": {
-                    "line": 12,
-                    "column": 29
-                  }
-                },
-                "callee": {
-                  "type": "MemberExpression",
-                  "start": 263,
-                  "end": 278,
-                  "loc": {
-                    "start": {
-                      "line": 12,
-                      "column": 9
-                    },
-                    "end": {
-                      "line": 12,
-                      "column": 24
-                    }
-                  },
-                  "object": {
-                    "type": "Identifier",
-                    "start": 263,
-                    "end": 269,
-                    "loc": {
-                      "start": {
-                        "line": 12,
-                        "column": 9
-                      },
-                      "end": {
-                        "line": 12,
-                        "column": 15
-                      }
-                    },
-                    "name": "jsYaml"
-                  },
-                  "property": {
-                    "type": "Identifier",
-                    "start": 270,
-                    "end": 278,
-                    "loc": {
-                      "start": {
-                        "line": 12,
-                        "column": 16
-                      },
-                      "end": {
-                        "line": 12,
-                        "column": 24
-                      }
-                    },
-                    "name": "safeLoad"
-                  },
-                  "computed": false
-                },
-                "arguments": [
-                  {
-                    "type": "Identifier",
-                    "start": 279,
-                    "end": 282,
-                    "loc": {
-                      "start": {
-                        "line": 12,
-                        "column": 25
-                      },
-                      "end": {
-                        "line": 12,
-                        "column": 28
-                      }
-                    },
-                    "name": "str"
-                  }
-                ]
-              }
+              "name": "jsYaml",
+              "leadingComments": null
+            },
+            "leadingComments": null
+          }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "start": 67,
+          "end": 76,
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 19
+            },
+            "end": {
+              "line": 4,
+              "column": 28
             }
-          ],
-          "trailingComments": null
+          },
+          "extra": {
+            "rawValue": "js-yaml",
+            "raw": "'js-yaml'"
+          },
+          "value": "js-yaml"
         },
         "leadingComments": [
           {
-            "type": "Block",
+            "type": "CommentBlock",
+            "value": "*\n * YAML operations, parse or stringify.\n ",
+            "start": 0,
+            "end": 47,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 0
+              },
+              "end": {
+                "line": 3,
+                "column": 3
+              }
+            }
+          }
+        ],
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
             "value": "*\n * Parse a YAML string into an object.\n * @param {string} str String containing YAML information.\n * @return {Object} Parsed YAML object.\n ",
             "start": 79,
             "end": 224,
@@ -322,16 +131,256 @@
                 "line": 10,
                 "column": 3
               }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ExportNamedDeclaration",
+        "start": 225,
+        "end": 286,
+        "loc": {
+          "start": {
+            "line": 11,
+            "column": 0
+          },
+          "end": {
+            "line": 13,
+            "column": 1
+          }
+        },
+        "specifiers": [],
+        "source": null,
+        "declaration": {
+          "type": "FunctionDeclaration",
+          "start": 232,
+          "end": 286,
+          "loc": {
+            "start": {
+              "line": 11,
+              "column": 7
             },
-            "range": [
-              79,
-              224
-            ]
+            "end": {
+              "line": 13,
+              "column": 1
+            }
+          },
+          "id": {
+            "type": "Identifier",
+            "start": 241,
+            "end": 246,
+            "loc": {
+              "start": {
+                "line": 11,
+                "column": 16
+              },
+              "end": {
+                "line": 11,
+                "column": 21
+              },
+              "identifierName": "parse"
+            },
+            "name": "parse",
+            "leadingComments": null
+          },
+          "generator": false,
+          "expression": false,
+          "async": false,
+          "params": [
+            {
+              "type": "Identifier",
+              "start": 247,
+              "end": 250,
+              "loc": {
+                "start": {
+                  "line": 11,
+                  "column": 22
+                },
+                "end": {
+                  "line": 11,
+                  "column": 25
+                },
+                "identifierName": "str"
+              },
+              "name": "str"
+            }
+          ],
+          "body": {
+            "type": "BlockStatement",
+            "start": 252,
+            "end": 286,
+            "loc": {
+              "start": {
+                "line": 11,
+                "column": 27
+              },
+              "end": {
+                "line": 13,
+                "column": 1
+              }
+            },
+            "body": [
+              {
+                "type": "ReturnStatement",
+                "start": 256,
+                "end": 284,
+                "loc": {
+                  "start": {
+                    "line": 12,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 12,
+                    "column": 30
+                  }
+                },
+                "argument": {
+                  "type": "CallExpression",
+                  "start": 263,
+                  "end": 283,
+                  "loc": {
+                    "start": {
+                      "line": 12,
+                      "column": 9
+                    },
+                    "end": {
+                      "line": 12,
+                      "column": 29
+                    }
+                  },
+                  "callee": {
+                    "type": "MemberExpression",
+                    "start": 263,
+                    "end": 278,
+                    "loc": {
+                      "start": {
+                        "line": 12,
+                        "column": 9
+                      },
+                      "end": {
+                        "line": 12,
+                        "column": 24
+                      }
+                    },
+                    "object": {
+                      "type": "Identifier",
+                      "start": 263,
+                      "end": 269,
+                      "loc": {
+                        "start": {
+                          "line": 12,
+                          "column": 9
+                        },
+                        "end": {
+                          "line": 12,
+                          "column": 15
+                        },
+                        "identifierName": "jsYaml"
+                      },
+                      "name": "jsYaml"
+                    },
+                    "property": {
+                      "type": "Identifier",
+                      "start": 270,
+                      "end": 278,
+                      "loc": {
+                        "start": {
+                          "line": 12,
+                          "column": 16
+                        },
+                        "end": {
+                          "line": 12,
+                          "column": 24
+                        },
+                        "identifierName": "safeLoad"
+                      },
+                      "name": "safeLoad"
+                    },
+                    "computed": false
+                  },
+                  "arguments": [
+                    {
+                      "type": "Identifier",
+                      "start": 279,
+                      "end": 282,
+                      "loc": {
+                        "start": {
+                          "line": 12,
+                          "column": 25
+                        },
+                        "end": {
+                          "line": 12,
+                          "column": 28
+                        },
+                        "identifierName": "str"
+                      },
+                      "name": "str"
+                    }
+                  ]
+                }
+              }
+            ],
+            "directives": [],
+            "trailingComments": null
+          },
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n * Parse a YAML string into an object.\n * @param {string} str String containing YAML information.\n * @return {Object} Parsed YAML object.\n ",
+              "start": 79,
+              "end": 224,
+              "loc": {
+                "start": {
+                  "line": 6,
+                  "column": 0
+                },
+                "end": {
+                  "line": 10,
+                  "column": 3
+                }
+              }
+            }
+          ],
+          "trailingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n * Stringify an object to a YAML string.\n * @param {Object} obj JavaScript object.\n * @return {string} YAML document.\n ",
+              "start": 288,
+              "end": 413,
+              "loc": {
+                "start": {
+                  "line": 15,
+                  "column": 0
+                },
+                "end": {
+                  "line": 19,
+                  "column": 3
+                }
+              }
+            }
+          ]
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * Parse a YAML string into an object.\n * @param {string} str String containing YAML information.\n * @return {Object} Parsed YAML object.\n ",
+            "start": 79,
+            "end": 224,
+            "loc": {
+              "start": {
+                "line": 6,
+                "column": 0
+              },
+              "end": {
+                "line": 10,
+                "column": 3
+              }
+            }
           }
         ],
         "trailingComments": [
           {
-            "type": "Block",
+            "type": "CommentBlock",
             "value": "*\n * Stringify an object to a YAML string.\n * @param {Object} obj JavaScript object.\n * @return {string} YAML document.\n ",
             "start": 288,
             "end": 413,
@@ -344,174 +393,113 @@
                 "line": 19,
                 "column": 3
               }
-            },
-            "range": [
-              288,
-              413
-            ]
+            }
           }
         ]
       },
-      "specifiers": [],
-      "source": null,
-      "leadingComments": [
-        {
-          "type": "Block",
-          "value": "*\n * Parse a YAML string into an object.\n * @param {string} str String containing YAML information.\n * @return {Object} Parsed YAML object.\n ",
-          "start": 79,
-          "end": 224,
-          "loc": {
-            "start": {
-              "line": 6,
-              "column": 0
-            },
-            "end": {
-              "line": 10,
-              "column": 3
-            }
-          },
-          "range": [
-            79,
-            224
-          ]
-        }
-      ],
-      "trailingComments": [
-        {
-          "type": "Block",
-          "value": "*\n * Stringify an object to a YAML string.\n * @param {Object} obj JavaScript object.\n * @return {string} YAML document.\n ",
-          "start": 288,
-          "end": 413,
-          "loc": {
-            "start": {
-              "line": 15,
-              "column": 0
-            },
-            "end": {
-              "line": 19,
-              "column": 3
-            }
-          },
-          "range": [
-            288,
-            413
-          ]
-        }
-      ]
-    },
-    {
-      "type": "ExportNamedDeclaration",
-      "start": 414,
-      "end": 479,
-      "loc": {
-        "start": {
-          "line": 20,
-          "column": 0
-        },
-        "end": {
-          "line": 22,
-          "column": 1
-        }
-      },
-      "declaration": {
-        "type": "FunctionDeclaration",
-        "start": 421,
+      {
+        "type": "ExportNamedDeclaration",
+        "start": 414,
         "end": 479,
         "loc": {
           "start": {
             "line": 20,
-            "column": 7
+            "column": 0
           },
           "end": {
             "line": 22,
             "column": 1
           }
         },
-        "id": {
-          "type": "Identifier",
-          "start": 430,
-          "end": 439,
-          "loc": {
-            "start": {
-              "line": 20,
-              "column": 16
-            },
-            "end": {
-              "line": 20,
-              "column": 25
-            }
-          },
-          "name": "stringify",
-          "leadingComments": null
-        },
-        "generator": false,
-        "expression": false,
-        "async": false,
-        "params": [
-          {
-            "type": "Identifier",
-            "start": 440,
-            "end": 443,
-            "loc": {
-              "start": {
-                "line": 20,
-                "column": 26
-              },
-              "end": {
-                "line": 20,
-                "column": 29
-              }
-            },
-            "name": "obj"
-          }
-        ],
-        "body": {
-          "type": "BlockStatement",
-          "start": 445,
+        "specifiers": [],
+        "source": null,
+        "declaration": {
+          "type": "FunctionDeclaration",
+          "start": 421,
           "end": 479,
           "loc": {
             "start": {
               "line": 20,
-              "column": 31
+              "column": 7
             },
             "end": {
               "line": 22,
               "column": 1
             }
           },
-          "body": [
+          "id": {
+            "type": "Identifier",
+            "start": 430,
+            "end": 439,
+            "loc": {
+              "start": {
+                "line": 20,
+                "column": 16
+              },
+              "end": {
+                "line": 20,
+                "column": 25
+              },
+              "identifierName": "stringify"
+            },
+            "name": "stringify",
+            "leadingComments": null
+          },
+          "generator": false,
+          "expression": false,
+          "async": false,
+          "params": [
             {
-              "type": "ReturnStatement",
-              "start": 449,
-              "end": 477,
+              "type": "Identifier",
+              "start": 440,
+              "end": 443,
               "loc": {
                 "start": {
-                  "line": 21,
-                  "column": 2
+                  "line": 20,
+                  "column": 26
                 },
                 "end": {
-                  "line": 21,
-                  "column": 30
-                }
+                  "line": 20,
+                  "column": 29
+                },
+                "identifierName": "obj"
               },
-              "argument": {
-                "type": "CallExpression",
-                "start": 456,
-                "end": 476,
+              "name": "obj"
+            }
+          ],
+          "body": {
+            "type": "BlockStatement",
+            "start": 445,
+            "end": 479,
+            "loc": {
+              "start": {
+                "line": 20,
+                "column": 31
+              },
+              "end": {
+                "line": 22,
+                "column": 1
+              }
+            },
+            "body": [
+              {
+                "type": "ReturnStatement",
+                "start": 449,
+                "end": 477,
                 "loc": {
                   "start": {
                     "line": 21,
-                    "column": 9
+                    "column": 2
                   },
                   "end": {
                     "line": 21,
-                    "column": 29
+                    "column": 30
                   }
                 },
-                "callee": {
-                  "type": "MemberExpression",
+                "argument": {
+                  "type": "CallExpression",
                   "start": 456,
-                  "end": 471,
+                  "end": 476,
                   "loc": {
                     "start": {
                       "line": 21,
@@ -519,13 +507,13 @@
                     },
                     "end": {
                       "line": 21,
-                      "column": 24
+                      "column": 29
                     }
                   },
-                  "object": {
-                    "type": "Identifier",
+                  "callee": {
+                    "type": "MemberExpression",
                     "start": 456,
-                    "end": 462,
+                    "end": 471,
                     "loc": {
                       "start": {
                         "line": 21,
@@ -533,54 +521,92 @@
                       },
                       "end": {
                         "line": 21,
-                        "column": 15
-                      }
-                    },
-                    "name": "jsYaml"
-                  },
-                  "property": {
-                    "type": "Identifier",
-                    "start": 463,
-                    "end": 471,
-                    "loc": {
-                      "start": {
-                        "line": 21,
-                        "column": 16
-                      },
-                      "end": {
-                        "line": 21,
                         "column": 24
                       }
                     },
-                    "name": "safeDump"
-                  },
-                  "computed": false
-                },
-                "arguments": [
-                  {
-                    "type": "Identifier",
-                    "start": 472,
-                    "end": 475,
-                    "loc": {
-                      "start": {
-                        "line": 21,
-                        "column": 25
+                    "object": {
+                      "type": "Identifier",
+                      "start": 456,
+                      "end": 462,
+                      "loc": {
+                        "start": {
+                          "line": 21,
+                          "column": 9
+                        },
+                        "end": {
+                          "line": 21,
+                          "column": 15
+                        },
+                        "identifierName": "jsYaml"
                       },
-                      "end": {
-                        "line": 21,
-                        "column": 28
-                      }
+                      "name": "jsYaml"
                     },
-                    "name": "obj"
-                  }
-                ]
+                    "property": {
+                      "type": "Identifier",
+                      "start": 463,
+                      "end": 471,
+                      "loc": {
+                        "start": {
+                          "line": 21,
+                          "column": 16
+                        },
+                        "end": {
+                          "line": 21,
+                          "column": 24
+                        },
+                        "identifierName": "safeDump"
+                      },
+                      "name": "safeDump"
+                    },
+                    "computed": false
+                  },
+                  "arguments": [
+                    {
+                      "type": "Identifier",
+                      "start": 472,
+                      "end": 475,
+                      "loc": {
+                        "start": {
+                          "line": 21,
+                          "column": 25
+                        },
+                        "end": {
+                          "line": 21,
+                          "column": 28
+                        },
+                        "identifierName": "obj"
+                      },
+                      "name": "obj"
+                    }
+                  ]
+                }
+              }
+            ],
+            "directives": []
+          },
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n * Stringify an object to a YAML string.\n * @param {Object} obj JavaScript object.\n * @return {string} YAML document.\n ",
+              "start": 288,
+              "end": 413,
+              "loc": {
+                "start": {
+                  "line": 15,
+                  "column": 0
+                },
+                "end": {
+                  "line": 19,
+                  "column": 3
+                }
               }
             }
-          ]
+          ],
+          "trailingComments": []
         },
         "leadingComments": [
           {
-            "type": "Block",
+            "type": "CommentBlock",
             "value": "*\n * Stringify an object to a YAML string.\n * @param {Object} obj JavaScript object.\n * @return {string} YAML document.\n ",
             "start": 288,
             "end": 413,
@@ -593,39 +619,1100 @@
                 "line": 19,
                 "column": 3
               }
-            },
-            "range": [
-              288,
-              413
-            ]
-          }
-        ],
-        "trailingComments": []
-      },
-      "specifiers": [],
-      "source": null,
-      "leadingComments": [
-        {
-          "type": "Block",
-          "value": "*\n * Stringify an object to a YAML string.\n * @param {Object} obj JavaScript object.\n * @return {string} YAML document.\n ",
-          "start": 288,
-          "end": 413,
-          "loc": {
-            "start": {
-              "line": 15,
-              "column": 0
-            },
-            "end": {
-              "line": 19,
-              "column": 3
             }
-          },
-          "range": [
-            288,
-            413
-          ]
+          }
+        ]
+      }
+    ],
+    "directives": []
+  },
+  "comments": [
+    {
+      "type": "CommentBlock",
+      "value": "*\n * YAML operations, parse or stringify.\n ",
+      "start": 0,
+      "end": 47,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 3,
+          "column": 3
         }
-      ]
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n * Parse a YAML string into an object.\n * @param {string} str String containing YAML information.\n * @return {Object} Parsed YAML object.\n ",
+      "start": 79,
+      "end": 224,
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 0
+        },
+        "end": {
+          "line": 10,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n * Stringify an object to a YAML string.\n * @param {Object} obj JavaScript object.\n * @return {string} YAML document.\n ",
+      "start": 288,
+      "end": 413,
+      "loc": {
+        "start": {
+          "line": 15,
+          "column": 0
+        },
+        "end": {
+          "line": 19,
+          "column": 3
+        }
+      }
+    }
+  ],
+  "tokens": [
+    {
+      "type": "CommentBlock",
+      "value": "*\n * YAML operations, parse or stringify.\n ",
+      "start": 0,
+      "end": 47,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 3,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "import",
+        "keyword": "import",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "import",
+      "start": 48,
+      "end": 54,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 0
+        },
+        "end": {
+          "line": 4,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "jsYaml",
+      "start": 55,
+      "end": 61,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 7
+        },
+        "end": {
+          "line": 4,
+          "column": 13
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "from",
+      "start": 62,
+      "end": 66,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 14
+        },
+        "end": {
+          "line": 4,
+          "column": 18
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "js-yaml",
+      "start": 67,
+      "end": 76,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 19
+        },
+        "end": {
+          "line": 4,
+          "column": 28
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 76,
+      "end": 77,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 28
+        },
+        "end": {
+          "line": 4,
+          "column": 29
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n * Parse a YAML string into an object.\n * @param {string} str String containing YAML information.\n * @return {Object} Parsed YAML object.\n ",
+      "start": 79,
+      "end": 224,
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 0
+        },
+        "end": {
+          "line": 10,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "export",
+        "keyword": "export",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "export",
+      "start": 225,
+      "end": 231,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 0
+        },
+        "end": {
+          "line": 11,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "function",
+        "keyword": "function",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "function",
+      "start": 232,
+      "end": 240,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 7
+        },
+        "end": {
+          "line": 11,
+          "column": 15
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "parse",
+      "start": 241,
+      "end": 246,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 16
+        },
+        "end": {
+          "line": 11,
+          "column": 21
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 246,
+      "end": 247,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 21
+        },
+        "end": {
+          "line": 11,
+          "column": 22
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "str",
+      "start": 247,
+      "end": 250,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 22
+        },
+        "end": {
+          "line": 11,
+          "column": 25
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 250,
+      "end": 251,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 25
+        },
+        "end": {
+          "line": 11,
+          "column": 26
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "{",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 252,
+      "end": 253,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 27
+        },
+        "end": {
+          "line": 11,
+          "column": 28
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "return",
+        "keyword": "return",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "return",
+      "start": 256,
+      "end": 262,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 2
+        },
+        "end": {
+          "line": 12,
+          "column": 8
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "jsYaml",
+      "start": 263,
+      "end": 269,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 9
+        },
+        "end": {
+          "line": 12,
+          "column": 15
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 269,
+      "end": 270,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 15
+        },
+        "end": {
+          "line": 12,
+          "column": 16
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "safeLoad",
+      "start": 270,
+      "end": 278,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 16
+        },
+        "end": {
+          "line": 12,
+          "column": 24
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 278,
+      "end": 279,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 24
+        },
+        "end": {
+          "line": 12,
+          "column": 25
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "str",
+      "start": 279,
+      "end": 282,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 25
+        },
+        "end": {
+          "line": 12,
+          "column": 28
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 282,
+      "end": 283,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 28
+        },
+        "end": {
+          "line": 12,
+          "column": 29
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 283,
+      "end": 284,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 29
+        },
+        "end": {
+          "line": 12,
+          "column": 30
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "}",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 285,
+      "end": 286,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 0
+        },
+        "end": {
+          "line": 13,
+          "column": 1
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n * Stringify an object to a YAML string.\n * @param {Object} obj JavaScript object.\n * @return {string} YAML document.\n ",
+      "start": 288,
+      "end": 413,
+      "loc": {
+        "start": {
+          "line": 15,
+          "column": 0
+        },
+        "end": {
+          "line": 19,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "export",
+        "keyword": "export",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "export",
+      "start": 414,
+      "end": 420,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 0
+        },
+        "end": {
+          "line": 20,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "function",
+        "keyword": "function",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "function",
+      "start": 421,
+      "end": 429,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 7
+        },
+        "end": {
+          "line": 20,
+          "column": 15
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "stringify",
+      "start": 430,
+      "end": 439,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 16
+        },
+        "end": {
+          "line": 20,
+          "column": 25
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 439,
+      "end": 440,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 25
+        },
+        "end": {
+          "line": 20,
+          "column": 26
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "obj",
+      "start": 440,
+      "end": 443,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 26
+        },
+        "end": {
+          "line": 20,
+          "column": 29
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 443,
+      "end": 444,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 29
+        },
+        "end": {
+          "line": 20,
+          "column": 30
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "{",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 445,
+      "end": 446,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 31
+        },
+        "end": {
+          "line": 20,
+          "column": 32
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "return",
+        "keyword": "return",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "return",
+      "start": 449,
+      "end": 455,
+      "loc": {
+        "start": {
+          "line": 21,
+          "column": 2
+        },
+        "end": {
+          "line": 21,
+          "column": 8
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "jsYaml",
+      "start": 456,
+      "end": 462,
+      "loc": {
+        "start": {
+          "line": 21,
+          "column": 9
+        },
+        "end": {
+          "line": 21,
+          "column": 15
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 462,
+      "end": 463,
+      "loc": {
+        "start": {
+          "line": 21,
+          "column": 15
+        },
+        "end": {
+          "line": 21,
+          "column": 16
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "safeDump",
+      "start": 463,
+      "end": 471,
+      "loc": {
+        "start": {
+          "line": 21,
+          "column": 16
+        },
+        "end": {
+          "line": 21,
+          "column": 24
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 471,
+      "end": 472,
+      "loc": {
+        "start": {
+          "line": 21,
+          "column": 24
+        },
+        "end": {
+          "line": 21,
+          "column": 25
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "obj",
+      "start": 472,
+      "end": 475,
+      "loc": {
+        "start": {
+          "line": 21,
+          "column": 25
+        },
+        "end": {
+          "line": 21,
+          "column": 28
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 475,
+      "end": 476,
+      "loc": {
+        "start": {
+          "line": 21,
+          "column": 28
+        },
+        "end": {
+          "line": 21,
+          "column": 29
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 476,
+      "end": 477,
+      "loc": {
+        "start": {
+          "line": 21,
+          "column": 29
+        },
+        "end": {
+          "line": 21,
+          "column": 30
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "}",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 478,
+      "end": 479,
+      "loc": {
+        "start": {
+          "line": 22,
+          "column": 0
+        },
+        "end": {
+          "line": 22,
+          "column": 1
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "eof",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 480,
+      "end": 480,
+      "loc": {
+        "start": {
+          "line": 23,
+          "column": 0
+        },
+        "end": {
+          "line": 23,
+          "column": 0
+        }
+      }
     }
   ]
 }
