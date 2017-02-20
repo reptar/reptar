@@ -7,7 +7,6 @@ import {
   createMockConfig,
 } from '../../../utils';
 
-import Plugin from '../../../../lib/plugin/index';
 import CollectionPage from '../../../../lib/collection/page';
 
 import CollectionBase from '../../../../lib/collection/base';
@@ -16,13 +15,10 @@ import MetadataCollection from
 
 describe('collection/type/metadata MetadataCollection', () => {
   const config = createMockConfig();
-  const getConfig = () => config;
 
   let sandbox;
   beforeEach(() => {
     sandbox = sinon.sandbox.create();
-
-    Plugin.eventHandler._reset();
   });
 
   afterEach(() => {
@@ -134,7 +130,7 @@ describe('collection/type/metadata MetadataCollection', () => {
 
   describe('createCollectionPages', () => {
     it('returns early if no pagination permalinks are set', () => {
-      const instance = new MetadataCollection('name', undefined, getConfig);
+      const instance = new MetadataCollection('name', undefined, config);
       assert.equal(instance.createCollectionPages(), false);
 
       instance.permalink = {};
@@ -150,7 +146,7 @@ describe('collection/type/metadata MetadataCollection', () => {
     const pageSize = 1;
     it('adds files to collectionPages', () => {
       const files = fixture.collectionFiles();
-      const instance = new MetadataCollection('name', undefined, getConfig);
+      const instance = new MetadataCollection('name', undefined, config);
       instance.metadata = fixture.collectionMetadataKey;
       instance.permalink = {};
       instance.pageSize = pageSize;

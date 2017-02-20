@@ -43,7 +43,6 @@ describe('reptar Reptar', function test() {
   it('instantiates correctly', async () => {
     sandbox.spy(Reptar.prototype, 'update');
     sandbox.spy(Config.prototype, 'update');
-    sandbox.spy(Theme.prototype, 'setGetConfig');
 
     const instance = new Reptar({
       rootPath: getPathToSimpleMock(),
@@ -57,7 +56,6 @@ describe('reptar Reptar', function test() {
     assert.equal(instance.config.update.callCount, 1);
 
     assert(instance.theme instanceof Theme);
-    assert.equal(instance.theme.setGetConfig.callCount, 1);
 
     assert(_.isObject(instance.fileSystem.files));
     assert(_.isObject(instance.collections));
