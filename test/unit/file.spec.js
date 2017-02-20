@@ -20,12 +20,10 @@ describe('file File', () => {
   const filePath = '/fixture/_posts/hello-world.md';
 
   let config;
-  let getConfig;
 
   let sandbox;
   beforeEach(() => {
     config = createMockConfig();
-    getConfig = () => config;
 
     sandbox = sinon.sandbox.create();
 
@@ -44,7 +42,9 @@ describe('file File', () => {
 
   describe('constructor', () => {
     it('can create an instance', async () => {
-      const instance = new File(filePath, getConfig);
+      const instance = new File(filePath, {
+        config,
+      });
       await instance.update();
 
       assert.ok(instance);
@@ -59,7 +59,9 @@ describe('file File', () => {
     it('calculates destination path', async () => {
       sandbox.spy(File.prototype, '_calculateDestination');
 
-      const instance = new File(filePath, getConfig);
+      const instance = new File(filePath, {
+        config,
+      });
       await instance.update();
 
       assert.ok(instance._calculateDestination.calledOnce);
@@ -104,8 +106,6 @@ describe('file File', () => {
         defaults,
       },
     });
-    // eslint-disable-next-line no-shadow
-    const getConfig = () => config;
 
     function createFile(filePathParts, additionalFrontmatter = {}) {
       return async () => {
@@ -121,7 +121,9 @@ describe('file File', () => {
           .withArgs(filePath, 'utf8');
         sandbox.stub(Parse, 'fileHasFrontmatter').returns(true);
 
-        const instance = new File(filePath, getConfig);
+        const instance = new File(filePath, {
+          config,
+        });
         await instance.update();
         _.extend(instance.frontmatter, additionalFrontmatter);
         instance.defaults = instance._gatherDefaults();
@@ -186,7 +188,9 @@ describe('file File', () => {
   describe('_calculateDestination', () => {
     it('allows custom file url property', async () => {
       const permalinkValue = 'whee';
-      const instance = new File(filePath, getConfig);
+      const instance = new File(filePath, {
+        config,
+      });
       await instance.update();
 
       // Should use filePath when no file url or permalink is et.
@@ -194,7 +198,7 @@ describe('file File', () => {
         Url.makeUrlFileSystemSafe(
           Url.replaceMarkdownExtension(
             filePath,
-            instance._getConfig().get('markdown.extensions')
+            instance._config.get('markdown.extensions')
           )
         )
       ));
@@ -221,7 +225,9 @@ describe('file File', () => {
   });
 
   it('has all proper values on its data object', async () => {
-    const instance = new File(filePath, getConfig);
+    const instance = new File(filePath, {
+      config,
+    });
     await instance.update();
 
     assert.strictEqual(instance.url, undefined);
@@ -229,7 +235,7 @@ describe('file File', () => {
       Url.makeUrlFileSystemSafe(
         Url.replaceMarkdownExtension(
           filePath,
-          instance._getConfig().get('markdown.extensions')
+          instance._config.get('markdown.extensions')
         )
       )
     ));
@@ -250,7 +256,9 @@ describe('file File', () => {
 
   describe('filtered', () => {
     it('set correctly', async () => {
-      const instance = new File(filePath, getConfig);
+      const instance = new File(filePath, {
+        config,
+      });
 
       await instance.update();
       assert.equal(instance.filtered, false);

@@ -7,7 +7,6 @@ import {
   createMockConfig,
 } from '../../../utils';
 
-import Plugin from '../../../../lib/plugin/index';
 import CollectionPage from '../../../../lib/collection/page';
 
 import CollectionBase from '../../../../lib/collection/base';
@@ -16,13 +15,10 @@ import FileSystemCollection
 
 describe('collection/type/file-system FileSystemCollection', () => {
   const config = createMockConfig();
-  const getConfig = () => config;
 
   let sandbox;
   beforeEach(() => {
     sandbox = sinon.sandbox.create();
-
-    Plugin.eventHandler._reset();
   });
 
   afterEach(() => {
@@ -148,7 +144,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
     it('adds files to collectionPages', () => {
       const pageSize = 1;
 
-      const instance = new FileSystemCollection('name', undefined, getConfig);
+      const instance = new FileSystemCollection('name', undefined, config);
       const filesArray = fixture.collectionFiles();
       filesArray.forEach((file, index) => {
         instance.files[index] = file;
@@ -238,7 +234,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
     const excludePaths = excludeCollections.map(coll => coll.path);
 
     it('can set exclude paths', () => {
-      const instance = new FileSystemCollection('name', undefined, getConfig);
+      const instance = new FileSystemCollection('name', undefined, config);
       assert(_.isUndefined(instance.path));
       assert(_.isArray(instance.excludePaths));
       assert.equal(instance.excludePaths.length, 0);
@@ -248,7 +244,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
     });
 
     it('does not add its own path to the exclude path array', () => {
-      const instance = new FileSystemCollection('name', undefined, getConfig);
+      const instance = new FileSystemCollection('name', undefined, config);
       instance.path = excludePaths[0];
       assert(_.isArray(instance.excludePaths));
       assert.equal(instance.excludePaths.length, 0);

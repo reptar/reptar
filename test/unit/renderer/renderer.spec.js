@@ -1,22 +1,26 @@
 import assert from 'power-assert';
 import fs from 'fs-extra';
 import sinon from 'sinon';
-import fixture from '../fixture';
-import Plugin from '../../lib/plugin/index';
-import PluginEvents from '../../lib/plugin/events';
-import CollectionBase from '../../lib/collection/base';
-import {
-  renderFileWithPlugins,
-} from '../../lib/render';
+import fixture from '../../fixture';
+import PluginManager from '../../../lib/plugin/plugin-manager';
+import PluginEvents from '../../../lib/plugin/events';
+import CollectionBase from '../../../lib/collection/base';
 
-const PluginAPI = Plugin.API;
+import Renderer from '../../../lib/renderer/renderer';
 
-describe('render Render', () => {
+describe('renderer Renderer', () => {
   let sandbox;
+  let pluginManager;
+  let instance;
+
   beforeEach(() => {
     sandbox = sinon.sandbox.create();
 
-    Plugin.eventHandler._reset();
+    pluginManager = new PluginManager();
+
+    instance = new Renderer({
+      pluginManager,
+    });
   });
 
   afterEach(() => {
@@ -33,20 +37,20 @@ describe('render Render', () => {
 
       const renderContent = 'hello world';
 
-      const instance = new CollectionBase('name');
-      instance.files = fixture.collectionFiles().map((file) => {
+      const collection = new CollectionBase('name');
+      collection.files = fixture.collectionFiles().map((file) => {
         file.render = sinon.spy(() => renderContent);
         return file;
       });
 
-      const file = instance.files[0];
+      const file = collection.files[0];
       const beforeSpy = sinon.spy();
       const afterSpy = sinon.spy((val, val2) => [val, val2]);
-      PluginAPI.event.file.beforeRender(beforeSpy);
-      PluginAPI.event.file.afterRender(afterSpy);
+      pluginManager.pluginApi.event.file.beforeRender(beforeSpy);
+      pluginManager.pluginApi.event.file.afterRender(afterSpy);
 
       try {
-        await renderFileWithPlugins(
+        await instance.renderFileWithPlugins(
           file,
           {},
           PluginEvents.file.beforeRender,

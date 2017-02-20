@@ -12,7 +12,6 @@ import CollectionPage from '../../../lib/collection/page';
 
 describe('collection/page CollectionPage', () => {
   const config = createMockConfig();
-  const getConfig = () => config;
 
   let sandbox;
   beforeEach(() => {
@@ -67,8 +66,9 @@ describe('collection/page CollectionPage', () => {
       const data = collectionPageData;
       const files = fixture.collectionFiles();
 
-      const instance = new CollectionPage('id', 2);
-      instance.setGetConfig(getConfig);
+      const instance = new CollectionPage('id', 2, {
+        config,
+      });
       instance.permalink = 'ok';
 
       instance.setData(data);

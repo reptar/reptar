@@ -5,16 +5,12 @@ import _ from 'lodash';
 
 import fixture from '../../fixture';
 
-import Plugin from '../../../lib/plugin/index';
-
 import CollectionBase from '../../../lib/collection/base';
 
 describe('collection/base CollectionBase', () => {
   let sandbox;
   beforeEach(() => {
     sandbox = sinon.sandbox.create();
-
-    Plugin.eventHandler._reset();
   });
 
   afterEach(() => {
