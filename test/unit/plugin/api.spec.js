@@ -2,7 +2,7 @@ import assert from 'power-assert';
 import sinon from 'sinon';
 import _ from 'lodash';
 
-import { addTemplateFilter } from '../../../lib/template';
+import { addTemplateFilter } from '../../../lib/renderer/template';
 import { createMarkdownEngine } from '../../../lib/renderer/markdown';
 import createPluginApi from '../../../lib/plugin/api';
 import PluginEvents from '../../../lib/plugin/events';
