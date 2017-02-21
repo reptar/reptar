@@ -105,7 +105,7 @@ export async function mockSimpleSite() {
 
   const npmPaths = await reptarNpmFilePaths();
   const npmMocks = mirrorPathsToContent(npmPaths, {
-    msapKey: (currentPath) => {
+    mapKey: (currentPath) => {
       return currentPath.replace(
         /(.*)node_modules/,
         'node_modules'

@@ -3,14 +3,17 @@ import sinon from 'sinon';
 import _ from 'lodash';
 
 import { addTemplateFilter } from '../../../lib/template';
-import { getMarkdownEngine } from '../../../lib/markdown';
+import { createMarkdownEngine } from '../../../lib/renderer/markdown';
 import createPluginApi from '../../../lib/plugin/api';
 import PluginEvents from '../../../lib/plugin/events';
 import EventHandler from '../../../lib/plugin/event-handler';
 
 describe('plugin/api PluginAPI', () => {
   it('provides a proxy to template.addFilter method', () => {
-    const API = createPluginApi();
+    const API = createPluginApi({
+      addTemplateFilter,
+    });
+
     assert.deepEqual(
       API.template.addFilter,
       addTemplateFilter
@@ -18,10 +21,17 @@ describe('plugin/api PluginAPI', () => {
   });
 
   it('allows you to configure markdown engine', () => {
-    const API = createPluginApi();
+    const mdInstance = createMarkdownEngine();
+
+    const API = createPluginApi({
+      getMarkdownEngine: () => mdInstance,
+    });
+
+    assert(mdInstance);
     assert(typeof API.markdown.configure === 'function');
+
     API.markdown.configure((md) => {
-      assert.equal(md, getMarkdownEngine());
+      assert.equal(md, mdInstance);
     });
   });
 
