@@ -29,7 +29,7 @@ export default async function serve() {
 
   server.route({
     method: 'GET',
-    path: path.join('/', config.get('server.baseurl'), '/{param*}'),
+    path: path.posix.join('/', config.get('server.baseurl'), '/{param*}'),
     handler: {
       directory: {
         path: '.',
