@@ -17,6 +17,15 @@ import Config from '../../lib/config/index';
 import Theme from '../../lib/theme/index';
 import log from '../../lib/log';
 
+import { createMarkdownEngine } from '../../lib/renderer/markdown';
+
+// TODO(hswolff): We create the markdown instance here to prevent mockFs from
+// preventing the Markdown library from requiring its library.
+// We shouldn't have to rely on this behavior.
+// Removing this line will require us to properly mock the directories that
+// markdown-it depend on.
+createMarkdownEngine();
+
 log.setSilent(true);
 
 describe('reptar Reptar', function test() {

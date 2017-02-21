@@ -1,7 +1,11 @@
 import assert from 'power-assert';
 import fs from 'fs-extra';
 import sinon from 'sinon';
+import _ from 'lodash';
 import fixture from '../../fixture';
+import {
+  createMockConfig,
+} from '../../utils';
 import PluginManager from '../../../lib/plugin/plugin-manager';
 import PluginEvents from '../../../lib/plugin/events';
 import CollectionBase from '../../../lib/collection/base';
@@ -10,13 +14,22 @@ import Renderer from '../../../lib/renderer/renderer';
 
 describe('renderer Renderer', () => {
   let sandbox;
+  let config;
   let pluginManager;
   let instance;
 
   beforeEach(() => {
+    config = createMockConfig();
     sandbox = sinon.sandbox.create();
 
-    pluginManager = new PluginManager();
+    pluginManager = new PluginManager({ config });
+    sandbox.stub(pluginManager, 'loadFromPackageJson', _.noop);
+    sandbox.stub(pluginManager, 'loadFromDirectory', _.noop);
+    pluginManager.update({
+      theme: {
+        config: { path: { plugins: '' } },
+      },
+    });
 
     instance = new Renderer({
       pluginManager,
