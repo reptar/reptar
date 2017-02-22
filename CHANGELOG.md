@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.3.3"></a>
+## [2.3.3](https://github.com/reptar/reptar/compare/v2.3.2...v2.3.3) (2017-02-22)
+
+
+### Bug Fixes
+
+* **esdoc:** Fix esdoc generation. ([9229ebf](https://github.com/reptar/reptar/commit/9229ebf))
+* Make serve work on Windows ([67019d9](https://github.com/reptar/reptar/commit/67019d9))
+
+
+
 <a name="2.3.2"></a>
 ## [2.3.2](https://github.com/reptar/reptar/compare/v2.3.1...v2.3.2) (2017-02-19)
 
