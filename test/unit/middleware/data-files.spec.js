@@ -1,11 +1,11 @@
 import assert from 'power-assert';
 import path from 'path';
-import DataFiles from '../../lib/data-files';
+import { readDataFiles } from '../../../lib/middleware/data-files';
 
-describe('data-files DataFiles', () => {
+describe('middleware/data-files DataFiles', () => {
   describe('update', () => {
     it('returns empty object when no data objects found', async () => {
-      const result = await DataFiles.update('foo');
+      const result = await readDataFiles('foo');
 
       assert.deepEqual(result, {});
     });
@@ -13,9 +13,9 @@ describe('data-files DataFiles', () => {
     it('works', async () => {
       const dataPath = path.resolve(
         __dirname,
-        '../fixtures/simple/_data'
+        '../../fixtures/simple/_data'
       );
-      const result = await DataFiles.update(dataPath);
+      const result = await readDataFiles(dataPath);
 
       assert.deepEqual(result, {
         cities: [

@@ -5,12 +5,12 @@ import filter from '../../../lib/filter/index';
 describe('filter/index', () => {
   const mockFile = {
     data: {
-      date: '2017-2-28',
+      date: '2027-2-28',
       foo: 'bar',
     },
   };
 
-  describe('isFileFiltered', () => {
+  it('isFileFiltered', () => {
     assert.equal(filter.isFileFiltered({}, mockFile), false);
     assert.equal(filter.isFileFiltered({
       future_date: {
