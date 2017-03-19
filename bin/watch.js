@@ -10,15 +10,19 @@ import { YAML } from '../lib/constants';
 import log from '../lib/log';
 import Reptar from '../lib';
 
+// Given an obj it'll prune any properites that start with `_`.
+function prunePrivateProperties(obj, isPrivate = (val, key) => key[0] === '_') {
+  return _.reduce(obj, (acc, val, key) => {
+    if (!isPrivate(val, key)) {
+      acc[key] = val;
+    }
+    return acc;
+  }, {});
+}
+
 class Server {
   constructor(reptar) {
     this.reptar = reptar;
-
-    /**
-     * Index used to find associated File/CollectionPage with a request.path.
-     * @type {Object.<string,(File|CollectionPage)>}
-     */
-    this.index = {};
 
     this.server = new Hapi.Server();
 
@@ -47,8 +51,6 @@ class Server {
       },
     });
 
-    this.updateIndex();
-
     this.createFsWatchers();
 
     // Start the server
@@ -63,28 +65,14 @@ class Server {
   }
 
   /**
-   * Update's our index.
-   */
-  updateIndex() {
-    const createIndexKey = file => this.relativeDestination(file.destination);
-
-    this.index = _.extend(
-      _.keyBy(this.reptar.files, createIndexKey),
-      ..._.map(this.reptar.collections, collection =>
-        _.keyBy(collection.pages, createIndexKey)
-      )
-    );
-  }
-
-  /**
    * Get File/CollectionPage based on request.path.
    * @param {string} requestPath Request path to server.
    * @return {File|CollectionPage}
    */
   getFile(requestPath) {
-    let file = this.index[requestPath];
+    let file = this.reptar.destination[requestPath];
     if (!file) {
-      file = this.index[path.join(requestPath, 'index.html')];
+      file = this.reptar.destination[path.join(requestPath, 'index.html')];
     }
     return file;
   }
@@ -114,7 +102,6 @@ class Server {
       // then we're going to update our Reptar instance and attempt to find
       // a file again.
       await this.reptar.update();
-      this.updateIndex();
 
       file = this.getFile(request.path);
 
@@ -131,24 +118,22 @@ class Server {
     }
 
     // Update the File/CollectionPage from disk.
-    await file.update(this.reptar.data);
+    await file.update(this.reptar.metadata.get());
 
     // Depending on what Files were updated we should update our Collections.
-    this.reptar.readCollections();
+    await this.reptar.process();
 
     // Render the File/CollectionPage.
-    const content = await file.renderWithPlugins(this.reptar.data);
+    const content = await file.render(this.reptar.metadata.get());
 
     // If we want debug information then render the JSON version.
     if (isDebug) {
-      return reply(JSON.stringify(file)).type('application/json');
+      // Exclude private fields from being returned.
+      const debugFile = prunePrivateProperties(file);
+      return reply(JSON.stringify(debugFile)).type('application/json');
     }
 
-    if (file.path != null) {
-      log.info(`Rendering File ${file.id}`);
-    } else {
-      log.info(`Rendering CollectionPage ${file.id}`);
-    }
+    log.info(`Rendering ${file.id}`);
 
     return reply(content);
   }
@@ -230,8 +215,6 @@ class Server {
         return;
       }
 
-      this.updateIndex();
-
       spinner.text = `${label} (${Date.now() - startTime}ms)`;
       spinner.succeed();
     }));
@@ -246,8 +229,6 @@ class Server {
       } catch (e) {
         log.error(e);
       }
-
-      this.updateIndex();
     }));
 
     chokidar.watch([
@@ -260,8 +241,6 @@ class Server {
       } catch (e) {
         log.error(e);
       }
-
-      this.updateIndex();
     }));
   }
 }

@@ -67,7 +67,6 @@ describe('reptar Reptar', function test() {
     assert(instance.theme instanceof Theme);
 
     assert(_.isObject(instance.fileSystem.files));
-    assert(_.isObject(instance.collections));
     assert(_.isObject(instance.metadata.get()));
     assert(_.isObject(instance.metadata.get('collections')));
   });
