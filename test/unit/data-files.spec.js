@@ -1,8 +1,8 @@
 import assert from 'power-assert';
 import path from 'path';
-import { readDataFiles } from '../../../lib/middleware/data-files';
+import { readDataFiles } from '../../lib/data-files';
 
-describe('middleware/data-files DataFiles', () => {
+describe('data-files DataFiles', () => {
   describe('update', () => {
     it('returns empty object when no data objects found', async () => {
       const result = await readDataFiles('foo');
@@ -13,7 +13,7 @@ describe('middleware/data-files DataFiles', () => {
     it('works', async () => {
       const dataPath = path.resolve(
         __dirname,
-        '../../fixtures/simple/_data'
+        '../fixtures/simple-site/src/_data'
       );
       const result = await readDataFiles(dataPath);
 

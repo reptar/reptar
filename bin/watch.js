@@ -6,7 +6,7 @@ import Boom from 'boom';
 import inert from 'inert';
 import ora from 'ora';
 import chokidar from 'chokidar';
-import { YAML } from '../lib/constants';
+import Constants from '../lib/constants';
 import log from '../lib/log';
 import Reptar from '../lib';
 
@@ -220,9 +220,9 @@ class Server {
     }));
 
     chokidar.watch([
-      path.join(this.reptar.config.root, YAML.CONFIG),
+      path.join(this.reptar.config.root, Constants.ConfigFilename),
     ]).on('change', debounceFunction(async (changePath) => {
-      log.info(`_config.yml updated at ${changePath}`);
+      log.info(`${Constants.ConfigFilename} updated at ${changePath}`);
 
       try {
         await this.reptar.update();
