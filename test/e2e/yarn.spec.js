@@ -1,52 +1,39 @@
-import assert from 'power-assert';
+import path from 'path';
+import assert from 'assert';
 import sinon from 'sinon';
 import _ from 'lodash';
+import fs from 'fs-extra';
 
 import {
-  mockSimpleSite,
-  getPathToSimpleMock,
-  getSimpleOneOutput,
-  filterOnlyFiles,
-  restoreMockFs,
-} from '../fixtures';
-import fs from 'fs-extra'; // eslint-disable-line import/first
+  getAllFilePaths,
+  simpleSite,
+} from '../utils';
 
 import Reptar from '../../lib/index';
 import cache from '../../lib/cache';
-import Config from '../../lib/config/index';
 import Theme from '../../lib/theme/index';
+import Config from '../../lib/config/index';
 import log from '../../lib/log';
-
-import { createMarkdownEngine } from '../../lib/renderer/markdown';
-
-// TODO(hswolff): We create the markdown instance here to prevent mockFs from
-// preventing the Markdown library from requiring its library.
-// We shouldn't have to rely on this behavior.
-// Removing this line will require us to properly mock the directories that
-// markdown-it depend on.
-createMarkdownEngine();
 
 log.setSilent(true);
 
 describe('reptar Reptar', function test() {
   this.timeout(5000);
 
+  const generatedOutputDir = path.join(simpleSite.src, '_site');
+
   let sandbox;
-  let simpleOneOutput;
   beforeEach(async () => {
     sandbox = sinon.sandbox.create();
-    simpleOneOutput = await getSimpleOneOutput();
-    simpleOneOutput = filterOnlyFiles(simpleOneOutput);
-    await mockSimpleSite();
 
     // Don't actually save cache to file system.
     sandbox.stub(cache, 'save');
-    sandbox.stub(fs, 'copy', (path, dest, cb) => setTimeout(cb, 0));
+
+    fs.removeSync(generatedOutputDir);
   });
 
   afterEach(() => {
     sandbox.restore();
-    restoreMockFs();
   });
 
   it('instantiates correctly', async () => {
@@ -54,7 +41,7 @@ describe('reptar Reptar', function test() {
     sandbox.spy(Config.prototype, 'update');
 
     const instance = new Reptar({
-      rootPath: getPathToSimpleMock(),
+      rootPath: simpleSite.src,
     });
     assert.equal(instance.update.callCount, 0);
 
@@ -72,27 +59,37 @@ describe('reptar Reptar', function test() {
   });
 
   it('builds site correctly', async () => {
-    sandbox.spy(fs, 'outputFile');
-
     // Build site.
     const instance = new Reptar({
-      rootPath: getPathToSimpleMock(),
+      rootPath: simpleSite.src,
     });
     await instance.update();
     await instance.build();
 
-    assert(fs.outputFile.callCount > 0);
-
-    // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < fs.outputFile.callCount; i++) {
-      const fileDestination = fs.outputFile.getCall(i).args[0];
-      const fileDestinationRelative = fileDestination.replace(
-        /(.*)_site\//, ''
-      );
-      const fileWritten = fs.outputFile.getCall(i).args[1];
-
-      // Make sure what Reptar built matches what we expect it to have built.
-      assert.equal(fileWritten, simpleOneOutput[fileDestinationRelative]);
+    function makePathsRelative(basePath) {
+      return allPaths => allPaths.reduce((acc, absPath) => {
+        const relativePath = absPath.replace(basePath, '');
+        acc[relativePath] = absPath;
+        return acc;
+      }, {});
     }
+
+    const expectedFiles = await getAllFilePaths(simpleSite.expected)
+      .then(makePathsRelative(simpleSite.expected));
+
+    const generatedFiles = await getAllFilePaths(generatedOutputDir)
+      .then(makePathsRelative(generatedOutputDir));
+
+    assert.deepEqual(Object.keys(expectedFiles), Object.keys(generatedFiles));
+    assert.equal(expectedFiles.length, generatedFiles.length);
+
+    _.forEach(expectedFiles, (absolutePath, relativePath) => {
+      const generatedAbsolutePath = generatedFiles[relativePath];
+
+      const expectedFile = fs.readFileSync(absolutePath, 'utf8');
+      const generatedFile = fs.readFileSync(generatedAbsolutePath, 'utf8');
+
+      assert.equal(generatedFile, expectedFile);
+    });
   });
 });

@@ -4,6 +4,7 @@ import path from 'path';
 import inquirer from 'inquirer';
 import spawn from 'cross-spawn';
 import log from '../lib/log';
+import Constants from '../lib/constants';
 
 const dateNowFormatted = moment().format('YYYY-M-D');
 
@@ -73,9 +74,9 @@ export default function init() {
       });
 
       fs.outputFileSync(
-        path.join(destination, '_config.yml'),
+        path.join(destination, Constants.ConfigFilename),
         fs.readFileSync(
-          path.join(__dirname, '../lib/config/config_example.yml'),
+          path.join(__dirname, '../lib/config/config-example.js'),
           'utf8'
         )
       );

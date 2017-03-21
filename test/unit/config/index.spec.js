@@ -49,7 +49,7 @@ describe('config/index Config', () => {
       instance.root = root;
 
       revert = ConfigRewire.__set__(
-        'loadAndParseYaml',
+        'loadConfigFile',
         sinon.stub().returns(fixture.configDefault())
       );
 
@@ -107,7 +107,7 @@ describe('config/index Config', () => {
 
       invalidConfigs.forEach((config) => {
         revert = ConfigRewire.__set__(
-          'loadAndParseYaml',
+          'loadConfigFile',
           sinon.stub().returns(config)
         );
 
@@ -171,7 +171,7 @@ describe('config/index Config', () => {
       // Test 3 random orderings.
       _.times(3, () => {
         revert = ConfigRewire.__set__(
-          'loadAndParseYaml',
+          'loadConfigFile',
           sinon.stub().returns({
             ...fixture.configDefault(),
             path: {
