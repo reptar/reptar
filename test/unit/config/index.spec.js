@@ -42,11 +42,64 @@ describe('config/index Config', () => {
       }
     });
 
-    it('calculates paths correctly', () => {
-      const root = '/root/';
+    function calculatePathsCorrectly({ instance, rootPath }) {
+      const expectedConfig = fixture.configDefault();
+
+      assert.equal(
+        instance._raw.path.source,
+        path.resolve(
+          rootPath + expectedConfig.path.source
+        )
+      );
+
+      assert.equal(
+        instance._raw.path.destination,
+        path.resolve(
+          rootPath + expectedConfig.path.source +
+            expectedConfig.path.destination
+        )
+      );
+
+      assert.equal(
+        instance._raw.path.plugins,
+        path.resolve(
+          rootPath + expectedConfig.path.source + expectedConfig.path.plugins
+        )
+      );
+
+      assert.equal(
+        instance._raw.path.themes,
+        path.resolve(
+          rootPath + expectedConfig.path.source + expectedConfig.path.themes
+        )
+      );
+
+      _.each(instance.path, (val, key) => {
+        assert.equal(instance.path[key], instance._raw.path[key]);
+      });
+    }
+
+    it('can load a config file that exports a function', () => {
+      const rootPath = '/root/';
 
       const instance = new Config('');
-      instance.root = root;
+      instance.root = rootPath;
+
+      revert = ConfigRewire.__set__(
+        'loadConfigFile',
+        sinon.stub().returns(() => fixture.configDefault())
+      );
+
+      instance.update();
+
+      calculatePathsCorrectly({ instance, rootPath });
+    });
+
+    it('calculates paths correctly', () => {
+      const rootPath = '/root/';
+
+      const instance = new Config('');
+      instance.root = rootPath;
 
       revert = ConfigRewire.__set__(
         'loadConfigFile',
@@ -55,39 +108,7 @@ describe('config/index Config', () => {
 
       instance.update();
 
-      const expectedConfig = fixture.configDefault();
-
-      assert.equal(
-        instance._raw.path.source,
-        path.resolve(
-          root + expectedConfig.path.source
-        )
-      );
-
-      assert.equal(
-        instance._raw.path.destination,
-        path.resolve(
-          root + expectedConfig.path.source + expectedConfig.path.destination
-        )
-      );
-
-      assert.equal(
-        instance._raw.path.plugins,
-        path.resolve(
-          root + expectedConfig.path.source + expectedConfig.path.plugins
-        )
-      );
-
-      assert.equal(
-        instance._raw.path.themes,
-        path.resolve(
-          root + expectedConfig.path.source + expectedConfig.path.themes
-        )
-      );
-
-      _.each(instance.path, (val, key) => {
-        assert.equal(instance.path[key], instance._raw.path[key]);
-      });
+      calculatePathsCorrectly({ instance, rootPath });
     });
 
     it('throws when given an invalid config object', () => {
@@ -209,6 +230,33 @@ describe('config/index Config', () => {
           );
         });
       });
+    });
+
+    it('coerces middleware and lifecycle config values to arrays', () => {
+      const rootPath = '/root/';
+
+      const instance = new Config('');
+      instance.root = rootPath;
+
+      const rawConfig = {
+        middlewares: 'foo',
+        lifecycle: {
+          willUpdate: _.noop,
+          didUpdate: ['one'],
+        },
+      };
+
+      revert = ConfigRewire.__set__(
+        'loadConfigFile',
+        sinon.stub().returns(rawConfig)
+      );
+
+      instance.update();
+
+      assert(_.isArray(instance.get('middlewares')));
+      assert(_.isArray(instance.get('lifecycle.willUpdate')));
+      assert(_.isArray(instance.get('lifecycle.didUpdate')));
+      assert.equal(instance.get('lifecycle.didUpdate'), 'one');
     });
   });
 });

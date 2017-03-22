@@ -1,3 +1,13 @@
+import sinon from 'sinon';
+
+const middleware = (reptar) => {
+  reptar._test.middlewares.push(Date.now());
+};
+
+const createLifecycleMiddleware = (lifecycleName) => (reptar) => {
+  reptar._test.lifecycle[lifecycleName].push(Date.now());
+};
+
 module.exports = {
   site: {
     title: 'My Site Title',
@@ -49,4 +59,14 @@ module.exports = {
   },
   server: { port: 8080, host: '127.0.0.1', baseurl: '' },
   new_file_permalink: '/_posts/:date|YYYY-:date|MM-:date|D-:title.md',
+  middlewares: [
+    middleware,
+    middleware,
+  ],
+  lifecycle: {
+    willUpdate: createLifecycleMiddleware('willUpdate'),
+    didUpdate: createLifecycleMiddleware('didUpdate'),
+    willBuild: createLifecycleMiddleware('willBuild'),
+    didBuild: createLifecycleMiddleware('didBuild'),
+  }
 };
