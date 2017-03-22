@@ -66,7 +66,6 @@ exports.configDefault = function configDefault() {
       path: {
         source: './source/',
         destination: './destination/',
-        plugins: './plugins/',
         themes: './themes/',
       },
     }
