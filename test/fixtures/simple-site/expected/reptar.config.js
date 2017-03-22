@@ -17,6 +17,7 @@ module.exports = {
   path: {
     source: './',
     destination: './_site',
+    templates: './_templates',
     themes: './_themes',
     data: './_data',
   },
