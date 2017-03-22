@@ -64,13 +64,6 @@ describe('config/index Config', () => {
       );
 
       assert.equal(
-        instance._raw.path.plugins,
-        path.resolve(
-          rootPath + expectedConfig.path.source + expectedConfig.path.plugins
-        )
-      );
-
-      assert.equal(
         instance._raw.path.themes,
         path.resolve(
           rootPath + expectedConfig.path.source + expectedConfig.path.themes
