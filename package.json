@@ -10,7 +10,7 @@
   "scripts": {
     "docs": "./node_modules/.bin/esdoc -c esdoc.json",
     "gh-pages": "npm run docs && gdd --branch gh-pages --src esdocs --remote origin",
-    "compile": "babel lib --out-dir dist/lib && babel bin --out-dir dist/bin && shx cp lib/config/config_example.yml dist/lib/config/config_example.yml",
+    "compile": "babel lib --out-dir dist/lib && babel bin --out-dir dist/bin",
     "prepublish": "cross-env NODE_ENV=production npm run compile",
     "postpublish": "npm run gh-pages",
     "pretest": "npm run lint",
@@ -136,7 +136,6 @@
     "nyc": "^10.1.2",
     "power-assert": "^1.4.2",
     "rewire": "^2.5.2",
-    "shx": "^0.2.2",
     "sinon": "^1.17.7",
     "standard-version": "^4.0.0",
     "validate-commit-msg": "^2.11.1"
