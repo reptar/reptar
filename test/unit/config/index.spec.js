@@ -5,6 +5,9 @@ import path from 'path';
 import _ from 'lodash';
 
 import fixture from '../../fixture';
+import {
+  simpleSite,
+} from '../../utils';
 
 const ConfigRewire = rewire('../../../lib/config/index.js');
 const Config = ConfigRewire.default;
@@ -233,16 +236,14 @@ describe('config/index Config', () => {
     });
 
     it('coerces middleware and lifecycle config values to arrays', () => {
-      const rootPath = '/root/';
-
       const instance = new Config('');
-      instance.root = rootPath;
+      instance.root = simpleSite.src;
 
       const rawConfig = {
-        middlewares: 'foo',
+        middlewares: 'fake-module',
         lifecycle: {
           willUpdate: _.noop,
-          didUpdate: ['one'],
+          didUpdate: ['my-middleware'],
         },
       };
 
@@ -254,9 +255,13 @@ describe('config/index Config', () => {
       instance.update();
 
       assert(_.isArray(instance.get('middlewares')));
+      assert.equal(typeof instance.get('middlewares[0]'), 'function');
+
       assert(_.isArray(instance.get('lifecycle.willUpdate')));
+      assert.equal(typeof instance.get('lifecycle.willUpdate[0]'), 'function');
+
       assert(_.isArray(instance.get('lifecycle.didUpdate')));
-      assert.equal(instance.get('lifecycle.didUpdate'), 'one');
+      assert.equal(typeof instance.get('lifecycle.didUpdate[0]'), 'function');
     });
   });
 });

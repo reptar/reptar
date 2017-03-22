@@ -1,11 +1,9 @@
-import sinon from 'sinon';
-
-const middleware = (reptar) => {
-  reptar._test.middlewares.push(Date.now());
+const createMiddleware = val => (reptar) => {
+  reptar._test.middlewares.push(val);
 };
 
-const createLifecycleMiddleware = (lifecycleName) => (reptar) => {
-  reptar._test.lifecycle[lifecycleName].push(Date.now());
+const createLifecycleMiddleware = (lifecycleName, val) => (reptar) => {
+  reptar._test.lifecycle[lifecycleName].push(val);
 };
 
 module.exports = {
@@ -60,13 +58,14 @@ module.exports = {
   server: { port: 8080, host: '127.0.0.1', baseurl: '' },
   new_file_permalink: '/_posts/:date|YYYY-:date|MM-:date|D-:title.md',
   middlewares: [
-    middleware,
-    middleware,
+    createMiddleware(3),
+    'my-middleware',
+    createMiddleware(5),
   ],
   lifecycle: {
-    willUpdate: createLifecycleMiddleware('willUpdate'),
-    didUpdate: createLifecycleMiddleware('didUpdate'),
-    willBuild: createLifecycleMiddleware('willBuild'),
-    didBuild: createLifecycleMiddleware('didBuild'),
+    willUpdate: createLifecycleMiddleware('willUpdate', 1),
+    didUpdate: createLifecycleMiddleware('didUpdate', 2),
+    willBuild: createLifecycleMiddleware('willBuild', 6),
+    didBuild: createLifecycleMiddleware('didBuild', 7),
   }
 };
