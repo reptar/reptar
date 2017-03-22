@@ -99,7 +99,8 @@ describe('reptar Reptar', function test() {
 
     it('calls every middleware function in the expected order', () => {
       _.reduce(instance._test.middlewares, (prevValue, nextValue) => {
-        assert(nextValue >= prevValue);
+        assert(nextValue > prevValue);
+        return nextValue;
       });
     });
 
@@ -109,7 +110,7 @@ describe('reptar Reptar', function test() {
         didUpdate,
       } = instance._test.lifecycle;
 
-      assert(willUpdate[0] <= didUpdate[0]);
+      assert(willUpdate[0] < didUpdate[0]);
     });
 
     it('didUpdate is called before the first middleware', () => {
@@ -117,7 +118,7 @@ describe('reptar Reptar', function test() {
         didUpdate,
       } = instance._test.lifecycle;
 
-      assert(didUpdate[0] <= instance._test.middlewares[0]);
+      assert(didUpdate[0] < instance._test.middlewares[0]);
     });
 
     it('willBuild is not called', () => {
@@ -178,7 +179,7 @@ describe('reptar Reptar', function test() {
           instance._test.middlewares.length - 1
         ];
 
-        assert(lastMiddleware <= willBuild[0]);
+        assert(lastMiddleware < willBuild[0]);
       });
 
       it('willBuild is called before didBuild', () => {
@@ -187,7 +188,7 @@ describe('reptar Reptar', function test() {
           didBuild,
         } = instance._test.lifecycle;
 
-        assert(willBuild[0] <= didBuild[0]);
+        assert(willBuild[0] < didBuild[0]);
       });
     });
   });
