@@ -1,7 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import path from 'path';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import rewire from 'rewire';
-import klaw from 'klaw';
+import path from 'path';
+import Promise from 'bluebird';
+import glob from 'glob';
 
 const ConfigRewire = rewire('../lib/config/index.js');
 const Config = ConfigRewire.default;
@@ -19,18 +20,10 @@ export function createMockConfig(config = {}) {
  * @return {Array.<string>}
  */
 export function getAllFilePaths(directory) {
-  const filePaths = [];
-
-  return new Promise((resolve) => {
-    klaw(directory)
-      .on('data', (item) => {
-        if (item.stats.isFile()) {
-          filePaths.push(item.path);
-        }
-      })
-      .on('end', () => {
-        resolve(filePaths);
-      });
+  return Promise.fromCallback((cb) => {
+    glob(`${directory}/**/*`, {
+      nodir: true,
+    }, cb);
   });
 }
 
