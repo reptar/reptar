@@ -1,5 +1,5 @@
 /* eslint-disable no-new */
-import assert from 'power-assert';
+import assert from 'assert';
 import sinon from 'sinon';
 import _ from 'lodash';
 

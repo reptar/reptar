@@ -1,4 +1,4 @@
-import assert from 'power-assert';
+import assert from 'assert';
 import rewire from 'rewire';
 import sinon from 'sinon';
 import path from 'path';
