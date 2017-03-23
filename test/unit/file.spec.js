@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import assert from 'power-assert';
+import assert from 'assert';
 import path from 'path';
 import sinon from 'sinon';
 import fs from 'fs-extra';

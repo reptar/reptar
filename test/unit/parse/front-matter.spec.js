@@ -1,4 +1,4 @@
-import assert from 'power-assert';
+import assert from 'assert';
 import * as frontMatter from '../../../lib/parse/front-matter';
 
 import fixture from '../../fixture';

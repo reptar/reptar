@@ -1,4 +1,4 @@
-import assert from 'power-assert';
+import assert from 'assert';
 import Url from '../../lib/url';
 
 describe('url Url', () => {
