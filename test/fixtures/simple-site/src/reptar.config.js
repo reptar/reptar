@@ -18,7 +18,6 @@ module.exports = {
     source: './',
     destination: './_site',
     templates: './_templates',
-    themes: './_themes',
     data: './_data',
   },
   file: {
@@ -48,7 +47,16 @@ module.exports = {
       permalink: { index: '/tag/:metadata/', page: '/tag/:metadata/:page/' },
     },
   },
-  theme: 'one',
+  assets: [
+    {
+      test: 'less',
+      use: 'less',
+    },
+    {
+      test: 'js',
+      use: 'browserify',
+    },
+  ],
   clean_destination: false,
   slug: { lower: true },
   markdown: {

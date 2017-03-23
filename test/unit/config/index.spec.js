@@ -63,13 +63,6 @@ describe('config/index Config', () => {
         )
       );
 
-      assert.equal(
-        instance._raw.path.themes,
-        path.resolve(
-          rootPath + expectedConfig.path.source + expectedConfig.path.themes
-        )
-      );
-
       _.each(instance.path, (val, key) => {
         assert.equal(instance.path[key], instance._raw.path[key]);
       });
@@ -255,6 +248,53 @@ describe('config/index Config', () => {
 
       assert(_.isArray(instance.get('lifecycle.didUpdate')));
       assert.equal(typeof instance.get('lifecycle.didUpdate[0]'), 'function');
+    });
+
+    describe('asset', () => {
+      let instance;
+
+      beforeEach(() => {
+        instance = new Config('');
+        instance.root = simpleSite.src;
+
+        const rawConfig = {
+          assets: [
+            {
+              test: 'js',
+              use: 'browserify',
+            },
+            {
+              test: /\.s[ac]ss$/,
+              use: {
+                calculateDestination: () => {},
+                write: () => {},
+              },
+            },
+          ],
+        };
+
+        revert = ConfigRewire.__set__(
+          'loadConfigFile',
+          sinon.stub().returns(rawConfig)
+        );
+
+        instance.update();
+      });
+
+      it('coerces asset test values to functions', () => {
+        assert(_.isFunction(instance.get('assets[0].test')));
+        assert.equal(instance.get('assets[0].test')('/foo/bar.js'), true);
+
+        assert(_.isFunction(instance.get('assets[1].test')));
+        assert.equal(instance.get('assets[1].test')('/foo/bar.sass'), true);
+        assert.equal(instance.get('assets[1].test')('/foo/bar.css'), false);
+      });
+
+      it('ensures asset.use value is a function', () => {
+        instance.get('assets').forEach((asset) => {
+          assert(_.isObject(asset.use));
+        });
+      });
     });
   });
 });

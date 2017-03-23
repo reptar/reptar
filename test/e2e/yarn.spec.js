@@ -11,7 +11,6 @@ import {
 
 import Reptar from '../../lib/index';
 import cache from '../../lib/cache';
-import Theme from '../../lib/theme/index';
 import Config from '../../lib/config/index';
 import log from '../../lib/log';
 
@@ -82,8 +81,6 @@ describe('reptar Reptar', function test() {
 
       assert(instance.config instanceof Config);
       assert.equal(instance.config.update.callCount, 1);
-
-      assert(instance.theme instanceof Theme);
 
       assert(_.isObject(instance.fileSystem.files));
       assert(_.isObject(instance.metadata.get()));
@@ -166,7 +163,11 @@ describe('reptar Reptar', function test() {
           const expectedFile = fs.readFileSync(absolutePath, 'utf8');
           const generatedFile = fs.readFileSync(generatedAbsolutePath, 'utf8');
 
-          assert.equal(generatedFile, expectedFile);
+          assert.equal(
+            generatedFile,
+            expectedFile,
+            `${generatedAbsolutePath} generated incorrectly`
+          );
         });
       });
 
