@@ -260,7 +260,11 @@ describe('config/index Config', () => {
         const rawConfig = {
           assets: [
             {
-              test: 'js',
+              test: 'jsx',
+              use: 'browserify',
+            },
+            {
+              test: /\.js$/,
               use: 'browserify',
             },
             {
@@ -269,6 +273,10 @@ describe('config/index Config', () => {
                 calculateDestination: () => {},
                 write: () => {},
               },
+            },
+            {
+              test: '/abs/pathjs.gif',
+              use: 'browserify',
             },
           ],
         };
@@ -282,17 +290,37 @@ describe('config/index Config', () => {
       });
 
       it('coerces asset test values to functions', () => {
-        assert(_.isFunction(instance.get('assets[0].test')));
-        assert.equal(instance.get('assets[0].test')('/foo/bar.js'), true);
-
-        assert(_.isFunction(instance.get('assets[1].test')));
-        assert.equal(instance.get('assets[1].test')('/foo/bar.sass'), true);
-        assert.equal(instance.get('assets[1].test')('/foo/bar.css'), false);
+        instance.get('assets').forEach((asset) => {
+          assert(_.isFunction(asset.test));
+        });
       });
 
       it('ensures asset.use value is a function', () => {
         instance.get('assets').forEach((asset) => {
           assert(_.isObject(asset.use));
+        });
+      });
+
+      it('correctly tests against different file paths', () => {
+        [
+          ['/foo/bar.js', true],
+          ['/foo/bar.min.js', true],
+          ['/foo/bar.jsx', false],
+          ['/js/bar.jsx', false],
+          ['/foo/ternjs.gif', false],
+          ['/abs/pathjs.gif', true],
+          ['/foo/bar.sass', true],
+          ['/foo/bar.css', false],
+        ].forEach(([filePath, expectedValue]) => {
+          const actualValue = instance.get('assets').some(asset =>
+            asset.test(filePath)
+          );
+
+          assert.equal(
+            actualValue,
+            expectedValue,
+            `${filePath} did not test as ${expectedValue}`
+          );
         });
       });
     });
