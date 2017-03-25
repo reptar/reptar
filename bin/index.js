@@ -1,24 +1,8 @@
 #!/usr/bin/env node
 
-import findUp from 'find-up';
-import yargs from 'yargs';
-import log from '../lib/log';
-
-import build from './build';
-import newFile from './new';
-import watch from './watch';
-import clean from './clean';
-import init from './init';
-import serve from './serve';
-
-const commands = {
-  build,
-  new: newFile,
-  watch,
-  clean,
-  init,
-  serve,
-};
+const path = require('path');
+const findUp = require('find-up');
+const yargs = require('yargs');
 
 yargs
   .command('init', 'scaffold a new site')
@@ -45,33 +29,36 @@ yargs
   .help('help')
   .default('help');
 
-const argv = yargs.argv;
+module.exports = function reptarCli({ log, libPath }) {
+  const argv = yargs.argv;
 
-process.stdout.write('reptar\n\n');
+  process.stdout.write('reptar\n\n');
 
-if (argv.version) {
-  let packageJson;
-  try {
-    // eslint-disable-next-line
-    packageJson = require(findUp.sync('package.json', {
-      cwd: __dirname,
-    }));
-  } catch (e) { /* noop */ }
+  if (argv.version) {
+    let packageJson;
+    try {
+      // eslint-disable-next-line
+      packageJson = require(findUp.sync('package.json', {
+        cwd: __dirname,
+      }));
+    } catch (e) { /* noop */ }
 
-  process.stdout.write(packageJson.version);
-  process.stdout.write('\n');
-} else if (argv._.length === 0) {
-  yargs.showHelp('log');
-  process.exit(0);
-} else {
-  const command = argv._[0];
-  const commandHandler = commands[command];
-
-  if (!commandHandler) {
-    log.error(`Unknown command: ${argv._.join(' ')}`);
+    process.stdout.write(packageJson.version);
     process.stdout.write('\n');
-    yargs.showHelp();
+  } else if (argv._.length === 0) {
+    yargs.showHelp('log');
+    process.exit(0);
   } else {
-    commandHandler(argv);
+    const command = argv._[0];
+    const commandPath = path.join(libPath, 'cli', command);
+
+    try {
+      const commandHandler = require(commandPath).default; // eslint-disable-line
+      commandHandler(argv);
+    } catch (e) {
+      log.error(`Unknown command: ${argv._.join(' ')}`);
+      process.stdout.write('\n');
+      yargs.showHelp();
+    }
   }
-}
+};

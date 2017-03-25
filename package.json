@@ -2,15 +2,15 @@
   "name": "reptar",
   "version": "2.3.3",
   "description": "a static site generator that roars",
-  "main": "./dist/lib/index.js",
+  "main": "./lib-dist/index.js",
   "bin": {
-    "reptar": "./dist/bin/reptar.js",
+    "reptar": "./bin/reptar.js",
     "reptar-debug": "./bin/reptar-debug.js"
   },
   "scripts": {
     "docs": "./node_modules/.bin/esdoc -c esdoc.json",
     "gh-pages": "npm run docs && gdd --branch gh-pages --src esdocs --remote origin",
-    "compile": "babel lib --out-dir dist/lib && babel bin --out-dir dist/bin",
+    "compile": "babel lib --out-dir lib-dist",
     "prepublish": "cross-env NODE_ENV=production npm run compile",
     "postpublish": "npm run gh-pages",
     "pretest": "npm run lint",
