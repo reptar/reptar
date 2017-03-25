@@ -5,7 +5,7 @@ exports.frontmatterString =
 title: Stubs Matter
 draft: true
 date: '2016-10-11'
-future_date: 2020-2-29
+futureDate: 2020-2-29
 ---
 
 What *great* **joy**.`;
@@ -16,7 +16,7 @@ exports.frontmatterJSON = {
     title: 'Stubs Matter',
     draft: true,
     date: '2016-10-11',
-    future_date: '2020-2-29',
+    futureDate: '2020-2-29',
   },
   content: '\nWhat *great* **joy**.',
 };

@@ -21,7 +21,7 @@ module.exports = {
     data: './_data',
   },
   file: {
-    url_key: 'url',
+    urlKey: 'url',
     defaults: [
       { scope: { path: './' }, values: { template: 'page' } },
       {
@@ -29,32 +29,32 @@ module.exports = {
         values: { template: 'post', permalink: '/:title/' },
       },
     ],
-    filters: { metadata: { draft: true }, future_date: { key: 'date' } },
+    filters: { metadata: { draft: true }, futureDate: { key: 'date' } },
   },
   collections: {
     post: {
       path: './_posts',
       template: 'index',
-      page_size: 6,
+      pageSize: 6,
       sort: { key: 'date', order: 'descending' },
       permalink: { index: '/', page: '/page/:page/' },
     },
     tag: {
       metadata: 'tags',
       template: 'tag',
-      page_size: 6,
+      pageSize: 6,
       sort: { key: 'date', order: 'descending' },
       permalink: { index: '/tag/:metadata/', page: '/tag/:metadata/:page/' },
     },
   },
-  clean_destination: false,
+  cleanDestination: false,
   slug: { lower: true },
   markdown: {
     extensions: ['markdown', 'mkdown', 'mkdn', 'mkd', 'md'],
     options: { preset: 'commonmark', highlight: true },
   },
   server: { port: 8080, host: '127.0.0.1', baseurl: '' },
-  new_file_permalink: '/_posts/:date|YYYY-:date|MM-:date|D-:title.md',
+  newFilePermalink: '/_posts/:date|YYYY-:date|MM-:date|D-:title.md',
   middlewares: [
     createMiddleware(3),
     'my-middleware',
