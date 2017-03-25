@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 /* eslint-disable global-require */
 
-require('babel-polyfill');
 require('babel-register');
 
 const path = require('path');
