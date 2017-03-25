@@ -51,14 +51,20 @@ module.exports = function reptarCli({ log, libPath }) {
   } else {
     const command = argv._[0];
     const commandPath = path.join(libPath, 'cli', command);
+    let commandHandler;
 
     try {
-      const commandHandler = require(commandPath).default; // eslint-disable-line
-      commandHandler(argv);
+      commandHandler = require(commandPath).default; // eslint-disable-line
     } catch (e) {
       log.error(`Unknown command: ${argv._.join(' ')}`);
       process.stdout.write('\n');
       yargs.showHelp();
     }
+
+    commandHandler(argv)
+      .catch((e) => {
+        log.error(e.message);
+        process.exit(1);
+      });
   }
 };
