@@ -13,12 +13,12 @@ describe('filter/index', () => {
   it('isFileFiltered', () => {
     assert.equal(filter.isFileFiltered({}, mockFile), false);
     assert.equal(filter.isFileFiltered({
-      future_date: {
+      futureDate: {
         key: 'foo',
       },
     }, mockFile), false);
     assert.equal(filter.isFileFiltered({
-      future_date: {
+      futureDate: {
         key: 'date',
       },
     }, mockFile), true);

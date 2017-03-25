@@ -277,7 +277,7 @@ describe('file File', () => {
       assert.equal(instance.filtered, true);
 
       config._raw.file.filters = {
-        future_date: {
+        futureDate: {
           key: 'draft',
         },
       };
@@ -285,15 +285,15 @@ describe('file File', () => {
       assert.equal(instance.filtered, false);
 
       config._raw.file.filters = {
-        future_date: {
-          key: 'future_date',
+        futureDate: {
+          key: 'futureDate',
         },
       };
       await instance.update();
       assert.equal(instance.filtered, true);
 
       config._raw.file.filters = {
-        future_date: {
+        futureDate: {
           key: 'date',
         },
       };

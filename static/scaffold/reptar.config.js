@@ -30,7 +30,7 @@ module.exports = {
     // This current format supports dates like 2016-2-28
     // It uses moment.js under the head and its format syntax as well:
     // http://momentjs.com/docs////displaying/format/
-    date_format: 'YYYY-M-D',
+    dateFormat: 'YYYY-M-D',
     // Apply frontmatter values to a File based upon a defined scope.
     // If the scope matches a File then the default values are applied if they
     // are not already set.
@@ -59,7 +59,7 @@ module.exports = {
       // If any of the metadata values match then the File is filtered out.
       metadata: { draft: true },
       // If the date is in the future then it is filtered out.
-      future_date: {
+      futureDate: {
         // Customize what key we should use to pull the date value from.
         key: 'date',
       },
@@ -71,20 +71,20 @@ module.exports = {
     post: {
       path: './_posts',
       template: 'index',
-      page_size: 6,
+      pageSize: 6,
       sort: { key: 'date', order: 'descending' },
       permalink: { index: '/', page: '/page/:page/' },
     },
     tag: {
       metadata: 'tags',
       template: 'tag',
-      page_size: 6,
+      pageSize: 6,
       sort: { key: 'date', order: 'descending' },
       permalink: { index: '/tag/:metadata/', page: '/tag/:metadata/:page/' },
     },
   },
   // If we should remove the compile destination folder before writing.
-  clean_destination: false,
+  cleanDestination: false,
   // Serving.
   // When running `reptar serve` what settings should be used.
   server: {
