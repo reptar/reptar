@@ -25,9 +25,6 @@ module.exports = {
   },
   // Individual File configuration.
   file: {
-    // What key from a File's frontmatter Reptar should use
-    // as the property to grab the URL of the file from.
-    url_key: 'url',
     // The format that your date values are formatted as.
     // This is used when parsing date objects.
     // This current format supports dates like 2016-2-28
@@ -86,45 +83,8 @@ module.exports = {
       permalink: { index: '/tag/:metadata/', page: '/tag/:metadata/:page/' },
     },
   },
-  assets: [
-    {
-      test: 'less',
-      use: 'less',
-    },
-    {
-      test: /\.js$/,
-      use: 'browserify',
-    },
-    {
-      test: /\.s[ac]ss$/,
-      use: {
-        calculateDestination(destination) {
-          return destination.replace(
-            /\.s[ac]ss$/,
-            '.css'
-          );
-        },
-        render(filePath) {
-          return filePath;
-        },
-      },
-    },
-  ],
   // If we should remove the compile destination folder before writing.
   clean_destination: false,
-  // Slug options.
-  // Options passed to node-slug
-  slug: { lower: true },
-  // Markdown.
-  // This lets you customize how markdown is handled.
-  markdown: {
-    // What file extensions we should recognize as a markdown file.
-    extensions: ['markdown', 'mkdown', 'mkdn', 'mkd', 'md'],
-    // Options given directly when creating our markdown parser.
-    // Documentation here:
-    // https://github.com/markdown-it/markdown-it//init-with-presets-and-options
-    options: { preset: 'commonmark', highlight: true },
-  },
   // Serving.
   // When running `reptar serve` what settings should be used.
   server: {
@@ -134,14 +94,11 @@ module.exports = {
   },
   // Only build files that have changed.
   // This is a performance improvement to the time it takes to build your site.
-  incremental: true,
-  // Where files created via `reptar new` should be placed.
-  new_file_permalink: '/_posts/:date|YYYY-:date|MM-:date|D-:title.md',
+  incremental: false,
   // What middlewares you want enabled and what configuration settings they
   // should have. Can be either a string which assumes it's an npm module or
   // a function which is the middleware itself, or an array of either.
   middlewares: [
-    'reptar-excerpt',
     noopMiddleware,
   ],
   // Lifecycle methods are called at certain points in the lifecycle of Reptar.
