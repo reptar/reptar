@@ -4,7 +4,6 @@ import path from 'path';
 import Hapi from 'hapi';
 import Boom from 'boom';
 import inert from 'inert';
-import ora from 'ora';
 import chokidar from 'chokidar';
 import Constants from '../lib/constants';
 import log from '../lib/log';
@@ -18,6 +17,18 @@ function prunePrivateProperties(obj, isPrivate = (val, key) => key[0] === '_') {
     }
     return acc;
   }, {});
+}
+
+function debounceFunction(fn) {
+  return (...args) => {
+    if (fn.running) {
+      return;
+    }
+    fn.running = true;
+    fn(...args).then(() => {
+      fn.running = false;
+    });
+  };
 }
 
 class Server {
@@ -57,13 +68,6 @@ class Server {
     return this.server.start();
   }
 
-  relativeDestination(destination) {
-    return destination.replace(
-      this.reptar.config.get('path.destination'),
-      ''
-    );
-  }
-
   /**
    * Get File/CollectionPage based on request.path.
    * @param {string} requestPath Request path to server.
@@ -86,29 +90,12 @@ class Server {
   routeHandler = async (request, reply) => {
     const isDebug = request.query.debug != null;
 
-    let file = this.getFile(request.path);
+    const file = this.getFile(request.path);
 
-    // If there's no associated File/CollectionPage then we pass handling to our
-    // themeHandler.
-    if (!file) {
-      const response = this.themeHandler(request, reply);
-
-      // If we found an asset response then just return it.
-      if (response != null) {
-        return response;
-      }
-
-      // However if we did not find a File/CollectionPage or an asset response
-      // then we're going to update our Reptar instance and attempt to find
-      // a file again.
-      await this.reptar.update();
-
-      file = this.getFile(request.path);
-
-      // If we still don't have a File/CollectionPage then return 404.
-      if (!file) {
-        return reply('404');
-      }
+    if (file.assetProcessor) {
+      const content = await file.render();
+      const contentType = request.server.mime.path(request.path).type;
+      return reply(content).type(contentType);
     }
 
     // If this File does not require any processing then it's a static asset
@@ -120,8 +107,9 @@ class Server {
     // Update the File/CollectionPage from disk.
     await file.update(this.reptar.metadata.get());
 
-    // Depending on what Files were updated we should update our Collections.
-    await this.reptar.process();
+    // We need to make sure we run all middleware and lifecycle hooks on
+    // every render to ensure you get an accurate representation of your site.
+    await this.reptar.update({ skipFiles: true });
 
     // Render the File/CollectionPage.
     const content = await file.render(this.reptar.metadata.get());
@@ -139,86 +127,10 @@ class Server {
   }
 
   /**
-   * Handler to use for theme assets.
-   * @param {Object} request Hapi Request object.
-   * @param {Object} reply Hapi Response object.
-   * @return {Object?} Optional response object, null if we can't find any
-   *   associated asset.
-   */
-  themeHandler(request, reply) {
-    const requestPath = request.path;
-
-    // Find an associated theme asset.
-    const requestAsset = _.find(this.reptar.theme.assets, (asset) => {
-      const destination = this.relativeDestination(
-        asset.processor && asset.destination ?
-          asset.destination :
-          asset.config.destination
-      );
-
-      return requestPath.includes(destination);
-    });
-
-    if (requestAsset == null) {
-      return null;
-    }
-
-    if (requestAsset.processor != null && requestAsset.content) {
-      const contentType = request.server.mime.path(request.path).type;
-      return reply(requestAsset.content).type(contentType);
-    }
-
-    const relativeRequestPath = requestPath.replace(
-      this.relativeDestination(requestAsset.config.destination),
-      ''
-    );
-
-    return reply.file(
-      path.join(requestAsset.config.source, relativeRequestPath)
-    );
-  }
-
-  /**
    * Create file system watchers to update Reptar state according to when a
    * user updates files.
    */
   createFsWatchers() {
-    function debounceFunction(fn) {
-      return (...args) => {
-        if (fn.running) {
-          return;
-        }
-        fn.running = true;
-        fn(...args).then(() => {
-          fn.running = false;
-        });
-      };
-    }
-
-    chokidar.watch([
-      this.reptar.theme.config.path.source,
-    ]).on('change', debounceFunction(async (changePath) => {
-      log.info(`Theme updated at ${changePath}`);
-      const label = 'Updating theme.\t\t';
-
-      const startTime = Date.now();
-      const spinner = ora({
-        text: label,
-        spinner: 'dot4',
-      }).start();
-
-      try {
-        await this.reptar.theme.read();
-      } catch (e) {
-        spinner.text += ` ${e.message}`;
-        spinner.fail();
-        return;
-      }
-
-      spinner.text = `${label} (${Date.now() - startTime}ms)`;
-      spinner.succeed();
-    }));
-
     chokidar.watch([
       path.join(this.reptar.config.root, Constants.ConfigFilename),
     ]).on('change', debounceFunction(async (changePath) => {
@@ -251,7 +163,7 @@ export default async function watch(options = {}) {
   const reptar = new Reptar({
     // Turn off caching of templates.
     noTemplateCache: true,
-
+    showSpinner: false,
     ...options,
   });
 
