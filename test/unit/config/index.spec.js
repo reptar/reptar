@@ -271,7 +271,7 @@ describe('config/index Config', () => {
               test: /\.s[ac]ss$/,
               use: {
                 calculateDestination: () => {},
-                write: () => {},
+                render: () => {},
               },
             },
             {
