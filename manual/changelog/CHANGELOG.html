@@ -59,6 +59,10 @@
     <ul class="manual-toc">
       
     <li data-ice="manualNav" class="indent-h1 manual-color manual-color-changelog" data-section-count="&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;" data-link="manual/changelog/CHANGELOG.html"><a href="manual/changelog/CHANGELOG.html#change-log" data-ice="link">Change Log</a></li>
+<li data-ice="manualNav" class="indent-h1 manual-color manual-color-changelog" data-section-count="&#x25A0;&#x25A0;&#x25A0;&#x25A0;&#x25A0;" data-link="manual/changelog/CHANGELOG.html"><a href="manual/changelog/CHANGELOG.html#-3-0-0-https-github-com-reptar-reptar-compare-v2-3-3-v3-0-0-2017-03-26-" data-ice="link">3.0.0 (2017-03-26)</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/changelog/CHANGELOG.html"><a href="manual/changelog/CHANGELOG.html#bug-fixes" data-ice="link">Bug Fixes</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/changelog/CHANGELOG.html"><a href="manual/changelog/CHANGELOG.html#features" data-ice="link">Features</a></li>
+<li data-ice="manualNav" class="indent-h3" data-link="manual/changelog/CHANGELOG.html"><a href="manual/changelog/CHANGELOG.html#breaking-changes" data-ice="link">BREAKING CHANGES</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/changelog/CHANGELOG.html"><a href="manual/changelog/CHANGELOG.html#-2-3-3-https-github-com-reptar-reptar-compare-v2-3-2-v2-3-3-2017-02-22-" data-ice="link">2.3.3 (2017-02-22)</a></li>
 <li data-ice="manualNav" class="indent-h3" data-link="manual/changelog/CHANGELOG.html"><a href="manual/changelog/CHANGELOG.html#bug-fixes" data-ice="link">Bug Fixes</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/changelog/CHANGELOG.html"><a href="manual/changelog/CHANGELOG.html#-2-3-2-https-github-com-reptar-reptar-compare-v2-3-1-v2-3-2-2017-02-19-" data-ice="link">2.3.2 (2017-02-19)</a></li>
@@ -93,6 +97,49 @@
   </div>
   <div data-ice="content"><h1 id="change-log">Change Log</h1>
 <p>All notable changes to this project will be documented in this file. See <a href="https://github.com/conventional-changelog/standard-version">standard-version</a> for commit guidelines.</p>
+<p><a name="3.0.0"></a></p>
+<h1 id="-3-0-0-https-github-com-reptar-reptar-compare-v2-3-3-v3-0-0-2017-03-26-"><a href="https://github.com/reptar/reptar/compare/v2.3.3...v3.0.0">3.0.0</a> (2017-03-26)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li>Browserify asset to use reptar installed preset. (<a href="https://github.com/reptar/reptar/commit/5fba067">5fba067</a>)</li>
+<li>Change all config keys to use camelCase instead of snake case. (<a href="https://github.com/reptar/reptar/commit/d2cd5de">d2cd5de</a>)</li>
+<li>Fix compile command. (<a href="https://github.com/reptar/reptar/commit/4fe9baa">4fe9baa</a>)</li>
+<li>Fix reptar init to not depend on theme&apos;s anymore. (<a href="https://github.com/reptar/reptar/commit/6aa40be">6aa40be</a>)</li>
+<li>Make asset string test values more strict and test against more cases. (<a href="https://github.com/reptar/reptar/commit/5ef7e67">5ef7e67</a>)</li>
+<li>Make reptar watch work again! (<a href="https://github.com/reptar/reptar/commit/5c302c6">5c302c6</a>)</li>
+<li>Set more complete default config object. (<a href="https://github.com/reptar/reptar/commit/9ca1e0f">9ca1e0f</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li>Add support for all middleware and lifecycle methods to be called (<a href="https://github.com/reptar/reptar/commit/fac5dc0">fac5dc0</a>)</li>
+<li>Add support for handling assets directly in reptar.config.js. (<a href="https://github.com/reptar/reptar/commit/aa26d08">aa26d08</a>)</li>
+<li>Add support for loading mdiddlewares from npm. (<a href="https://github.com/reptar/reptar/commit/2ab1c53">2ab1c53</a>)</li>
+<li>Create FileSystem and Metadata classes to further break up functionality. (<a href="https://github.com/reptar/reptar/commit/8b96681">8b96681</a>)</li>
+<li>Create PluginManager and Renderer. Moving towards more instance based. (<a href="https://github.com/reptar/reptar/commit/411608f">411608f</a>)</li>
+<li>Define path to your templates in your reptar.config.js file. (<a href="https://github.com/reptar/reptar/commit/0328d32">0328d32</a>)</li>
+<li>Major changes for v3. (<a href="https://github.com/reptar/reptar/commit/769125b">769125b</a>)</li>
+<li>Move renderMarkdown to Renderer. (<a href="https://github.com/reptar/reptar/commit/5e03563">5e03563</a>)</li>
+<li>Move template render to Renderer (<a href="https://github.com/reptar/reptar/commit/b360977">b360977</a>)</li>
+<li>Move to using reptar.config.js for configuring Reptar. (<a href="https://github.com/reptar/reptar/commit/420a48c">420a48c</a>)</li>
+<li>Show output of middlewares when running them. (<a href="https://github.com/reptar/reptar/commit/1324ee1">1324ee1</a>)</li>
+</ul>
+<h3 id="breaking-changes">BREAKING CHANGES</h3>
+<ul>
+<li>Themes are removed. You must now configure assets in
+your reptar.config.js.</li>
+</ul>
+<p>This requires removing config.path.themes, config.theme, and optionally
+adding config.assets.</p>
+<ul>
+<li>You no longer define the location to your templates in
+your theme file. You now must define that location in reptar.config.js
+under the path object.</li>
+<li>Using _config.yml is no longer used. You must now use
+reptar.config.js in place of _config.yml. The main export needs to either
+be an object which is your config or a function that has to return
+your config object.</li>
+<li>Remove plugins and move to middleware system for extensibility.</li>
+</ul>
 <p><a name="2.3.3"></a></p>
 <h2 id="-2-3-3-https-github-com-reptar-reptar-compare-v2-3-2-v2-3-3-2017-02-22-"><a href="https://github.com/reptar/reptar/compare/v2.3.2...v2.3.3">2.3.3</a> (2017-02-22)</h2>
 <h3 id="bug-fixes">Bug Fixes</h3>

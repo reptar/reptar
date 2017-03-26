@@ -1,17 +1,5 @@
 window.esdocSearchIndex = [
   [
-    "reptar/lib/theme/asset.js~asset",
-    "class/lib/theme/asset.js~Asset.html",
-    "<span>Asset</span> <span class=\"search-result-import-path\">reptar/lib/theme/asset.js</span>",
-    "class"
-  ],
-  [
-    "reptar/lib/theme/processor/browserify.js~browserify",
-    "class/lib/theme/processor/browserify.js~Browserify.html",
-    "<span>Browserify</span> <span class=\"search-result-import-path\">reptar/lib/theme/processor/browserify.js</span>",
-    "class"
-  ],
-  [
     "reptar/lib/collection/base.js~collectionbase",
     "class/lib/collection/base.js~CollectionBase.html",
     "<span>CollectionBase</span> <span class=\"search-result-import-path\">reptar/lib/collection/base.js</span>",
@@ -30,15 +18,21 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "reptar/lib/plugin/event-handler.js~eventhandler",
-    "class/lib/plugin/event-handler.js~EventHandler.html",
-    "<span>EventHandler</span> <span class=\"search-result-import-path\">reptar/lib/plugin/event-handler.js</span>",
-    "class"
+    "reptar/lib/constants.js~constants",
+    "variable/index.html#static-variable-Constants",
+    "<span>Constants</span> <span class=\"search-result-import-path\">reptar/lib/constants.js</span>",
+    "variable"
   ],
   [
     "reptar/lib/file.js~file",
     "class/lib/file.js~File.html",
     "<span>File</span> <span class=\"search-result-import-path\">reptar/lib/file.js</span>",
+    "class"
+  ],
+  [
+    "reptar/lib/file-system.js~filesystem",
+    "class/lib/file-system.js~FileSystem.html",
+    "<span>FileSystem</span> <span class=\"search-result-import-path\">reptar/lib/file-system.js</span>",
     "class"
   ],
   [
@@ -48,15 +42,9 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "reptar/lib/constants.js~key",
-    "variable/index.html#static-variable-KEY",
-    "<span>KEY</span> <span class=\"search-result-import-path\">reptar/lib/constants.js</span>",
-    "variable"
-  ],
-  [
-    "reptar/lib/theme/processor/less.js~less",
-    "class/lib/theme/processor/less.js~Less.html",
-    "<span>Less</span> <span class=\"search-result-import-path\">reptar/lib/theme/processor/less.js</span>",
+    "reptar/lib/metadata.js~metadata",
+    "class/lib/metadata.js~Metadata.html",
+    "<span>Metadata</span> <span class=\"search-result-import-path\">reptar/lib/metadata.js</span>",
     "class"
   ],
   [
@@ -66,21 +54,9 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "reptar/lib/plugin/index.js~plugin",
-    "class/lib/plugin/index.js~Plugin.html",
-    "<span>Plugin</span> <span class=\"search-result-import-path\">reptar/lib/plugin/index.js</span>",
-    "class"
-  ],
-  [
-    "reptar/lib/plugin/events.js~pluginevents",
-    "variable/index.html#static-variable-PluginEvents",
-    "<span>PluginEvents</span> <span class=\"search-result-import-path\">reptar/lib/plugin/events.js</span>",
-    "variable"
-  ],
-  [
-    "reptar/lib/theme/processor-base.js~processorbase",
-    "class/lib/theme/processor-base.js~ProcessorBase.html",
-    "<span>ProcessorBase</span> <span class=\"search-result-import-path\">reptar/lib/theme/processor-base.js</span>",
+    "reptar/lib/renderer/renderer.js~renderer",
+    "class/lib/renderer/renderer.js~Renderer.html",
+    "<span>Renderer</span> <span class=\"search-result-import-path\">reptar/lib/renderer/renderer.js</span>",
     "class"
   ],
   [
@@ -90,39 +66,33 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "reptar/lib/theme/processor/sass.js~sass",
-    "class/lib/theme/processor/sass.js~Sass.html",
-    "<span>Sass</span> <span class=\"search-result-import-path\">reptar/lib/theme/processor/sass.js</span>",
-    "class"
-  ],
-  [
-    "reptar/lib/theme/index.js~theme",
-    "class/lib/theme/index.js~Theme.html",
-    "<span>Theme</span> <span class=\"search-result-import-path\">reptar/lib/theme/index.js</span>",
-    "class"
-  ],
-  [
     "reptar/lib/url.js~url",
     "variable/index.html#static-variable-Url",
     "<span>Url</span> <span class=\"search-result-import-path\">reptar/lib/url.js</span>",
     "variable"
   ],
   [
-    "reptar/lib/constants.js~yaml",
-    "variable/index.html#static-variable-YAML",
-    "<span>YAML</span> <span class=\"search-result-import-path\">reptar/lib/constants.js</span>",
-    "variable"
-  ],
-  [
-    "reptar/lib/template.js~addbuiltinfilters",
-    "function/index.html#static-function-addBuiltinFilters",
-    "<span>addBuiltinFilters</span> <span class=\"search-result-import-path\">reptar/lib/template.js</span>",
+    "reptar/lib/collection/index.js~addcollections",
+    "function/index.html#static-function-addCollections",
+    "<span>addCollections</span> <span class=\"search-result-import-path\">reptar/lib/collection/index.js</span>",
     "function"
   ],
   [
-    "reptar/lib/template.js~addtemplatefilter",
+    "reptar/lib/data-files.js~adddatafiles",
+    "function/index.html#static-function-addDataFiles",
+    "<span>addDataFiles</span> <span class=\"search-result-import-path\">reptar/lib/data-files.js</span>",
+    "function"
+  ],
+  [
+    "reptar/lib/renderer/template.js~addtemplatefilter",
     "function/index.html#static-function-addTemplateFilter",
-    "<span>addTemplateFilter</span> <span class=\"search-result-import-path\">reptar/lib/template.js</span>",
+    "<span>addTemplateFilter</span> <span class=\"search-result-import-path\">reptar/lib/renderer/template.js</span>",
+    "function"
+  ],
+  [
+    "reptar/lib/cli/build.js~build",
+    "function/index.html#static-function-build",
+    "<span>build</span> <span class=\"search-result-import-path\">reptar/lib/cli/build.js</span>",
     "function"
   ],
   [
@@ -132,9 +102,15 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
-    "reptar/lib/template.js~configuretemplateengine",
+    "reptar/lib/cli/clean.js~clean",
+    "function/index.html#static-function-clean",
+    "<span>clean</span> <span class=\"search-result-import-path\">reptar/lib/cli/clean.js</span>",
+    "function"
+  ],
+  [
+    "reptar/lib/renderer/template.js~configuretemplateengine",
     "function/index.html#static-function-configureTemplateEngine",
-    "<span>configureTemplateEngine</span> <span class=\"search-result-import-path\">reptar/lib/template.js</span>",
+    "<span>configureTemplateEngine</span> <span class=\"search-result-import-path\">reptar/lib/renderer/template.js</span>",
     "function"
   ],
   [
@@ -150,15 +126,9 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "reptar/lib/markdown.js~createmarkdownengine",
+    "reptar/lib/renderer/markdown.js~createmarkdownengine",
     "function/index.html#static-function-createMarkdownEngine",
-    "<span>createMarkdownEngine</span> <span class=\"search-result-import-path\">reptar/lib/markdown.js</span>",
-    "function"
-  ],
-  [
-    "reptar/lib/plugin/api.js~createpluginapi",
-    "function/index.html#static-function-createPluginApi",
-    "<span>createPluginApi</span> <span class=\"search-result-import-path\">reptar/lib/plugin/api.js</span>",
+    "<span>createMarkdownEngine</span> <span class=\"search-result-import-path\">reptar/lib/renderer/markdown.js</span>",
     "function"
   ],
   [
@@ -174,15 +144,9 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "reptar/lib/markdown.js~getmarkdownengine",
-    "function/index.html#static-function-getMarkdownEngine",
-    "<span>getMarkdownEngine</span> <span class=\"search-result-import-path\">reptar/lib/markdown.js</span>",
-    "function"
-  ],
-  [
-    "reptar/lib/json.js~getreptarpackagenames",
-    "function/index.html#static-function-getReptarPackageNames",
-    "<span>getReptarPackageNames</span> <span class=\"search-result-import-path\">reptar/lib/json.js</span>",
+    "reptar/lib/cli/init.js~init",
+    "function/index.html#static-function-init",
+    "<span>init</span> <span class=\"search-result-import-path\">reptar/lib/cli/init.js</span>",
     "function"
   ],
   [
@@ -192,10 +156,10 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "reptar/lib/json.js~packagenameregex",
-    "variable/index.html#static-variable-packageNameRegex",
-    "<span>packageNameRegex</span> <span class=\"search-result-import-path\">reptar/lib/json.js</span>",
-    "variable"
+    "reptar/lib/cli/new.js~new",
+    "function/index.html#static-function-new",
+    "<span>new</span> <span class=\"search-result-import-path\">reptar/lib/cli/new.js</span>",
+    "function"
   ],
   [
     "reptar/lib/parse/front-matter.js~parse",
@@ -210,27 +174,33 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "reptar/lib/render.js~renderfilewithplugins",
-    "function/index.html#static-function-renderFileWithPlugins",
-    "<span>renderFileWithPlugins</span> <span class=\"search-result-import-path\">reptar/lib/render.js</span>",
+    "reptar/lib/data-files.js~readdatafiles",
+    "function/index.html#static-function-readDataFiles",
+    "<span>readDataFiles</span> <span class=\"search-result-import-path\">reptar/lib/data-files.js</span>",
     "function"
   ],
   [
-    "reptar/lib/markdown.js~rendermarkdown",
+    "reptar/lib/renderer/markdown.js~rendermarkdown",
     "function/index.html#static-function-renderMarkdown",
-    "<span>renderMarkdown</span> <span class=\"search-result-import-path\">reptar/lib/markdown.js</span>",
+    "<span>renderMarkdown</span> <span class=\"search-result-import-path\">reptar/lib/renderer/markdown.js</span>",
     "function"
   ],
   [
-    "reptar/lib/template.js~rendertemplate",
+    "reptar/lib/renderer/template.js~rendertemplate",
     "function/index.html#static-function-renderTemplate",
-    "<span>renderTemplate</span> <span class=\"search-result-import-path\">reptar/lib/template.js</span>",
+    "<span>renderTemplate</span> <span class=\"search-result-import-path\">reptar/lib/renderer/template.js</span>",
     "function"
   ],
   [
-    "reptar/lib/template.js~rendertemplatestring",
+    "reptar/lib/renderer/template.js~rendertemplatestring",
     "function/index.html#static-function-renderTemplateString",
-    "<span>renderTemplateString</span> <span class=\"search-result-import-path\">reptar/lib/template.js</span>",
+    "<span>renderTemplateString</span> <span class=\"search-result-import-path\">reptar/lib/renderer/template.js</span>",
+    "function"
+  ],
+  [
+    "reptar/lib/cli/serve.js~serve",
+    "function/index.html#static-function-serve",
+    "<span>serve</span> <span class=\"search-result-import-path\">reptar/lib/cli/serve.js</span>",
     "function"
   ],
   [
@@ -243,6 +213,12 @@ window.esdocSearchIndex = [
     "reptar/lib/parse/yaml.js~stringify",
     "function/index.html#static-function-stringify",
     "<span>stringify</span> <span class=\"search-result-import-path\">reptar/lib/parse/yaml.js</span>",
+    "function"
+  ],
+  [
+    "reptar/lib/cli/watch.js~watch",
+    "function/index.html#static-function-watch",
+    "<span>watch</span> <span class=\"search-result-import-path\">reptar/lib/cli/watch.js</span>",
     "function"
   ],
   [
@@ -577,85 +553,67 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/theme/index.spec.js.html#lineNumber5",
-    "Theme",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/theme/index.spec.js.html#lineNumber6",
-    "Theme TODO",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/theme/index.spec.js.html#lineNumber7",
-    "Theme TODO TODO",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/collection/base.spec.js.html#lineNumber12",
+    "test-file/test/unit/collection/base.spec.js.html#lineNumber10",
     "collection/base CollectionBase",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/base.spec.js.html#lineNumber24",
+    "test-file/test/unit/collection/base.spec.js.html#lineNumber20",
     "collection/base CollectionBase constructor",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/base.spec.js.html#lineNumber35",
+    "test-file/test/unit/collection/base.spec.js.html#lineNumber31",
     "collection/base CollectionBase constructor accepts a name and no config object",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/base.spec.js.html#lineNumber25",
+    "test-file/test/unit/collection/base.spec.js.html#lineNumber21",
     "collection/base CollectionBase constructor throws when no collection name is given",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/base.spec.js.html#lineNumber54",
+    "test-file/test/unit/collection/base.spec.js.html#lineNumber50",
     "collection/base CollectionBase isFiltered",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/base.spec.js.html#lineNumber55",
+    "test-file/test/unit/collection/base.spec.js.html#lineNumber51",
     "collection/base CollectionBase isFiltered returns if a file in collection is filtered",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/base.spec.js.html#lineNumber71",
+    "test-file/test/unit/collection/base.spec.js.html#lineNumber67",
     "collection/base CollectionBase sortFiles",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/base.spec.js.html#lineNumber131",
+    "test-file/test/unit/collection/base.spec.js.html#lineNumber127",
     "collection/base CollectionBase sortFiles sorts date value ascending",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/base.spec.js.html#lineNumber119",
+    "test-file/test/unit/collection/base.spec.js.html#lineNumber115",
     "collection/base CollectionBase sortFiles sorts date value descending",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/base.spec.js.html#lineNumber107",
+    "test-file/test/unit/collection/base.spec.js.html#lineNumber103",
     "collection/base CollectionBase sortFiles sorts integer value ascending",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/base.spec.js.html#lineNumber95",
+    "test-file/test/unit/collection/base.spec.js.html#lineNumber91",
     "collection/base CollectionBase sortFiles sorts integer value descending",
     "test"
   ],
@@ -685,259 +643,295 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/collection/page.spec.js.html#lineNumber39",
+    "test-file/test/unit/collection/page.spec.js.html#lineNumber38",
     "collection/page CollectionPage constructor",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/page.spec.js.html#lineNumber52",
+    "test-file/test/unit/collection/page.spec.js.html#lineNumber51",
     "collection/page CollectionPage constructor creates a unique id",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/page.spec.js.html#lineNumber40",
+    "test-file/test/unit/collection/page.spec.js.html#lineNumber39",
     "collection/page CollectionPage constructor throws an error if it doesn't get expected values",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/page.spec.js.html#lineNumber65",
+    "test-file/test/unit/collection/page.spec.js.html#lineNumber64",
     "collection/page CollectionPage setData",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/page.spec.js.html#lineNumber66",
+    "test-file/test/unit/collection/page.spec.js.html#lineNumber65",
     "collection/page CollectionPage setData saves passed in values",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber17",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber16",
     "collection/type/file-system FileSystemCollection",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber261",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber257",
     "collection/type/file-system FileSystemCollection _isFileExcluded",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber311",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber307",
     "collection/type/file-system FileSystemCollection _isFileExcluded is false if the file path is not in our excludePaths",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber270",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber266",
     "collection/type/file-system FileSystemCollection _isFileExcluded is false when FileSystemCollection has metadata",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber262",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber258",
     "collection/type/file-system FileSystemCollection _isFileExcluded is false when FileSystemCollection has no path",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber280",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber276",
     "collection/type/file-system FileSystemCollection _isFileExcluded is false when no excludePaths are set",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber295",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber291",
     "collection/type/file-system FileSystemCollection _isFileExcluded is true if the file path is contained in our excludePaths",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber32",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber28",
     "collection/type/file-system FileSystemCollection _isFileInCollection",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber76",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber72",
     "collection/type/file-system FileSystemCollection _isFileInCollection is false if file's path is excluded from collection",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber33",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber29",
     "collection/type/file-system FileSystemCollection _isFileInCollection is false if file's path is not within collection's path",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber57",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber53",
     "collection/type/file-system FileSystemCollection _isFileInCollection is true if file's path includes collection's path",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber228",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber224",
     "collection/type/file-system FileSystemCollection _setExcludePaths",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber240",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber236",
     "collection/type/file-system FileSystemCollection _setExcludePaths can set exclude paths",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber250",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber246",
     "collection/type/file-system FileSystemCollection _setExcludePaths does not add its own path to the exclude path array",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber209",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber143",
     "collection/type/file-system FileSystemCollection createCollectionPages",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber147",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber205",
     "collection/type/file-system FileSystemCollection createCollectionPages",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber148",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber144",
     "collection/type/file-system FileSystemCollection createCollectionPages adds files to collectionPages",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber210",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber206",
     "collection/type/file-system FileSystemCollection createCollectionPages returns early if no pagination permalinks are set",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber96",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber92",
     "collection/type/file-system FileSystemCollection populate",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber97",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber93",
     "collection/type/file-system FileSystemCollection populate adds files to collection",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber119",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber115",
     "collection/type/file-system FileSystemCollection populate does not add files to collection",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber17",
+    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber16",
     "collection/type/metadata MetadataCollection",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber32",
+    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber28",
     "collection/type/metadata MetadataCollection _isFileInCollection",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber33",
+    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber29",
     "collection/type/metadata MetadataCollection _isFileInCollection is false if file does not have collection's metadata key",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber48",
+    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber44",
     "collection/type/metadata MetadataCollection _isFileInCollection is true if file has collection's metadata key",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber135",
+    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber131",
     "collection/type/metadata MetadataCollection createCollectionPages",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber151",
+    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber147",
     "collection/type/metadata MetadataCollection createCollectionPages adds files to collectionPages",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber136",
+    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber132",
     "collection/type/metadata MetadataCollection createCollectionPages returns early if no pagination permalinks are set",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber67",
+    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber63",
     "collection/type/metadata MetadataCollection populate",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber68",
+    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber64",
     "collection/type/metadata MetadataCollection populate adds files to collection",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber105",
+    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber101",
     "collection/type/metadata MetadataCollection populate does not add files to collection",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber12",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber15",
     "config/index Config",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber22",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber25",
     "config/index Config constructor",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber23",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber26",
     "config/index Config constructor can create an instance",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber35",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber38",
     "config/index Config update",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber45",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber253",
+    "config/index Config update asset",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber292",
+    "config/index Config update asset coerces asset test values to functions",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber304",
+    "config/index Config update asset correctly tests against different file paths",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber298",
+    "config/index Config update asset ensures asset.use value is a function",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber87",
     "config/index Config update calculates paths correctly",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber118",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber71",
+    "config/index Config update can load a config file that exports a function",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber224",
+    "config/index Config update coerces middleware and lifecycle config values to arrays",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber128",
     "config/index Config update sorts file defaults in correct precedence order",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber93",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber103",
     "config/index Config update throws when given an invalid config object",
     "test"
   ],
@@ -967,67 +961,67 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber19",
+    "test-file/test/unit/file.spec.js.html#lineNumber16",
     "file File",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber186",
+    "test-file/test/unit/file.spec.js.html#lineNumber185",
     "file File _calculateDestination",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber187",
+    "test-file/test/unit/file.spec.js.html#lineNumber186",
     "file File _calculateDestination allows custom file url property",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber45",
+    "test-file/test/unit/file.spec.js.html#lineNumber40",
     "file File constructor",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber59",
+    "test-file/test/unit/file.spec.js.html#lineNumber56",
     "file File constructor calculates destination path",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber46",
+    "test-file/test/unit/file.spec.js.html#lineNumber41",
     "file File constructor can create an instance",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber70",
+    "test-file/test/unit/file.spec.js.html#lineNumber69",
     "file File default values from config",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber135",
+    "test-file/test/unit/file.spec.js.html#lineNumber134",
     "file File default values from config applies default values that match",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber251",
+    "test-file/test/unit/file.spec.js.html#lineNumber254",
     "file File filtered",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber252",
+    "test-file/test/unit/file.spec.js.html#lineNumber255",
     "file File filtered set correctly",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber223",
+    "test-file/test/unit/file.spec.js.html#lineNumber224",
     "file File has all proper values on its data object",
     "test"
   ],
@@ -1080,22 +1074,22 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
-    "",
-    "test-file/test/unit/json.spec.js.html#lineNumber6",
-    "json JSON",
-    "test"
+    "lib/assets/browserify.js",
+    "file/lib/assets/browserify.js.html",
+    "lib/assets/browserify.js",
+    "file"
   ],
   [
-    "",
-    "test-file/test/unit/json.spec.js.html#lineNumber7",
-    "json JSON getReptarPackageNames",
-    "test"
+    "lib/assets/less.js",
+    "file/lib/assets/less.js.html",
+    "lib/assets/less.js",
+    "file"
   ],
   [
-    "",
-    "test-file/test/unit/json.spec.js.html#lineNumber8",
-    "json JSON getReptarPackageNames returns the Reptar package names",
-    "test"
+    "lib/assets/sass.js",
+    "file/lib/assets/sass.js.html",
+    "lib/assets/sass.js",
+    "file"
   ],
   [
     "lib/cache.js",
@@ -1110,10 +1104,58 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/cli/build.js",
+    "file/lib/cli/build.js.html",
+    "lib/cli/build.js",
+    "file"
+  ],
+  [
+    "lib/cli/clean.js",
+    "file/lib/cli/clean.js.html",
+    "lib/cli/clean.js",
+    "file"
+  ],
+  [
+    "lib/cli/init.js",
+    "file/lib/cli/init.js.html",
+    "lib/cli/init.js",
+    "file"
+  ],
+  [
+    "lib/cli/new.js",
+    "file/lib/cli/new.js.html",
+    "lib/cli/new.js",
+    "file"
+  ],
+  [
+    "lib/cli/serve.js",
+    "file/lib/cli/serve.js.html",
+    "lib/cli/serve.js",
+    "file"
+  ],
+  [
+    "lib/cli/watch.js",
+    "file/lib/cli/watch.js.html",
+    "lib/cli/watch.js",
+    "file"
+  ],
+  [
     "lib/collection/base.js",
     "file/lib/collection/base.js.html",
     "lib/collection/base.js",
     "file"
+  ],
+  [
+    "lib/collection/base.js~collectionbase#_config",
+    "class/lib/collection/base.js~CollectionBase.html#instance-member-_config",
+    "lib/collection/base.js~CollectionBase#_config",
+    "member"
+  ],
+  [
+    "lib/collection/base.js~collectionbase#_renderer",
+    "class/lib/collection/base.js~CollectionBase.html#instance-member-_renderer",
+    "lib/collection/base.js~CollectionBase#_renderer",
+    "member"
   ],
   [
     "lib/collection/base.js~collectionbase#constructor",
@@ -1284,12 +1326,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "lib/collection/page.js~collectionpage#renderwithplugins",
-    "class/lib/collection/page.js~CollectionPage.html#instance-method-renderWithPlugins",
-    "lib/collection/page.js~CollectionPage#renderWithPlugins",
-    "method"
-  ],
-  [
     "lib/collection/page.js~collectionpage#setdata",
     "class/lib/collection/page.js~CollectionPage.html#instance-method-setData",
     "lib/collection/page.js~CollectionPage#setData",
@@ -1299,12 +1335,6 @@ window.esdocSearchIndex = [
     "lib/collection/page.js~collectionpage#setfiles",
     "class/lib/collection/page.js~CollectionPage.html#instance-method-setFiles",
     "lib/collection/page.js~CollectionPage#setFiles",
-    "method"
-  ],
-  [
-    "lib/collection/page.js~collectionpage#setgetconfig",
-    "class/lib/collection/page.js~CollectionPage.html#instance-method-setGetConfig",
-    "lib/collection/page.js~CollectionPage#setGetConfig",
     "method"
   ],
   [
@@ -1416,6 +1446,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "lib/config/config-example.js",
+    "file/lib/config/config-example.js.html",
+    "lib/config/config-example.js",
+    "file"
+  ],
+  [
     "lib/config/config-schema.js",
     "file/lib/config/config-schema.js.html",
     "lib/config/config-schema.js",
@@ -1452,12 +1488,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "lib/config/index.js~config.exampleconfig",
-    "class/lib/config/index.js~Config.html#static-method-exampleConfig",
-    "lib/config/index.js~Config.exampleConfig",
-    "method"
-  ],
-  [
     "lib/constants.js",
     "file/lib/constants.js.html",
     "lib/constants.js",
@@ -1470,10 +1500,40 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/file-system.js",
+    "file/lib/file-system.js.html",
+    "lib/file-system.js",
+    "file"
+  ],
+  [
+    "lib/file-system.js~filesystem#constructor",
+    "class/lib/file-system.js~FileSystem.html#instance-constructor-constructor",
+    "lib/file-system.js~FileSystem#constructor",
+    "method"
+  ],
+  [
+    "lib/file-system.js~filesystem#files",
+    "class/lib/file-system.js~FileSystem.html#instance-member-files",
+    "lib/file-system.js~FileSystem#files",
+    "member"
+  ],
+  [
+    "lib/file-system.js~filesystem#loadintomemory",
+    "class/lib/file-system.js~FileSystem.html#instance-method-loadIntoMemory",
+    "lib/file-system.js~FileSystem#loadIntoMemory",
+    "method"
+  ],
+  [
     "lib/file.js",
     "file/lib/file.js.html",
     "lib/file.js",
     "file"
+  ],
+  [
+    "lib/file.js~file#assetprocessor",
+    "class/lib/file.js~File.html#instance-member-assetProcessor",
+    "lib/file.js~File#assetProcessor",
+    "member"
   ],
   [
     "lib/file.js~file#checksum",
@@ -1536,12 +1596,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "lib/file.js~file#renderwithplugins",
-    "class/lib/file.js~File.html#instance-method-renderWithPlugins",
-    "lib/file.js~File#renderWithPlugins",
-    "method"
-  ],
-  [
     "lib/file.js~file#skipprocessing",
     "class/lib/file.js~File.html#instance-member-skipProcessing",
     "lib/file.js~File#skipProcessing",
@@ -1596,12 +1650,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "lib/index.js~reptar#collections",
-    "class/lib/index.js~Reptar.html#instance-member-collections",
-    "lib/index.js~Reptar#collections",
-    "member"
-  ],
-  [
     "lib/index.js~reptar#config",
     "class/lib/index.js~Reptar.html#instance-member-config",
     "lib/index.js~Reptar#config",
@@ -1614,21 +1662,21 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "lib/index.js~reptar#data",
-    "class/lib/index.js~Reptar.html#instance-member-data",
-    "lib/index.js~Reptar#data",
+    "lib/index.js~reptar#destination",
+    "class/lib/index.js~Reptar.html#instance-member-destination",
+    "lib/index.js~Reptar#destination",
     "member"
   ],
   [
-    "lib/index.js~reptar#files",
-    "class/lib/index.js~Reptar.html#instance-member-files",
-    "lib/index.js~Reptar#files",
+    "lib/index.js~reptar#filesystem",
+    "class/lib/index.js~Reptar.html#instance-member-fileSystem",
+    "lib/index.js~Reptar#fileSystem",
     "member"
   ],
   [
-    "lib/index.js~reptar#getconfig",
-    "class/lib/index.js~Reptar.html#instance-member-getConfig",
-    "lib/index.js~Reptar#getConfig",
+    "lib/index.js~reptar#metadata",
+    "class/lib/index.js~Reptar.html#instance-member-metadata",
+    "lib/index.js~Reptar#metadata",
     "member"
   ],
   [
@@ -1638,21 +1686,9 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "lib/index.js~reptar#readcollections",
-    "class/lib/index.js~Reptar.html#instance-method-readCollections",
-    "lib/index.js~Reptar#readCollections",
-    "method"
-  ],
-  [
-    "lib/index.js~reptar#readfiles",
-    "class/lib/index.js~Reptar.html#instance-method-readFiles",
-    "lib/index.js~Reptar#readFiles",
-    "method"
-  ],
-  [
-    "lib/index.js~reptar#theme",
-    "class/lib/index.js~Reptar.html#instance-member-theme",
-    "lib/index.js~Reptar#theme",
+    "lib/index.js~reptar#renderer",
+    "class/lib/index.js~Reptar.html#instance-member-renderer",
+    "lib/index.js~Reptar#renderer",
     "member"
   ],
   [
@@ -1668,22 +1704,40 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "lib/json.js",
-    "file/lib/json.js.html",
-    "lib/json.js",
-    "file"
-  ],
-  [
     "lib/log.js",
     "file/lib/log.js.html",
     "lib/log.js",
     "file"
   ],
   [
-    "lib/markdown.js",
-    "file/lib/markdown.js.html",
-    "lib/markdown.js",
+    "lib/metadata.js",
+    "file/lib/metadata.js.html",
+    "lib/metadata.js",
     "file"
+  ],
+  [
+    "lib/metadata.js~metadata#constructor",
+    "class/lib/metadata.js~Metadata.html#instance-constructor-constructor",
+    "lib/metadata.js~Metadata#constructor",
+    "method"
+  ],
+  [
+    "lib/metadata.js~metadata#get",
+    "class/lib/metadata.js~Metadata.html#instance-method-get",
+    "lib/metadata.js~Metadata#get",
+    "method"
+  ],
+  [
+    "lib/metadata.js~metadata#metadata",
+    "class/lib/metadata.js~Metadata.html#instance-member-metadata",
+    "lib/metadata.js~Metadata#metadata",
+    "member"
+  ],
+  [
+    "lib/metadata.js~metadata#set",
+    "class/lib/metadata.js~Metadata.html#instance-method-set",
+    "lib/metadata.js~Metadata#set",
+    "method"
   ],
   [
     "lib/parse/front-matter.js",
@@ -1704,261 +1758,63 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "lib/plugin/api.js",
-    "file/lib/plugin/api.js.html",
-    "lib/plugin/api.js",
+    "lib/renderer/markdown.js",
+    "file/lib/renderer/markdown.js.html",
+    "lib/renderer/markdown.js",
     "file"
   ],
   [
-    "lib/plugin/event-handler.js",
-    "file/lib/plugin/event-handler.js.html",
-    "lib/plugin/event-handler.js",
+    "lib/renderer/renderer.js",
+    "file/lib/renderer/renderer.js.html",
+    "lib/renderer/renderer.js",
     "file"
   ],
   [
-    "lib/plugin/event-handler.js~eventhandler#addeventhandler",
-    "class/lib/plugin/event-handler.js~EventHandler.html#instance-method-addEventHandler",
-    "lib/plugin/event-handler.js~EventHandler#addEventHandler",
+    "lib/renderer/renderer.js~renderer#addtemplatefilter",
+    "class/lib/renderer/renderer.js~Renderer.html#instance-member-addTemplateFilter",
+    "lib/renderer/renderer.js~Renderer#addTemplateFilter",
+    "member"
+  ],
+  [
+    "lib/renderer/renderer.js~renderer#constructor",
+    "class/lib/renderer/renderer.js~Renderer.html#instance-constructor-constructor",
+    "lib/renderer/renderer.js~Renderer#constructor",
     "method"
   ],
   [
-    "lib/plugin/event-handler.js~eventhandler#processeventhandlers",
-    "class/lib/plugin/event-handler.js~EventHandler.html#instance-method-processEventHandlers",
-    "lib/plugin/event-handler.js~EventHandler#processEventHandlers",
+    "lib/renderer/renderer.js~renderer#getmarkdownengine",
+    "class/lib/renderer/renderer.js~Renderer.html#instance-method-getMarkdownEngine",
+    "lib/renderer/renderer.js~Renderer#getMarkdownEngine",
     "method"
   ],
   [
-    "lib/plugin/events.js",
-    "file/lib/plugin/events.js.html",
-    "lib/plugin/events.js",
-    "file"
+    "lib/renderer/renderer.js~renderer#rendermarkdown",
+    "class/lib/renderer/renderer.js~Renderer.html#instance-member-renderMarkdown",
+    "lib/renderer/renderer.js~Renderer#renderMarkdown",
+    "member"
   ],
   [
-    "lib/plugin/index.js",
-    "file/lib/plugin/index.js.html",
-    "lib/plugin/index.js",
-    "file"
+    "lib/renderer/renderer.js~renderer#rendertemplate",
+    "class/lib/renderer/renderer.js~Renderer.html#instance-member-renderTemplate",
+    "lib/renderer/renderer.js~Renderer#renderTemplate",
+    "member"
   ],
   [
-    "lib/plugin/index.js~plugin.loadfromdirectory",
-    "class/lib/plugin/index.js~Plugin.html#static-method-loadFromDirectory",
-    "lib/plugin/index.js~Plugin.loadFromDirectory",
+    "lib/renderer/renderer.js~renderer#rendertemplatestring",
+    "class/lib/renderer/renderer.js~Renderer.html#instance-member-renderTemplateString",
+    "lib/renderer/renderer.js~Renderer#renderTemplateString",
+    "member"
+  ],
+  [
+    "lib/renderer/renderer.js~renderer#update",
+    "class/lib/renderer/renderer.js~Renderer.html#instance-method-update",
+    "lib/renderer/renderer.js~Renderer#update",
     "method"
   ],
   [
-    "lib/plugin/index.js~plugin.loadfrompackagejson",
-    "class/lib/plugin/index.js~Plugin.html#static-method-loadFromPackageJson",
-    "lib/plugin/index.js~Plugin.loadFromPackageJson",
-    "method"
-  ],
-  [
-    "lib/plugin/index.js~plugin.loadplugin",
-    "class/lib/plugin/index.js~Plugin.html#static-method-loadPlugin",
-    "lib/plugin/index.js~Plugin.loadPlugin",
-    "method"
-  ],
-  [
-    "lib/render.js",
-    "file/lib/render.js.html",
-    "lib/render.js",
-    "file"
-  ],
-  [
-    "lib/template.js",
-    "file/lib/template.js.html",
-    "lib/template.js",
-    "file"
-  ],
-  [
-    "lib/theme/asset.js",
-    "file/lib/theme/asset.js.html",
-    "lib/theme/asset.js",
-    "file"
-  ],
-  [
-    "lib/theme/asset.js~asset#config",
-    "class/lib/theme/asset.js~Asset.html#instance-member-config",
-    "lib/theme/asset.js~Asset#config",
-    "member"
-  ],
-  [
-    "lib/theme/asset.js~asset#constructor",
-    "class/lib/theme/asset.js~Asset.html#instance-constructor-constructor",
-    "lib/theme/asset.js~Asset#constructor",
-    "method"
-  ],
-  [
-    "lib/theme/asset.js~asset#content",
-    "class/lib/theme/asset.js~Asset.html#instance-member-content",
-    "lib/theme/asset.js~Asset#content",
-    "member"
-  ],
-  [
-    "lib/theme/asset.js~asset#data",
-    "class/lib/theme/asset.js~Asset.html#instance-member-data",
-    "lib/theme/asset.js~Asset#data",
-    "member"
-  ],
-  [
-    "lib/theme/asset.js~asset#destination",
-    "class/lib/theme/asset.js~Asset.html#instance-member-destination",
-    "lib/theme/asset.js~Asset#destination",
-    "member"
-  ],
-  [
-    "lib/theme/asset.js~asset#id",
-    "class/lib/theme/asset.js~Asset.html#instance-member-id",
-    "lib/theme/asset.js~Asset#id",
-    "member"
-  ],
-  [
-    "lib/theme/asset.js~asset#process",
-    "class/lib/theme/asset.js~Asset.html#instance-method-process",
-    "lib/theme/asset.js~Asset#process",
-    "method"
-  ],
-  [
-    "lib/theme/asset.js~asset#processor",
-    "class/lib/theme/asset.js~Asset.html#instance-member-processor",
-    "lib/theme/asset.js~Asset#processor",
-    "member"
-  ],
-  [
-    "lib/theme/asset.js~asset#type",
-    "class/lib/theme/asset.js~Asset.html#instance-member-type",
-    "lib/theme/asset.js~Asset#type",
-    "member"
-  ],
-  [
-    "lib/theme/asset.js~asset#write",
-    "class/lib/theme/asset.js~Asset.html#instance-method-write",
-    "lib/theme/asset.js~Asset#write",
-    "method"
-  ],
-  [
-    "lib/theme/index.js",
-    "file/lib/theme/index.js.html",
-    "lib/theme/index.js",
-    "file"
-  ],
-  [
-    "lib/theme/index.js~theme#assets",
-    "class/lib/theme/index.js~Theme.html#instance-member-assets",
-    "lib/theme/index.js~Theme#assets",
-    "member"
-  ],
-  [
-    "lib/theme/index.js~theme#config",
-    "class/lib/theme/index.js~Theme.html#instance-member-config",
-    "lib/theme/index.js~Theme#config",
-    "member"
-  ],
-  [
-    "lib/theme/index.js~theme#constructor",
-    "class/lib/theme/index.js~Theme.html#instance-constructor-constructor",
-    "lib/theme/index.js~Theme#constructor",
-    "method"
-  ],
-  [
-    "lib/theme/index.js~theme#data",
-    "class/lib/theme/index.js~Theme.html#instance-member-data",
-    "lib/theme/index.js~Theme#data",
-    "member"
-  ],
-  [
-    "lib/theme/index.js~theme#name",
-    "class/lib/theme/index.js~Theme.html#instance-member-name",
-    "lib/theme/index.js~Theme#name",
-    "member"
-  ],
-  [
-    "lib/theme/index.js~theme#read",
-    "class/lib/theme/index.js~Theme.html#instance-method-read",
-    "lib/theme/index.js~Theme#read",
-    "method"
-  ],
-  [
-    "lib/theme/index.js~theme#setgetconfig",
-    "class/lib/theme/index.js~Theme.html#instance-method-setGetConfig",
-    "lib/theme/index.js~Theme#setGetConfig",
-    "method"
-  ],
-  [
-    "lib/theme/index.js~theme#update",
-    "class/lib/theme/index.js~Theme.html#instance-method-update",
-    "lib/theme/index.js~Theme#update",
-    "method"
-  ],
-  [
-    "lib/theme/index.js~theme#write",
-    "class/lib/theme/index.js~Theme.html#instance-method-write",
-    "lib/theme/index.js~Theme#write",
-    "method"
-  ],
-  [
-    "lib/theme/processor-base.js",
-    "file/lib/theme/processor-base.js.html",
-    "lib/theme/processor-base.js",
-    "file"
-  ],
-  [
-    "lib/theme/processor-base.js~processorbase#assetdestination",
-    "class/lib/theme/processor-base.js~ProcessorBase.html#instance-member-assetDestination",
-    "lib/theme/processor-base.js~ProcessorBase#assetDestination",
-    "member"
-  ],
-  [
-    "lib/theme/processor-base.js~processorbase#assetsource",
-    "class/lib/theme/processor-base.js~ProcessorBase.html#instance-member-assetSource",
-    "lib/theme/processor-base.js~ProcessorBase#assetSource",
-    "member"
-  ],
-  [
-    "lib/theme/processor-base.js~processorbase#checksum",
-    "class/lib/theme/processor-base.js~ProcessorBase.html#instance-member-checksum",
-    "lib/theme/processor-base.js~ProcessorBase#checksum",
-    "member"
-  ],
-  [
-    "lib/theme/processor-base.js~processorbase#constructor",
-    "class/lib/theme/processor-base.js~ProcessorBase.html#instance-constructor-constructor",
-    "lib/theme/processor-base.js~ProcessorBase#constructor",
-    "method"
-  ],
-  [
-    "lib/theme/processor-base.js~processorbase#plugins",
-    "class/lib/theme/processor-base.js~ProcessorBase.html#instance-member-plugins",
-    "lib/theme/processor-base.js~ProcessorBase#plugins",
-    "member"
-  ],
-  [
-    "lib/theme/processor-base.js~processorbase#process",
-    "class/lib/theme/processor-base.js~ProcessorBase.html#instance-method-process",
-    "lib/theme/processor-base.js~ProcessorBase#process",
-    "method"
-  ],
-  [
-    "lib/theme/processor-base.js~processorbase#shouldhash",
-    "class/lib/theme/processor-base.js~ProcessorBase.html#instance-member-shouldHash",
-    "lib/theme/processor-base.js~ProcessorBase#shouldHash",
-    "member"
-  ],
-  [
-    "lib/theme/processor/browserify.js",
-    "file/lib/theme/processor/browserify.js.html",
-    "lib/theme/processor/browserify.js",
-    "file"
-  ],
-  [
-    "lib/theme/processor/less.js",
-    "file/lib/theme/processor/less.js.html",
-    "lib/theme/processor/less.js",
-    "file"
-  ],
-  [
-    "lib/theme/processor/sass.js",
-    "file/lib/theme/processor/sass.js.html",
-    "lib/theme/processor/sass.js",
+    "lib/renderer/template.js",
+    "file/lib/renderer/template.js.html",
+    "lib/renderer/template.js",
     "file"
   ],
   [
@@ -1966,6 +1822,30 @@ window.esdocSearchIndex = [
     "file/lib/url.js.html",
     "lib/url.js",
     "file"
+  ],
+  [
+    "",
+    "test-file/test/unit/metadata.spec.js.html#lineNumber8",
+    "metadata Metadata",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/metadata.spec.js.html#lineNumber24",
+    "metadata Metadata get",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/metadata.spec.js.html#lineNumber34",
+    "metadata Metadata get returns the entire object",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/metadata.spec.js.html#lineNumber38",
+    "metadata Metadata get returns the object at a path",
+    "test"
   ],
   [
     "",
@@ -2029,146 +1909,104 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/plugin/api.spec.js.html#lineNumber11",
-    "plugin/api PluginAPI",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/api.spec.js.html#lineNumber20",
-    "plugin/api PluginAPI allows you to configure markdown engine",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/api.spec.js.html#lineNumber28",
-    "plugin/api PluginAPI creates methods for registering event handlers",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/api.spec.js.html#lineNumber12",
-    "plugin/api PluginAPI provides a proxy to template.addFilter method",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber7",
-    "plugin/event-handler EventHandler",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber15",
-    "plugin/event-handler EventHandler addEventHandler",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber16",
-    "plugin/event-handler EventHandler addEventHandler can add handlers",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber37",
-    "plugin/event-handler EventHandler processEventHandlers",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber74",
-    "plugin/event-handler EventHandler processEventHandlers can invoke handlers sequentionally",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber38",
-    "plugin/event-handler EventHandler processEventHandlers can invoke handlers when none exist",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber51",
-    "plugin/event-handler EventHandler processEventHandlers can invoke handlers when none exist with multiple passed arguments",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber39",
-    "plugin/event-handler EventHandler processEventHandlers can invoke handlers when none exist with one passed argument",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber129",
-    "plugin/event-handler EventHandler processEventHandlers invokes handlers with multiple arguments",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber158",
-    "plugin/event-handler EventHandler processEventHandlers throws when plugin handlers",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber159",
-    "plugin/event-handler EventHandler processEventHandlers throws when plugin handlers return only part of the arguments given",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/event-handler.spec.js.html#lineNumber179",
-    "plugin/event-handler EventHandler processEventHandlers throws when plugin handlers returns arguments in wrong order given",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/index.spec.js.html#lineNumber5",
-    "plugin/index Plugin",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/plugin/index.spec.js.html#lineNumber6",
-    "plugin/index Plugin has expected public methods",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/render.spec.js.html#lineNumber14",
-    "render Render",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/render.spec.js.html#lineNumber26",
-    "render Render renderFileWithPlugins",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/render.spec.js.html#lineNumber27",
-    "render Render renderFileWithPlugins calls all functions in expected order",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/e2e/yarn.spec.js.html#lineNumber22",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber19",
     "reptar Reptar",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/yarn.spec.js.html#lineNumber68",
-    "reptar Reptar builds site correctly",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber58",
+    "reptar Reptar does not call update",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/yarn.spec.js.html#lineNumber43",
-    "reptar Reptar instantiates correctly",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber67",
+    "reptar Reptar has not called any lifecycle functions",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber62",
+    "reptar Reptar has not called any middleware functions",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber74",
+    "reptar Reptar when updated",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber129",
+    "reptar Reptar when updated and when build is called",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber159",
+    "reptar Reptar when updated and when build is called builds site correctly",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber151",
+    "reptar Reptar when updated and when build is called has the same number of files generated",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber174",
+    "reptar Reptar when updated and when build is called last middleware is called before willBuild",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber186",
+    "reptar Reptar when updated and when build is called willBuild is called before didBuild",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber90",
+    "reptar Reptar when updated calls every middleware function",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber97",
+    "reptar Reptar when updated calls every middleware function in the expected order",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber79",
+    "reptar Reptar when updated creates expected instances",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber125",
+    "reptar Reptar when updated didBuild is not called",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber113",
+    "reptar Reptar when updated didUpdate is called before the first middleware",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber121",
+    "reptar Reptar when updated willBuild is not called",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber104",
+    "reptar Reptar when updated willUpdate is called before didUpdate",
     "test"
   ],
   [
@@ -2244,9 +2082,9 @@ window.esdocSearchIndex = [
     "testFile"
   ],
   [
-    "test/unit/json.spec.js",
-    "test-file/test/unit/json.spec.js.html",
-    "test/unit/json.spec.js",
+    "test/unit/metadata.spec.js",
+    "test-file/test/unit/metadata.spec.js.html",
+    "test/unit/metadata.spec.js",
     "testFile"
   ],
   [
@@ -2259,36 +2097,6 @@ window.esdocSearchIndex = [
     "test/unit/parse/yaml.spec.js",
     "test-file/test/unit/parse/yaml.spec.js.html",
     "test/unit/parse/yaml.spec.js",
-    "testFile"
-  ],
-  [
-    "test/unit/plugin/api.spec.js",
-    "test-file/test/unit/plugin/api.spec.js.html",
-    "test/unit/plugin/api.spec.js",
-    "testFile"
-  ],
-  [
-    "test/unit/plugin/event-handler.spec.js",
-    "test-file/test/unit/plugin/event-handler.spec.js.html",
-    "test/unit/plugin/event-handler.spec.js",
-    "testFile"
-  ],
-  [
-    "test/unit/plugin/index.spec.js",
-    "test-file/test/unit/plugin/index.spec.js.html",
-    "test/unit/plugin/index.spec.js",
-    "testFile"
-  ],
-  [
-    "test/unit/render.spec.js",
-    "test-file/test/unit/render.spec.js.html",
-    "test/unit/render.spec.js",
-    "testFile"
-  ],
-  [
-    "test/unit/theme/index.spec.js",
-    "test-file/test/unit/theme/index.spec.js.html",
-    "test/unit/theme/index.spec.js",
     "testFile"
   ],
   [

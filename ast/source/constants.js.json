@@ -1,123 +1,428 @@
 {
   "type": "File",
   "start": 0,
-  "end": 613,
+  "end": 400,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 32,
+      "line": 21,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 613,
+    "end": 400,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 32,
+        "line": 21,
         "column": 0
       }
     },
     "sourceType": "module",
     "body": [
       {
-        "type": "ExportNamedDeclaration",
-        "start": 89,
-        "end": 161,
+        "type": "Identifier",
+        "start": 1,
+        "end": 372,
         "loc": {
           "start": {
-            "line": 6,
+            "line": 2,
             "column": 0
           },
           "end": {
-            "line": 9,
+            "line": 18,
             "column": 2
           }
         },
-        "specifiers": [],
-        "source": null,
+        "declarations": [
+          {
+            "type": "VariableDeclarator",
+            "start": 7,
+            "end": 371,
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 6
+              },
+              "end": {
+                "line": 18,
+                "column": 1
+              }
+            },
+            "id": {
+              "type": "Identifier",
+              "start": 7,
+              "end": 16,
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 6
+                },
+                "end": {
+                  "line": 2,
+                  "column": 15
+                },
+                "identifierName": "Constants"
+              },
+              "name": "Constants"
+            },
+            "init": {
+              "type": "ObjectExpression",
+              "start": 19,
+              "end": 371,
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 18
+                },
+                "end": {
+                  "line": 18,
+                  "column": 1
+                }
+              },
+              "properties": [
+                {
+                  "type": "ObjectProperty",
+                  "start": 23,
+                  "end": 57,
+                  "loc": {
+                    "start": {
+                      "line": 3,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 3,
+                      "column": 36
+                    }
+                  },
+                  "method": false,
+                  "shorthand": false,
+                  "computed": false,
+                  "key": {
+                    "type": "Identifier",
+                    "start": 23,
+                    "end": 37,
+                    "loc": {
+                      "start": {
+                        "line": 3,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 3,
+                        "column": 16
+                      },
+                      "identifierName": "ConfigFilename"
+                    },
+                    "name": "ConfigFilename"
+                  },
+                  "value": {
+                    "type": "StringLiteral",
+                    "start": 39,
+                    "end": 57,
+                    "loc": {
+                      "start": {
+                        "line": 3,
+                        "column": 18
+                      },
+                      "end": {
+                        "line": 3,
+                        "column": 36
+                      }
+                    },
+                    "extra": {
+                      "rawValue": "reptar.config.js",
+                      "raw": "'reptar.config.js'"
+                    },
+                    "value": "reptar.config.js"
+                  }
+                },
+                {
+                  "type": "ObjectProperty",
+                  "start": 186,
+                  "end": 205,
+                  "loc": {
+                    "start": {
+                      "line": 10,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 10,
+                      "column": 21
+                    }
+                  },
+                  "method": false,
+                  "shorthand": false,
+                  "computed": false,
+                  "key": {
+                    "type": "Identifier",
+                    "start": 186,
+                    "end": 195,
+                    "loc": {
+                      "start": {
+                        "line": 10,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 10,
+                        "column": 11
+                      },
+                      "identifierName": "SourceKey"
+                    },
+                    "name": "SourceKey",
+                    "leadingComments": null
+                  },
+                  "value": {
+                    "type": "StringLiteral",
+                    "start": 197,
+                    "end": 205,
+                    "loc": {
+                      "start": {
+                        "line": 10,
+                        "column": 13
+                      },
+                      "end": {
+                        "line": 10,
+                        "column": 21
+                      }
+                    },
+                    "extra": {
+                      "rawValue": "source",
+                      "raw": "'source'"
+                    },
+                    "value": "source"
+                  },
+                  "leadingComments": [
+                    {
+                      "type": "CommentBlock",
+                      "value": "*\n   * Key used on the config.path object to dictate where to find the site source\n   * path.\n   * @type {string}\n   ",
+                      "start": 62,
+                      "end": 183,
+                      "loc": {
+                        "start": {
+                          "line": 5,
+                          "column": 2
+                        },
+                        "end": {
+                          "line": 9,
+                          "column": 5
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "ObjectProperty",
+                  "start": 339,
+                  "end": 368,
+                  "loc": {
+                    "start": {
+                      "line": 17,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 17,
+                      "column": 31
+                    }
+                  },
+                  "method": false,
+                  "shorthand": false,
+                  "computed": false,
+                  "key": {
+                    "type": "Identifier",
+                    "start": 339,
+                    "end": 353,
+                    "loc": {
+                      "start": {
+                        "line": 17,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 17,
+                        "column": 16
+                      },
+                      "identifierName": "DestinationKey"
+                    },
+                    "name": "DestinationKey",
+                    "leadingComments": null
+                  },
+                  "value": {
+                    "type": "StringLiteral",
+                    "start": 355,
+                    "end": 368,
+                    "loc": {
+                      "start": {
+                        "line": 17,
+                        "column": 18
+                      },
+                      "end": {
+                        "line": 17,
+                        "column": 31
+                      }
+                    },
+                    "extra": {
+                      "rawValue": "destination",
+                      "raw": "'destination'"
+                    },
+                    "value": "destination"
+                  },
+                  "leadingComments": [
+                    {
+                      "type": "CommentBlock",
+                      "value": "*\n   * Key used on the config.path object to dictate where to find the site\n   * destination path.\n   * @type {string}\n   ",
+                      "start": 210,
+                      "end": 336,
+                      "loc": {
+                        "start": {
+                          "line": 12,
+                          "column": 2
+                        },
+                        "end": {
+                          "line": 16,
+                          "column": 5
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "kind": "const",
+        "name": "_",
+        "leadingComments": [],
+        "trailingComments": []
+      },
+      {
+        "type": "Identifier",
+        "start": 374,
+        "end": 399,
+        "loc": {
+          "start": {
+            "line": 20,
+            "column": 0
+          },
+          "end": {
+            "line": 20,
+            "column": 25
+          }
+        },
         "declaration": {
-          "type": "VariableDeclaration",
-          "start": 96,
-          "end": 161,
+          "type": "Identifier",
+          "start": 389,
+          "end": 398,
           "loc": {
             "start": {
-              "line": 6,
-              "column": 7
+              "line": 20,
+              "column": 15
             },
             "end": {
-              "line": 9,
+              "line": 20,
+              "column": 24
+            },
+            "identifierName": "Constants"
+          },
+          "name": "Constants"
+        },
+        "name": "_",
+        "leadingComments": [],
+        "trailingComments": []
+      },
+      {
+        "type": "ExportDefaultDeclaration",
+        "start": 374,
+        "end": 399,
+        "loc": {
+          "start": {
+            "line": 20,
+            "column": 0
+          },
+          "end": {
+            "line": 20,
+            "column": 25
+          }
+        },
+        "declaration": {
+          "type": "VariableDeclaration",
+          "start": 1,
+          "end": 372,
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 0
+            },
+            "end": {
+              "line": 18,
               "column": 2
             }
           },
           "declarations": [
             {
               "type": "VariableDeclarator",
-              "start": 102,
-              "end": 160,
+              "start": 7,
+              "end": 371,
               "loc": {
                 "start": {
-                  "line": 6,
-                  "column": 13
+                  "line": 2,
+                  "column": 6
                 },
                 "end": {
-                  "line": 9,
+                  "line": 18,
                   "column": 1
                 }
               },
               "id": {
                 "type": "Identifier",
-                "start": 102,
-                "end": 106,
+                "start": 7,
+                "end": 16,
                 "loc": {
                   "start": {
-                    "line": 6,
-                    "column": 13
+                    "line": 2,
+                    "column": 6
                   },
                   "end": {
-                    "line": 6,
-                    "column": 17
+                    "line": 2,
+                    "column": 15
                   },
-                  "identifierName": "YAML"
+                  "identifierName": "Constants"
                 },
-                "name": "YAML",
-                "leadingComments": null
+                "name": "Constants"
               },
               "init": {
                 "type": "ObjectExpression",
-                "start": 109,
-                "end": 160,
+                "start": 19,
+                "end": 371,
                 "loc": {
                   "start": {
-                    "line": 6,
-                    "column": 20
+                    "line": 2,
+                    "column": 18
                   },
                   "end": {
-                    "line": 9,
+                    "line": 18,
                     "column": 1
                   }
                 },
                 "properties": [
                   {
                     "type": "ObjectProperty",
-                    "start": 113,
-                    "end": 134,
+                    "start": 23,
+                    "end": 57,
                     "loc": {
                       "start": {
-                        "line": 7,
+                        "line": 3,
                         "column": 2
                       },
                       "end": {
-                        "line": 7,
-                        "column": 23
+                        "line": 3,
+                        "column": 36
                       }
                     },
                     "method": false,
@@ -125,53 +430,53 @@
                     "computed": false,
                     "key": {
                       "type": "Identifier",
-                      "start": 113,
-                      "end": 119,
+                      "start": 23,
+                      "end": 37,
                       "loc": {
                         "start": {
-                          "line": 7,
+                          "line": 3,
                           "column": 2
                         },
                         "end": {
-                          "line": 7,
-                          "column": 8
+                          "line": 3,
+                          "column": 16
                         },
-                        "identifierName": "CONFIG"
+                        "identifierName": "ConfigFilename"
                       },
-                      "name": "CONFIG"
+                      "name": "ConfigFilename"
                     },
                     "value": {
                       "type": "StringLiteral",
-                      "start": 121,
-                      "end": 134,
+                      "start": 39,
+                      "end": 57,
                       "loc": {
                         "start": {
-                          "line": 7,
-                          "column": 10
+                          "line": 3,
+                          "column": 18
                         },
                         "end": {
-                          "line": 7,
-                          "column": 23
+                          "line": 3,
+                          "column": 36
                         }
                       },
                       "extra": {
-                        "rawValue": "_config.yml",
-                        "raw": "'_config.yml'"
+                        "rawValue": "reptar.config.js",
+                        "raw": "'reptar.config.js'"
                       },
-                      "value": "_config.yml"
+                      "value": "reptar.config.js"
                     }
                   },
                   {
                     "type": "ObjectProperty",
-                    "start": 138,
-                    "end": 157,
+                    "start": 186,
+                    "end": 205,
                     "loc": {
                       "start": {
-                        "line": 8,
+                        "line": 10,
                         "column": 2
                       },
                       "end": {
-                        "line": 8,
+                        "line": 10,
                         "column": 21
                       }
                     },
@@ -180,247 +485,34 @@
                     "computed": false,
                     "key": {
                       "type": "Identifier",
-                      "start": 138,
-                      "end": 143,
+                      "start": 186,
+                      "end": 195,
                       "loc": {
                         "start": {
-                          "line": 8,
+                          "line": 10,
                           "column": 2
                         },
                         "end": {
-                          "line": 8,
-                          "column": 7
+                          "line": 10,
+                          "column": 11
                         },
-                        "identifierName": "THEME"
+                        "identifierName": "SourceKey"
                       },
-                      "name": "THEME"
-                    },
-                    "value": {
-                      "type": "StringLiteral",
-                      "start": 145,
-                      "end": 157,
-                      "loc": {
-                        "start": {
-                          "line": 8,
-                          "column": 9
-                        },
-                        "end": {
-                          "line": 8,
-                          "column": 21
-                        }
-                      },
-                      "extra": {
-                        "rawValue": "_theme.yml",
-                        "raw": "'_theme.yml'"
-                      },
-                      "value": "_theme.yml"
-                    }
-                  }
-                ]
-              },
-              "leadingComments": null
-            }
-          ],
-          "kind": "const",
-          "leadingComments": [
-            {
-              "type": "CommentBlock",
-              "value": "*\n * YAML filename import assert from 'power-assert';.\n * @enum {string}\n * @const\n ",
-              "start": 0,
-              "end": 88,
-              "loc": {
-                "start": {
-                  "line": 1,
-                  "column": 0
-                },
-                "end": {
-                  "line": 5,
-                  "column": 3
-                }
-              }
-            }
-          ],
-          "trailingComments": [
-            {
-              "type": "CommentBlock",
-              "value": "*\n * Key import assert from 'power-assert';, used when looking up values in\n * objects.\n * @enum {string}\n * @const\n ",
-              "start": 163,
-              "end": 284,
-              "loc": {
-                "start": {
-                  "line": 11,
-                  "column": 0
-                },
-                "end": {
-                  "line": 16,
-                  "column": 3
-                }
-              }
-            }
-          ]
-        },
-        "leadingComments": [
-          {
-            "type": "CommentBlock",
-            "value": "*\n * YAML filename import assert from 'power-assert';.\n * @enum {string}\n * @const\n ",
-            "start": 0,
-            "end": 88,
-            "loc": {
-              "start": {
-                "line": 1,
-                "column": 0
-              },
-              "end": {
-                "line": 5,
-                "column": 3
-              }
-            }
-          }
-        ],
-        "trailingComments": [
-          {
-            "type": "CommentBlock",
-            "value": "*\n * Key import assert from 'power-assert';, used when looking up values in\n * objects.\n * @enum {string}\n * @const\n ",
-            "start": 163,
-            "end": 284,
-            "loc": {
-              "start": {
-                "line": 11,
-                "column": 0
-              },
-              "end": {
-                "line": 16,
-                "column": 3
-              }
-            }
-          }
-        ]
-      },
-      {
-        "type": "ExportNamedDeclaration",
-        "start": 285,
-        "end": 612,
-        "loc": {
-          "start": {
-            "line": 17,
-            "column": 0
-          },
-          "end": {
-            "line": 31,
-            "column": 2
-          }
-        },
-        "specifiers": [],
-        "source": null,
-        "declaration": {
-          "type": "VariableDeclaration",
-          "start": 292,
-          "end": 612,
-          "loc": {
-            "start": {
-              "line": 17,
-              "column": 7
-            },
-            "end": {
-              "line": 31,
-              "column": 2
-            }
-          },
-          "declarations": [
-            {
-              "type": "VariableDeclarator",
-              "start": 298,
-              "end": 611,
-              "loc": {
-                "start": {
-                  "line": 17,
-                  "column": 13
-                },
-                "end": {
-                  "line": 31,
-                  "column": 1
-                }
-              },
-              "id": {
-                "type": "Identifier",
-                "start": 298,
-                "end": 301,
-                "loc": {
-                  "start": {
-                    "line": 17,
-                    "column": 13
-                  },
-                  "end": {
-                    "line": 17,
-                    "column": 16
-                  },
-                  "identifierName": "KEY"
-                },
-                "name": "KEY",
-                "leadingComments": null
-              },
-              "init": {
-                "type": "ObjectExpression",
-                "start": 304,
-                "end": 611,
-                "loc": {
-                  "start": {
-                    "line": 17,
-                    "column": 19
-                  },
-                  "end": {
-                    "line": 31,
-                    "column": 1
-                  }
-                },
-                "properties": [
-                  {
-                    "type": "ObjectProperty",
-                    "start": 432,
-                    "end": 448,
-                    "loc": {
-                      "start": {
-                        "line": 23,
-                        "column": 2
-                      },
-                      "end": {
-                        "line": 23,
-                        "column": 18
-                      }
-                    },
-                    "method": false,
-                    "shorthand": false,
-                    "computed": false,
-                    "key": {
-                      "type": "Identifier",
-                      "start": 432,
-                      "end": 438,
-                      "loc": {
-                        "start": {
-                          "line": 23,
-                          "column": 2
-                        },
-                        "end": {
-                          "line": 23,
-                          "column": 8
-                        },
-                        "identifierName": "SOURCE"
-                      },
-                      "name": "SOURCE",
+                      "name": "SourceKey",
                       "leadingComments": null
                     },
                     "value": {
                       "type": "StringLiteral",
-                      "start": 440,
-                      "end": 448,
+                      "start": 197,
+                      "end": 205,
                       "loc": {
                         "start": {
-                          "line": 23,
-                          "column": 10
+                          "line": 10,
+                          "column": 13
                         },
                         "end": {
-                          "line": 23,
-                          "column": 18
+                          "line": 10,
+                          "column": 21
                         }
                       },
                       "extra": {
@@ -433,15 +525,15 @@
                       {
                         "type": "CommentBlock",
                         "value": "*\n   * Key used on the config.path object to dictate where to find the site source\n   * path.\n   * @type {string}\n   ",
-                        "start": 308,
-                        "end": 429,
+                        "start": 62,
+                        "end": 183,
                         "loc": {
                           "start": {
-                            "line": 18,
+                            "line": 5,
                             "column": 2
                           },
                           "end": {
-                            "line": 22,
+                            "line": 9,
                             "column": 5
                           }
                         }
@@ -450,16 +542,16 @@
                   },
                   {
                     "type": "ObjectProperty",
-                    "start": 582,
-                    "end": 608,
+                    "start": 339,
+                    "end": 368,
                     "loc": {
                       "start": {
-                        "line": 30,
+                        "line": 17,
                         "column": 2
                       },
                       "end": {
-                        "line": 30,
-                        "column": 28
+                        "line": 17,
+                        "column": 31
                       }
                     },
                     "method": false,
@@ -467,34 +559,34 @@
                     "computed": false,
                     "key": {
                       "type": "Identifier",
-                      "start": 582,
-                      "end": 593,
+                      "start": 339,
+                      "end": 353,
                       "loc": {
                         "start": {
-                          "line": 30,
+                          "line": 17,
                           "column": 2
                         },
                         "end": {
-                          "line": 30,
-                          "column": 13
+                          "line": 17,
+                          "column": 16
                         },
-                        "identifierName": "DESTINATION"
+                        "identifierName": "DestinationKey"
                       },
-                      "name": "DESTINATION",
+                      "name": "DestinationKey",
                       "leadingComments": null
                     },
                     "value": {
                       "type": "StringLiteral",
-                      "start": 595,
-                      "end": 608,
+                      "start": 355,
+                      "end": 368,
                       "loc": {
                         "start": {
-                          "line": 30,
-                          "column": 15
+                          "line": 17,
+                          "column": 18
                         },
                         "end": {
-                          "line": 30,
-                          "column": 28
+                          "line": 17,
+                          "column": 31
                         }
                       },
                       "extra": {
@@ -507,15 +599,15 @@
                       {
                         "type": "CommentBlock",
                         "value": "*\n   * Key used on the config.path object to dictate where to find the site\n   * destination path.\n   * @type {string}\n   ",
-                        "start": 453,
-                        "end": 579,
+                        "start": 210,
+                        "end": 336,
                         "loc": {
                           "start": {
-                            "line": 25,
+                            "line": 12,
                             "column": 2
                           },
                           "end": {
-                            "line": 29,
+                            "line": 16,
                             "column": 5
                           }
                         }
@@ -523,49 +615,13 @@
                     ]
                   }
                 ]
-              },
-              "leadingComments": null
+              }
             }
           ],
           "kind": "const",
-          "leadingComments": [
-            {
-              "type": "CommentBlock",
-              "value": "*\n * Key import assert from 'power-assert';, used when looking up values in\n * objects.\n * @enum {string}\n * @const\n ",
-              "start": 163,
-              "end": 284,
-              "loc": {
-                "start": {
-                  "line": 11,
-                  "column": 0
-                },
-                "end": {
-                  "line": 16,
-                  "column": 3
-                }
-              }
-            }
-          ],
+          "leadingComments": [],
           "trailingComments": []
-        },
-        "leadingComments": [
-          {
-            "type": "CommentBlock",
-            "value": "*\n * Key import assert from 'power-assert';, used when looking up values in\n * objects.\n * @enum {string}\n * @const\n ",
-            "start": 163,
-            "end": 284,
-            "loc": {
-              "start": {
-                "line": 11,
-                "column": 0
-              },
-              "end": {
-                "line": 16,
-                "column": 3
-              }
-            }
-          }
-        ]
+        }
       }
     ],
     "directives": []
@@ -573,48 +629,16 @@
   "comments": [
     {
       "type": "CommentBlock",
-      "value": "*\n * YAML filename import assert from 'power-assert';.\n * @enum {string}\n * @const\n ",
-      "start": 0,
-      "end": 88,
-      "loc": {
-        "start": {
-          "line": 1,
-          "column": 0
-        },
-        "end": {
-          "line": 5,
-          "column": 3
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": "*\n * Key import assert from 'power-assert';, used when looking up values in\n * objects.\n * @enum {string}\n * @const\n ",
-      "start": 163,
-      "end": 284,
-      "loc": {
-        "start": {
-          "line": 11,
-          "column": 0
-        },
-        "end": {
-          "line": 16,
-          "column": 3
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
       "value": "*\n   * Key used on the config.path object to dictate where to find the site source\n   * path.\n   * @type {string}\n   ",
-      "start": 308,
-      "end": 429,
+      "start": 62,
+      "end": 183,
       "loc": {
         "start": {
-          "line": 18,
+          "line": 5,
           "column": 2
         },
         "end": {
-          "line": 22,
+          "line": 9,
           "column": 5
         }
       }
@@ -622,15 +646,15 @@
     {
       "type": "CommentBlock",
       "value": "*\n   * Key used on the config.path object to dictate where to find the site\n   * destination path.\n   * @type {string}\n   ",
-      "start": 453,
-      "end": 579,
+      "start": 210,
+      "end": 336,
       "loc": {
         "start": {
-          "line": 25,
+          "line": 12,
           "column": 2
         },
         "end": {
-          "line": 29,
+          "line": 16,
           "column": 5
         }
       }
@@ -638,50 +662,6 @@
   ],
   "tokens": [
     {
-      "type": "CommentBlock",
-      "value": "*\n * YAML filename import assert from 'power-assert';.\n * @enum {string}\n * @const\n ",
-      "start": 0,
-      "end": 88,
-      "loc": {
-        "start": {
-          "line": 1,
-          "column": 0
-        },
-        "end": {
-          "line": 5,
-          "column": 3
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "export",
-        "keyword": "export",
-        "beforeExpr": false,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "export",
-      "start": 89,
-      "end": 95,
-      "loc": {
-        "start": {
-          "line": 6,
-          "column": 0
-        },
-        "end": {
-          "line": 6,
-          "column": 6
-        }
-      }
-    },
-    {
       "type": {
         "label": "const",
         "keyword": "const",
@@ -696,520 +676,15 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 96,
-      "end": 101,
+      "start": 1,
+      "end": 6,
       "loc": {
         "start": {
-          "line": 6,
-          "column": 7
-        },
-        "end": {
-          "line": 6,
-          "column": 12
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "YAML",
-      "start": 102,
-      "end": 106,
-      "loc": {
-        "start": {
-          "line": 6,
-          "column": 13
-        },
-        "end": {
-          "line": 6,
-          "column": 17
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "=",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": true,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "=",
-      "start": 107,
-      "end": 108,
-      "loc": {
-        "start": {
-          "line": 6,
-          "column": 18
-        },
-        "end": {
-          "line": 6,
-          "column": 19
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "{",
-        "beforeExpr": true,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 109,
-      "end": 110,
-      "loc": {
-        "start": {
-          "line": 6,
-          "column": 20
-        },
-        "end": {
-          "line": 6,
-          "column": 21
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "CONFIG",
-      "start": 113,
-      "end": 119,
-      "loc": {
-        "start": {
-          "line": 7,
-          "column": 2
-        },
-        "end": {
-          "line": 7,
-          "column": 8
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ":",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 119,
-      "end": 120,
-      "loc": {
-        "start": {
-          "line": 7,
-          "column": 8
-        },
-        "end": {
-          "line": 7,
-          "column": 9
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "string",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "_config.yml",
-      "start": 121,
-      "end": 134,
-      "loc": {
-        "start": {
-          "line": 7,
-          "column": 10
-        },
-        "end": {
-          "line": 7,
-          "column": 23
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ",",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 134,
-      "end": 135,
-      "loc": {
-        "start": {
-          "line": 7,
-          "column": 23
-        },
-        "end": {
-          "line": 7,
-          "column": 24
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "THEME",
-      "start": 138,
-      "end": 143,
-      "loc": {
-        "start": {
-          "line": 8,
-          "column": 2
-        },
-        "end": {
-          "line": 8,
-          "column": 7
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ":",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 143,
-      "end": 144,
-      "loc": {
-        "start": {
-          "line": 8,
-          "column": 7
-        },
-        "end": {
-          "line": 8,
-          "column": 8
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "string",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "_theme.yml",
-      "start": 145,
-      "end": 157,
-      "loc": {
-        "start": {
-          "line": 8,
-          "column": 9
-        },
-        "end": {
-          "line": 8,
-          "column": 21
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ",",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 157,
-      "end": 158,
-      "loc": {
-        "start": {
-          "line": 8,
-          "column": 21
-        },
-        "end": {
-          "line": 8,
-          "column": 22
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "}",
-        "beforeExpr": false,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 159,
-      "end": 160,
-      "loc": {
-        "start": {
-          "line": 9,
+          "line": 2,
           "column": 0
         },
         "end": {
-          "line": 9,
-          "column": 1
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ";",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 160,
-      "end": 161,
-      "loc": {
-        "start": {
-          "line": 9,
-          "column": 1
-        },
-        "end": {
-          "line": 9,
-          "column": 2
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": "*\n * Key import assert from 'power-assert';, used when looking up values in\n * objects.\n * @enum {string}\n * @const\n ",
-      "start": 163,
-      "end": 284,
-      "loc": {
-        "start": {
-          "line": 11,
-          "column": 0
-        },
-        "end": {
-          "line": 16,
-          "column": 3
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "export",
-        "keyword": "export",
-        "beforeExpr": false,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "export",
-      "start": 285,
-      "end": 291,
-      "loc": {
-        "start": {
-          "line": 17,
-          "column": 0
-        },
-        "end": {
-          "line": 17,
-          "column": 6
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "const",
-        "keyword": "const",
-        "beforeExpr": false,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "const",
-      "start": 292,
-      "end": 297,
-      "loc": {
-        "start": {
-          "line": 17,
-          "column": 7
-        },
-        "end": {
-          "line": 17,
-          "column": 12
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "KEY",
-      "start": 298,
-      "end": 301,
-      "loc": {
-        "start": {
-          "line": 17,
-          "column": 13
-        },
-        "end": {
-          "line": 17,
-          "column": 16
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "=",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": true,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "=",
-      "start": 302,
-      "end": 303,
-      "loc": {
-        "start": {
-          "line": 17,
-          "column": 17
-        },
-        "end": {
-          "line": 17,
-          "column": 18
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "{",
-        "beforeExpr": true,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 304,
-      "end": 305,
-      "loc": {
-        "start": {
-          "line": 17,
-          "column": 19
-        },
-        "end": {
-          "line": 17,
-          "column": 20
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": "*\n   * Key used on the config.path object to dictate where to find the site source\n   * path.\n   * @type {string}\n   ",
-      "start": 308,
-      "end": 429,
-      "loc": {
-        "start": {
-          "line": 18,
-          "column": 2
-        },
-        "end": {
-          "line": 22,
+          "line": 2,
           "column": 5
         }
       }
@@ -1226,17 +701,95 @@
         "postfix": false,
         "binop": null
       },
-      "value": "SOURCE",
-      "start": 432,
-      "end": 438,
+      "value": "Constants",
+      "start": 7,
+      "end": 16,
       "loc": {
         "start": {
-          "line": 23,
+          "line": 2,
+          "column": 6
+        },
+        "end": {
+          "line": 2,
+          "column": 15
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "=",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": true,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "=",
+      "start": 17,
+      "end": 18,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 16
+        },
+        "end": {
+          "line": 2,
+          "column": 17
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "{",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 19,
+      "end": 20,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 18
+        },
+        "end": {
+          "line": 2,
+          "column": 19
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "ConfigFilename",
+      "start": 23,
+      "end": 37,
+      "loc": {
+        "start": {
+          "line": 3,
           "column": 2
         },
         "end": {
-          "line": 23,
-          "column": 8
+          "line": 3,
+          "column": 16
         }
       }
     },
@@ -1253,16 +806,137 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 438,
-      "end": 439,
+      "start": 37,
+      "end": 38,
       "loc": {
         "start": {
-          "line": 23,
-          "column": 8
+          "line": 3,
+          "column": 16
         },
         "end": {
-          "line": 23,
-          "column": 9
+          "line": 3,
+          "column": 17
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "reptar.config.js",
+      "start": 39,
+      "end": 57,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 18
+        },
+        "end": {
+          "line": 3,
+          "column": 36
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 57,
+      "end": 58,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 36
+        },
+        "end": {
+          "line": 3,
+          "column": 37
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n   * Key used on the config.path object to dictate where to find the site source\n   * path.\n   * @type {string}\n   ",
+      "start": 62,
+      "end": 183,
+      "loc": {
+        "start": {
+          "line": 5,
+          "column": 2
+        },
+        "end": {
+          "line": 9,
+          "column": 5
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "SourceKey",
+      "start": 186,
+      "end": 195,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 2
+        },
+        "end": {
+          "line": 10,
+          "column": 11
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ":",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 195,
+      "end": 196,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 11
+        },
+        "end": {
+          "line": 10,
+          "column": 12
         }
       }
     },
@@ -1280,16 +954,16 @@
         "updateContext": null
       },
       "value": "source",
-      "start": 440,
-      "end": 448,
+      "start": 197,
+      "end": 205,
       "loc": {
         "start": {
-          "line": 23,
-          "column": 10
+          "line": 10,
+          "column": 13
         },
         "end": {
-          "line": 23,
-          "column": 18
+          "line": 10,
+          "column": 21
         }
       }
     },
@@ -1306,31 +980,31 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 448,
-      "end": 449,
+      "start": 205,
+      "end": 206,
       "loc": {
         "start": {
-          "line": 23,
-          "column": 18
+          "line": 10,
+          "column": 21
         },
         "end": {
-          "line": 23,
-          "column": 19
+          "line": 10,
+          "column": 22
         }
       }
     },
     {
       "type": "CommentBlock",
       "value": "*\n   * Key used on the config.path object to dictate where to find the site\n   * destination path.\n   * @type {string}\n   ",
-      "start": 453,
-      "end": 579,
+      "start": 210,
+      "end": 336,
       "loc": {
         "start": {
-          "line": 25,
+          "line": 12,
           "column": 2
         },
         "end": {
-          "line": 29,
+          "line": 16,
           "column": 5
         }
       }
@@ -1347,17 +1021,17 @@
         "postfix": false,
         "binop": null
       },
-      "value": "DESTINATION",
-      "start": 582,
-      "end": 593,
+      "value": "DestinationKey",
+      "start": 339,
+      "end": 353,
       "loc": {
         "start": {
-          "line": 30,
+          "line": 17,
           "column": 2
         },
         "end": {
-          "line": 30,
-          "column": 13
+          "line": 17,
+          "column": 16
         }
       }
     },
@@ -1374,16 +1048,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 593,
-      "end": 594,
+      "start": 353,
+      "end": 354,
       "loc": {
         "start": {
-          "line": 30,
-          "column": 13
+          "line": 17,
+          "column": 16
         },
         "end": {
-          "line": 30,
-          "column": 14
+          "line": 17,
+          "column": 17
         }
       }
     },
@@ -1401,16 +1075,16 @@
         "updateContext": null
       },
       "value": "destination",
-      "start": 595,
-      "end": 608,
+      "start": 355,
+      "end": 368,
       "loc": {
         "start": {
-          "line": 30,
-          "column": 15
+          "line": 17,
+          "column": 18
         },
         "end": {
-          "line": 30,
-          "column": 28
+          "line": 17,
+          "column": 31
         }
       }
     },
@@ -1427,16 +1101,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 608,
-      "end": 609,
+      "start": 368,
+      "end": 369,
       "loc": {
         "start": {
-          "line": 30,
-          "column": 28
+          "line": 17,
+          "column": 31
         },
         "end": {
-          "line": 30,
-          "column": 29
+          "line": 17,
+          "column": 32
         }
       }
     },
@@ -1452,15 +1126,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 610,
-      "end": 611,
+      "start": 370,
+      "end": 371,
       "loc": {
         "start": {
-          "line": 31,
+          "line": 18,
           "column": 0
         },
         "end": {
-          "line": 31,
+          "line": 18,
           "column": 1
         }
       }
@@ -1478,16 +1152,124 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 611,
-      "end": 612,
+      "start": 371,
+      "end": 372,
       "loc": {
         "start": {
-          "line": 31,
+          "line": 18,
           "column": 1
         },
         "end": {
-          "line": 31,
+          "line": 18,
           "column": 2
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "export",
+        "keyword": "export",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "export",
+      "start": 374,
+      "end": 380,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 0
+        },
+        "end": {
+          "line": 20,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "default",
+        "keyword": "default",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "default",
+      "start": 381,
+      "end": 388,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 7
+        },
+        "end": {
+          "line": 20,
+          "column": 14
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "Constants",
+      "start": 389,
+      "end": 398,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 15
+        },
+        "end": {
+          "line": 20,
+          "column": 24
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 398,
+      "end": 399,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 24
+        },
+        "end": {
+          "line": 20,
+          "column": 25
         }
       }
     },
@@ -1504,15 +1286,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 613,
-      "end": 613,
+      "start": 400,
+      "end": 400,
       "loc": {
         "start": {
-          "line": 32,
+          "line": 21,
           "column": 0
         },
         "end": {
-          "line": 32,
+          "line": 21,
           "column": 0
         }
       }

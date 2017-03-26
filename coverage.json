@@ -1,67 +1,56 @@
 {
-  "coverage": "72.18%",
-  "expectCount": 151,
-  "actualCount": 109,
+  "coverage": "68.25%",
+  "expectCount": 126,
+  "actualCount": 86,
   "files": {
-    "lib/theme/asset.js": {
-      "expectCount": 11,
-      "actualCount": 7,
-      "undocumentLines": [
-        15,
-        16,
-        73,
-        91
-      ]
-    },
-    "lib/theme/processor/browserify.js": {
-      "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        7
-      ]
-    },
     "lib/collection/base.js": {
-      "expectCount": 17,
-      "actualCount": 16,
+      "expectCount": 19,
+      "actualCount": 18,
       "undocumentLines": [
         8
       ]
     },
     "lib/collection/page.js": {
-      "expectCount": 19,
+      "expectCount": 17,
       "actualCount": 14,
       "undocumentLines": [
-        16,
-        210,
-        227,
-        77,
-        73
+        9,
+        205,
+        81
       ]
     },
     "lib/config/index.js": {
-      "expectCount": 6,
-      "actualCount": 4,
+      "expectCount": 5,
+      "actualCount": 3,
       "undocumentLines": [
-        51,
-        52
+        60,
+        61
       ]
     },
-    "lib/plugin/event-handler.js": {
-      "expectCount": 3,
-      "actualCount": 1,
+    "lib/constants.js": {
+      "expectCount": 1,
+      "actualCount": 0,
       "undocumentLines": [
-        3,
-        15
+        2
       ]
     },
     "lib/file.js": {
       "expectCount": 15,
       "actualCount": 11,
       "undocumentLines": [
-        23,
-        24,
-        131,
-        243
+        12,
+        91,
+        13,
+        139
+      ]
+    },
+    "lib/file-system.js": {
+      "expectCount": 4,
+      "actualCount": 1,
+      "undocumentLines": [
+        8,
+        9,
+        30
       ]
     },
     "lib/collection/type/file-system.js": {
@@ -72,16 +61,11 @@
         121
       ]
     },
-    "lib/constants.js": {
-      "expectCount": 2,
-      "actualCount": 2,
-      "undocumentLines": []
-    },
-    "lib/theme/processor/less.js": {
-      "expectCount": 1,
-      "actualCount": 0,
+    "lib/metadata.js": {
+      "expectCount": 5,
+      "actualCount": 4,
       "undocumentLines": [
-        10
+        8
       ]
     },
     "lib/collection/type/metadata.js": {
@@ -92,54 +76,26 @@
         104
       ]
     },
-    "lib/plugin/index.js": {
-      "expectCount": 4,
-      "actualCount": 2,
-      "undocumentLines": [
-        8,
-        9
-      ]
-    },
-    "lib/plugin/events.js": {
-      "expectCount": 1,
-      "actualCount": 1,
-      "undocumentLines": []
-    },
-    "lib/theme/processor-base.js": {
+    "lib/renderer/renderer.js": {
       "expectCount": 8,
-      "actualCount": 5,
+      "actualCount": 0,
       "undocumentLines": [
-        4,
-        49,
-        5
+        12,
+        38,
+        13,
+        42,
+        25,
+        34,
+        36,
+        21
       ]
     },
     "lib/index.js": {
-      "expectCount": 15,
-      "actualCount": 11,
+      "expectCount": 12,
+      "actualCount": 10,
       "undocumentLines": [
-        52,
-        254,
-        209,
-        117
-      ]
-    },
-    "lib/theme/processor/sass.js": {
-      "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        4
-      ]
-    },
-    "lib/theme/index.js": {
-      "expectCount": 10,
-      "actualCount": 5,
-      "undocumentLines": [
-        39,
-        40,
-        168,
-        74,
-        184
+        59,
+        121
       ]
     },
     "lib/url.js": {
@@ -149,10 +105,32 @@
         14
       ]
     },
-    "lib/template.js": {
-      "expectCount": 5,
-      "actualCount": 5,
+    "lib/collection/index.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        13,
+        5
+      ]
+    },
+    "lib/data-files.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        56
+      ]
+    },
+    "lib/renderer/template.js": {
+      "expectCount": 4,
+      "actualCount": 4,
       "undocumentLines": []
+    },
+    "lib/cli/build.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        4
+      ]
     },
     "lib/cache.js": {
       "expectCount": 1,
@@ -161,26 +139,21 @@
         21
       ]
     },
+    "lib/cli/clean.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        3
+      ]
+    },
     "lib/checksum.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
     },
-    "lib/collection/index.js": {
-      "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        5
-      ]
-    },
-    "lib/markdown.js": {
-      "expectCount": 3,
-      "actualCount": 3,
-      "undocumentLines": []
-    },
-    "lib/plugin/api.js": {
-      "expectCount": 1,
-      "actualCount": 1,
+    "lib/renderer/markdown.js": {
+      "expectCount": 2,
+      "actualCount": 2,
       "undocumentLines": []
     },
     "lib/parse/front-matter.js": {
@@ -193,25 +166,43 @@
       "actualCount": 1,
       "undocumentLines": []
     },
-    "lib/json.js": {
-      "expectCount": 2,
-      "actualCount": 2,
-      "undocumentLines": []
+    "lib/cli/init.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        7
+      ]
     },
     "lib/filter/metadata.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
     },
+    "lib/cli/new.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        30
+      ]
+    },
     "lib/parse/yaml.js": {
       "expectCount": 2,
       "actualCount": 2,
       "undocumentLines": []
     },
-    "lib/render.js": {
+    "lib/cli/serve.js": {
       "expectCount": 1,
-      "actualCount": 1,
-      "undocumentLines": []
+      "actualCount": 0,
+      "undocumentLines": [
+        7
+      ]
+    },
+    "lib/cli/watch.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        160
+      ]
     }
   }
 }
