@@ -74,11 +74,11 @@ describe('collection/base CollectionBase', () => {
       },
       {
         number: 1,
-        date: '2013-09-8',
+        date: '2013-09-08',
       },
       {
         number: 5,
-        date: '2016-05-1',
+        date: '2016-05-01',
       },
     ];
     beforeEach(() => {
