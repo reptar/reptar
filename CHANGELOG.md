@@ -2,6 +2,54 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/reptar/reptar/compare/v2.3.3...v3.0.0) (2017-03-26)
+
+
+### Bug Fixes
+
+* Browserify asset to use reptar installed preset. ([5fba067](https://github.com/reptar/reptar/commit/5fba067))
+* Change all config keys to use camelCase instead of snake case. ([d2cd5de](https://github.com/reptar/reptar/commit/d2cd5de))
+* Fix compile command. ([4fe9baa](https://github.com/reptar/reptar/commit/4fe9baa))
+* Fix reptar init to not depend on theme's anymore. ([6aa40be](https://github.com/reptar/reptar/commit/6aa40be))
+* Make asset string test values more strict and test against more cases. ([5ef7e67](https://github.com/reptar/reptar/commit/5ef7e67))
+* Make reptar watch work again! ([5c302c6](https://github.com/reptar/reptar/commit/5c302c6))
+* Set more complete default config object. ([9ca1e0f](https://github.com/reptar/reptar/commit/9ca1e0f))
+
+
+### Features
+
+* Add support for all middleware and lifecycle methods to be called ([fac5dc0](https://github.com/reptar/reptar/commit/fac5dc0))
+* Add support for handling assets directly in reptar.config.js. ([aa26d08](https://github.com/reptar/reptar/commit/aa26d08))
+* Add support for loading mdiddlewares from npm. ([2ab1c53](https://github.com/reptar/reptar/commit/2ab1c53))
+* Create FileSystem and Metadata classes to further break up functionality. ([8b96681](https://github.com/reptar/reptar/commit/8b96681))
+* Create PluginManager and Renderer. Moving towards more instance based. ([411608f](https://github.com/reptar/reptar/commit/411608f))
+* Define path to your templates in your reptar.config.js file. ([0328d32](https://github.com/reptar/reptar/commit/0328d32))
+* Major changes for v3. ([769125b](https://github.com/reptar/reptar/commit/769125b))
+* Move renderMarkdown to Renderer. ([5e03563](https://github.com/reptar/reptar/commit/5e03563))
+* Move template render to Renderer ([b360977](https://github.com/reptar/reptar/commit/b360977))
+* Move to using reptar.config.js for configuring Reptar. ([420a48c](https://github.com/reptar/reptar/commit/420a48c))
+* Show output of middlewares when running them. ([1324ee1](https://github.com/reptar/reptar/commit/1324ee1))
+
+
+### BREAKING CHANGES
+
+* Themes are removed. You must now configure assets in
+your reptar.config.js.
+
+This requires removing config.path.themes, config.theme, and optionally
+adding config.assets.
+* You no longer define the location to your templates in
+your theme file. You now must define that location in reptar.config.js
+under the path object.
+* Using _config.yml is no longer used. You must now use
+reptar.config.js in place of _config.yml. The main export needs to either
+be an object which is your config or a function that has to return
+your config object.
+* Remove plugins and move to middleware system for extensibility.
+
+
+
 <a name="2.3.3"></a>
 ## [2.3.3](https://github.com/reptar/reptar/compare/v2.3.2...v2.3.3) (2017-02-22)
 
