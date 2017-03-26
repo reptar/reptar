@@ -14,8 +14,16 @@ node_js:
   - "5"
   - "6"
 
-before_script:
-  npm run lint
+before_install:
+  # Begin: Workaround for node-unicodetable (dep of node-slug)
+  # ref: https://github.com/dodo/node-unicodetable/issues/25
+  - mkdir -p node_modules
+  - curl https://raw.githubusercontent.com/openjdk-mirror/jdk7u-jdk/master/make/tools/UnicodeData/UnicodeData.txt > node_modules/UnicodeData.txt
+  - export NODE_UNICODETABLE_UNICODEDATA_TXT=$TRAVIS_BUILD_DIR/node_modules/UnicodeData.txt
+  # End: Workaround for node-unicodetable (dep of node-slug)
 
-after_script:
+before_script:
+  - npm run lint
+
+after_instal:
   npm run coverage && npm run coveralls
