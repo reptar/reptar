@@ -27,7 +27,8 @@ describe('file File', () => {
     const readFileStub = (file, opts, cb) =>
       cb(null, fixture.frontmatterString);
 
-    sandbox.stub(fs, 'readFile', readFileStub)
+    sandbox.stub(fs, 'readFile')
+      .callsFake(readFileStub)
       .withArgs(filePath, 'utf8');
 
     sandbox.stub(Parse, 'fileHasFrontmatter').returns(true);
@@ -114,7 +115,8 @@ describe('file File', () => {
         const readFileStub = (file, opts, cb) =>
           cb(null, fixture.frontmatterString);
 
-        sandbox.stub(fs, 'readFile', readFileStub)
+        sandbox.stub(fs, 'readFile')
+          .callsFake(readFileStub)
           .withArgs(filePath, 'utf8');
         sandbox.stub(Parse, 'fileHasFrontmatter').returns(true);
 
