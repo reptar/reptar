@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable global-require, import/no-dynamic-require */
 
 const path = require('path');
 const findUp = require('find-up');
@@ -29,7 +30,8 @@ yargs
   .help('help')
   .default('help');
 
-module.exports = function reptarCli({ log, libPath }) {
+module.exports = function reptarCli({ libPath }) {
+  const log = require(path.join(libPath, 'log')).default;
   const argv = yargs.argv;
 
   process.stdout.write('reptar\n\n');
