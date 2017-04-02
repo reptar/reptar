@@ -1,8 +1,14 @@
 const createMiddleware = val => (reptar) => {
+  if (!reptar._test) {
+    return;
+  }
   reptar._test.middlewares.push(val);
 };
 
 const createLifecycleMiddleware = (lifecycleName, val) => (reptar) => {
+  if (!reptar._test) {
+    return;
+  }
   reptar._test.lifecycle[lifecycleName].push(val);
 };
 
