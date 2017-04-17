@@ -69,169 +69,19 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureTemplateEngine">configureTemplateEngine</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderTemplate">renderTemplate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderTemplateString">renderTemplateString</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">server</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/server/server.js~Server.html">Server</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ApiService">ApiService</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-prunePrivateProperties">prunePrivateProperties</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ApiPlugin">ApiPlugin</a></span></span></li>
 </ul>
 </div>
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/cli/watch.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import activity from &apos;activity-logger&apos;;
-import _ from &apos;lodash&apos;;
-import path from &apos;path&apos;;
-import Hapi from &apos;hapi&apos;;
-import Boom from &apos;boom&apos;;
-import inert from &apos;inert&apos;;
-import chokidar from &apos;chokidar&apos;;
-import Constants from &apos;../constants&apos;;
+import Server from &apos;../server/server&apos;;
 import log from &apos;../log&apos;;
 import Reptar from &apos;../index&apos;;
-
-// Given an obj it&apos;ll prune any properites that start with `_`.
-function prunePrivateProperties(obj, isPrivate = (val, key) =&gt; key[0] === &apos;_&apos;) {
-  return _.reduce(obj, (acc, val, key) =&gt; {
-    if (!isPrivate(val, key)) {
-      acc[key] = val;
-    }
-    return acc;
-  }, {});
-}
-
-function debounceFunction(fn) {
-  return (...args) =&gt; {
-    if (fn.running) {
-      return;
-    }
-    fn.running = true;
-    fn(...args).then(() =&gt; {
-      fn.running = false;
-    });
-  };
-}
-
-class Server {
-  constructor(reptar) {
-    this.reptar = reptar;
-
-    this.server = new Hapi.Server();
-
-    this.server.connection({
-      host: reptar.config.get(&apos;server.host&apos;),
-      port: reptar.config.get(&apos;server.port&apos;),
-    });
-  }
-
-  /**
-   * Starts the Hapi server.
-   * @return {Promise}
-   */
-  async start() {
-    await this.server.register([
-      inert,
-    ]);
-
-    this.server.route({
-      method: &apos;GET&apos;,
-      path: &apos;/{p*}&apos;,
-      handler: (request, reply) =&gt; {
-        this.routeHandler(request, reply).catch((e) =&gt; {
-          reply(Boom.badData(e.message));
-        });
-      },
-    });
-
-    this.createFsWatchers();
-
-    // Start the server
-    return this.server.start();
-  }
-
-  /**
-   * Get File/CollectionPage based on request.path.
-   * @param {string} requestPath Request path to server.
-   * @return {File|CollectionPage}
-   */
-  getFile(requestPath) {
-    let file = this.reptar.destination[requestPath];
-    if (!file) {
-      file = this.reptar.destination[path.join(requestPath, &apos;index.html&apos;)];
-    }
-    return file;
-  }
-
-  /**
-   * Our default route handler for every request.
-   * @param {Object} request Hapi Request object.
-   * @param {Object} reply Hapi Response object.
-   * @return {Promise}
-   */
-  routeHandler = async (request, reply) =&gt; {
-    const isDebug = request.query.debug != null;
-
-    const file = this.getFile(request.path);
-
-    if (file.assetProcessor) {
-      const content = await file.render();
-      const contentType = request.server.mime.path(request.path).type;
-      return reply(content).type(contentType);
-    }
-
-    // If this File does not require any processing then it&apos;s a static asset
-    // and we can just render it.
-    if (file.skipProcessing) {
-      return reply.file(file.path);
-    }
-
-    // Update the File/CollectionPage from disk.
-    await file.update(this.reptar.metadata.get());
-
-    // We need to make sure we run all middleware and lifecycle hooks on
-    // every render to ensure you get an accurate representation of your site.
-    await this.reptar.update({ skipFiles: true });
-
-    // Render the File/CollectionPage.
-    const content = await file.render(this.reptar.metadata.get());
-
-    // If we want debug information then render the JSON version.
-    if (isDebug) {
-      // Exclude private fields from being returned.
-      const debugFile = prunePrivateProperties(file);
-      return reply(JSON.stringify(debugFile)).type(&apos;application/json&apos;);
-    }
-
-    log.info(`Rendering ${file.id}`);
-
-    return reply(content);
-  }
-
-  /**
-   * Create file system watchers to update Reptar state according to when a
-   * user updates files.
-   */
-  createFsWatchers() {
-    chokidar.watch([
-      path.join(this.reptar.config.root, Constants.ConfigFilename),
-    ]).on(&apos;change&apos;, debounceFunction(async (changePath) =&gt; {
-      log.info(`${Constants.ConfigFilename} updated at ${changePath}`);
-
-      try {
-        await this.reptar.update();
-      } catch (e) {
-        log.error(e);
-      }
-    }));
-
-    chokidar.watch([
-      this.reptar.config.get(&apos;path.data&apos;),
-    ]).on(&apos;change&apos;, debounceFunction(async (changePath) =&gt; {
-      log.info(`Data updated at ${changePath}`);
-
-      try {
-        await this.reptar.update();
-      } catch (e) {
-        log.error(e);
-      }
-    }));
-  }
-}
 
 export default async function watch(options = {}) {
   const startActivity = activity.start(&apos;Starting watch.\t\t\t\t&apos;);

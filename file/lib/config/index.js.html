@@ -69,6 +69,10 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureTemplateEngine">configureTemplateEngine</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderTemplate">renderTemplate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderTemplateString">renderTemplateString</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">server</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/server/server.js~Server.html">Server</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ApiService">ApiService</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-prunePrivateProperties">prunePrivateProperties</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ApiPlugin">ApiPlugin</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -259,10 +263,15 @@ export default class Config {
    * Getter to access config properties. Everything is pushed through here
    * so we can provide required defaults if they&apos;re not set. Also enforces
    * uniform access to config properties.
-   * @param {string} objectPath Path to object property, i.e. &apos;path.source&apos;.
+   * @param {[string]} objectPath Path to object property, i.e. &apos;path.source&apos;.
+   *   If it isn&apos;t given then you get the entire config object.
    * @return {*} Config value.
    */
-  get(objectPath = &apos;&apos;) {
+  get(objectPath) {
+    if (objectPath === undefined) {
+      return this._raw;
+    }
+
     const value = _.get(this._raw, objectPath);
 
     if (value == null) {

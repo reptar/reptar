@@ -1,8 +1,16 @@
 {
-  "coverage": "68.25%",
-  "expectCount": 126,
-  "actualCount": 86,
+  "coverage": "67.15%",
+  "expectCount": 137,
+  "actualCount": 92,
   "files": {
+    "lib/server/api.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        111,
+        6
+      ]
+    },
     "lib/collection/base.js": {
       "expectCount": 19,
       "actualCount": 18,
@@ -36,12 +44,11 @@
     },
     "lib/file.js": {
       "expectCount": 15,
-      "actualCount": 11,
+      "actualCount": 12,
       "undocumentLines": [
         12,
-        91,
         13,
-        139
+        145
       ]
     },
     "lib/file-system.js": {
@@ -96,6 +103,16 @@
       "undocumentLines": [
         59,
         121
+      ]
+    },
+    "lib/server/server.js": {
+      "expectCount": 8,
+      "actualCount": 4,
+      "undocumentLines": [
+        23,
+        24,
+        25,
+        27
       ]
     },
     "lib/url.js": {
@@ -190,6 +207,11 @@
       "actualCount": 2,
       "undocumentLines": []
     },
+    "lib/server/prune-private-properties.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
     "lib/cli/serve.js": {
       "expectCount": 1,
       "actualCount": 0,
@@ -201,7 +223,7 @@
       "expectCount": 1,
       "actualCount": 0,
       "undocumentLines": [
-        160
+        6
       ]
     }
   }

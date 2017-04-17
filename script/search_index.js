@@ -1,5 +1,17 @@
 window.esdocSearchIndex = [
   [
+    "reptar/lib/server/api.js~apiplugin",
+    "variable/index.html#static-variable-ApiPlugin",
+    "<span>ApiPlugin</span> <span class=\"search-result-import-path\">reptar/lib/server/api.js</span>",
+    "variable"
+  ],
+  [
+    "reptar/lib/server/api.js~apiservice",
+    "function/index.html#static-function-ApiService",
+    "<span>ApiService</span> <span class=\"search-result-import-path\">reptar/lib/server/api.js</span>",
+    "function"
+  ],
+  [
     "reptar/lib/collection/base.js~collectionbase",
     "class/lib/collection/base.js~CollectionBase.html",
     "<span>CollectionBase</span> <span class=\"search-result-import-path\">reptar/lib/collection/base.js</span>",
@@ -63,6 +75,12 @@ window.esdocSearchIndex = [
     "reptar/lib/index.js~reptar",
     "class/lib/index.js~Reptar.html",
     "<span>Reptar</span> <span class=\"search-result-import-path\">reptar/lib/index.js</span>",
+    "class"
+  ],
+  [
+    "reptar/lib/server/server.js~server",
+    "class/lib/server/server.js~Server.html",
+    "<span>Server</span> <span class=\"search-result-import-path\">reptar/lib/server/server.js</span>",
     "class"
   ],
   [
@@ -171,6 +189,12 @@ window.esdocSearchIndex = [
     "reptar/lib/parse/yaml.js~parse",
     "function/index.html#static-function-parse",
     "<span>parse</span> <span class=\"search-result-import-path\">reptar/lib/parse/yaml.js</span>",
+    "function"
+  ],
+  [
+    "reptar/lib/server/prune-private-properties.js~pruneprivateproperties",
+    "function/index.html#static-function-prunePrivateProperties",
+    "<span>prunePrivateProperties</span> <span class=\"search-result-import-path\">reptar/lib/server/prune-private-properties.js</span>",
     "function"
   ],
   [
@@ -550,6 +574,294 @@ window.esdocSearchIndex = [
     "https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest",
     "BuiltinExternal/WebAPIExternal.js~XMLHttpRequest",
     "external"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber18",
+    "api",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber366",
+    "api collections.get handler",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber376",
+    "api collections.get handler ",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber372",
+    "api collections.get handler returns an array",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber401",
+    "api collections.get handler returns an object",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber405",
+    "api collections.get handler the object matches the request id",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber410",
+    "api collections.get handler when requesting one collection",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber421",
+    "api collections.get handler when requesting one collection the object does not have properties that excluded by default",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber432",
+    "api collections.get handler when requesting one collection with include param",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber448",
+    "api collections.get handler when requesting one collection with include param pages has expected length",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber452",
+    "api collections.get handler when requesting one collection with include param the object does not have properties that excluded by default",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber444",
+    "api collections.get handler when requesting one collection with include param the object has a pages property which is an array",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber462",
+    "api collections.get handler when requesting one collection with multiple include values",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber484",
+    "api collections.get handler when requesting one collection with multiple include values files is an object",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber488",
+    "api collections.get handler when requesting one collection with multiple include values files is not an array object",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber480",
+    "api collections.get handler when requesting one collection with multiple include values pages has expected length",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber492",
+    "api collections.get handler when requesting one collection with multiple include values the object does not have properties that excluded by default",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber476",
+    "api collections.get handler when requesting one collection with multiple include values the object has a pages property which is an array",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber385",
+    "api collections.get handler without any query params",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber395",
+    "api collections.get handler without any query params returns an array of just collection names",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber66",
+    "api config handlers",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber71",
+    "api config handlers returns the config object",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber76",
+    "api files.get handler",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber86",
+    "api files.get handler ",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber82",
+    "api files.get handler returns an array",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber216",
+    "api files.get handler when assetProcessor=false",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber231",
+    "api files.get handler when assetProcessor=false every item is assetProcessor",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber194",
+    "api files.get handler when assetProcessor=true",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber209",
+    "api files.get handler when assetProcessor=true every item is assetProcessor",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber321",
+    "api files.get handler when destination does match a file",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber338",
+    "api files.get handler when destination does match a file the file returned is the one we requested",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber305",
+    "api files.get handler when destination does not match a file",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber128",
+    "api files.get handler when filtered=false",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber143",
+    "api files.get handler when filtered=false every item is not filtered",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber106",
+    "api files.get handler when filtered=true",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber121",
+    "api files.get handler when filtered=true every item is filtered",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber254",
+    "api files.get handler when path does match a file",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber273",
+    "api files.get handler when path does match a file the file returned is the one we requested",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber238",
+    "api files.get handler when path does not match a file",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber172",
+    "api files.get handler when skipProcessing=false",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber187",
+    "api files.get handler when skipProcessing=false every item is skipProcessing",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber150",
+    "api files.get handler when skipProcessing=true",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber165",
+    "api files.get handler when skipProcessing=true every item is skipProcessing",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber343",
+    "api files.get handler when the destination is relative and matches",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber360",
+    "api files.get handler when the destination is relative and matches the file returned is the one we requested",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber278",
+    "api files.get handler when the path is relative and matches",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber298",
+    "api files.get handler when the path is relative and matches the file returned is the one we requested",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/e2e/api.spec.js.html#lineNumber95",
+    "api files.get handler without any query params",
+    "test"
   ],
   [
     "",
@@ -967,61 +1279,61 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber185",
+    "test-file/test/unit/file.spec.js.html#lineNumber187",
     "file File _calculateDestination",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber186",
+    "test-file/test/unit/file.spec.js.html#lineNumber188",
     "file File _calculateDestination allows custom file url property",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber40",
+    "test-file/test/unit/file.spec.js.html#lineNumber41",
     "file File constructor",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber56",
+    "test-file/test/unit/file.spec.js.html#lineNumber57",
     "file File constructor calculates destination path",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber41",
+    "test-file/test/unit/file.spec.js.html#lineNumber42",
     "file File constructor can create an instance",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber69",
+    "test-file/test/unit/file.spec.js.html#lineNumber70",
     "file File default values from config",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber134",
+    "test-file/test/unit/file.spec.js.html#lineNumber136",
     "file File default values from config applies default values that match",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber254",
+    "test-file/test/unit/file.spec.js.html#lineNumber256",
     "file File filtered",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber255",
+    "test-file/test/unit/file.spec.js.html#lineNumber257",
     "file File filtered set correctly",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber224",
+    "test-file/test/unit/file.spec.js.html#lineNumber226",
     "file File has all proper values on its data object",
     "test"
   ],
@@ -1818,6 +2130,66 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "lib/server/api.js",
+    "file/lib/server/api.js.html",
+    "lib/server/api.js",
+    "file"
+  ],
+  [
+    "lib/server/prune-private-properties.js",
+    "file/lib/server/prune-private-properties.js.html",
+    "lib/server/prune-private-properties.js",
+    "file"
+  ],
+  [
+    "lib/server/server.js",
+    "file/lib/server/server.js.html",
+    "lib/server/server.js",
+    "file"
+  ],
+  [
+    "lib/server/server.js~server#constructor",
+    "class/lib/server/server.js~Server.html#instance-constructor-constructor",
+    "lib/server/server.js~Server#constructor",
+    "method"
+  ],
+  [
+    "lib/server/server.js~server#createfswatchers",
+    "class/lib/server/server.js~Server.html#instance-method-createFsWatchers",
+    "lib/server/server.js~Server#createFsWatchers",
+    "method"
+  ],
+  [
+    "lib/server/server.js~server#getfile",
+    "class/lib/server/server.js~Server.html#instance-method-getFile",
+    "lib/server/server.js~Server#getFile",
+    "method"
+  ],
+  [
+    "lib/server/server.js~server#reptar",
+    "class/lib/server/server.js~Server.html#instance-member-reptar",
+    "lib/server/server.js~Server#reptar",
+    "member"
+  ],
+  [
+    "lib/server/server.js~server#routehandler",
+    "class/lib/server/server.js~Server.html#instance-member-routeHandler",
+    "lib/server/server.js~Server#routeHandler",
+    "member"
+  ],
+  [
+    "lib/server/server.js~server#server",
+    "class/lib/server/server.js~Server.html#instance-member-server",
+    "lib/server/server.js~Server#server",
+    "member"
+  ],
+  [
+    "lib/server/server.js~server#start",
+    "class/lib/server/server.js~Server.html#instance-method-start",
+    "lib/server/server.js~Server#start",
+    "method"
+  ],
+  [
     "lib/url.js",
     "file/lib/url.js.html",
     "lib/url.js",
@@ -2008,6 +2380,12 @@ window.esdocSearchIndex = [
     "test-file/test/e2e/yarn.spec.js.html#lineNumber104",
     "reptar Reptar when updated willUpdate is called before didUpdate",
     "test"
+  ],
+  [
+    "test/e2e/api.spec.js",
+    "test-file/test/e2e/api.spec.js.html",
+    "test/e2e/api.spec.js",
+    "testFile"
   ],
   [
     "test/e2e/yarn.spec.js",

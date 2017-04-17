@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">test/e2e/api.spec.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <a data-ice="repoURL" href="https://github.com/reptar/reptar" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/file-system.js~FileSystem.html">FileSystem</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/file.js~File.html">File</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/index.js~Reptar.html">Reptar</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/metadata.js~Metadata.html">Metadata</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createChecksum">createChecksum</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addDataFiles">addDataFiles</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-readDataFiles">readDataFiles</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-cache">cache</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Constants">Constants</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Url">Url</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">cli</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-build">build</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-clean">clean</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-init">init</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-new">new</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-serve">serve</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-watch">watch</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collection</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/base.js~CollectionBase.html">CollectionBase</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/page.js~CollectionPage.html">CollectionPage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addCollections">addCollections</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createCollection">createCollection</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">collection/type</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/type/file-system.js~FileSystemCollection.html">FileSystemCollection</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/collection/type/metadata.js~MetadataCollection.html">MetadataCollection</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">config</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/config/index.js~Config.html">Config</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">filter</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-futureDatesFilter">futureDatesFilter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-metadataFilter">metadataFilter</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">parse</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fileHasFrontmatter">fileHasFrontmatter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-stringify">stringify</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">renderer</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/renderer/renderer.js~Renderer.html">Renderer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-createMarkdownEngine">createMarkdownEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderMarkdown">renderMarkdown</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addTemplateFilter">addTemplateFilter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-configureTemplateEngine">configureTemplateEngine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderTemplate">renderTemplate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-renderTemplateString">renderTemplateString</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">server</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/server/server.js~Server.html">Server</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ApiService">ApiService</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-prunePrivateProperties">prunePrivateProperties</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ApiPlugin">ApiPlugin</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">test/e2e/api.spec.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import path from &apos;path&apos;;
+import assert from &apos;assert&apos;;
+import sinon from &apos;sinon&apos;;
+import fs from &apos;fs-extra&apos;;
+
+import {
+  simpleSite,
+} from &apos;../utils&apos;;
+
+import Reptar from &apos;../../lib/index&apos;;
+import { ApiService } from &apos;../../lib/server/api&apos;;
+import cache from &apos;../../lib/cache&apos;;
+import Config from &apos;../../lib/config/index&apos;;
+import log from &apos;../../lib/log&apos;;
+
+log.setSilent(true);
+
+describe(&apos;api&apos;, function test() {
+  this.timeout(5000);
+
+  const generatedOutputDir = path.join(simpleSite.src, &apos;_site&apos;);
+
+  let sandbox;
+  let instance;
+  let apiService;
+  let request;
+  let reply;
+
+  before(async () =&gt; {
+    sandbox = sinon.sandbox.create();
+
+    // Don&apos;t actually save cache to file system.
+    sandbox.stub(cache, &apos;save&apos;);
+
+    fs.removeSync(generatedOutputDir);
+
+    sandbox.spy(Reptar.prototype, &apos;update&apos;);
+    sandbox.spy(Config.prototype, &apos;update&apos;);
+
+    instance = new Reptar({
+      rootPath: simpleSite.src,
+      showSpinner: false,
+    });
+    await instance.update();
+
+    apiService = ApiService(instance);
+  });
+
+  beforeEach(() =&gt; {
+    request = {
+      query: {},
+      payload: {},
+      params: {},
+    };
+    reply = sandbox.spy();
+  });
+
+  afterEach(() =&gt; {
+    reply.reset();
+  });
+
+  after(() =&gt; {
+    sandbox.restore();
+  });
+
+  describe(&apos;config handlers&apos;, () =&gt; {
+    beforeEach(() =&gt;
+      apiService.config.get(request, reply)
+    );
+
+    it(&apos;returns the config object&apos;, () =&gt; {
+      assert(reply.firstCall.calledWith(instance.config.get()));
+    });
+  });
+
+  describe(&apos;files.get handler&apos;, () =&gt; {
+    let response;
+
+    function commonAssertions({
+      expectedLength,
+    }) {
+      it(&apos;returns an array&apos;, () =&gt; {
+        assert.equal(typeof response.length, &apos;number&apos;);
+      });
+
+      it(`returns ${expectedLength} items`, () =&gt; {
+        assert.equal(response.length, expectedLength);
+      });
+    }
+
+    afterEach(() =&gt; {
+      response = undefined;
+    });
+
+    describe(&apos;without any query params&apos;, () =&gt; {
+      beforeEach(async () =&gt; {
+        await apiService.files.get(request, reply);
+        response = reply.firstCall.args[0];
+      });
+
+      commonAssertions({
+        expectedLength: 12,
+      });
+    });
+
+    describe(&apos;when filtered=true&apos;, () =&gt; {
+      beforeEach(async () =&gt; {
+        request.query = {
+          filtered: &apos;true&apos;,
+        };
+
+        await apiService.files.get(request, reply);
+
+        response = reply.firstCall.args[0];
+      });
+
+      commonAssertions({
+        expectedLength: 1,
+      });
+
+      it(&apos;every item is filtered&apos;, () =&gt; {
+        response.forEach(file =&gt;
+          assert.equal(file.filtered, true)
+        );
+      });
+    });
+
+    describe(&apos;when filtered=false&apos;, () =&gt; {
+      beforeEach(async () =&gt; {
+        request.query = {
+          filtered: &apos;false&apos;,
+        };
+
+        await apiService.files.get(request, reply);
+
+        response = reply.firstCall.args[0];
+      });
+
+      commonAssertions({
+        expectedLength: 11,
+      });
+
+      it(&apos;every item is not filtered&apos;, () =&gt; {
+        response.forEach(file =&gt;
+          assert.equal(file.filtered, false)
+        );
+      });
+    });
+
+    describe(&apos;when skipProcessing=true&apos;, () =&gt; {
+      beforeEach(async () =&gt; {
+        request.query = {
+          skipProcessing: &apos;true&apos;,
+        };
+
+        await apiService.files.get(request, reply);
+
+        response = reply.firstCall.args[0];
+      });
+
+      commonAssertions({
+        expectedLength: 4,
+      });
+
+      it(&apos;every item is skipProcessing&apos;, () =&gt; {
+        response.forEach(file =&gt;
+          assert.equal(file.skipProcessing, true)
+        );
+      });
+    });
+
+    describe(&apos;when skipProcessing=false&apos;, () =&gt; {
+      beforeEach(async () =&gt; {
+        request.query = {
+          skipProcessing: &apos;false&apos;,
+        };
+
+        await apiService.files.get(request, reply);
+
+        response = reply.firstCall.args[0];
+      });
+
+      commonAssertions({
+        expectedLength: 8,
+      });
+
+      it(&apos;every item is skipProcessing&apos;, () =&gt; {
+        response.forEach(file =&gt;
+          assert.equal(file.skipProcessing, false)
+        );
+      });
+    });
+
+    describe(&apos;when assetProcessor=true&apos;, () =&gt; {
+      beforeEach(async () =&gt; {
+        request.query = {
+          assetProcessor: &apos;true&apos;,
+        };
+
+        await apiService.files.get(request, reply);
+
+        response = reply.firstCall.args[0];
+      });
+
+      commonAssertions({
+        expectedLength: 3,
+      });
+
+      it(&apos;every item is assetProcessor&apos;, () =&gt; {
+        response.forEach(file =&gt;
+          assert(file.assetProcessor)
+        );
+      });
+    });
+
+    describe(&apos;when assetProcessor=false&apos;, () =&gt; {
+      beforeEach(async () =&gt; {
+        request.query = {
+          assetProcessor: &apos;false&apos;,
+        };
+
+        await apiService.files.get(request, reply);
+
+        response = reply.firstCall.args[0];
+      });
+
+      commonAssertions({
+        expectedLength: 9,
+      });
+
+      it(&apos;every item is assetProcessor&apos;, () =&gt; {
+        response.forEach(file =&gt;
+          assert.equal(file.assetProcessor, null)
+        );
+      });
+    });
+
+    describe(&apos;when path does not match a file&apos;, () =&gt; {
+      beforeEach(async () =&gt; {
+        request.query = {
+          path: &apos;badabada&apos;,
+        };
+
+        await apiService.files.get(request, reply);
+
+        response = reply.firstCall.args[0];
+      });
+
+      commonAssertions({
+        expectedLength: 0,
+      });
+    });
+
+    describe(&apos;when path does match a file&apos;, () =&gt; {
+      let filePath;
+
+      beforeEach(async () =&gt; {
+        filePath = path.join(instance.config.get(&apos;path.source&apos;), &apos;about.md&apos;);
+
+        request.query = {
+          path: filePath,
+        };
+
+        await apiService.files.get(request, reply);
+
+        response = reply.firstCall.args[0];
+      });
+
+      commonAssertions({
+        expectedLength: 1,
+      });
+
+      it(&apos;the file returned is the one we requested&apos;, () =&gt; {
+        assert.equal(response[0].path, filePath);
+      });
+    });
+
+    describe(&apos;when the path is relative and matches&apos;, () =&gt; {
+      const filePath = &apos;about.md&apos;;
+      let fullPath;
+
+      beforeEach(async () =&gt; {
+        fullPath = path.join(instance.config.get(&apos;path.source&apos;), filePath);
+
+        request.query = {
+          path: filePath,
+        };
+
+        await apiService.files.get(request, reply);
+
+        response = reply.firstCall.args[0];
+      });
+
+      commonAssertions({
+        expectedLength: 1,
+      });
+
+      it(&apos;the file returned is the one we requested&apos;, () =&gt; {
+        assert.equal(response[0].path, fullPath);
+      });
+    });
+
+    //
+    //
+    describe(&apos;when destination does not match a file&apos;, () =&gt; {
+      beforeEach(async () =&gt; {
+        request.query = {
+          destination: &apos;badabada&apos;,
+        };
+
+        await apiService.files.get(request, reply);
+
+        response = reply.firstCall.args[0];
+      });
+
+      commonAssertions({
+        expectedLength: 0,
+      });
+    });
+
+    describe(&apos;when destination does match a file&apos;, () =&gt; {
+      const filePath = &apos;/about.html&apos;;
+
+      beforeEach(async () =&gt; {
+        request.query = {
+          destination: filePath,
+        };
+
+        await apiService.files.get(request, reply);
+
+        response = reply.firstCall.args[0];
+      });
+
+      commonAssertions({
+        expectedLength: 1,
+      });
+
+      it(&apos;the file returned is the one we requested&apos;, () =&gt; {
+        assert.equal(response[0].destination, filePath);
+      });
+    });
+
+    describe(&apos;when the destination is relative and matches&apos;, () =&gt; {
+      const filePath = &apos;about.html&apos;;
+
+      beforeEach(async () =&gt; {
+        request.query = {
+          destination: filePath,
+        };
+
+        await apiService.files.get(request, reply);
+
+        response = reply.firstCall.args[0];
+      });
+
+      commonAssertions({
+        expectedLength: 1,
+      });
+
+      it(&apos;the file returned is the one we requested&apos;, () =&gt; {
+        assert.equal(response[0].destination, `/${filePath}`);
+      });
+    });
+  });
+
+  describe(&apos;collections.get handler&apos;, () =&gt; {
+    let response;
+
+    function commonAssertions({
+      expectedLength,
+    }) {
+      it(&apos;returns an array&apos;, () =&gt; {
+        assert.equal(typeof response.length, &apos;number&apos;);
+      });
+
+      it(`returns ${expectedLength} items`, () =&gt; {
+        assert.equal(response.length, expectedLength);
+      });
+    }
+
+    afterEach(() =&gt; {
+      response = undefined;
+    });
+
+    describe(&apos;without any query params&apos;, () =&gt; {
+      beforeEach(async () =&gt; {
+        await apiService.collections.get(request, reply);
+        response = reply.firstCall.args[0];
+      });
+
+      commonAssertions({
+        expectedLength: 2,
+      });
+
+      it(&apos;returns an array of just collection names&apos;, () =&gt; {
+        assert.deepEqual(response, [&apos;post&apos;, &apos;tag&apos;]);
+      });
+    });
+
+    function commonOneCollection({ id }) {
+      it(&apos;returns an object&apos;, () =&gt; {
+        assert.equal(typeof response, &apos;object&apos;);
+      });
+
+      it(&apos;the object matches the request id&apos;, () =&gt; {
+        assert.equal(response.id, id);
+      });
+    }
+
+    describe(&apos;when requesting one collection&apos;, () =&gt; {
+      const id = &apos;post&apos;;
+
+      beforeEach(async () =&gt; {
+        request.params.id = id;
+        await apiService.collections.get(request, reply);
+        response = reply.firstCall.args[0];
+      });
+
+      commonOneCollection({ id });
+
+      it(&apos;the object does not have properties that excluded by default&apos;, () =&gt; {
+        [
+          &apos;pages&apos;,
+          &apos;files&apos;,
+          &apos;data&apos;,
+        ].forEach(prop =&gt;
+          assert.equal(typeof response[prop], &apos;undefined&apos;)
+        );
+      });
+    });
+
+    describe(&apos;when requesting one collection with include param&apos;, () =&gt; {
+      const id = &apos;post&apos;;
+
+      beforeEach(async () =&gt; {
+        request.params.id = id;
+        request.query.include = &apos;pages&apos;;
+        await apiService.collections.get(request, reply);
+        response = reply.firstCall.args[0];
+      });
+
+      commonOneCollection({ id });
+
+      it(&apos;the object has a pages property which is an array&apos;, () =&gt; {
+        assert.equal(typeof response.pages.length, &apos;number&apos;);
+      });
+
+      it(&apos;pages has expected length&apos;, () =&gt; {
+        assert.equal(response.pages.length, 1);
+      });
+
+      it(&apos;the object does not have properties that excluded by default&apos;, () =&gt; {
+        [
+          &apos;files&apos;,
+          &apos;data&apos;,
+        ].forEach(prop =&gt;
+          assert.equal(typeof response[prop], &apos;undefined&apos;)
+        );
+      });
+    });
+
+    describe(
+      &apos;when requesting one collection with multiple include values&apos;,
+    () =&gt; {
+      const id = &apos;post&apos;;
+
+      beforeEach(async () =&gt; {
+        request.params.id = id;
+        request.query.include = &apos;pages,files&apos;;
+        await apiService.collections.get(request, reply);
+        response = reply.firstCall.args[0];
+      });
+
+      commonOneCollection({ id });
+
+      it(&apos;the object has a pages property which is an array&apos;, () =&gt; {
+        assert.equal(typeof response.pages.length, &apos;number&apos;);
+      });
+
+      it(&apos;pages has expected length&apos;, () =&gt; {
+        assert.equal(response.pages.length, 1);
+      });
+
+      it(&apos;files is an object&apos;, () =&gt; {
+        assert.equal(typeof response.files, &apos;object&apos;);
+      });
+
+      it(&apos;files is not an array object&apos;, () =&gt; {
+        assert.equal(typeof response.files.length, &apos;undefined&apos;);
+      });
+
+      it(&apos;the object does not have properties that excluded by default&apos;, () =&gt; {
+        [
+          &apos;data&apos;,
+        ].forEach(prop =&gt;
+          assert.equal(typeof response[prop], &apos;undefined&apos;)
+        );
+      });
+    });
+  });
+});
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.5.2)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
