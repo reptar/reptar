@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.1.0"></a>
+# [3.1.0](https://github.com/reptar/reptar/compare/v3.0.1...v3.1.0) (2017-04-17)
+
+
+### Features
+
+* Add an API to reptar watch. ([db9c52f](https://github.com/reptar/reptar/commit/db9c52f))
+* Add CORS headers to API methods. ([979a940](https://github.com/reptar/reptar/commit/979a940))
+
+
+
 <a name="3.0.1"></a>
 ## [3.0.1](https://github.com/reptar/reptar/compare/v3.0.0...v3.0.1) (2017-03-26)
 
