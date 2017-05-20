@@ -59,6 +59,9 @@ module.exports = {
     extensions: ['markdown', 'mkdown', 'mkdn', 'mkd', 'md'],
     options: { preset: 'commonmark', highlight: true },
   },
+  ignore: [
+    /_.+.less/
+  ],
   server: { port: 8080, host: '127.0.0.1', baseurl: '' },
   newFilePermalink: '/_posts/:date|YYYY-:date|MM-:date|D-:title.md',
   middlewares: [
