@@ -1,6 +1,6 @@
 ---
 title: Four Score And Seven Years Ago
-date: 2015-08-01T12:12:12.123Z
+date: 2015-08-01
 tags:
 - speech
 ---
