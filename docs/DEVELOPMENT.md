@@ -43,6 +43,23 @@ You can start mocha in watch mode and then begin coding:
 npm run test:unit -- --watch
 ```
 
+## Using development version of reptar
+
+After you install Reptar locally you can use a debug version to quickly iterate on functionality.
+
+The first thing you need to do is expose your local Reptar installation globally.
+
+```shell
+cd reptar
+npm link
+```
+
+After you link Reptar you can run `reptar` and that will be pointing to your local installation of Reptar.
+
+However if you make a modification to a Reptar source file you have to run `npm run compile` to transpile the latest code. This is a less than optimal work flow.
+
+Instead you can also use `reptar-debug` as a drop in replacement for the `reptar` CLI tool. This file transpiles on the fly. Which allows for a workflow of editing a file and then using `reptar-debug`. No need for `npm run compile` in between.
+
 ## Commit Messages
 
 Reptar is using [standard-version](https://github.com/conventional-changelog/standard-version) to standardize its commit messages. For a quick overview of what that looks like [consult the quick start guide](https://github.com/conventional-changelog/standard-version#commit-message-convention-at-a-glance) or look at previous commits.
