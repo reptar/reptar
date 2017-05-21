@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.2.0"></a>
+# [3.2.0](https://github.com/reptar/reptar/compare/v3.1.0...v3.2.0) (2017-05-21)
+
+
+### Bug Fixes
+
+* Reptar watch is failing sometimes with bad cookie request ([1e6b64b](https://github.com/reptar/reptar/commit/1e6b64b)), closes [#75](https://github.com/reptar/reptar/issues/75)
+* When no file is found with reptar watch return a human friendly error. ([664376c](https://github.com/reptar/reptar/commit/664376c)), closes [#78](https://github.com/reptar/reptar/issues/78)
+* When parsing date objects assume they're in UTC ([ad95ff8](https://github.com/reptar/reptar/commit/ad95ff8)), closes [#79](https://github.com/reptar/reptar/issues/79)
+
+
+### Features
+
+* Add support for Reptar to ignore files entirely. ([933f4d5](https://github.com/reptar/reptar/commit/933f4d5)), closes [#77](https://github.com/reptar/reptar/issues/77)
+
+
+
 <a name="3.1.0"></a>
 # [3.1.0](https://github.com/reptar/reptar/compare/v3.0.1...v3.1.0) (2017-04-17)
 
