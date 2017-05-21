@@ -125,6 +125,12 @@ export default class Server {
     this.server.route({
       method: &apos;GET&apos;,
       path: &apos;/{p*}&apos;,
+      config: {
+        // If an error occurs when parsing a cookie don&apos;t error, just log it.
+        state: {
+          failAction: &apos;log&apos;,
+        },
+      },
       handler: (request, reply) =&gt; {
         this.routeHandler(request, reply).catch((e) =&gt; {
           reply(Boom.badData(e.message));
@@ -161,6 +167,10 @@ export default class Server {
     const isDebug = request.query.debug != null;
 
     const file = this.getFile(request.path);
+
+    if (!file) {
+      return reply(Boom.resourceGone(&apos;No file found to render.&apos;));
+    }
 
     if (file.assetProcessor) {
       const content = await file.render();

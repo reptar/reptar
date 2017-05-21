@@ -180,6 +180,11 @@ export default Joi.object({
     host: Joi.string().default(&apos;127.0.0.1&apos;),
     baseurl: Joi.string().allow(&apos;&apos;).default(&apos;&apos;),
   }).default(),
+  ignore: Joi.array().items(
+    Joi.string(),
+    Joi.func(),
+    regExpSchema
+  ).default([]),
   incremental: Joi.boolean().default(true),
   newFilePermalink: Joi.string()
     .default(&apos;/_posts/:date|YYYY-:date|MM-:date|D-:title.md&apos;),

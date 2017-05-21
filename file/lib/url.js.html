@@ -130,7 +130,7 @@ const Url = {
 
       if (paramValue) {
         if (paramPipe) {
-          paramValue = moment(paramValue).format(paramPipe);
+          paramValue = moment.utc(paramValue).format(paramPipe);
         }
         const sanitized = Url.slug(paramValue);
         result = result.replace(param, sanitized);

@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 6124,
+  "end": 6353,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 176,
+      "line": 184,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 6124,
+    "end": 6353,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 176,
+        "line": 184,
         "column": 0
       }
     },
@@ -134,28 +134,28 @@
       {
         "type": "ExpressionStatement",
         "start": 35,
-        "end": 6123,
+        "end": 6352,
         "loc": {
           "start": {
             "line": 4,
             "column": 0
           },
           "end": {
-            "line": 175,
+            "line": 183,
             "column": 2
           }
         },
         "expression": {
           "type": "AssignmentExpression",
           "start": 35,
-          "end": 6122,
+          "end": 6351,
           "loc": {
             "start": {
               "line": 4,
               "column": 0
             },
             "end": {
-              "line": 175,
+              "line": 183,
               "column": 1
             }
           },
@@ -213,14 +213,14 @@
           "right": {
             "type": "ObjectExpression",
             "start": 52,
-            "end": 6122,
+            "end": 6351,
             "loc": {
               "start": {
                 "line": 4,
                 "column": 17
               },
               "end": {
-                "line": 175,
+                "line": 183,
                 "column": 1
               }
             },
@@ -5832,15 +5832,287 @@
               },
               {
                 "type": "ObjectProperty",
-                "start": 5385,
-                "end": 5402,
+                "start": 5264,
+                "end": 5489,
                 "loc": {
                   "start": {
-                    "line": 157,
+                    "line": 155,
                     "column": 2
                   },
                   "end": {
-                    "line": 157,
+                    "line": 162,
+                    "column": 3
+                  }
+                },
+                "method": false,
+                "shorthand": false,
+                "computed": false,
+                "key": {
+                  "type": "Identifier",
+                  "start": 5264,
+                  "end": 5270,
+                  "loc": {
+                    "start": {
+                      "line": 155,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 155,
+                      "column": 8
+                    },
+                    "identifierName": "ignore"
+                  },
+                  "name": "ignore"
+                },
+                "value": {
+                  "type": "ArrayExpression",
+                  "start": 5272,
+                  "end": 5489,
+                  "loc": {
+                    "start": {
+                      "line": 155,
+                      "column": 10
+                    },
+                    "end": {
+                      "line": 162,
+                      "column": 3
+                    }
+                  },
+                  "elements": [
+                    {
+                      "type": "StringLiteral",
+                      "start": 5323,
+                      "end": 5340,
+                      "loc": {
+                        "start": {
+                          "line": 157,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 157,
+                          "column": 21
+                        }
+                      },
+                      "extra": {
+                        "rawValue": "ignored_file.js",
+                        "raw": "'ignored_file.js'"
+                      },
+                      "value": "ignored_file.js",
+                      "leadingComments": [
+                        {
+                          "type": "CommentLine",
+                          "value": " Ignore files named 'ignored_file.js'.",
+                          "start": 5278,
+                          "end": 5318,
+                          "loc": {
+                            "start": {
+                              "line": 156,
+                              "column": 4
+                            },
+                            "end": {
+                              "line": 156,
+                              "column": 44
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "RegExpLiteral",
+                      "start": 5387,
+                      "end": 5393,
+                      "loc": {
+                        "start": {
+                          "line": 159,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 159,
+                          "column": 10
+                        }
+                      },
+                      "extra": {
+                        "raw": "/^_.+/"
+                      },
+                      "leadingComments": [
+                        {
+                          "type": "CommentLine",
+                          "value": " Ignore any file prefixed with ``.",
+                          "start": 5346,
+                          "end": 5382,
+                          "loc": {
+                            "start": {
+                              "line": 158,
+                              "column": 4
+                            },
+                            "end": {
+                              "line": 158,
+                              "column": 40
+                            }
+                          }
+                        }
+                      ],
+                      "pattern": "^_.+",
+                      "flags": ""
+                    },
+                    {
+                      "type": "ArrowFunctionExpression",
+                      "start": 5448,
+                      "end": 5484,
+                      "loc": {
+                        "start": {
+                          "line": 161,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 161,
+                          "column": 40
+                        }
+                      },
+                      "id": null,
+                      "generator": false,
+                      "expression": true,
+                      "async": false,
+                      "params": [
+                        {
+                          "type": "Identifier",
+                          "start": 5448,
+                          "end": 5456,
+                          "loc": {
+                            "start": {
+                              "line": 161,
+                              "column": 4
+                            },
+                            "end": {
+                              "line": 161,
+                              "column": 12
+                            },
+                            "identifierName": "filePath"
+                          },
+                          "name": "filePath",
+                          "leadingComments": null
+                        }
+                      ],
+                      "body": {
+                        "type": "CallExpression",
+                        "start": 5460,
+                        "end": 5484,
+                        "loc": {
+                          "start": {
+                            "line": 161,
+                            "column": 16
+                          },
+                          "end": {
+                            "line": 161,
+                            "column": 40
+                          }
+                        },
+                        "callee": {
+                          "type": "MemberExpression",
+                          "start": 5460,
+                          "end": 5476,
+                          "loc": {
+                            "start": {
+                              "line": 161,
+                              "column": 16
+                            },
+                            "end": {
+                              "line": 161,
+                              "column": 32
+                            }
+                          },
+                          "object": {
+                            "type": "Identifier",
+                            "start": 5460,
+                            "end": 5468,
+                            "loc": {
+                              "start": {
+                                "line": 161,
+                                "column": 16
+                              },
+                              "end": {
+                                "line": 161,
+                                "column": 24
+                              },
+                              "identifierName": "filePath"
+                            },
+                            "name": "filePath"
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "start": 5469,
+                            "end": 5476,
+                            "loc": {
+                              "start": {
+                                "line": 161,
+                                "column": 25
+                              },
+                              "end": {
+                                "line": 161,
+                                "column": 32
+                              },
+                              "identifierName": "indexOf"
+                            },
+                            "name": "indexOf"
+                          },
+                          "computed": false
+                        },
+                        "arguments": [
+                          {
+                            "type": "StringLiteral",
+                            "start": 5477,
+                            "end": 5483,
+                            "loc": {
+                              "start": {
+                                "line": 161,
+                                "column": 33
+                              },
+                              "end": {
+                                "line": 161,
+                                "column": 39
+                              }
+                            },
+                            "extra": {
+                              "rawValue": ".txt",
+                              "raw": "'.txt'"
+                            },
+                            "value": ".txt"
+                          }
+                        ]
+                      },
+                      "leadingComments": [
+                        {
+                          "type": "CommentLine",
+                          "value": " Ignore any files that has ``.txt`` in it.",
+                          "start": 5399,
+                          "end": 5443,
+                          "loc": {
+                            "start": {
+                              "line": 160,
+                              "column": 4
+                            },
+                            "end": {
+                              "line": 160,
+                              "column": 48
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "ObjectProperty",
+                "start": 5614,
+                "end": 5631,
+                "loc": {
+                  "start": {
+                    "line": 165,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 165,
                     "column": 19
                   }
                 },
@@ -5849,15 +6121,15 @@
                 "computed": false,
                 "key": {
                   "type": "Identifier",
-                  "start": 5385,
-                  "end": 5396,
+                  "start": 5614,
+                  "end": 5625,
                   "loc": {
                     "start": {
-                      "line": 157,
+                      "line": 165,
                       "column": 2
                     },
                     "end": {
-                      "line": 157,
+                      "line": 165,
                       "column": 13
                     },
                     "identifierName": "incremental"
@@ -5867,15 +6139,15 @@
                 },
                 "value": {
                   "type": "BooleanLiteral",
-                  "start": 5398,
-                  "end": 5402,
+                  "start": 5627,
+                  "end": 5631,
                   "loc": {
                     "start": {
-                      "line": 157,
+                      "line": 165,
                       "column": 15
                     },
                     "end": {
-                      "line": 157,
+                      "line": 165,
                       "column": 19
                     }
                   },
@@ -5885,15 +6157,15 @@
                   {
                     "type": "CommentLine",
                     "value": " Only build files that have changed.",
-                    "start": 5264,
-                    "end": 5302,
+                    "start": 5493,
+                    "end": 5531,
                     "loc": {
                       "start": {
-                        "line": 155,
+                        "line": 163,
                         "column": 2
                       },
                       "end": {
-                        "line": 155,
+                        "line": 163,
                         "column": 40
                       }
                     }
@@ -5901,15 +6173,15 @@
                   {
                     "type": "CommentLine",
                     "value": " This is a performance improvement to the time it takes to build your site.",
-                    "start": 5305,
-                    "end": 5382,
+                    "start": 5534,
+                    "end": 5611,
                     "loc": {
                       "start": {
-                        "line": 156,
+                        "line": 164,
                         "column": 2
                       },
                       "end": {
-                        "line": 156,
+                        "line": 164,
                         "column": 79
                       }
                     }
@@ -5918,15 +6190,15 @@
               },
               {
                 "type": "ObjectProperty",
-                "start": 5466,
-                "end": 5531,
+                "start": 5695,
+                "end": 5760,
                 "loc": {
                   "start": {
-                    "line": 159,
+                    "line": 167,
                     "column": 2
                   },
                   "end": {
-                    "line": 159,
+                    "line": 167,
                     "column": 67
                   }
                 },
@@ -5935,15 +6207,15 @@
                 "computed": false,
                 "key": {
                   "type": "Identifier",
-                  "start": 5466,
-                  "end": 5482,
+                  "start": 5695,
+                  "end": 5711,
                   "loc": {
                     "start": {
-                      "line": 159,
+                      "line": 167,
                       "column": 2
                     },
                     "end": {
-                      "line": 159,
+                      "line": 167,
                       "column": 18
                     },
                     "identifierName": "newFilePermalink"
@@ -5953,15 +6225,15 @@
                 },
                 "value": {
                   "type": "StringLiteral",
-                  "start": 5484,
-                  "end": 5531,
+                  "start": 5713,
+                  "end": 5760,
                   "loc": {
                     "start": {
-                      "line": 159,
+                      "line": 167,
                       "column": 20
                     },
                     "end": {
-                      "line": 159,
+                      "line": 167,
                       "column": 67
                     }
                   },
@@ -5975,15 +6247,15 @@
                   {
                     "type": "CommentLine",
                     "value": " Where files created via `reptar new` should be placed.",
-                    "start": 5406,
-                    "end": 5463,
+                    "start": 5635,
+                    "end": 5692,
                     "loc": {
                       "start": {
-                        "line": 158,
+                        "line": 166,
                         "column": 2
                       },
                       "end": {
-                        "line": 158,
+                        "line": 166,
                         "column": 59
                       }
                     }
@@ -5992,151 +6264,11 @@
               },
               {
                 "type": "ObjectProperty",
-                "start": 5759,
-                "end": 5819,
+                "start": 5988,
+                "end": 6048,
                 "loc": {
                   "start": {
-                    "line": 163,
-                    "column": 2
-                  },
-                  "end": {
-                    "line": 166,
-                    "column": 3
-                  }
-                },
-                "method": false,
-                "shorthand": false,
-                "computed": false,
-                "key": {
-                  "type": "Identifier",
-                  "start": 5759,
-                  "end": 5770,
-                  "loc": {
-                    "start": {
-                      "line": 163,
-                      "column": 2
-                    },
-                    "end": {
-                      "line": 163,
-                      "column": 13
-                    },
-                    "identifierName": "middlewares"
-                  },
-                  "name": "middlewares",
-                  "leadingComments": null
-                },
-                "value": {
-                  "type": "ArrayExpression",
-                  "start": 5772,
-                  "end": 5819,
-                  "loc": {
-                    "start": {
-                      "line": 163,
-                      "column": 15
-                    },
-                    "end": {
-                      "line": 166,
-                      "column": 3
-                    }
-                  },
-                  "elements": [
-                    {
-                      "type": "StringLiteral",
-                      "start": 5778,
-                      "end": 5794,
-                      "loc": {
-                        "start": {
-                          "line": 164,
-                          "column": 4
-                        },
-                        "end": {
-                          "line": 164,
-                          "column": 20
-                        }
-                      },
-                      "extra": {
-                        "rawValue": "reptar-excerpt",
-                        "raw": "'reptar-excerpt'"
-                      },
-                      "value": "reptar-excerpt"
-                    },
-                    {
-                      "type": "Identifier",
-                      "start": 5800,
-                      "end": 5814,
-                      "loc": {
-                        "start": {
-                          "line": 165,
-                          "column": 4
-                        },
-                        "end": {
-                          "line": 165,
-                          "column": 18
-                        },
-                        "identifierName": "noopMiddleware"
-                      },
-                      "name": "noopMiddleware"
-                    }
-                  ]
-                },
-                "leadingComments": [
-                  {
-                    "type": "CommentLine",
-                    "value": " What middlewares you want enabled and what configuration settings they",
-                    "start": 5535,
-                    "end": 5608,
-                    "loc": {
-                      "start": {
-                        "line": 160,
-                        "column": 2
-                      },
-                      "end": {
-                        "line": 160,
-                        "column": 75
-                      }
-                    }
-                  },
-                  {
-                    "type": "CommentLine",
-                    "value": " should have. Can be either a string which assumes it's an npm module or",
-                    "start": 5611,
-                    "end": 5685,
-                    "loc": {
-                      "start": {
-                        "line": 161,
-                        "column": 2
-                      },
-                      "end": {
-                        "line": 161,
-                        "column": 76
-                      }
-                    }
-                  },
-                  {
-                    "type": "CommentLine",
-                    "value": " a function which is the middleware itself, or an array of either.",
-                    "start": 5688,
-                    "end": 5756,
-                    "loc": {
-                      "start": {
-                        "line": 162,
-                        "column": 2
-                      },
-                      "end": {
-                        "line": 162,
-                        "column": 70
-                      }
-                    }
-                  }
-                ]
-              },
-              {
-                "type": "ObjectProperty",
-                "start": 5979,
-                "end": 6119,
-                "loc": {
-                  "start": {
-                    "line": 169,
+                    "line": 171,
                     "column": 2
                   },
                   "end": {
@@ -6149,15 +6281,155 @@
                 "computed": false,
                 "key": {
                   "type": "Identifier",
-                  "start": 5979,
-                  "end": 5988,
+                  "start": 5988,
+                  "end": 5999,
                   "loc": {
                     "start": {
-                      "line": 169,
+                      "line": 171,
                       "column": 2
                     },
                     "end": {
-                      "line": 169,
+                      "line": 171,
+                      "column": 13
+                    },
+                    "identifierName": "middlewares"
+                  },
+                  "name": "middlewares",
+                  "leadingComments": null
+                },
+                "value": {
+                  "type": "ArrayExpression",
+                  "start": 6001,
+                  "end": 6048,
+                  "loc": {
+                    "start": {
+                      "line": 171,
+                      "column": 15
+                    },
+                    "end": {
+                      "line": 174,
+                      "column": 3
+                    }
+                  },
+                  "elements": [
+                    {
+                      "type": "StringLiteral",
+                      "start": 6007,
+                      "end": 6023,
+                      "loc": {
+                        "start": {
+                          "line": 172,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 172,
+                          "column": 20
+                        }
+                      },
+                      "extra": {
+                        "rawValue": "reptar-excerpt",
+                        "raw": "'reptar-excerpt'"
+                      },
+                      "value": "reptar-excerpt"
+                    },
+                    {
+                      "type": "Identifier",
+                      "start": 6029,
+                      "end": 6043,
+                      "loc": {
+                        "start": {
+                          "line": 173,
+                          "column": 4
+                        },
+                        "end": {
+                          "line": 173,
+                          "column": 18
+                        },
+                        "identifierName": "noopMiddleware"
+                      },
+                      "name": "noopMiddleware"
+                    }
+                  ]
+                },
+                "leadingComments": [
+                  {
+                    "type": "CommentLine",
+                    "value": " What middlewares you want enabled and what configuration settings they",
+                    "start": 5764,
+                    "end": 5837,
+                    "loc": {
+                      "start": {
+                        "line": 168,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 168,
+                        "column": 75
+                      }
+                    }
+                  },
+                  {
+                    "type": "CommentLine",
+                    "value": " should have. Can be either a string which assumes it's an npm module or",
+                    "start": 5840,
+                    "end": 5914,
+                    "loc": {
+                      "start": {
+                        "line": 169,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 169,
+                        "column": 76
+                      }
+                    }
+                  },
+                  {
+                    "type": "CommentLine",
+                    "value": " a function which is the middleware itself, or an array of either.",
+                    "start": 5917,
+                    "end": 5985,
+                    "loc": {
+                      "start": {
+                        "line": 170,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 170,
+                        "column": 70
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "ObjectProperty",
+                "start": 6208,
+                "end": 6348,
+                "loc": {
+                  "start": {
+                    "line": 177,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 182,
+                    "column": 3
+                  }
+                },
+                "method": false,
+                "shorthand": false,
+                "computed": false,
+                "key": {
+                  "type": "Identifier",
+                  "start": 6208,
+                  "end": 6217,
+                  "loc": {
+                    "start": {
+                      "line": 177,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 177,
                       "column": 11
                     },
                     "identifierName": "lifecycle"
@@ -6167,30 +6439,30 @@
                 },
                 "value": {
                   "type": "ObjectExpression",
-                  "start": 5990,
-                  "end": 6119,
+                  "start": 6219,
+                  "end": 6348,
                   "loc": {
                     "start": {
-                      "line": 169,
+                      "line": 177,
                       "column": 13
                     },
                     "end": {
-                      "line": 174,
+                      "line": 182,
                       "column": 3
                     }
                   },
                   "properties": [
                     {
                       "type": "ObjectProperty",
-                      "start": 5996,
-                      "end": 6022,
+                      "start": 6225,
+                      "end": 6251,
                       "loc": {
                         "start": {
-                          "line": 170,
+                          "line": 178,
                           "column": 4
                         },
                         "end": {
-                          "line": 170,
+                          "line": 178,
                           "column": 30
                         }
                       },
@@ -6199,15 +6471,15 @@
                       "computed": false,
                       "key": {
                         "type": "Identifier",
-                        "start": 5996,
-                        "end": 6006,
+                        "start": 6225,
+                        "end": 6235,
                         "loc": {
                           "start": {
-                            "line": 170,
+                            "line": 178,
                             "column": 4
                           },
                           "end": {
-                            "line": 170,
+                            "line": 178,
                             "column": 14
                           },
                           "identifierName": "willUpdate"
@@ -6216,15 +6488,15 @@
                       },
                       "value": {
                         "type": "Identifier",
-                        "start": 6008,
-                        "end": 6022,
+                        "start": 6237,
+                        "end": 6251,
                         "loc": {
                           "start": {
-                            "line": 170,
+                            "line": 178,
                             "column": 16
                           },
                           "end": {
-                            "line": 170,
+                            "line": 178,
                             "column": 30
                           },
                           "identifierName": "noopMiddleware"
@@ -6234,15 +6506,15 @@
                     },
                     {
                       "type": "ObjectProperty",
-                      "start": 6028,
-                      "end": 6053,
+                      "start": 6257,
+                      "end": 6282,
                       "loc": {
                         "start": {
-                          "line": 171,
+                          "line": 179,
                           "column": 4
                         },
                         "end": {
-                          "line": 171,
+                          "line": 179,
                           "column": 29
                         }
                       },
@@ -6251,15 +6523,15 @@
                       "computed": false,
                       "key": {
                         "type": "Identifier",
-                        "start": 6028,
-                        "end": 6037,
+                        "start": 6257,
+                        "end": 6266,
                         "loc": {
                           "start": {
-                            "line": 171,
+                            "line": 179,
                             "column": 4
                           },
                           "end": {
-                            "line": 171,
+                            "line": 179,
                             "column": 13
                           },
                           "identifierName": "didUpdate"
@@ -6268,15 +6540,15 @@
                       },
                       "value": {
                         "type": "Identifier",
-                        "start": 6039,
-                        "end": 6053,
+                        "start": 6268,
+                        "end": 6282,
                         "loc": {
                           "start": {
-                            "line": 171,
+                            "line": 179,
                             "column": 15
                           },
                           "end": {
-                            "line": 171,
+                            "line": 179,
                             "column": 29
                           },
                           "identifierName": "noopMiddleware"
@@ -6286,15 +6558,15 @@
                     },
                     {
                       "type": "ObjectProperty",
-                      "start": 6059,
-                      "end": 6084,
+                      "start": 6288,
+                      "end": 6313,
                       "loc": {
                         "start": {
-                          "line": 172,
+                          "line": 180,
                           "column": 4
                         },
                         "end": {
-                          "line": 172,
+                          "line": 180,
                           "column": 29
                         }
                       },
@@ -6303,15 +6575,15 @@
                       "computed": false,
                       "key": {
                         "type": "Identifier",
-                        "start": 6059,
-                        "end": 6068,
+                        "start": 6288,
+                        "end": 6297,
                         "loc": {
                           "start": {
-                            "line": 172,
+                            "line": 180,
                             "column": 4
                           },
                           "end": {
-                            "line": 172,
+                            "line": 180,
                             "column": 13
                           },
                           "identifierName": "willBuild"
@@ -6320,15 +6592,15 @@
                       },
                       "value": {
                         "type": "Identifier",
-                        "start": 6070,
-                        "end": 6084,
+                        "start": 6299,
+                        "end": 6313,
                         "loc": {
                           "start": {
-                            "line": 172,
+                            "line": 180,
                             "column": 15
                           },
                           "end": {
-                            "line": 172,
+                            "line": 180,
                             "column": 29
                           },
                           "identifierName": "noopMiddleware"
@@ -6338,15 +6610,15 @@
                     },
                     {
                       "type": "ObjectProperty",
-                      "start": 6090,
-                      "end": 6114,
+                      "start": 6319,
+                      "end": 6343,
                       "loc": {
                         "start": {
-                          "line": 173,
+                          "line": 181,
                           "column": 4
                         },
                         "end": {
-                          "line": 173,
+                          "line": 181,
                           "column": 28
                         }
                       },
@@ -6355,15 +6627,15 @@
                       "computed": false,
                       "key": {
                         "type": "Identifier",
-                        "start": 6090,
-                        "end": 6098,
+                        "start": 6319,
+                        "end": 6327,
                         "loc": {
                           "start": {
-                            "line": 173,
+                            "line": 181,
                             "column": 4
                           },
                           "end": {
-                            "line": 173,
+                            "line": 181,
                             "column": 12
                           },
                           "identifierName": "didBuild"
@@ -6372,15 +6644,15 @@
                       },
                       "value": {
                         "type": "Identifier",
-                        "start": 6100,
-                        "end": 6114,
+                        "start": 6329,
+                        "end": 6343,
                         "loc": {
                           "start": {
-                            "line": 173,
+                            "line": 181,
                             "column": 14
                           },
                           "end": {
-                            "line": 173,
+                            "line": 181,
                             "column": 28
                           },
                           "identifierName": "noopMiddleware"
@@ -6394,15 +6666,15 @@
                   {
                     "type": "CommentLine",
                     "value": " Lifecycle methods are called at certain points in the lifecycle of Reptar.",
-                    "start": 5823,
-                    "end": 5900,
+                    "start": 6052,
+                    "end": 6129,
                     "loc": {
                       "start": {
-                        "line": 167,
+                        "line": 175,
                         "column": 2
                       },
                       "end": {
-                        "line": 167,
+                        "line": 175,
                         "column": 79
                       }
                     }
@@ -6410,15 +6682,15 @@
                   {
                     "type": "CommentLine",
                     "value": " Each value can be either a string or a function or an array of either.",
-                    "start": 5903,
-                    "end": 5976,
+                    "start": 6132,
+                    "end": 6205,
                     "loc": {
                       "start": {
-                        "line": 168,
+                        "line": 176,
                         "column": 2
                       },
                       "end": {
-                        "line": 168,
+                        "line": 176,
                         "column": 75
                       }
                     }
@@ -7443,16 +7715,64 @@
     },
     {
       "type": "CommentLine",
-      "value": " Only build files that have changed.",
-      "start": 5264,
-      "end": 5302,
+      "value": " Ignore files named 'ignored_file.js'.",
+      "start": 5278,
+      "end": 5318,
       "loc": {
         "start": {
-          "line": 155,
+          "line": 156,
+          "column": 4
+        },
+        "end": {
+          "line": 156,
+          "column": 44
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " Ignore any file prefixed with ``.",
+      "start": 5346,
+      "end": 5382,
+      "loc": {
+        "start": {
+          "line": 158,
+          "column": 4
+        },
+        "end": {
+          "line": 158,
+          "column": 40
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " Ignore any files that has ``.txt`` in it.",
+      "start": 5399,
+      "end": 5443,
+      "loc": {
+        "start": {
+          "line": 160,
+          "column": 4
+        },
+        "end": {
+          "line": 160,
+          "column": 48
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " Only build files that have changed.",
+      "start": 5493,
+      "end": 5531,
+      "loc": {
+        "start": {
+          "line": 163,
           "column": 2
         },
         "end": {
-          "line": 155,
+          "line": 163,
           "column": 40
         }
       }
@@ -7460,15 +7780,15 @@
     {
       "type": "CommentLine",
       "value": " This is a performance improvement to the time it takes to build your site.",
-      "start": 5305,
-      "end": 5382,
+      "start": 5534,
+      "end": 5611,
       "loc": {
         "start": {
-          "line": 156,
+          "line": 164,
           "column": 2
         },
         "end": {
-          "line": 156,
+          "line": 164,
           "column": 79
         }
       }
@@ -7476,15 +7796,15 @@
     {
       "type": "CommentLine",
       "value": " Where files created via `reptar new` should be placed.",
-      "start": 5406,
-      "end": 5463,
+      "start": 5635,
+      "end": 5692,
       "loc": {
         "start": {
-          "line": 158,
+          "line": 166,
           "column": 2
         },
         "end": {
-          "line": 158,
+          "line": 166,
           "column": 59
         }
       }
@@ -7492,15 +7812,15 @@
     {
       "type": "CommentLine",
       "value": " What middlewares you want enabled and what configuration settings they",
-      "start": 5535,
-      "end": 5608,
+      "start": 5764,
+      "end": 5837,
       "loc": {
         "start": {
-          "line": 160,
+          "line": 168,
           "column": 2
         },
         "end": {
-          "line": 160,
+          "line": 168,
           "column": 75
         }
       }
@@ -7508,15 +7828,15 @@
     {
       "type": "CommentLine",
       "value": " should have. Can be either a string which assumes it's an npm module or",
-      "start": 5611,
-      "end": 5685,
+      "start": 5840,
+      "end": 5914,
       "loc": {
         "start": {
-          "line": 161,
+          "line": 169,
           "column": 2
         },
         "end": {
-          "line": 161,
+          "line": 169,
           "column": 76
         }
       }
@@ -7524,15 +7844,15 @@
     {
       "type": "CommentLine",
       "value": " a function which is the middleware itself, or an array of either.",
-      "start": 5688,
-      "end": 5756,
+      "start": 5917,
+      "end": 5985,
       "loc": {
         "start": {
-          "line": 162,
+          "line": 170,
           "column": 2
         },
         "end": {
-          "line": 162,
+          "line": 170,
           "column": 70
         }
       }
@@ -7540,15 +7860,15 @@
     {
       "type": "CommentLine",
       "value": " Lifecycle methods are called at certain points in the lifecycle of Reptar.",
-      "start": 5823,
-      "end": 5900,
+      "start": 6052,
+      "end": 6129,
       "loc": {
         "start": {
-          "line": 167,
+          "line": 175,
           "column": 2
         },
         "end": {
-          "line": 167,
+          "line": 175,
           "column": 79
         }
       }
@@ -7556,15 +7876,15 @@
     {
       "type": "CommentLine",
       "value": " Each value can be either a string or a function or an array of either.",
-      "start": 5903,
-      "end": 5976,
+      "start": 6132,
+      "end": 6205,
       "loc": {
         "start": {
-          "line": 168,
+          "line": 176,
           "column": 2
         },
         "end": {
-          "line": 168,
+          "line": 176,
           "column": 75
         }
       }
@@ -18511,10 +18831,20 @@
       }
     },
     {
-      "type": "CommentLine",
-      "value": " Only build files that have changed.",
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "ignore",
       "start": 5264,
-      "end": 5302,
+      "end": 5270,
       "loc": {
         "start": {
           "line": 155,
@@ -18522,6 +18852,516 @@
         },
         "end": {
           "line": 155,
+          "column": 8
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ":",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 5270,
+      "end": 5271,
+      "loc": {
+        "start": {
+          "line": 155,
+          "column": 8
+        },
+        "end": {
+          "line": 155,
+          "column": 9
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "[",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 5272,
+      "end": 5273,
+      "loc": {
+        "start": {
+          "line": 155,
+          "column": 10
+        },
+        "end": {
+          "line": 155,
+          "column": 11
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " Ignore files named 'ignored_file.js'.",
+      "start": 5278,
+      "end": 5318,
+      "loc": {
+        "start": {
+          "line": 156,
+          "column": 4
+        },
+        "end": {
+          "line": 156,
+          "column": 44
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "ignored_file.js",
+      "start": 5323,
+      "end": 5340,
+      "loc": {
+        "start": {
+          "line": 157,
+          "column": 4
+        },
+        "end": {
+          "line": 157,
+          "column": 21
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 5340,
+      "end": 5341,
+      "loc": {
+        "start": {
+          "line": 157,
+          "column": 21
+        },
+        "end": {
+          "line": 157,
+          "column": 22
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " Ignore any file prefixed with ``.",
+      "start": 5346,
+      "end": 5382,
+      "loc": {
+        "start": {
+          "line": 158,
+          "column": 4
+        },
+        "end": {
+          "line": 158,
+          "column": 40
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "regexp",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": {
+        "pattern": "^_.+",
+        "flags": ""
+      },
+      "start": 5387,
+      "end": 5393,
+      "loc": {
+        "start": {
+          "line": 159,
+          "column": 4
+        },
+        "end": {
+          "line": 159,
+          "column": 10
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 5393,
+      "end": 5394,
+      "loc": {
+        "start": {
+          "line": 159,
+          "column": 10
+        },
+        "end": {
+          "line": 159,
+          "column": 11
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " Ignore any files that has ``.txt`` in it.",
+      "start": 5399,
+      "end": 5443,
+      "loc": {
+        "start": {
+          "line": 160,
+          "column": 4
+        },
+        "end": {
+          "line": 160,
+          "column": 48
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "filePath",
+      "start": 5448,
+      "end": 5456,
+      "loc": {
+        "start": {
+          "line": 161,
+          "column": 4
+        },
+        "end": {
+          "line": 161,
+          "column": 12
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "=>",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 5457,
+      "end": 5459,
+      "loc": {
+        "start": {
+          "line": 161,
+          "column": 13
+        },
+        "end": {
+          "line": 161,
+          "column": 15
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "filePath",
+      "start": 5460,
+      "end": 5468,
+      "loc": {
+        "start": {
+          "line": 161,
+          "column": 16
+        },
+        "end": {
+          "line": 161,
+          "column": 24
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 5468,
+      "end": 5469,
+      "loc": {
+        "start": {
+          "line": 161,
+          "column": 24
+        },
+        "end": {
+          "line": 161,
+          "column": 25
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "indexOf",
+      "start": 5469,
+      "end": 5476,
+      "loc": {
+        "start": {
+          "line": 161,
+          "column": 25
+        },
+        "end": {
+          "line": 161,
+          "column": 32
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 5476,
+      "end": 5477,
+      "loc": {
+        "start": {
+          "line": 161,
+          "column": 32
+        },
+        "end": {
+          "line": 161,
+          "column": 33
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": ".txt",
+      "start": 5477,
+      "end": 5483,
+      "loc": {
+        "start": {
+          "line": 161,
+          "column": 33
+        },
+        "end": {
+          "line": 161,
+          "column": 39
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 5483,
+      "end": 5484,
+      "loc": {
+        "start": {
+          "line": 161,
+          "column": 39
+        },
+        "end": {
+          "line": 161,
+          "column": 40
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 5484,
+      "end": 5485,
+      "loc": {
+        "start": {
+          "line": 161,
+          "column": 40
+        },
+        "end": {
+          "line": 161,
+          "column": 41
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "]",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 5488,
+      "end": 5489,
+      "loc": {
+        "start": {
+          "line": 162,
+          "column": 2
+        },
+        "end": {
+          "line": 162,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 5489,
+      "end": 5490,
+      "loc": {
+        "start": {
+          "line": 162,
+          "column": 3
+        },
+        "end": {
+          "line": 162,
+          "column": 4
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " Only build files that have changed.",
+      "start": 5493,
+      "end": 5531,
+      "loc": {
+        "start": {
+          "line": 163,
+          "column": 2
+        },
+        "end": {
+          "line": 163,
           "column": 40
         }
       }
@@ -18529,15 +19369,15 @@
     {
       "type": "CommentLine",
       "value": " This is a performance improvement to the time it takes to build your site.",
-      "start": 5305,
-      "end": 5382,
+      "start": 5534,
+      "end": 5611,
       "loc": {
         "start": {
-          "line": 156,
+          "line": 164,
           "column": 2
         },
         "end": {
-          "line": 156,
+          "line": 164,
           "column": 79
         }
       }
@@ -18555,15 +19395,15 @@
         "binop": null
       },
       "value": "incremental",
-      "start": 5385,
-      "end": 5396,
+      "start": 5614,
+      "end": 5625,
       "loc": {
         "start": {
-          "line": 157,
+          "line": 165,
           "column": 2
         },
         "end": {
-          "line": 157,
+          "line": 165,
           "column": 13
         }
       }
@@ -18581,15 +19421,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 5396,
-      "end": 5397,
+      "start": 5625,
+      "end": 5626,
       "loc": {
         "start": {
-          "line": 157,
+          "line": 165,
           "column": 13
         },
         "end": {
-          "line": 157,
+          "line": 165,
           "column": 14
         }
       }
@@ -18609,15 +19449,15 @@
         "updateContext": null
       },
       "value": "true",
-      "start": 5398,
-      "end": 5402,
+      "start": 5627,
+      "end": 5631,
       "loc": {
         "start": {
-          "line": 157,
+          "line": 165,
           "column": 15
         },
         "end": {
-          "line": 157,
+          "line": 165,
           "column": 19
         }
       }
@@ -18635,15 +19475,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 5402,
-      "end": 5403,
+      "start": 5631,
+      "end": 5632,
       "loc": {
         "start": {
-          "line": 157,
+          "line": 165,
           "column": 19
         },
         "end": {
-          "line": 157,
+          "line": 165,
           "column": 20
         }
       }
@@ -18651,15 +19491,15 @@
     {
       "type": "CommentLine",
       "value": " Where files created via `reptar new` should be placed.",
-      "start": 5406,
-      "end": 5463,
+      "start": 5635,
+      "end": 5692,
       "loc": {
         "start": {
-          "line": 158,
+          "line": 166,
           "column": 2
         },
         "end": {
-          "line": 158,
+          "line": 166,
           "column": 59
         }
       }
@@ -18677,15 +19517,15 @@
         "binop": null
       },
       "value": "newFilePermalink",
-      "start": 5466,
-      "end": 5482,
+      "start": 5695,
+      "end": 5711,
       "loc": {
         "start": {
-          "line": 159,
+          "line": 167,
           "column": 2
         },
         "end": {
-          "line": 159,
+          "line": 167,
           "column": 18
         }
       }
@@ -18703,15 +19543,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 5482,
-      "end": 5483,
+      "start": 5711,
+      "end": 5712,
       "loc": {
         "start": {
-          "line": 159,
+          "line": 167,
           "column": 18
         },
         "end": {
-          "line": 159,
+          "line": 167,
           "column": 19
         }
       }
@@ -18730,15 +19570,15 @@
         "updateContext": null
       },
       "value": "/_posts/:date|YYYY-:date|MM-:date|D-:title.md",
-      "start": 5484,
-      "end": 5531,
+      "start": 5713,
+      "end": 5760,
       "loc": {
         "start": {
-          "line": 159,
+          "line": 167,
           "column": 20
         },
         "end": {
-          "line": 159,
+          "line": 167,
           "column": 67
         }
       }
@@ -18756,15 +19596,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 5531,
-      "end": 5532,
+      "start": 5760,
+      "end": 5761,
       "loc": {
         "start": {
-          "line": 159,
+          "line": 167,
           "column": 67
         },
         "end": {
-          "line": 159,
+          "line": 167,
           "column": 68
         }
       }
@@ -18772,15 +19612,15 @@
     {
       "type": "CommentLine",
       "value": " What middlewares you want enabled and what configuration settings they",
-      "start": 5535,
-      "end": 5608,
+      "start": 5764,
+      "end": 5837,
       "loc": {
         "start": {
-          "line": 160,
+          "line": 168,
           "column": 2
         },
         "end": {
-          "line": 160,
+          "line": 168,
           "column": 75
         }
       }
@@ -18788,15 +19628,15 @@
     {
       "type": "CommentLine",
       "value": " should have. Can be either a string which assumes it's an npm module or",
-      "start": 5611,
-      "end": 5685,
+      "start": 5840,
+      "end": 5914,
       "loc": {
         "start": {
-          "line": 161,
+          "line": 169,
           "column": 2
         },
         "end": {
-          "line": 161,
+          "line": 169,
           "column": 76
         }
       }
@@ -18804,15 +19644,15 @@
     {
       "type": "CommentLine",
       "value": " a function which is the middleware itself, or an array of either.",
-      "start": 5688,
-      "end": 5756,
+      "start": 5917,
+      "end": 5985,
       "loc": {
         "start": {
-          "line": 162,
+          "line": 170,
           "column": 2
         },
         "end": {
-          "line": 162,
+          "line": 170,
           "column": 70
         }
       }
@@ -18830,15 +19670,15 @@
         "binop": null
       },
       "value": "middlewares",
-      "start": 5759,
-      "end": 5770,
+      "start": 5988,
+      "end": 5999,
       "loc": {
         "start": {
-          "line": 163,
+          "line": 171,
           "column": 2
         },
         "end": {
-          "line": 163,
+          "line": 171,
           "column": 13
         }
       }
@@ -18856,15 +19696,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 5770,
-      "end": 5771,
+      "start": 5999,
+      "end": 6000,
       "loc": {
         "start": {
-          "line": 163,
+          "line": 171,
           "column": 13
         },
         "end": {
-          "line": 163,
+          "line": 171,
           "column": 14
         }
       }
@@ -18882,15 +19722,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 5772,
-      "end": 5773,
+      "start": 6001,
+      "end": 6002,
       "loc": {
         "start": {
-          "line": 163,
+          "line": 171,
           "column": 15
         },
         "end": {
-          "line": 163,
+          "line": 171,
           "column": 16
         }
       }
@@ -18909,15 +19749,15 @@
         "updateContext": null
       },
       "value": "reptar-excerpt",
-      "start": 5778,
-      "end": 5794,
+      "start": 6007,
+      "end": 6023,
       "loc": {
         "start": {
-          "line": 164,
+          "line": 172,
           "column": 4
         },
         "end": {
-          "line": 164,
+          "line": 172,
           "column": 20
         }
       }
@@ -18935,15 +19775,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 5794,
-      "end": 5795,
+      "start": 6023,
+      "end": 6024,
       "loc": {
         "start": {
-          "line": 164,
+          "line": 172,
           "column": 20
         },
         "end": {
-          "line": 164,
+          "line": 172,
           "column": 21
         }
       }
@@ -18961,15 +19801,15 @@
         "binop": null
       },
       "value": "noopMiddleware",
-      "start": 5800,
-      "end": 5814,
+      "start": 6029,
+      "end": 6043,
       "loc": {
         "start": {
-          "line": 165,
+          "line": 173,
           "column": 4
         },
         "end": {
-          "line": 165,
+          "line": 173,
           "column": 18
         }
       }
@@ -18987,15 +19827,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 5814,
-      "end": 5815,
+      "start": 6043,
+      "end": 6044,
       "loc": {
         "start": {
-          "line": 165,
+          "line": 173,
           "column": 18
         },
         "end": {
-          "line": 165,
+          "line": 173,
           "column": 19
         }
       }
@@ -19013,15 +19853,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 5818,
-      "end": 5819,
+      "start": 6047,
+      "end": 6048,
       "loc": {
         "start": {
-          "line": 166,
+          "line": 174,
           "column": 2
         },
         "end": {
-          "line": 166,
+          "line": 174,
           "column": 3
         }
       }
@@ -19039,15 +19879,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 5819,
-      "end": 5820,
+      "start": 6048,
+      "end": 6049,
       "loc": {
         "start": {
-          "line": 166,
+          "line": 174,
           "column": 3
         },
         "end": {
-          "line": 166,
+          "line": 174,
           "column": 4
         }
       }
@@ -19055,15 +19895,15 @@
     {
       "type": "CommentLine",
       "value": " Lifecycle methods are called at certain points in the lifecycle of Reptar.",
-      "start": 5823,
-      "end": 5900,
+      "start": 6052,
+      "end": 6129,
       "loc": {
         "start": {
-          "line": 167,
+          "line": 175,
           "column": 2
         },
         "end": {
-          "line": 167,
+          "line": 175,
           "column": 79
         }
       }
@@ -19071,15 +19911,15 @@
     {
       "type": "CommentLine",
       "value": " Each value can be either a string or a function or an array of either.",
-      "start": 5903,
-      "end": 5976,
+      "start": 6132,
+      "end": 6205,
       "loc": {
         "start": {
-          "line": 168,
+          "line": 176,
           "column": 2
         },
         "end": {
-          "line": 168,
+          "line": 176,
           "column": 75
         }
       }
@@ -19097,15 +19937,15 @@
         "binop": null
       },
       "value": "lifecycle",
-      "start": 5979,
-      "end": 5988,
+      "start": 6208,
+      "end": 6217,
       "loc": {
         "start": {
-          "line": 169,
+          "line": 177,
           "column": 2
         },
         "end": {
-          "line": 169,
+          "line": 177,
           "column": 11
         }
       }
@@ -19123,15 +19963,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 5988,
-      "end": 5989,
+      "start": 6217,
+      "end": 6218,
       "loc": {
         "start": {
-          "line": 169,
+          "line": 177,
           "column": 11
         },
         "end": {
-          "line": 169,
+          "line": 177,
           "column": 12
         }
       }
@@ -19148,15 +19988,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 5990,
-      "end": 5991,
+      "start": 6219,
+      "end": 6220,
       "loc": {
         "start": {
-          "line": 169,
+          "line": 177,
           "column": 13
         },
         "end": {
-          "line": 169,
+          "line": 177,
           "column": 14
         }
       }
@@ -19174,15 +20014,15 @@
         "binop": null
       },
       "value": "willUpdate",
-      "start": 5996,
-      "end": 6006,
+      "start": 6225,
+      "end": 6235,
       "loc": {
         "start": {
-          "line": 170,
+          "line": 178,
           "column": 4
         },
         "end": {
-          "line": 170,
+          "line": 178,
           "column": 14
         }
       }
@@ -19200,15 +20040,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 6006,
-      "end": 6007,
+      "start": 6235,
+      "end": 6236,
       "loc": {
         "start": {
-          "line": 170,
+          "line": 178,
           "column": 14
         },
         "end": {
-          "line": 170,
+          "line": 178,
           "column": 15
         }
       }
@@ -19226,15 +20066,15 @@
         "binop": null
       },
       "value": "noopMiddleware",
-      "start": 6008,
-      "end": 6022,
+      "start": 6237,
+      "end": 6251,
       "loc": {
         "start": {
-          "line": 170,
+          "line": 178,
           "column": 16
         },
         "end": {
-          "line": 170,
+          "line": 178,
           "column": 30
         }
       }
@@ -19252,15 +20092,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 6022,
-      "end": 6023,
+      "start": 6251,
+      "end": 6252,
       "loc": {
         "start": {
-          "line": 170,
+          "line": 178,
           "column": 30
         },
         "end": {
-          "line": 170,
+          "line": 178,
           "column": 31
         }
       }
@@ -19278,15 +20118,15 @@
         "binop": null
       },
       "value": "didUpdate",
-      "start": 6028,
-      "end": 6037,
+      "start": 6257,
+      "end": 6266,
       "loc": {
         "start": {
-          "line": 171,
+          "line": 179,
           "column": 4
         },
         "end": {
-          "line": 171,
+          "line": 179,
           "column": 13
         }
       }
@@ -19304,15 +20144,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 6037,
-      "end": 6038,
+      "start": 6266,
+      "end": 6267,
       "loc": {
         "start": {
-          "line": 171,
+          "line": 179,
           "column": 13
         },
         "end": {
-          "line": 171,
+          "line": 179,
           "column": 14
         }
       }
@@ -19330,15 +20170,15 @@
         "binop": null
       },
       "value": "noopMiddleware",
-      "start": 6039,
-      "end": 6053,
+      "start": 6268,
+      "end": 6282,
       "loc": {
         "start": {
-          "line": 171,
+          "line": 179,
           "column": 15
         },
         "end": {
-          "line": 171,
+          "line": 179,
           "column": 29
         }
       }
@@ -19356,15 +20196,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 6053,
-      "end": 6054,
+      "start": 6282,
+      "end": 6283,
       "loc": {
         "start": {
-          "line": 171,
+          "line": 179,
           "column": 29
         },
         "end": {
-          "line": 171,
+          "line": 179,
           "column": 30
         }
       }
@@ -19382,15 +20222,15 @@
         "binop": null
       },
       "value": "willBuild",
-      "start": 6059,
-      "end": 6068,
+      "start": 6288,
+      "end": 6297,
       "loc": {
         "start": {
-          "line": 172,
+          "line": 180,
           "column": 4
         },
         "end": {
-          "line": 172,
+          "line": 180,
           "column": 13
         }
       }
@@ -19408,15 +20248,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 6068,
-      "end": 6069,
+      "start": 6297,
+      "end": 6298,
       "loc": {
         "start": {
-          "line": 172,
+          "line": 180,
           "column": 13
         },
         "end": {
-          "line": 172,
+          "line": 180,
           "column": 14
         }
       }
@@ -19434,15 +20274,15 @@
         "binop": null
       },
       "value": "noopMiddleware",
-      "start": 6070,
-      "end": 6084,
+      "start": 6299,
+      "end": 6313,
       "loc": {
         "start": {
-          "line": 172,
+          "line": 180,
           "column": 15
         },
         "end": {
-          "line": 172,
+          "line": 180,
           "column": 29
         }
       }
@@ -19460,15 +20300,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 6084,
-      "end": 6085,
+      "start": 6313,
+      "end": 6314,
       "loc": {
         "start": {
-          "line": 172,
+          "line": 180,
           "column": 29
         },
         "end": {
-          "line": 172,
+          "line": 180,
           "column": 30
         }
       }
@@ -19486,15 +20326,15 @@
         "binop": null
       },
       "value": "didBuild",
-      "start": 6090,
-      "end": 6098,
+      "start": 6319,
+      "end": 6327,
       "loc": {
         "start": {
-          "line": 173,
+          "line": 181,
           "column": 4
         },
         "end": {
-          "line": 173,
+          "line": 181,
           "column": 12
         }
       }
@@ -19512,15 +20352,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 6098,
-      "end": 6099,
+      "start": 6327,
+      "end": 6328,
       "loc": {
         "start": {
-          "line": 173,
+          "line": 181,
           "column": 12
         },
         "end": {
-          "line": 173,
+          "line": 181,
           "column": 13
         }
       }
@@ -19538,15 +20378,15 @@
         "binop": null
       },
       "value": "noopMiddleware",
-      "start": 6100,
-      "end": 6114,
+      "start": 6329,
+      "end": 6343,
       "loc": {
         "start": {
-          "line": 173,
+          "line": 181,
           "column": 14
         },
         "end": {
-          "line": 173,
+          "line": 181,
           "column": 28
         }
       }
@@ -19564,15 +20404,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 6114,
-      "end": 6115,
+      "start": 6343,
+      "end": 6344,
       "loc": {
         "start": {
-          "line": 173,
+          "line": 181,
           "column": 28
         },
         "end": {
-          "line": 173,
+          "line": 181,
           "column": 29
         }
       }
@@ -19589,15 +20429,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 6118,
-      "end": 6119,
+      "start": 6347,
+      "end": 6348,
       "loc": {
         "start": {
-          "line": 174,
+          "line": 182,
           "column": 2
         },
         "end": {
-          "line": 174,
+          "line": 182,
           "column": 3
         }
       }
@@ -19615,15 +20455,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 6119,
-      "end": 6120,
+      "start": 6348,
+      "end": 6349,
       "loc": {
         "start": {
-          "line": 174,
+          "line": 182,
           "column": 3
         },
         "end": {
-          "line": 174,
+          "line": 182,
           "column": 4
         }
       }
@@ -19640,15 +20480,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 6121,
-      "end": 6122,
+      "start": 6350,
+      "end": 6351,
       "loc": {
         "start": {
-          "line": 175,
+          "line": 183,
           "column": 0
         },
         "end": {
-          "line": 175,
+          "line": 183,
           "column": 1
         }
       }
@@ -19666,15 +20506,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 6122,
-      "end": 6123,
+      "start": 6351,
+      "end": 6352,
       "loc": {
         "start": {
-          "line": 175,
+          "line": 183,
           "column": 1
         },
         "end": {
-          "line": 175,
+          "line": 183,
           "column": 2
         }
       }
@@ -19692,15 +20532,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 6124,
-      "end": 6124,
+      "start": 6353,
+      "end": 6353,
       "loc": {
         "start": {
-          "line": 176,
+          "line": 184,
           "column": 0
         },
         "end": {
-          "line": 176,
+          "line": 184,
           "column": 0
         }
       }

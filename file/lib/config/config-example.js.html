@@ -232,6 +232,14 @@ module.exports = {
     host: &apos;127.0.0.1&apos;,
     baseurl: &apos;&apos;,
   },
+  ignore: [
+    // Ignore files named &apos;ignored_file.js&apos;.
+    &apos;ignored_file.js&apos;,
+    // Ignore any file prefixed with ``.
+    /^_.+/,
+    // Ignore any files that has ``.txt`` in it.
+    filePath =&gt; filePath.indexOf(&apos;.txt&apos;),
+  ],
   // Only build files that have changed.
   // This is a performance improvement to the time it takes to build your site.
   incremental: true,
