@@ -17,6 +17,11 @@ yargs
   .command('clean', 'clean destination folder')
   .command('serve', 'create a simple web server')
   .command('watch', 'create a server that builds your site lazily')
+  .option('browser-sync', {
+    alias: 'bs',
+    description: 'automatic page refresh with browsersync',
+    boolean: true,
+  })
   .option('incremental', {
     description: 'only build files that have changed',
     boolean: true,
