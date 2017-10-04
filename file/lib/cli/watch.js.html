@@ -79,6 +79,7 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/cli/watch.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import activity from &apos;activity-logger&apos;;
+import { create as bsCreate } from &apos;browser-sync&apos;;
 import Server from &apos;../server/server&apos;;
 import log from &apos;../log&apos;;
 import Reptar from &apos;../index&apos;;
@@ -102,6 +103,14 @@ export default async function watch(options = {}) {
 
   process.stdout.write(&apos;\n&apos;);
   log.info(&apos;Server running at:&apos;, server.server.info.uri);
+
+  if (options.browserSync) {
+    const browserSync = bsCreate();
+    browserSync.init({
+      files: `${reptar.config.get(&apos;path.source&apos;)}/**/*`,
+      proxy: server.server.info.uri,
+    });
+  }
 }
 </code></pre>
 
