@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.3.0"></a>
+# [3.3.0](https://github.com/reptar/reptar/compare/v3.2.0...v3.3.0) (2017-10-04)
+
+
+### Bug Fixes
+
+* Allow unknown keys for markdown options config object. ([781ccdf](https://github.com/reptar/reptar/commit/781ccdf)), closes [#84](https://github.com/reptar/reptar/issues/84)
+
+
+### Features
+
+* **browsersync:** added browswersync to watch command ([2ac11f3](https://github.com/reptar/reptar/commit/2ac11f3))
+
+
+
 <a name="3.2.0"></a>
 # [3.2.0](https://github.com/reptar/reptar/compare/v3.1.0...v3.2.0) (2017-05-21)
 
