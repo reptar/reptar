@@ -3,15 +3,12 @@ import sinon from 'sinon';
 import _ from 'lodash';
 
 import fixture from '../../../fixture';
-import {
-  createMockConfig,
-} from '../../../utils';
+import { createMockConfig } from '../../../utils';
 
 import CollectionPage from '../../../../lib/collection/page';
 
 import CollectionBase from '../../../../lib/collection/base';
-import FileSystemCollection
-  from '../../../../lib/collection/type/file-system';
+import FileSystemCollection from '../../../../lib/collection/type/file-system';
 
 describe('collection/type/file-system FileSystemCollection', () => {
   const config = createMockConfig();
@@ -26,7 +23,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
   });
 
   describe('_isFileInCollection', () => {
-    it('is false if file\'s path is not within collection\'s path', () => {
+    it("is false if file's path is not within collection's path", () => {
       const path = 'my/file/path';
       const instance = new FileSystemCollection('name');
       instance.path = path;
@@ -50,7 +47,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
       assert.equal(instance._isFileInCollection(file), false);
     });
 
-    it('is true if file\'s path includes collection\'s path', () => {
+    it("is true if file's path includes collection's path", () => {
       const path = 'my/file/path';
       const instance = new FileSystemCollection('name');
       instance.path = path;
@@ -69,7 +66,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
       assert.equal(instance._isFileInCollection(file), true);
     });
 
-    it('is false if file\'s path is excluded from collection', () => {
+    it("is false if file's path is excluded from collection", () => {
       const path = 'my/file/path';
       const instance = new FileSystemCollection('name');
       instance.path = path;
@@ -128,7 +125,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
       assert.equal(instance.createCollectionPages.calledOnce, true);
       assert.equal(CollectionBase.sortFiles.calledOnce, false);
 
-      files.forEach((file) => {
+      files.forEach(file => {
         assert(_.isUndefined(file.permalink));
       });
 
@@ -169,9 +166,8 @@ describe('collection/type/file-system FileSystemCollection', () => {
         assert(page instanceof CollectionPage);
         assert.deepEqual(page.data.files, [instance.files[index].data]);
 
-        const expectedPermalink = index === 0 ?
-          instance.permalink.index :
-          instance.permalink.page;
+        const expectedPermalink =
+          index === 0 ? instance.permalink.index : instance.permalink.page;
 
         assert.equal(page.permalink, expectedPermalink);
 
@@ -188,7 +184,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
           assert.equal(page.data.prev_link, previous.data.url);
         }
 
-        if (index === (instance.pages.length - 1)) {
+        if (index === instance.pages.length - 1) {
           assert(_.isUndefined(page.data.next));
           assert(_.isUndefined(page.data.next_link));
         } else {
@@ -292,10 +288,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
       const path = '/dummy/path';
       const instance = new FileSystemCollection('name');
       instance.path = path;
-      instance.excludePaths = [
-        'another/path',
-        path,
-      ];
+      instance.excludePaths = ['another/path', path];
 
       const file = {
         path: `a/long${path}`,
@@ -308,10 +301,7 @@ describe('collection/type/file-system FileSystemCollection', () => {
       const path = '/dummy/path';
       const instance = new FileSystemCollection('name');
       instance.path = path;
-      instance.excludePaths = [
-        'another/path',
-        path,
-      ];
+      instance.excludePaths = ['another/path', path];
 
       const file = {
         path: 'a/long/time/ago',

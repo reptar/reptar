@@ -3,9 +3,7 @@ import assert from 'assert';
 import sinon from 'sinon';
 import fs from 'fs-extra';
 
-import {
-  simpleSite,
-} from '../utils';
+import { simpleSite } from '../utils';
 
 import Reptar from '../../lib/index';
 import { ApiService } from '../../lib/server/api';
@@ -64,9 +62,7 @@ describe('api', function test() {
   });
 
   describe('config handlers', () => {
-    beforeEach(() =>
-      apiService.config.get(request, reply)
-    );
+    beforeEach(() => apiService.config.get(request, reply));
 
     it('returns the config object', () => {
       assert(reply.firstCall.calledWith(instance.config.get()));
@@ -76,9 +72,7 @@ describe('api', function test() {
   describe('files.get handler', () => {
     let response;
 
-    function commonAssertions({
-      expectedLength,
-    }) {
+    function commonAssertions({ expectedLength }) {
       it('returns an array', () => {
         assert.equal(typeof response.length, 'number');
       });
@@ -119,9 +113,7 @@ describe('api', function test() {
       });
 
       it('every item is filtered', () => {
-        response.forEach(file =>
-          assert.equal(file.filtered, true)
-        );
+        response.forEach(file => assert.equal(file.filtered, true));
       });
     });
 
@@ -141,9 +133,7 @@ describe('api', function test() {
       });
 
       it('every item is not filtered', () => {
-        response.forEach(file =>
-          assert.equal(file.filtered, false)
-        );
+        response.forEach(file => assert.equal(file.filtered, false));
       });
     });
 
@@ -163,9 +153,7 @@ describe('api', function test() {
       });
 
       it('every item is skipProcessing', () => {
-        response.forEach(file =>
-          assert.equal(file.skipProcessing, true)
-        );
+        response.forEach(file => assert.equal(file.skipProcessing, true));
       });
     });
 
@@ -185,9 +173,7 @@ describe('api', function test() {
       });
 
       it('every item is skipProcessing', () => {
-        response.forEach(file =>
-          assert.equal(file.skipProcessing, false)
-        );
+        response.forEach(file => assert.equal(file.skipProcessing, false));
       });
     });
 
@@ -207,9 +193,7 @@ describe('api', function test() {
       });
 
       it('every item is assetProcessor', () => {
-        response.forEach(file =>
-          assert(file.assetProcessor)
-        );
+        response.forEach(file => assert(file.assetProcessor));
       });
     });
 
@@ -229,9 +213,7 @@ describe('api', function test() {
       });
 
       it('every item is assetProcessor', () => {
-        response.forEach(file =>
-          assert.equal(file.assetProcessor, null)
-        );
+        response.forEach(file => assert.equal(file.assetProcessor, null));
       });
     });
 
@@ -366,9 +348,7 @@ describe('api', function test() {
   describe('collections.get handler', () => {
     let response;
 
-    function commonAssertions({
-      expectedLength,
-    }) {
+    function commonAssertions({ expectedLength }) {
       it('returns an array', () => {
         assert.equal(typeof response.length, 'number');
       });
@@ -419,11 +399,7 @@ describe('api', function test() {
       commonOneCollection({ id });
 
       it('the object does not have properties that excluded by default', () => {
-        [
-          'pages',
-          'files',
-          'data',
-        ].forEach(prop =>
+        ['pages', 'files', 'data'].forEach(prop =>
           assert.equal(typeof response[prop], 'undefined')
         );
       });
@@ -450,18 +426,14 @@ describe('api', function test() {
       });
 
       it('the object does not have properties that excluded by default', () => {
-        [
-          'files',
-          'data',
-        ].forEach(prop =>
+        ['files', 'data'].forEach(prop =>
           assert.equal(typeof response[prop], 'undefined')
         );
       });
     });
 
-    describe(
-      'when requesting one collection with multiple include values',
-    () => {
+    // eslint-disable-next-line max-len
+    describe('when requesting one collection with multiple include values', () => {
       const id = 'post';
 
       beforeEach(async () => {
@@ -490,9 +462,7 @@ describe('api', function test() {
       });
 
       it('the object does not have properties that excluded by default', () => {
-        [
-          'data',
-        ].forEach(prop =>
+        ['data'].forEach(prop =>
           assert.equal(typeof response[prop], 'undefined')
         );
       });

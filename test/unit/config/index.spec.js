@@ -5,9 +5,7 @@ import path from 'path';
 import _ from 'lodash';
 
 import fixture from '../../fixture';
-import {
-  simpleSite,
-} from '../../utils';
+import { simpleSite } from '../../utils';
 
 const ConfigRewire = rewire('../../../lib/config/index.js');
 const Config = ConfigRewire.default;
@@ -50,15 +48,14 @@ describe('config/index Config', () => {
 
       assert.equal(
         instance._raw.path.source,
-        path.resolve(
-          rootPath + expectedConfig.path.source
-        )
+        path.resolve(rootPath + expectedConfig.path.source)
       );
 
       assert.equal(
         instance._raw.path.destination,
         path.resolve(
-          rootPath + expectedConfig.path.source +
+          rootPath +
+            expectedConfig.path.source +
             expectedConfig.path.destination
         )
       );
@@ -115,7 +112,7 @@ describe('config/index Config', () => {
         },
       ];
 
-      invalidConfigs.forEach((config) => {
+      invalidConfigs.forEach(config => {
         revert = ConfigRewire.__set__(
           'loadConfigFile',
           sinon.stub().returns(config)
@@ -207,16 +204,10 @@ describe('config/index Config', () => {
 
           const expectedObj = _.cloneDeep(expectedFileDefaultsOrder[index]);
           if (expectedObj.scope.path != null) {
-            expectedObj.scope.path = path.resolve(
-              root,
-              expectedObj.scope.path
-            );
+            expectedObj.scope.path = path.resolve(root, expectedObj.scope.path);
           }
 
-          assert.deepEqual(
-            defaultObj,
-            expectedObj
-          );
+          assert.deepEqual(defaultObj, expectedObj);
         });
       });
     });
@@ -290,13 +281,13 @@ describe('config/index Config', () => {
       });
 
       it('coerces asset test values to functions', () => {
-        instance.get('assets').forEach((asset) => {
+        instance.get('assets').forEach(asset => {
           assert(_.isFunction(asset.test));
         });
       });
 
       it('ensures asset.use value is a function', () => {
-        instance.get('assets').forEach((asset) => {
+        instance.get('assets').forEach(asset => {
           assert(_.isObject(asset.use));
         });
       });
@@ -312,9 +303,9 @@ describe('config/index Config', () => {
           ['/foo/bar.sass', true],
           ['/foo/bar.css', false],
         ].forEach(([filePath, expectedValue]) => {
-          const actualValue = instance.get('assets').some(asset =>
-            asset.test(filePath)
-          );
+          const actualValue = instance
+            .get('assets')
+            .some(asset => asset.test(filePath));
 
           assert.equal(
             actualValue,

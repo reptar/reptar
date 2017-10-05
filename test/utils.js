@@ -20,10 +20,14 @@ export function createMockConfig(config = {}) {
  * @return {Array.<string>}
  */
 export function getAllFilePaths(directory) {
-  return Promise.fromCallback((cb) => {
-    glob(`${directory}/**/*`, {
-      nodir: true,
-    }, cb);
+  return Promise.fromCallback(cb => {
+    glob(
+      `${directory}/**/*`,
+      {
+        nodir: true,
+      },
+      cb
+    );
   });
 }
 

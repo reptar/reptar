@@ -2,9 +2,7 @@ import assert from 'assert';
 import sinon from 'sinon';
 
 import fixture from '../../fixture';
-import {
-  createMockConfig,
-} from '../../utils';
+import { createMockConfig } from '../../utils';
 
 import Url from '../../../lib/url';
 
@@ -36,7 +34,7 @@ describe('collection/page CollectionPage', () => {
   };
 
   describe('constructor', () => {
-    it('throws an error if it doesn\'t get expected values', () => {
+    it("throws an error if it doesn't get expected values", () => {
       assert.throws(() => {
         // eslint-disable-next-line no-new
         new CollectionPage();

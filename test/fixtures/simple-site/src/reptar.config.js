@@ -1,11 +1,11 @@
-const createMiddleware = val => (reptar) => {
+const createMiddleware = val => reptar => {
   if (!reptar._test) {
     return;
   }
   reptar._test.middlewares.push(val);
 };
 
-const createLifecycleMiddleware = (lifecycleName, val) => (reptar) => {
+const createLifecycleMiddleware = (lifecycleName, val) => reptar => {
   if (!reptar._test) {
     return;
   }
@@ -59,20 +59,14 @@ module.exports = {
     extensions: ['markdown', 'mkdown', 'mkdn', 'mkd', 'md'],
     options: { preset: 'commonmark', highlight: true },
   },
-  ignore: [
-    /_.+.less/
-  ],
+  ignore: [/_.+.less/],
   server: { port: 8080, host: '127.0.0.1', baseurl: '' },
   newFilePermalink: '/_posts/:date|YYYY-:date|MM-:date|D-:title.md',
-  middlewares: [
-    createMiddleware(3),
-    'my-middleware',
-    createMiddleware(5),
-  ],
+  middlewares: [createMiddleware(3), 'my-middleware', createMiddleware(5)],
   lifecycle: {
     willUpdate: createLifecycleMiddleware('willUpdate', 1),
     didUpdate: createLifecycleMiddleware('didUpdate', 2),
     willBuild: createLifecycleMiddleware('willBuild', 6),
     didBuild: createLifecycleMiddleware('didBuild', 7),
-  }
+  },
 };
