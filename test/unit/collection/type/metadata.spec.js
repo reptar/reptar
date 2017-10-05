@@ -3,15 +3,12 @@ import sinon from 'sinon';
 import _ from 'lodash';
 
 import fixture from '../../../fixture';
-import {
-  createMockConfig,
-} from '../../../utils';
+import { createMockConfig } from '../../../utils';
 
 import CollectionPage from '../../../../lib/collection/page';
 
 import CollectionBase from '../../../../lib/collection/base';
-import MetadataCollection from
-  '../../../../lib/collection/type/metadata';
+import MetadataCollection from '../../../../lib/collection/type/metadata';
 
 describe('collection/type/metadata MetadataCollection', () => {
   const config = createMockConfig();
@@ -26,7 +23,7 @@ describe('collection/type/metadata MetadataCollection', () => {
   });
 
   describe('_isFileInCollection', () => {
-    it('is false if file does not have collection\'s metadata key', () => {
+    it("is false if file does not have collection's metadata key", () => {
       const instance = new MetadataCollection('name');
       instance.metadata = 'soMeta';
 
@@ -41,7 +38,7 @@ describe('collection/type/metadata MetadataCollection', () => {
       assert.equal(instance._isFileInCollection(file), false);
     });
 
-    it('is true if file has collection\'s metadata key', () => {
+    it("is true if file has collection's metadata key", () => {
       const instance = new MetadataCollection('name');
       instance.metadata = 'soMeta';
 
@@ -78,24 +75,20 @@ describe('collection/type/metadata MetadataCollection', () => {
       assert(_.isUndefined(instance.files));
       assert(typeof instance.metadataFiles === 'object');
 
-      assert.equal(
-        Object.keys(instance.metadataFiles).length,
-        files.length
-      );
+      assert.equal(Object.keys(instance.metadataFiles).length, files.length);
 
       assert.equal(instance.metadataFiles['norman'].length, 2);
       assert.equal(instance.metadataFiles['rockwell'].length, 1);
       assert.equal(instance.metadataFiles['null'].length, 1);
 
-      assert(_.isEqual(
-        instance.metadataFiles['norman'],
-        [files[0], files[1]]
-      ));
+      assert(_.isEqual(instance.metadataFiles['norman'], [files[0], files[1]]));
 
-      assert(_.isEqual(
-        Object.keys(instance.metadataFiles),
-        Object.keys(instance.data.metadata)
-      ));
+      assert(
+        _.isEqual(
+          Object.keys(instance.metadataFiles),
+          Object.keys(instance.data.metadata)
+        )
+      );
     });
 
     it('does not add files to collection', () => {
@@ -115,18 +108,11 @@ describe('collection/type/metadata MetadataCollection', () => {
       assert(_.isUndefined(instance.files));
       assert(typeof instance.metadataFiles === 'object');
 
-      assert.equal(
-        Object.keys(instance.metadataFiles).length,
-        0
-      );
+      assert.equal(Object.keys(instance.metadataFiles).length, 0);
 
-      assert.equal(
-        Object.keys(instance.data.metadata).length,
-        0
-      );
+      assert.equal(Object.keys(instance.data.metadata).length, 0);
     });
   });
-
 
   describe('createCollectionPages', () => {
     it('returns early if no pagination permalinks are set', () => {
@@ -171,9 +157,8 @@ describe('collection/type/metadata MetadataCollection', () => {
         // This if statement just moves the pointer so we're interacting with
         // the right page data.
         let index = realIndex;
-        let expectedPermalink = index === 0 ?
-          instance.permalink.index :
-          instance.permalink.page;
+        let expectedPermalink =
+          index === 0 ? instance.permalink.index : instance.permalink.page;
         if (realIndex === 2) {
           index = 0;
           expectedPermalink = instance.permalink.index;

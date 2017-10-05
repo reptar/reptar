@@ -12,25 +12,49 @@ describe('filter/index', () => {
 
   it('isFileFiltered', () => {
     assert.equal(filter.isFileFiltered({}, mockFile), false);
-    assert.equal(filter.isFileFiltered({
-      futureDate: {
-        key: 'foo',
-      },
-    }, mockFile), false);
-    assert.equal(filter.isFileFiltered({
-      futureDate: {
-        key: 'date',
-      },
-    }, mockFile), true);
-    assert.equal(filter.isFileFiltered({
-      metadata: {
-        foo: 'date',
-      },
-    }, mockFile), false);
-    assert.equal(filter.isFileFiltered({
-      metadata: {
-        foo: 'bar',
-      },
-    }, mockFile), true);
+    assert.equal(
+      filter.isFileFiltered(
+        {
+          futureDate: {
+            key: 'foo',
+          },
+        },
+        mockFile
+      ),
+      false
+    );
+    assert.equal(
+      filter.isFileFiltered(
+        {
+          futureDate: {
+            key: 'date',
+          },
+        },
+        mockFile
+      ),
+      true
+    );
+    assert.equal(
+      filter.isFileFiltered(
+        {
+          metadata: {
+            foo: 'date',
+          },
+        },
+        mockFile
+      ),
+      false
+    );
+    assert.equal(
+      filter.isFileFiltered(
+        {
+          metadata: {
+            foo: 'bar',
+          },
+        },
+        mockFile
+      ),
+      true
+    );
   });
 });

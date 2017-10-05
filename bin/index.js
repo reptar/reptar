@@ -8,12 +8,12 @@ const yargs = require('yargs');
 yargs
   .command('init', 'scaffold a new site')
   .command('new', 'create new content')
-  .command('build', 'build your site', commandYargs => (
+  .command('build', 'build your site', commandYargs =>
     commandYargs.option('clean', {
       alias: 'c',
       default: false,
     })
-  ))
+  )
   .command('clean', 'clean destination folder')
   .command('serve', 'create a simple web server')
   .command('watch', 'create a server that builds your site lazily')
@@ -48,7 +48,9 @@ module.exports = function reptarCli({ libPath }) {
       packageJson = require(findUp.sync('package.json', {
         cwd: __dirname,
       }));
-    } catch (e) { /* noop */ }
+    } catch (e) {
+      /* noop */
+    }
 
     process.stdout.write(packageJson.version);
     process.stdout.write('\n');
@@ -68,10 +70,9 @@ module.exports = function reptarCli({ libPath }) {
       yargs.showHelp();
     }
 
-    commandHandler(argv)
-      .catch((e) => {
-        log.error(e.message);
-        process.exit(1);
-      });
+    commandHandler(argv).catch(e => {
+      log.error(e.message);
+      process.exit(1);
+    });
   }
 };

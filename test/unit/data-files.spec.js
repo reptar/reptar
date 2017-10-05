@@ -33,7 +33,7 @@ describe('data-files DataFiles', () => {
           },
         ],
         friends: {
-          'angelica': {
+          angelica: {
             name: 'Angelica',
             birthday: 'May 12, 1988',
           },
