@@ -174,10 +174,11 @@ describe(&apos;collection/base CollectionBase&apos;, () =&gt; {
         order: &apos;descending&apos;,
       };
 
-      assert.deepEqual(
-        CollectionBase.sortFiles(files, sortConfig),
-        [files[0], files[2], files[1]]
-      );
+      assert.deepEqual(CollectionBase.sortFiles(files, sortConfig), [
+        files[0],
+        files[2],
+        files[1],
+      ]);
     });
 
     it(&apos;sorts integer value ascending&apos;, () =&gt; {
@@ -186,10 +187,11 @@ describe(&apos;collection/base CollectionBase&apos;, () =&gt; {
         order: &apos;ascending&apos;,
       };
 
-      assert.deepEqual(
-        CollectionBase.sortFiles(files, sortConfig),
-        [files[1], files[2], files[0]]
-      );
+      assert.deepEqual(CollectionBase.sortFiles(files, sortConfig), [
+        files[1],
+        files[2],
+        files[0],
+      ]);
     });
 
     it(&apos;sorts date value descending&apos;, () =&gt; {
@@ -198,10 +200,11 @@ describe(&apos;collection/base CollectionBase&apos;, () =&gt; {
         order: &apos;descending&apos;,
       };
 
-      assert.deepEqual(
-        CollectionBase.sortFiles(files, sortConfig),
-        [files[0], files[2], files[1]]
-      );
+      assert.deepEqual(CollectionBase.sortFiles(files, sortConfig), [
+        files[0],
+        files[2],
+        files[1],
+      ]);
     });
 
     it(&apos;sorts date value ascending&apos;, () =&gt; {
@@ -210,10 +213,11 @@ describe(&apos;collection/base CollectionBase&apos;, () =&gt; {
         order: &apos;ascending&apos;,
       };
 
-      assert.deepEqual(
-        CollectionBase.sortFiles(files, sortConfig),
-        [files[1], files[2], files[0]]
-      );
+      assert.deepEqual(CollectionBase.sortFiles(files, sortConfig), [
+        files[1],
+        files[2],
+        files[0],
+      ]);
     });
   });
 });

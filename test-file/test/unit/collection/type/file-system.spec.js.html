@@ -83,15 +83,12 @@ import sinon from &apos;sinon&apos;;
 import _ from &apos;lodash&apos;;
 
 import fixture from &apos;../../../fixture&apos;;
-import {
-  createMockConfig,
-} from &apos;../../../utils&apos;;
+import { createMockConfig } from &apos;../../../utils&apos;;
 
 import CollectionPage from &apos;../../../../lib/collection/page&apos;;
 
 import CollectionBase from &apos;../../../../lib/collection/base&apos;;
-import FileSystemCollection
-  from &apos;../../../../lib/collection/type/file-system&apos;;
+import FileSystemCollection from &apos;../../../../lib/collection/type/file-system&apos;;
 
 describe(&apos;collection/type/file-system FileSystemCollection&apos;, () =&gt; {
   const config = createMockConfig();
@@ -106,7 +103,7 @@ describe(&apos;collection/type/file-system FileSystemCollection&apos;, () =&gt; 
   });
 
   describe(&apos;_isFileInCollection&apos;, () =&gt; {
-    it(&apos;is false if file\&apos;s path is not within collection\&apos;s path&apos;, () =&gt; {
+    it(&quot;is false if file&apos;s path is not within collection&apos;s path&quot;, () =&gt; {
       const path = &apos;my/file/path&apos;;
       const instance = new FileSystemCollection(&apos;name&apos;);
       instance.path = path;
@@ -130,7 +127,7 @@ describe(&apos;collection/type/file-system FileSystemCollection&apos;, () =&gt; 
       assert.equal(instance._isFileInCollection(file), false);
     });
 
-    it(&apos;is true if file\&apos;s path includes collection\&apos;s path&apos;, () =&gt; {
+    it(&quot;is true if file&apos;s path includes collection&apos;s path&quot;, () =&gt; {
       const path = &apos;my/file/path&apos;;
       const instance = new FileSystemCollection(&apos;name&apos;);
       instance.path = path;
@@ -149,7 +146,7 @@ describe(&apos;collection/type/file-system FileSystemCollection&apos;, () =&gt; 
       assert.equal(instance._isFileInCollection(file), true);
     });
 
-    it(&apos;is false if file\&apos;s path is excluded from collection&apos;, () =&gt; {
+    it(&quot;is false if file&apos;s path is excluded from collection&quot;, () =&gt; {
       const path = &apos;my/file/path&apos;;
       const instance = new FileSystemCollection(&apos;name&apos;);
       instance.path = path;
@@ -208,7 +205,7 @@ describe(&apos;collection/type/file-system FileSystemCollection&apos;, () =&gt; 
       assert.equal(instance.createCollectionPages.calledOnce, true);
       assert.equal(CollectionBase.sortFiles.calledOnce, false);
 
-      files.forEach((file) =&gt; {
+      files.forEach(file =&gt; {
         assert(_.isUndefined(file.permalink));
       });
 
@@ -249,9 +246,8 @@ describe(&apos;collection/type/file-system FileSystemCollection&apos;, () =&gt; 
         assert(page instanceof CollectionPage);
         assert.deepEqual(page.data.files, [instance.files[index].data]);
 
-        const expectedPermalink = index === 0 ?
-          instance.permalink.index :
-          instance.permalink.page;
+        const expectedPermalink =
+          index === 0 ? instance.permalink.index : instance.permalink.page;
 
         assert.equal(page.permalink, expectedPermalink);
 
@@ -268,7 +264,7 @@ describe(&apos;collection/type/file-system FileSystemCollection&apos;, () =&gt; 
           assert.equal(page.data.prev_link, previous.data.url);
         }
 
-        if (index === (instance.pages.length - 1)) {
+        if (index === instance.pages.length - 1) {
           assert(_.isUndefined(page.data.next));
           assert(_.isUndefined(page.data.next_link));
         } else {
@@ -372,10 +368,7 @@ describe(&apos;collection/type/file-system FileSystemCollection&apos;, () =&gt; 
       const path = &apos;/dummy/path&apos;;
       const instance = new FileSystemCollection(&apos;name&apos;);
       instance.path = path;
-      instance.excludePaths = [
-        &apos;another/path&apos;,
-        path,
-      ];
+      instance.excludePaths = [&apos;another/path&apos;, path];
 
       const file = {
         path: `a/long${path}`,
@@ -388,10 +381,7 @@ describe(&apos;collection/type/file-system FileSystemCollection&apos;, () =&gt; 
       const path = &apos;/dummy/path&apos;;
       const instance = new FileSystemCollection(&apos;name&apos;);
       instance.path = path;
-      instance.excludePaths = [
-        &apos;another/path&apos;,
-        path,
-      ];
+      instance.excludePaths = [&apos;another/path&apos;, path];
 
       const file = {
         path: &apos;a/long/time/ago&apos;,

@@ -88,7 +88,10 @@
  * @return {string}
  */
 export default function createChecksum(input) {
-  return crypto.createHash(&apos;md5&apos;).update(input, &apos;utf8&apos;).digest(&apos;hex&apos;);
+  return crypto
+    .createHash(&apos;md5&apos;)
+    .update(input, &apos;utf8&apos;)
+    .digest(&apos;hex&apos;);
 }
 </code></pre>
 

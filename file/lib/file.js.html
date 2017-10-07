@@ -90,13 +90,7 @@ import cache from &apos;./cache&apos;;
 import filter from &apos;./filter&apos;;
 
 export default class File {
-  constructor(
-    filePath = &apos;&apos;,
-    {
-      config,
-      renderer,
-    } = {}
-  ) {
+  constructor(filePath = &apos;&apos;, { config, renderer } = {}) {
     /**
      * Unique ID for this file. Right now an alias for the file&apos;s path.
      * @type {string}
@@ -169,9 +163,9 @@ export default class File {
 
     // If File doesn&apos;t have frontmatter then return early.
     if (!hasFrontmatter) {
-      const assetConfig = this._config.get(&apos;assets&apos;).find(
-        ({ test }) =&gt; test(this.path)
-      );
+      const assetConfig = this._config
+        .get(&apos;assets&apos;)
+        .find(({ test }) =&gt; test(this.path));
 
       if (assetConfig) {
         this.assetProcessor = assetConfig.use;
@@ -240,7 +234,7 @@ export default class File {
     } catch (e) {
       throw new Error(
         &apos;Unable to calculate destination for file at &apos; +
-        `${this.path}. Message: ${e.message}`
+          `${this.path}. Message: ${e.message}`
       );
     }
   }
@@ -260,14 +254,13 @@ export default class File {
 
         // If default path property is defined does it exist within this file&apos;s
         // path.
-        const pathMatches = scope.path != null ?
-          this.path.includes(scope.path) :
-          true;
+        const pathMatches =
+          scope.path != null ? this.path.includes(scope.path) : true;
 
         // If metadata is set the does it match the file&apos;s metadata.
-        const metadataMatches = _.isObject(scope.metadata) ?
-          _.isMatch(this.frontmatter, scope.metadata) :
-          true;
+        const metadataMatches = _.isObject(scope.metadata)
+          ? _.isMatch(this.frontmatter, scope.metadata)
+          : true;
 
         // If we have a match then apply the values.
         if (pathMatches &amp;&amp; metadataMatches) {
@@ -287,6 +280,10 @@ export default class File {
    */
   _calculateDestination() {
     let destinationUrl;
+    const hasMarkdownExtension = Url.pathHasMarkdownExtension(
+      this.path,
+      this._config.get(&apos;markdown.extensions&apos;)
+    );
 
     /**
      * If the file itself wants to customize what its URL is then it will use
@@ -305,31 +302,32 @@ export default class File {
     } else if (this.data.permalink) {
       // If the file has no URL but has a permalink set on it then use it to
       // find the URL of the File.
-      destinationUrl = Url.interpolatePermalink(
-        this.data.permalink,
-        this.data
-      );
+      destinationUrl = Url.interpolatePermalink(this.data.permalink, this.data);
     } else {
       // Path to file relative to root of project.
-      const pathRelative = this.path.replace(
-        this._config.get(&apos;path.source&apos;),
-        &apos;&apos;
-      );
+      destinationUrl = this.path.replace(this._config.get(&apos;path.source&apos;), &apos;&apos;);
 
-      // If the file has no URL set and no permalink then use its relative file
-      // path as its url.
-      destinationUrl = Url.replaceMarkdownExtension(
-        pathRelative,
-        this._config.get(&apos;markdown.extensions&apos;)
-      );
+      if (hasMarkdownExtension) {
+        // If the file has no URL set and no permalink then use its relative
+        // file path as its url.
+        destinationUrl = Url.replaceMarkdownExtension(
+          destinationUrl,
+          this._config.get(&apos;markdown.extensions&apos;)
+        );
+      }
     }
 
     if (this.assetProcessor) {
       destinationUrl = this.assetProcessor.calculateDestination(destinationUrl);
     }
 
-    this.destination = Url.makeUrlFileSystemSafe(destinationUrl);
-    this.data.url = Url.makePretty(this.destination);
+    if (hasMarkdownExtension) {
+      this.destination = Url.makeUrlFileSystemSafe(destinationUrl);
+      this.data.url = Url.makePretty(this.destination);
+    } else {
+      this.destination = destinationUrl;
+      this.data.url = destinationUrl;
+    }
   }
 
   /**
@@ -364,8 +362,10 @@ export default class File {
       this.data.content = result;
     } catch (e) {
       log.error(e.message);
-      throw new Error(&apos;File: Could not render file\&apos;s contents.\n&apos; +
-        `File: ${JSON.stringify(this)}`);
+      throw new Error(
+        &quot;File: Could not render file&apos;s contents.\n&quot; +
+          `File: ${JSON.stringify(this)}`
+      );
     }
 
     // Convert to HTML.
@@ -398,7 +398,7 @@ export default class File {
 
     if (this.assetProcessor) {
       const content = await this.render(this);
-      await Promise.fromCallback((cb) =&gt; {
+      await Promise.fromCallback(cb =&gt; {
         fs.outputFile(destinationPath, content, &apos;utf8&apos;, cb);
       });
       return;
@@ -408,9 +408,7 @@ export default class File {
     // copy it to its destination path.
     // This typically applies to images and other similar files.
     if (this.skipProcessing) {
-      await Promise.fromCallback(cb =&gt;
-        fs.copy(this.path, destinationPath, cb)
-      );
+      await Promise.fromCallback(cb =&gt; fs.copy(this.path, destinationPath, cb));
       return;
     }
 
@@ -421,12 +419,14 @@ export default class File {
 
     const content = await this.render(globalData);
 
-    if (this._config.get(&apos;incremental&apos;) &amp;&amp;
-        cache.get(this.path) === this.checksum) {
+    if (
+      this._config.get(&apos;incremental&apos;) &amp;&amp;
+      cache.get(this.path) === this.checksum
+    ) {
       return;
     }
 
-    await Promise.fromCallback((cb) =&gt; {
+    await Promise.fromCallback(cb =&gt; {
       fs.outputFile(destinationPath, content, &apos;utf8&apos;, cb);
     });
 

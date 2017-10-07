@@ -118,13 +118,13 @@ export default function addCollections(reptar) {
   );
 
   // Populate every collection with its files.
-  _.each(collections, (collection) =&gt; {
+  _.each(collections, collection =&gt; {
     collection.populate(reptar.fileSystem.files, collections);
 
     // Add collection data to our global data object.
     reptar.metadata.set(`collections.${collection.name}`, collection.data);
 
-    _.forEach(collection.pages, (page) =&gt; {
+    _.forEach(collection.pages, page =&gt; {
       destination[page.destination] = page;
     });
   });

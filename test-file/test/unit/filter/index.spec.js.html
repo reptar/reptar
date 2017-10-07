@@ -92,26 +92,50 @@ describe(&apos;filter/index&apos;, () =&gt; {
 
   it(&apos;isFileFiltered&apos;, () =&gt; {
     assert.equal(filter.isFileFiltered({}, mockFile), false);
-    assert.equal(filter.isFileFiltered({
-      futureDate: {
-        key: &apos;foo&apos;,
-      },
-    }, mockFile), false);
-    assert.equal(filter.isFileFiltered({
-      futureDate: {
-        key: &apos;date&apos;,
-      },
-    }, mockFile), true);
-    assert.equal(filter.isFileFiltered({
-      metadata: {
-        foo: &apos;date&apos;,
-      },
-    }, mockFile), false);
-    assert.equal(filter.isFileFiltered({
-      metadata: {
-        foo: &apos;bar&apos;,
-      },
-    }, mockFile), true);
+    assert.equal(
+      filter.isFileFiltered(
+        {
+          futureDate: {
+            key: &apos;foo&apos;,
+          },
+        },
+        mockFile
+      ),
+      false
+    );
+    assert.equal(
+      filter.isFileFiltered(
+        {
+          futureDate: {
+            key: &apos;date&apos;,
+          },
+        },
+        mockFile
+      ),
+      true
+    );
+    assert.equal(
+      filter.isFileFiltered(
+        {
+          metadata: {
+            foo: &apos;date&apos;,
+          },
+        },
+        mockFile
+      ),
+      false
+    );
+    assert.equal(
+      filter.isFileFiltered(
+        {
+          metadata: {
+            foo: &apos;bar&apos;,
+          },
+        },
+        mockFile
+      ),
+      true
+    );
   });
 });
 </code></pre>

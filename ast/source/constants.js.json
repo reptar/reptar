@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 400,
+  "end": 399,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 21,
+      "line": 20,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 400,
+    "end": 399,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 21,
+        "line": 20,
         "column": 0
       }
     },
@@ -30,44 +30,44 @@
     "body": [
       {
         "type": "Identifier",
-        "start": 1,
-        "end": 372,
+        "start": 0,
+        "end": 371,
         "loc": {
           "start": {
-            "line": 2,
+            "line": 1,
             "column": 0
           },
           "end": {
-            "line": 18,
+            "line": 17,
             "column": 2
           }
         },
         "declarations": [
           {
             "type": "VariableDeclarator",
-            "start": 7,
-            "end": 371,
+            "start": 6,
+            "end": 370,
             "loc": {
               "start": {
-                "line": 2,
+                "line": 1,
                 "column": 6
               },
               "end": {
-                "line": 18,
+                "line": 17,
                 "column": 1
               }
             },
             "id": {
               "type": "Identifier",
-              "start": 7,
-              "end": 16,
+              "start": 6,
+              "end": 15,
               "loc": {
                 "start": {
-                  "line": 2,
+                  "line": 1,
                   "column": 6
                 },
                 "end": {
-                  "line": 2,
+                  "line": 1,
                   "column": 15
                 },
                 "identifierName": "Constants"
@@ -76,30 +76,30 @@
             },
             "init": {
               "type": "ObjectExpression",
-              "start": 19,
-              "end": 371,
+              "start": 18,
+              "end": 370,
               "loc": {
                 "start": {
-                  "line": 2,
+                  "line": 1,
                   "column": 18
                 },
                 "end": {
-                  "line": 18,
+                  "line": 17,
                   "column": 1
                 }
               },
               "properties": [
                 {
                   "type": "ObjectProperty",
-                  "start": 23,
-                  "end": 57,
+                  "start": 22,
+                  "end": 56,
                   "loc": {
                     "start": {
-                      "line": 3,
+                      "line": 2,
                       "column": 2
                     },
                     "end": {
-                      "line": 3,
+                      "line": 2,
                       "column": 36
                     }
                   },
@@ -108,15 +108,15 @@
                   "computed": false,
                   "key": {
                     "type": "Identifier",
-                    "start": 23,
-                    "end": 37,
+                    "start": 22,
+                    "end": 36,
                     "loc": {
                       "start": {
-                        "line": 3,
+                        "line": 2,
                         "column": 2
                       },
                       "end": {
-                        "line": 3,
+                        "line": 2,
                         "column": 16
                       },
                       "identifierName": "ConfigFilename"
@@ -125,15 +125,15 @@
                   },
                   "value": {
                     "type": "StringLiteral",
-                    "start": 39,
-                    "end": 57,
+                    "start": 38,
+                    "end": 56,
                     "loc": {
                       "start": {
-                        "line": 3,
+                        "line": 2,
                         "column": 18
                       },
                       "end": {
-                        "line": 3,
+                        "line": 2,
                         "column": 36
                       }
                     },
@@ -146,15 +146,15 @@
                 },
                 {
                   "type": "ObjectProperty",
-                  "start": 186,
-                  "end": 205,
+                  "start": 185,
+                  "end": 204,
                   "loc": {
                     "start": {
-                      "line": 10,
+                      "line": 9,
                       "column": 2
                     },
                     "end": {
-                      "line": 10,
+                      "line": 9,
                       "column": 21
                     }
                   },
@@ -163,15 +163,15 @@
                   "computed": false,
                   "key": {
                     "type": "Identifier",
-                    "start": 186,
-                    "end": 195,
+                    "start": 185,
+                    "end": 194,
                     "loc": {
                       "start": {
-                        "line": 10,
+                        "line": 9,
                         "column": 2
                       },
                       "end": {
-                        "line": 10,
+                        "line": 9,
                         "column": 11
                       },
                       "identifierName": "SourceKey"
@@ -181,15 +181,15 @@
                   },
                   "value": {
                     "type": "StringLiteral",
-                    "start": 197,
-                    "end": 205,
+                    "start": 196,
+                    "end": 204,
                     "loc": {
                       "start": {
-                        "line": 10,
+                        "line": 9,
                         "column": 13
                       },
                       "end": {
-                        "line": 10,
+                        "line": 9,
                         "column": 21
                       }
                     },
@@ -203,15 +203,15 @@
                     {
                       "type": "CommentBlock",
                       "value": "*\n   * Key used on the config.path object to dictate where to find the site source\n   * path.\n   * @type {string}\n   ",
-                      "start": 62,
-                      "end": 183,
+                      "start": 61,
+                      "end": 182,
                       "loc": {
                         "start": {
-                          "line": 5,
+                          "line": 4,
                           "column": 2
                         },
                         "end": {
-                          "line": 9,
+                          "line": 8,
                           "column": 5
                         }
                       }
@@ -220,15 +220,15 @@
                 },
                 {
                   "type": "ObjectProperty",
-                  "start": 339,
-                  "end": 368,
+                  "start": 338,
+                  "end": 367,
                   "loc": {
                     "start": {
-                      "line": 17,
+                      "line": 16,
                       "column": 2
                     },
                     "end": {
-                      "line": 17,
+                      "line": 16,
                       "column": 31
                     }
                   },
@@ -237,15 +237,15 @@
                   "computed": false,
                   "key": {
                     "type": "Identifier",
-                    "start": 339,
-                    "end": 353,
+                    "start": 338,
+                    "end": 352,
                     "loc": {
                       "start": {
-                        "line": 17,
+                        "line": 16,
                         "column": 2
                       },
                       "end": {
-                        "line": 17,
+                        "line": 16,
                         "column": 16
                       },
                       "identifierName": "DestinationKey"
@@ -255,15 +255,15 @@
                   },
                   "value": {
                     "type": "StringLiteral",
-                    "start": 355,
-                    "end": 368,
+                    "start": 354,
+                    "end": 367,
                     "loc": {
                       "start": {
-                        "line": 17,
+                        "line": 16,
                         "column": 18
                       },
                       "end": {
-                        "line": 17,
+                        "line": 16,
                         "column": 31
                       }
                     },
@@ -277,15 +277,15 @@
                     {
                       "type": "CommentBlock",
                       "value": "*\n   * Key used on the config.path object to dictate where to find the site\n   * destination path.\n   * @type {string}\n   ",
-                      "start": 210,
-                      "end": 336,
+                      "start": 209,
+                      "end": 335,
                       "loc": {
                         "start": {
-                          "line": 12,
+                          "line": 11,
                           "column": 2
                         },
                         "end": {
-                          "line": 16,
+                          "line": 15,
                           "column": 5
                         }
                       }
@@ -303,29 +303,29 @@
       },
       {
         "type": "Identifier",
-        "start": 374,
-        "end": 399,
+        "start": 373,
+        "end": 398,
         "loc": {
           "start": {
-            "line": 20,
+            "line": 19,
             "column": 0
           },
           "end": {
-            "line": 20,
+            "line": 19,
             "column": 25
           }
         },
         "declaration": {
           "type": "Identifier",
-          "start": 389,
-          "end": 398,
+          "start": 388,
+          "end": 397,
           "loc": {
             "start": {
-              "line": 20,
+              "line": 19,
               "column": 15
             },
             "end": {
-              "line": 20,
+              "line": 19,
               "column": 24
             },
             "identifierName": "Constants"
@@ -338,58 +338,58 @@
       },
       {
         "type": "ExportDefaultDeclaration",
-        "start": 374,
-        "end": 399,
+        "start": 373,
+        "end": 398,
         "loc": {
           "start": {
-            "line": 20,
+            "line": 19,
             "column": 0
           },
           "end": {
-            "line": 20,
+            "line": 19,
             "column": 25
           }
         },
         "declaration": {
           "type": "VariableDeclaration",
-          "start": 1,
-          "end": 372,
+          "start": 0,
+          "end": 371,
           "loc": {
             "start": {
-              "line": 2,
+              "line": 1,
               "column": 0
             },
             "end": {
-              "line": 18,
+              "line": 17,
               "column": 2
             }
           },
           "declarations": [
             {
               "type": "VariableDeclarator",
-              "start": 7,
-              "end": 371,
+              "start": 6,
+              "end": 370,
               "loc": {
                 "start": {
-                  "line": 2,
+                  "line": 1,
                   "column": 6
                 },
                 "end": {
-                  "line": 18,
+                  "line": 17,
                   "column": 1
                 }
               },
               "id": {
                 "type": "Identifier",
-                "start": 7,
-                "end": 16,
+                "start": 6,
+                "end": 15,
                 "loc": {
                   "start": {
-                    "line": 2,
+                    "line": 1,
                     "column": 6
                   },
                   "end": {
-                    "line": 2,
+                    "line": 1,
                     "column": 15
                   },
                   "identifierName": "Constants"
@@ -398,30 +398,30 @@
               },
               "init": {
                 "type": "ObjectExpression",
-                "start": 19,
-                "end": 371,
+                "start": 18,
+                "end": 370,
                 "loc": {
                   "start": {
-                    "line": 2,
+                    "line": 1,
                     "column": 18
                   },
                   "end": {
-                    "line": 18,
+                    "line": 17,
                     "column": 1
                   }
                 },
                 "properties": [
                   {
                     "type": "ObjectProperty",
-                    "start": 23,
-                    "end": 57,
+                    "start": 22,
+                    "end": 56,
                     "loc": {
                       "start": {
-                        "line": 3,
+                        "line": 2,
                         "column": 2
                       },
                       "end": {
-                        "line": 3,
+                        "line": 2,
                         "column": 36
                       }
                     },
@@ -430,15 +430,15 @@
                     "computed": false,
                     "key": {
                       "type": "Identifier",
-                      "start": 23,
-                      "end": 37,
+                      "start": 22,
+                      "end": 36,
                       "loc": {
                         "start": {
-                          "line": 3,
+                          "line": 2,
                           "column": 2
                         },
                         "end": {
-                          "line": 3,
+                          "line": 2,
                           "column": 16
                         },
                         "identifierName": "ConfigFilename"
@@ -447,15 +447,15 @@
                     },
                     "value": {
                       "type": "StringLiteral",
-                      "start": 39,
-                      "end": 57,
+                      "start": 38,
+                      "end": 56,
                       "loc": {
                         "start": {
-                          "line": 3,
+                          "line": 2,
                           "column": 18
                         },
                         "end": {
-                          "line": 3,
+                          "line": 2,
                           "column": 36
                         }
                       },
@@ -468,15 +468,15 @@
                   },
                   {
                     "type": "ObjectProperty",
-                    "start": 186,
-                    "end": 205,
+                    "start": 185,
+                    "end": 204,
                     "loc": {
                       "start": {
-                        "line": 10,
+                        "line": 9,
                         "column": 2
                       },
                       "end": {
-                        "line": 10,
+                        "line": 9,
                         "column": 21
                       }
                     },
@@ -485,15 +485,15 @@
                     "computed": false,
                     "key": {
                       "type": "Identifier",
-                      "start": 186,
-                      "end": 195,
+                      "start": 185,
+                      "end": 194,
                       "loc": {
                         "start": {
-                          "line": 10,
+                          "line": 9,
                           "column": 2
                         },
                         "end": {
-                          "line": 10,
+                          "line": 9,
                           "column": 11
                         },
                         "identifierName": "SourceKey"
@@ -503,15 +503,15 @@
                     },
                     "value": {
                       "type": "StringLiteral",
-                      "start": 197,
-                      "end": 205,
+                      "start": 196,
+                      "end": 204,
                       "loc": {
                         "start": {
-                          "line": 10,
+                          "line": 9,
                           "column": 13
                         },
                         "end": {
-                          "line": 10,
+                          "line": 9,
                           "column": 21
                         }
                       },
@@ -525,15 +525,15 @@
                       {
                         "type": "CommentBlock",
                         "value": "*\n   * Key used on the config.path object to dictate where to find the site source\n   * path.\n   * @type {string}\n   ",
-                        "start": 62,
-                        "end": 183,
+                        "start": 61,
+                        "end": 182,
                         "loc": {
                           "start": {
-                            "line": 5,
+                            "line": 4,
                             "column": 2
                           },
                           "end": {
-                            "line": 9,
+                            "line": 8,
                             "column": 5
                           }
                         }
@@ -542,15 +542,15 @@
                   },
                   {
                     "type": "ObjectProperty",
-                    "start": 339,
-                    "end": 368,
+                    "start": 338,
+                    "end": 367,
                     "loc": {
                       "start": {
-                        "line": 17,
+                        "line": 16,
                         "column": 2
                       },
                       "end": {
-                        "line": 17,
+                        "line": 16,
                         "column": 31
                       }
                     },
@@ -559,15 +559,15 @@
                     "computed": false,
                     "key": {
                       "type": "Identifier",
-                      "start": 339,
-                      "end": 353,
+                      "start": 338,
+                      "end": 352,
                       "loc": {
                         "start": {
-                          "line": 17,
+                          "line": 16,
                           "column": 2
                         },
                         "end": {
-                          "line": 17,
+                          "line": 16,
                           "column": 16
                         },
                         "identifierName": "DestinationKey"
@@ -577,15 +577,15 @@
                     },
                     "value": {
                       "type": "StringLiteral",
-                      "start": 355,
-                      "end": 368,
+                      "start": 354,
+                      "end": 367,
                       "loc": {
                         "start": {
-                          "line": 17,
+                          "line": 16,
                           "column": 18
                         },
                         "end": {
-                          "line": 17,
+                          "line": 16,
                           "column": 31
                         }
                       },
@@ -599,15 +599,15 @@
                       {
                         "type": "CommentBlock",
                         "value": "*\n   * Key used on the config.path object to dictate where to find the site\n   * destination path.\n   * @type {string}\n   ",
-                        "start": 210,
-                        "end": 336,
+                        "start": 209,
+                        "end": 335,
                         "loc": {
                           "start": {
-                            "line": 12,
+                            "line": 11,
                             "column": 2
                           },
                           "end": {
-                            "line": 16,
+                            "line": 15,
                             "column": 5
                           }
                         }
@@ -630,15 +630,15 @@
     {
       "type": "CommentBlock",
       "value": "*\n   * Key used on the config.path object to dictate where to find the site source\n   * path.\n   * @type {string}\n   ",
-      "start": 62,
-      "end": 183,
+      "start": 61,
+      "end": 182,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 4,
           "column": 2
         },
         "end": {
-          "line": 9,
+          "line": 8,
           "column": 5
         }
       }
@@ -646,15 +646,15 @@
     {
       "type": "CommentBlock",
       "value": "*\n   * Key used on the config.path object to dictate where to find the site\n   * destination path.\n   * @type {string}\n   ",
-      "start": 210,
-      "end": 336,
+      "start": 209,
+      "end": 335,
       "loc": {
         "start": {
-          "line": 12,
+          "line": 11,
           "column": 2
         },
         "end": {
-          "line": 16,
+          "line": 15,
           "column": 5
         }
       }
@@ -676,15 +676,15 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 1,
-      "end": 6,
+      "start": 0,
+      "end": 5,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 1,
           "column": 0
         },
         "end": {
-          "line": 2,
+          "line": 1,
           "column": 5
         }
       }
@@ -702,15 +702,15 @@
         "binop": null
       },
       "value": "Constants",
-      "start": 7,
-      "end": 16,
+      "start": 6,
+      "end": 15,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 1,
           "column": 6
         },
         "end": {
-          "line": 2,
+          "line": 1,
           "column": 15
         }
       }
@@ -729,15 +729,15 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 17,
-      "end": 18,
+      "start": 16,
+      "end": 17,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 1,
           "column": 16
         },
         "end": {
-          "line": 2,
+          "line": 1,
           "column": 17
         }
       }
@@ -754,15 +754,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 19,
-      "end": 20,
+      "start": 18,
+      "end": 19,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 1,
           "column": 18
         },
         "end": {
-          "line": 2,
+          "line": 1,
           "column": 19
         }
       }
@@ -780,15 +780,15 @@
         "binop": null
       },
       "value": "ConfigFilename",
-      "start": 23,
-      "end": 37,
+      "start": 22,
+      "end": 36,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 2,
           "column": 2
         },
         "end": {
-          "line": 3,
+          "line": 2,
           "column": 16
         }
       }
@@ -806,15 +806,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 37,
-      "end": 38,
+      "start": 36,
+      "end": 37,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 2,
           "column": 16
         },
         "end": {
-          "line": 3,
+          "line": 2,
           "column": 17
         }
       }
@@ -833,15 +833,15 @@
         "updateContext": null
       },
       "value": "reptar.config.js",
-      "start": 39,
-      "end": 57,
+      "start": 38,
+      "end": 56,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 2,
           "column": 18
         },
         "end": {
-          "line": 3,
+          "line": 2,
           "column": 36
         }
       }
@@ -859,15 +859,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 57,
-      "end": 58,
+      "start": 56,
+      "end": 57,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 2,
           "column": 36
         },
         "end": {
-          "line": 3,
+          "line": 2,
           "column": 37
         }
       }
@@ -875,15 +875,15 @@
     {
       "type": "CommentBlock",
       "value": "*\n   * Key used on the config.path object to dictate where to find the site source\n   * path.\n   * @type {string}\n   ",
-      "start": 62,
-      "end": 183,
+      "start": 61,
+      "end": 182,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 4,
           "column": 2
         },
         "end": {
-          "line": 9,
+          "line": 8,
           "column": 5
         }
       }
@@ -901,15 +901,15 @@
         "binop": null
       },
       "value": "SourceKey",
-      "start": 186,
-      "end": 195,
+      "start": 185,
+      "end": 194,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 9,
           "column": 2
         },
         "end": {
-          "line": 10,
+          "line": 9,
           "column": 11
         }
       }
@@ -927,15 +927,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 195,
-      "end": 196,
+      "start": 194,
+      "end": 195,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 9,
           "column": 11
         },
         "end": {
-          "line": 10,
+          "line": 9,
           "column": 12
         }
       }
@@ -954,15 +954,15 @@
         "updateContext": null
       },
       "value": "source",
-      "start": 197,
-      "end": 205,
+      "start": 196,
+      "end": 204,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 9,
           "column": 13
         },
         "end": {
-          "line": 10,
+          "line": 9,
           "column": 21
         }
       }
@@ -980,15 +980,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 205,
-      "end": 206,
+      "start": 204,
+      "end": 205,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 9,
           "column": 21
         },
         "end": {
-          "line": 10,
+          "line": 9,
           "column": 22
         }
       }
@@ -996,15 +996,15 @@
     {
       "type": "CommentBlock",
       "value": "*\n   * Key used on the config.path object to dictate where to find the site\n   * destination path.\n   * @type {string}\n   ",
-      "start": 210,
-      "end": 336,
+      "start": 209,
+      "end": 335,
       "loc": {
         "start": {
-          "line": 12,
+          "line": 11,
           "column": 2
         },
         "end": {
-          "line": 16,
+          "line": 15,
           "column": 5
         }
       }
@@ -1022,15 +1022,15 @@
         "binop": null
       },
       "value": "DestinationKey",
-      "start": 339,
-      "end": 353,
+      "start": 338,
+      "end": 352,
       "loc": {
         "start": {
-          "line": 17,
+          "line": 16,
           "column": 2
         },
         "end": {
-          "line": 17,
+          "line": 16,
           "column": 16
         }
       }
@@ -1048,15 +1048,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 353,
-      "end": 354,
+      "start": 352,
+      "end": 353,
       "loc": {
         "start": {
-          "line": 17,
+          "line": 16,
           "column": 16
         },
         "end": {
-          "line": 17,
+          "line": 16,
           "column": 17
         }
       }
@@ -1075,15 +1075,15 @@
         "updateContext": null
       },
       "value": "destination",
-      "start": 355,
-      "end": 368,
+      "start": 354,
+      "end": 367,
       "loc": {
         "start": {
-          "line": 17,
+          "line": 16,
           "column": 18
         },
         "end": {
-          "line": 17,
+          "line": 16,
           "column": 31
         }
       }
@@ -1101,15 +1101,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 368,
-      "end": 369,
+      "start": 367,
+      "end": 368,
       "loc": {
         "start": {
-          "line": 17,
+          "line": 16,
           "column": 31
         },
         "end": {
-          "line": 17,
+          "line": 16,
           "column": 32
         }
       }
@@ -1126,15 +1126,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 370,
-      "end": 371,
+      "start": 369,
+      "end": 370,
       "loc": {
         "start": {
-          "line": 18,
+          "line": 17,
           "column": 0
         },
         "end": {
-          "line": 18,
+          "line": 17,
           "column": 1
         }
       }
@@ -1152,15 +1152,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 371,
-      "end": 372,
+      "start": 370,
+      "end": 371,
       "loc": {
         "start": {
-          "line": 18,
+          "line": 17,
           "column": 1
         },
         "end": {
-          "line": 18,
+          "line": 17,
           "column": 2
         }
       }
@@ -1180,15 +1180,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 374,
-      "end": 380,
+      "start": 373,
+      "end": 379,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 19,
           "column": 0
         },
         "end": {
-          "line": 20,
+          "line": 19,
           "column": 6
         }
       }
@@ -1208,15 +1208,15 @@
         "updateContext": null
       },
       "value": "default",
-      "start": 381,
-      "end": 388,
+      "start": 380,
+      "end": 387,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 19,
           "column": 7
         },
         "end": {
-          "line": 20,
+          "line": 19,
           "column": 14
         }
       }
@@ -1234,15 +1234,15 @@
         "binop": null
       },
       "value": "Constants",
-      "start": 389,
-      "end": 398,
+      "start": 388,
+      "end": 397,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 19,
           "column": 15
         },
         "end": {
-          "line": 20,
+          "line": 19,
           "column": 24
         }
       }
@@ -1260,15 +1260,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 398,
-      "end": 399,
+      "start": 397,
+      "end": 398,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 19,
           "column": 24
         },
         "end": {
-          "line": 20,
+          "line": 19,
           "column": 25
         }
       }
@@ -1286,15 +1286,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 400,
-      "end": 400,
+      "start": 399,
+      "end": 399,
       "loc": {
         "start": {
-          "line": 21,
+          "line": 20,
           "column": 0
         },
         "end": {
-          "line": 21,
+          "line": 20,
           "column": 0
         }
       }

@@ -190,19 +190,18 @@ export default class Config {
 
     if (error != null) {
       log.error(error.annotate());
-      throw new Error(`${Constants.ConfigFilename} validation error: ` +
-        `${error.message}`);
+      throw new Error(
+        `${Constants.ConfigFilename} validation error: ${error.message}`
+      );
     }
 
     // Store config data privately. Assign all default values.
-    this._raw = _.defaultsDeep(
-      value,
-      schema.validate().value
-    );
+    this._raw = _.defaultsDeep(value, schema.validate().value);
 
     // Calculate absolute path of &apos;paths&apos; keys.
     this._raw.path[Constants.SourceKey] = path.resolve(
-      this.root, this._raw.path[Constants.SourceKey]
+      this.root,
+      this._raw.path[Constants.SourceKey]
     );
     _.each(this._raw.path, (val, key) =&gt; {
       if (key !== Constants.SourceKey) {
@@ -226,7 +225,7 @@ export default class Config {
     ]);
 
     // Update each scope path to be absolute relative to source path.
-    this._raw.file.defaults = sortedDefaults.map((defaultObj) =&gt; {
+    this._raw.file.defaults = sortedDefaults.map(defaultObj =&gt; {
       if (defaultObj.scope.path != null) {
         defaultObj.scope.path = path.resolve(
           this._raw.path.source,
@@ -237,7 +236,7 @@ export default class Config {
     });
 
     // For a given value if it is a string resolve it as if it&apos;s an NPM module.
-    const resolveMiddlewareModules = (moduleVal) =&gt; {
+    const resolveMiddlewareModules = moduleVal =&gt; {
       if (_.isString(moduleVal)) {
         return requireLocalModule(moduleVal, { basedir: this.root });
       }
@@ -257,12 +256,12 @@ export default class Config {
     });
 
     // Convert every config.asset.test value to be a function.
-    this._raw.assets = this._raw.assets.map((asset) =&gt; {
+    this._raw.assets = this._raw.assets.map(asset =&gt; {
       let useVal = asset.use;
       if (_.isString(useVal)) {
-        useVal = assetProcessors[useVal] ?
-          assetProcessors[useVal] :
-          requireLocalModule(useVal, { basedir: this.root });
+        useVal = assetProcessors[useVal]
+          ? assetProcessors[useVal]
+          : requireLocalModule(useVal, { basedir: this.root });
       }
 
       return {
@@ -288,8 +287,9 @@ export default class Config {
     const value = _.get(this._raw, objectPath);
 
     if (value == null) {
-      throw new Error(`Tried to access config path &quot;${objectPath}&quot; ` +
-        &apos;that does not exist.&apos;);
+      throw new Error(
+        `Tried to access config path &quot;${objectPath}&quot; that does not exist.`
+      );
     }
 
     return value;

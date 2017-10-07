@@ -91,6 +91,18 @@ const isDistBuild = __dirname.indexOf(&apos;dist&apos;) &gt; -1;
 // Cached slug options.
 let slugOptions;
 
+/**
+ * @param {string} filePath A file path.
+ * @param {Array.&lt;string&gt;} markdownExtensions Array of known markdown file
+ *   extensions.
+ * @return {number} Index of the filepath extension.
+ */
+function getMarkdownExtensionIndexForFilePath(filePath, markdownExtensions) {
+  // Get file extension of file. i.e. &apos;post.md&apos; would give &apos;md&apos;.
+  const fileExtension = path.extname(filePath).replace(/^\./, &apos;&apos;);
+  return markdownExtensions.indexOf(fileExtension);
+}
+
 const Url = {
   /**
    * Interpolates variables into a permalink structure.
@@ -117,7 +129,7 @@ const Url = {
 
     let result = permalink;
 
-    params.forEach((param) =&gt; {
+    params.forEach(param =&gt; {
       // Replace &apos;:title&apos; -&gt; &apos;title&apos;.
       let paramKey = param.substr(1);
 
@@ -135,8 +147,10 @@ const Url = {
         const sanitized = Url.slug(paramValue);
         result = result.replace(param, sanitized);
       } else {
-        throw new Error(`${&apos;interpolatePermalink: could not find param value &apos; +
-          &apos;for key: &apos;}${paramKey}`);
+        throw new Error(
+          `${&apos;interpolatePermalink: could not find param value &apos; +
+            &apos;for key: &apos;}${paramKey}`
+        );
       }
     });
 
@@ -166,6 +180,20 @@ const Url = {
   },
 
   /**
+   * Check if given filePath matches a markdown extension.
+   * @param {string} filePath A file path.
+   * @param {Array.&lt;string&gt;} markdownExtensions Array of known markdown file
+   *   extensions.
+   * @return {boolean} Whether this filePath matches any of our known markdown
+   *   extensions.
+   */
+  pathHasMarkdownExtension(filePath, markdownExtensions) {
+    return (
+      getMarkdownExtensionIndexForFilePath(filePath, markdownExtensions) &gt; -1
+    );
+  },
+
+  /**
    * Replaces a markdown file path with `.html` if it&apos;s a known markdown file.
    * @param {string} filePath A file path.
    * @param {Array.&lt;string&gt;} markdownExtensions Array of known markdown file
@@ -173,19 +201,17 @@ const Url = {
    * @return {string} Modified file path.
    */
   replaceMarkdownExtension(filePath, markdownExtensions) {
-    // Get file extension of file. i.e. &apos;post.md&apos; would give &apos;md&apos;.
-    const fileExtension = path.extname(filePath).replace(/^\./, &apos;&apos;);
-    const index = markdownExtensions.indexOf(fileExtension);
+    const index = getMarkdownExtensionIndexForFilePath(
+      filePath,
+      markdownExtensions
+    );
 
     let result = filePath;
 
     // Is this file&apos;s extension one of our known markdown extensions?
     if (index &gt; -1) {
       const foundExtension = markdownExtensions[index];
-      result = filePath.replace(
-        new RegExp(`.${foundExtension}$`),
-        &apos;.html&apos;
-      );
+      result = filePath.replace(new RegExp(`.${foundExtension}$`), &apos;.html&apos;);
     }
 
     return result;
@@ -242,9 +268,7 @@ const Url = {
    */
   pathFromRoot(...args) {
     // Push relative distance from root of project.
-    args.unshift(
-      isDistBuild ? &apos;../../&apos; : &apos;../&apos;
-    );
+    args.unshift(isDistBuild ? &apos;../../&apos; : &apos;../&apos;);
 
     // Add dirname relative from.
     args.unshift(__dirname);

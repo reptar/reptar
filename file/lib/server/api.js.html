@@ -109,17 +109,14 @@ export function ApiService(reptar) {
 
         if (query.destination) {
           const value = query.destination;
-          const file = reptar.destination[value] ||
-            reptar.destination[`/${value}`];
+          const file =
+            reptar.destination[value] || reptar.destination[`/${value}`];
           return reply(sanitizeFile(file));
         }
 
         const response = _.flow([
           fp.filter(
-            [
-              &apos;filtered&apos;,
-              &apos;skipProcessing&apos;,
-            ].reduce((acc, key) =&gt; {
+            [&apos;filtered&apos;, &apos;skipProcessing&apos;].reduce((acc, key) =&gt; {
               if (query[key]) {
                 acc[key] = query[key] !== &apos;false&apos;;
               }
@@ -127,7 +124,7 @@ export function ApiService(reptar) {
               return acc;
             }, {})
           ),
-          fp.filter((file) =&gt; {
+          fp.filter(file =&gt; {
             if (!query.assetProcessor) {
               return true;
             }
@@ -136,7 +133,7 @@ export function ApiService(reptar) {
             }
             return file.assetProcessor == null;
           }),
-          fp.map((file) =&gt; {
+          fp.map(file =&gt; {
             const result = prunePrivateProperties(file);
             if (query.excludeContent) {
               result.data.content = &apos;[...omitted..]&apos;;
@@ -172,13 +169,9 @@ export function ApiService(reptar) {
         response.files = _.mapValues(response.files, sanitize);
         response.data.files = _.mapValues(response.data.files, sanitize);
 
-        const defaultExcludes = [
-          &apos;pages&apos;,
-          &apos;files&apos;,
-          &apos;data&apos;,
-        ];
+        const defaultExcludes = [&apos;pages&apos;, &apos;files&apos;, &apos;data&apos;];
 
-        _.difference(defaultExcludes, includes).forEach((prop) =&gt; {
+        _.difference(defaultExcludes, includes).forEach(prop =&gt; {
           delete response[prop];
         });
 

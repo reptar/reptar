@@ -577,289 +577,289 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber18",
+    "test-file/test/e2e/api.spec.js.html#lineNumber16",
     "api",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber366",
+    "test-file/test/e2e/api.spec.js.html#lineNumber348",
     "api collections.get handler",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber376",
+    "test-file/test/e2e/api.spec.js.html#lineNumber356",
     "api collections.get handler ",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber372",
+    "test-file/test/e2e/api.spec.js.html#lineNumber352",
     "api collections.get handler returns an array",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber401",
+    "test-file/test/e2e/api.spec.js.html#lineNumber381",
     "api collections.get handler returns an object",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber405",
+    "test-file/test/e2e/api.spec.js.html#lineNumber385",
     "api collections.get handler the object matches the request id",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber410",
+    "test-file/test/e2e/api.spec.js.html#lineNumber390",
     "api collections.get handler when requesting one collection",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber421",
+    "test-file/test/e2e/api.spec.js.html#lineNumber401",
     "api collections.get handler when requesting one collection the object does not have properties that excluded by default",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber432",
+    "test-file/test/e2e/api.spec.js.html#lineNumber408",
     "api collections.get handler when requesting one collection with include param",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber448",
+    "test-file/test/e2e/api.spec.js.html#lineNumber424",
     "api collections.get handler when requesting one collection with include param pages has expected length",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber452",
+    "test-file/test/e2e/api.spec.js.html#lineNumber428",
     "api collections.get handler when requesting one collection with include param the object does not have properties that excluded by default",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber444",
+    "test-file/test/e2e/api.spec.js.html#lineNumber420",
     "api collections.get handler when requesting one collection with include param the object has a pages property which is an array",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber462",
+    "test-file/test/e2e/api.spec.js.html#lineNumber436",
     "api collections.get handler when requesting one collection with multiple include values",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber484",
+    "test-file/test/e2e/api.spec.js.html#lineNumber456",
     "api collections.get handler when requesting one collection with multiple include values files is an object",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber488",
+    "test-file/test/e2e/api.spec.js.html#lineNumber460",
     "api collections.get handler when requesting one collection with multiple include values files is not an array object",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber480",
+    "test-file/test/e2e/api.spec.js.html#lineNumber452",
     "api collections.get handler when requesting one collection with multiple include values pages has expected length",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber492",
+    "test-file/test/e2e/api.spec.js.html#lineNumber464",
     "api collections.get handler when requesting one collection with multiple include values the object does not have properties that excluded by default",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber476",
+    "test-file/test/e2e/api.spec.js.html#lineNumber448",
     "api collections.get handler when requesting one collection with multiple include values the object has a pages property which is an array",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber385",
+    "test-file/test/e2e/api.spec.js.html#lineNumber365",
     "api collections.get handler without any query params",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber395",
+    "test-file/test/e2e/api.spec.js.html#lineNumber375",
     "api collections.get handler without any query params returns an array of just collection names",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber66",
+    "test-file/test/e2e/api.spec.js.html#lineNumber64",
     "api config handlers",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber71",
+    "test-file/test/e2e/api.spec.js.html#lineNumber67",
     "api config handlers returns the config object",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber76",
+    "test-file/test/e2e/api.spec.js.html#lineNumber72",
     "api files.get handler",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber86",
+    "test-file/test/e2e/api.spec.js.html#lineNumber80",
     "api files.get handler ",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber82",
+    "test-file/test/e2e/api.spec.js.html#lineNumber76",
     "api files.get handler returns an array",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber216",
+    "test-file/test/e2e/api.spec.js.html#lineNumber200",
     "api files.get handler when assetProcessor=false",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber231",
+    "test-file/test/e2e/api.spec.js.html#lineNumber215",
     "api files.get handler when assetProcessor=false every item is assetProcessor",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber194",
+    "test-file/test/e2e/api.spec.js.html#lineNumber180",
     "api files.get handler when assetProcessor=true",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber209",
+    "test-file/test/e2e/api.spec.js.html#lineNumber195",
     "api files.get handler when assetProcessor=true every item is assetProcessor",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber321",
+    "test-file/test/e2e/api.spec.js.html#lineNumber303",
     "api files.get handler when destination does match a file",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber338",
+    "test-file/test/e2e/api.spec.js.html#lineNumber320",
     "api files.get handler when destination does match a file the file returned is the one we requested",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber305",
+    "test-file/test/e2e/api.spec.js.html#lineNumber287",
     "api files.get handler when destination does not match a file",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber128",
+    "test-file/test/e2e/api.spec.js.html#lineNumber120",
     "api files.get handler when filtered=false",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber143",
+    "test-file/test/e2e/api.spec.js.html#lineNumber135",
     "api files.get handler when filtered=false every item is not filtered",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber106",
+    "test-file/test/e2e/api.spec.js.html#lineNumber100",
     "api files.get handler when filtered=true",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber121",
+    "test-file/test/e2e/api.spec.js.html#lineNumber115",
     "api files.get handler when filtered=true every item is filtered",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber254",
+    "test-file/test/e2e/api.spec.js.html#lineNumber236",
     "api files.get handler when path does match a file",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber273",
+    "test-file/test/e2e/api.spec.js.html#lineNumber255",
     "api files.get handler when path does match a file the file returned is the one we requested",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber238",
+    "test-file/test/e2e/api.spec.js.html#lineNumber220",
     "api files.get handler when path does not match a file",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber172",
+    "test-file/test/e2e/api.spec.js.html#lineNumber160",
     "api files.get handler when skipProcessing=false",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber187",
+    "test-file/test/e2e/api.spec.js.html#lineNumber175",
     "api files.get handler when skipProcessing=false every item is skipProcessing",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber150",
+    "test-file/test/e2e/api.spec.js.html#lineNumber140",
     "api files.get handler when skipProcessing=true",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber165",
+    "test-file/test/e2e/api.spec.js.html#lineNumber155",
     "api files.get handler when skipProcessing=true every item is skipProcessing",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber343",
+    "test-file/test/e2e/api.spec.js.html#lineNumber325",
     "api files.get handler when the destination is relative and matches",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber360",
+    "test-file/test/e2e/api.spec.js.html#lineNumber342",
     "api files.get handler when the destination is relative and matches the file returned is the one we requested",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber278",
+    "test-file/test/e2e/api.spec.js.html#lineNumber260",
     "api files.get handler when the path is relative and matches",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber298",
+    "test-file/test/e2e/api.spec.js.html#lineNumber280",
     "api files.get handler when the path is relative and matches the file returned is the one we requested",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/api.spec.js.html#lineNumber95",
+    "test-file/test/e2e/api.spec.js.html#lineNumber89",
     "api files.get handler without any query params",
     "test"
   ],
@@ -907,19 +907,19 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/collection/base.spec.js.html#lineNumber127",
+    "test-file/test/unit/collection/base.spec.js.html#lineNumber130",
     "collection/base CollectionBase sortFiles sorts date value ascending",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/base.spec.js.html#lineNumber115",
+    "test-file/test/unit/collection/base.spec.js.html#lineNumber117",
     "collection/base CollectionBase sortFiles sorts date value descending",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/base.spec.js.html#lineNumber103",
+    "test-file/test/unit/collection/base.spec.js.html#lineNumber104",
     "collection/base CollectionBase sortFiles sorts integer value ascending",
     "test"
   ],
@@ -931,319 +931,319 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/collection/index.spec.js.html#lineNumber10",
+    "test-file/test/unit/collection/index.spec.js.html#lineNumber7",
     "collection/index",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/index.spec.js.html#lineNumber11",
+    "test-file/test/unit/collection/index.spec.js.html#lineNumber8",
     "collection/index create",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/index.spec.js.html#lineNumber12",
+    "test-file/test/unit/collection/index.spec.js.html#lineNumber9",
     "collection/index create creates the right Collection class",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/page.spec.js.html#lineNumber13",
+    "test-file/test/unit/collection/page.spec.js.html#lineNumber11",
     "collection/page CollectionPage",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/page.spec.js.html#lineNumber38",
+    "test-file/test/unit/collection/page.spec.js.html#lineNumber36",
     "collection/page CollectionPage constructor",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/page.spec.js.html#lineNumber51",
+    "test-file/test/unit/collection/page.spec.js.html#lineNumber49",
     "collection/page CollectionPage constructor creates a unique id",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/page.spec.js.html#lineNumber39",
+    "test-file/test/unit/collection/page.spec.js.html#lineNumber37",
     "collection/page CollectionPage constructor throws an error if it doesn't get expected values",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/page.spec.js.html#lineNumber64",
+    "test-file/test/unit/collection/page.spec.js.html#lineNumber62",
     "collection/page CollectionPage setData",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/page.spec.js.html#lineNumber65",
+    "test-file/test/unit/collection/page.spec.js.html#lineNumber63",
     "collection/page CollectionPage setData saves passed in values",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber16",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber13",
     "collection/type/file-system FileSystemCollection",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber257",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber253",
     "collection/type/file-system FileSystemCollection _isFileExcluded",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber307",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber300",
     "collection/type/file-system FileSystemCollection _isFileExcluded is false if the file path is not in our excludePaths",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber266",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber262",
     "collection/type/file-system FileSystemCollection _isFileExcluded is false when FileSystemCollection has metadata",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber258",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber254",
     "collection/type/file-system FileSystemCollection _isFileExcluded is false when FileSystemCollection has no path",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber276",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber272",
     "collection/type/file-system FileSystemCollection _isFileExcluded is false when no excludePaths are set",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber291",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber287",
     "collection/type/file-system FileSystemCollection _isFileExcluded is true if the file path is contained in our excludePaths",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber28",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber25",
     "collection/type/file-system FileSystemCollection _isFileInCollection",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber72",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber69",
     "collection/type/file-system FileSystemCollection _isFileInCollection is false if file's path is excluded from collection",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber29",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber26",
     "collection/type/file-system FileSystemCollection _isFileInCollection is false if file's path is not within collection's path",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber53",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber50",
     "collection/type/file-system FileSystemCollection _isFileInCollection is true if file's path includes collection's path",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber224",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber220",
     "collection/type/file-system FileSystemCollection _setExcludePaths",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber236",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber232",
     "collection/type/file-system FileSystemCollection _setExcludePaths can set exclude paths",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber246",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber242",
     "collection/type/file-system FileSystemCollection _setExcludePaths does not add its own path to the exclude path array",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber143",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber140",
     "collection/type/file-system FileSystemCollection createCollectionPages",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber205",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber201",
     "collection/type/file-system FileSystemCollection createCollectionPages",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber144",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber141",
     "collection/type/file-system FileSystemCollection createCollectionPages adds files to collectionPages",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber206",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber202",
     "collection/type/file-system FileSystemCollection createCollectionPages returns early if no pagination permalinks are set",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber92",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber89",
     "collection/type/file-system FileSystemCollection populate",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber93",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber90",
     "collection/type/file-system FileSystemCollection populate adds files to collection",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber115",
+    "test-file/test/unit/collection/type/file-system.spec.js.html#lineNumber112",
     "collection/type/file-system FileSystemCollection populate does not add files to collection",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber16",
+    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber13",
     "collection/type/metadata MetadataCollection",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber28",
+    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber25",
     "collection/type/metadata MetadataCollection _isFileInCollection",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber29",
+    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber26",
     "collection/type/metadata MetadataCollection _isFileInCollection is false if file does not have collection's metadata key",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber44",
+    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber41",
     "collection/type/metadata MetadataCollection _isFileInCollection is true if file has collection's metadata key",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber131",
+    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber117",
     "collection/type/metadata MetadataCollection createCollectionPages",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber147",
+    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber133",
     "collection/type/metadata MetadataCollection createCollectionPages adds files to collectionPages",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber132",
+    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber118",
     "collection/type/metadata MetadataCollection createCollectionPages returns early if no pagination permalinks are set",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber63",
+    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber60",
     "collection/type/metadata MetadataCollection populate",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber64",
+    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber61",
     "collection/type/metadata MetadataCollection populate adds files to collection",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber101",
+    "test-file/test/unit/collection/type/metadata.spec.js.html#lineNumber94",
     "collection/type/metadata MetadataCollection populate does not add files to collection",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber15",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber13",
     "config/index Config",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber25",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber23",
     "config/index Config constructor",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber26",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber24",
     "config/index Config constructor can create an instance",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber38",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber36",
     "config/index Config update",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber253",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber244",
     "config/index Config update asset",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber292",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber283",
     "config/index Config update asset coerces asset test values to functions",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber304",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber295",
     "config/index Config update asset correctly tests against different file paths",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber298",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber289",
     "config/index Config update asset ensures asset.use value is a function",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber87",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber84",
     "config/index Config update calculates paths correctly",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber71",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber68",
     "config/index Config update can load a config file that exports a function",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber224",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber215",
     "config/index Config update coerces middleware and lifecycle config values to arrays",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber128",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber125",
     "config/index Config update sorts file defaults in correct precedence order",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/config/index.spec.js.html#lineNumber103",
+    "test-file/test/unit/config/index.spec.js.html#lineNumber100",
     "config/index Config update throws when given an invalid config object",
     "test"
   ],
@@ -1273,43 +1273,43 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber16",
+    "test-file/test/unit/file.spec.js.html#lineNumber14",
     "file File",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber187",
+    "test-file/test/unit/file.spec.js.html#lineNumber179",
     "file File _calculateDestination",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber188",
+    "test-file/test/unit/file.spec.js.html#lineNumber180",
     "file File _calculateDestination allows custom file url property",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber41",
+    "test-file/test/unit/file.spec.js.html#lineNumber40",
     "file File constructor",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber57",
+    "test-file/test/unit/file.spec.js.html#lineNumber56",
     "file File constructor calculates destination path",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber42",
+    "test-file/test/unit/file.spec.js.html#lineNumber41",
     "file File constructor can create an instance",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber70",
+    "test-file/test/unit/file.spec.js.html#lineNumber69",
     "file File default values from config",
     "test"
   ],
@@ -1321,19 +1321,19 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber256",
+    "test-file/test/unit/file.spec.js.html#lineNumber254",
     "file File filtered",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber257",
+    "test-file/test/unit/file.spec.js.html#lineNumber255",
     "file File filtered set correctly",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/file.spec.js.html#lineNumber226",
+    "test-file/test/unit/file.spec.js.html#lineNumber223",
     "file File has all proper values on its data object",
     "test"
   ],
@@ -1345,7 +1345,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/filter/future-date.spec.js.html#lineNumber26",
+    "test-file/test/unit/filter/future-date.spec.js.html#lineNumber35",
     "filter/future-date futureDate should allow setting of what date key to use",
     "test"
   ],
@@ -1375,7 +1375,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/filter/metadata.spec.js.html#lineNumber38",
+    "test-file/test/unit/filter/metadata.spec.js.html#lineNumber56",
     "filter/metadata metadata should return false when a match is not found",
     "test"
   ],
@@ -2257,127 +2257,127 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/parse/yaml.spec.js.html#lineNumber21",
+    "test-file/test/unit/parse/yaml.spec.js.html#lineNumber17",
     "parse/yaml parse",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/parse/yaml.spec.js.html#lineNumber22",
+    "test-file/test/unit/parse/yaml.spec.js.html#lineNumber18",
     "parse/yaml parse empty string",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/parse/yaml.spec.js.html#lineNumber36",
+    "test-file/test/unit/parse/yaml.spec.js.html#lineNumber26",
     "parse/yaml parse proper yaml string",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/parse/yaml.spec.js.html#lineNumber29",
+    "test-file/test/unit/parse/yaml.spec.js.html#lineNumber22",
     "parse/yaml parse undefined",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/yarn.spec.js.html#lineNumber19",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber16",
     "reptar Reptar",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/yarn.spec.js.html#lineNumber58",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber55",
     "reptar Reptar does not call update",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/yarn.spec.js.html#lineNumber67",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber64",
     "reptar Reptar has not called any lifecycle functions",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/yarn.spec.js.html#lineNumber62",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber59",
     "reptar Reptar has not called any middleware functions",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/yarn.spec.js.html#lineNumber74",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber71",
     "reptar Reptar when updated",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/yarn.spec.js.html#lineNumber129",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber121",
     "reptar Reptar when updated and when build is called",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/yarn.spec.js.html#lineNumber159",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber154",
     "reptar Reptar when updated and when build is called builds site correctly",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/yarn.spec.js.html#lineNumber151",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber146",
     "reptar Reptar when updated and when build is called has the same number of files generated",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/yarn.spec.js.html#lineNumber174",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber169",
     "reptar Reptar when updated and when build is called last middleware is called before willBuild",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/yarn.spec.js.html#lineNumber186",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber178",
     "reptar Reptar when updated and when build is called willBuild is called before didBuild",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/yarn.spec.js.html#lineNumber90",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber87",
     "reptar Reptar when updated calls every middleware function",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/yarn.spec.js.html#lineNumber97",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber94",
     "reptar Reptar when updated calls every middleware function in the expected order",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/yarn.spec.js.html#lineNumber79",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber76",
     "reptar Reptar when updated creates expected instances",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/yarn.spec.js.html#lineNumber125",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber117",
     "reptar Reptar when updated didBuild is not called",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/yarn.spec.js.html#lineNumber113",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber107",
     "reptar Reptar when updated didUpdate is called before the first middleware",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/yarn.spec.js.html#lineNumber121",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber113",
     "reptar Reptar when updated willBuild is not called",
     "test"
   ],
   [
     "",
-    "test-file/test/e2e/yarn.spec.js.html#lineNumber104",
+    "test-file/test/e2e/yarn.spec.js.html#lineNumber101",
     "reptar Reptar when updated willUpdate is called before didUpdate",
     "test"
   ],
@@ -2497,13 +2497,13 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/url.spec.js.html#lineNumber16",
+    "test-file/test/unit/url.spec.js.html#lineNumber19",
     "url Url interpolatePermalink handles duplicate param interpolations",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/url.spec.js.html#lineNumber22",
+    "test-file/test/unit/url.spec.js.html#lineNumber28",
     "url Url interpolatePermalink handles permalink with no interpolation",
     "test"
   ],
@@ -2515,55 +2515,67 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/url.spec.js.html#lineNumber36",
+    "test-file/test/unit/url.spec.js.html#lineNumber45",
     "url Url interpolatePermalink handles special date permalink values",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/url.spec.js.html#lineNumber28",
+    "test-file/test/unit/url.spec.js.html#lineNumber37",
     "url Url interpolatePermalink throw if it can't find value to interpolate in permalink",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/url.spec.js.html#lineNumber124",
+    "test-file/test/unit/url.spec.js.html#lineNumber180",
     "url Url makePretty",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/url.spec.js.html#lineNumber125",
+    "test-file/test/unit/url.spec.js.html#lineNumber181",
     "url Url makePretty works",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/url.spec.js.html#lineNumber94",
+    "test-file/test/unit/url.spec.js.html#lineNumber144",
     "url Url makeUrlFileSystemSafe",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/url.spec.js.html#lineNumber95",
+    "test-file/test/unit/url.spec.js.html#lineNumber145",
     "url Url makeUrlFileSystemSafe appends index.html to a url that has no file extension",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/url.spec.js.html#lineNumber109",
+    "test-file/test/unit/url.spec.js.html#lineNumber162",
     "url Url makeUrlFileSystemSafe does not append index.html to a url that does not need it",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/url.spec.js.html#lineNumber53",
+    "test-file/test/unit/url.spec.js.html#lineNumber68",
+    "url Url pathHasMarkdownExtension",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/url.spec.js.html#lineNumber69",
+    "url Url pathHasMarkdownExtension matches known extensions",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/url.spec.js.html#lineNumber106",
     "url Url replaceMarkdownExtension",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/url.spec.js.html#lineNumber54",
+    "test-file/test/unit/url.spec.js.html#lineNumber107",
     "url Url replaceMarkdownExtension replaces known markdown extensions",
     "test"
   ]

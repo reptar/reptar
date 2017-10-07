@@ -84,76 +84,118 @@ import metadata from &apos;../../../lib/filter/metadata&apos;;
 
 describe(&apos;filter/metadata metadata&apos;, () =&gt; {
   it(&apos;should return true when a match is found&apos;, () =&gt; {
-    assert.equal(metadata({
-      data: {
-        draft: true,
-        title: &apos;test&apos;,
-      },
-    }, {
-      draft: true,
-    }), true);
+    assert.equal(
+      metadata(
+        {
+          data: {
+            draft: true,
+            title: &apos;test&apos;,
+          },
+        },
+        {
+          draft: true,
+        }
+      ),
+      true
+    );
 
-    assert.equal(metadata({
-      data: {
-        draft: true,
-        title: &apos;test&apos;,
-      },
-    }, {
-      draft: true,
-      title: &apos;test&apos;,
-    }), true);
+    assert.equal(
+      metadata(
+        {
+          data: {
+            draft: true,
+            title: &apos;test&apos;,
+          },
+        },
+        {
+          draft: true,
+          title: &apos;test&apos;,
+        }
+      ),
+      true
+    );
 
-    assert.equal(metadata({
-      data: {
-        draft: true,
-        title: &apos;test&apos;,
-        date: &apos;ok&apos;,
-      },
-    }, {
-      draft: true,
-      title: &apos;test&apos;,
-    }), true);
+    assert.equal(
+      metadata(
+        {
+          data: {
+            draft: true,
+            title: &apos;test&apos;,
+            date: &apos;ok&apos;,
+          },
+        },
+        {
+          draft: true,
+          title: &apos;test&apos;,
+        }
+      ),
+      true
+    );
   });
 
   it(&apos;should return false when a match is not found&apos;, () =&gt; {
-    assert.equal(metadata({
-      data: {
-        draft: false,
-        title: &apos;test&apos;,
-      },
-    }, {
-      draft: true,
-    }), false);
+    assert.equal(
+      metadata(
+        {
+          data: {
+            draft: false,
+            title: &apos;test&apos;,
+          },
+        },
+        {
+          draft: true,
+        }
+      ),
+      false
+    );
 
-    assert.equal(metadata({
-      data: {
-        draft: true,
-      },
-    }, {
-      draft: true,
-      title: &apos;test&apos;,
-    }), false);
+    assert.equal(
+      metadata(
+        {
+          data: {
+            draft: true,
+          },
+        },
+        {
+          draft: true,
+          title: &apos;test&apos;,
+        }
+      ),
+      false
+    );
 
-    assert.equal(metadata({
-      data: {
-        draft: true,
-        title: &apos;surprise&apos;,
-      },
-    }, {
-      draft: true,
-      title: &apos;test&apos;,
-    }), false);
+    assert.equal(
+      metadata(
+        {
+          data: {
+            draft: true,
+            title: &apos;surprise&apos;,
+          },
+        },
+        {
+          draft: true,
+          title: &apos;test&apos;,
+        }
+      ),
+      false
+    );
 
-    assert.equal(metadata({
-      data: {
-        draft: true,
-        title: &apos;surprise&apos;,
-        date: &apos;ok&apos;,
-      },
-    }, {
-      draft: true,
-      title: &apos;test&apos;,
-    }), false);
+    assert.equal(
+      metadata(
+        {
+          data: {
+            draft: true,
+            title: &apos;surprise&apos;,
+            date: &apos;ok&apos;,
+          },
+        },
+        {
+          draft: true,
+          title: &apos;test&apos;,
+        }
+      ),
+      false
+    );
   });
 });
 </code></pre>

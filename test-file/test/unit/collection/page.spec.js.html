@@ -82,9 +82,7 @@
 import sinon from &apos;sinon&apos;;
 
 import fixture from &apos;../../fixture&apos;;
-import {
-  createMockConfig,
-} from &apos;../../utils&apos;;
+import { createMockConfig } from &apos;../../utils&apos;;
 
 import Url from &apos;../../../lib/url&apos;;
 
@@ -116,7 +114,7 @@ describe(&apos;collection/page CollectionPage&apos;, () =&gt; {
   };
 
   describe(&apos;constructor&apos;, () =&gt; {
-    it(&apos;throws an error if it doesn\&apos;t get expected values&apos;, () =&gt; {
+    it(&quot;throws an error if it doesn&apos;t get expected values&quot;, () =&gt; {
       assert.throws(() =&gt; {
         // eslint-disable-next-line no-new
         new CollectionPage();

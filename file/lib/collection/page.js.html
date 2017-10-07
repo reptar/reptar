@@ -161,22 +161,22 @@ export default class CollectionPage {
   setData(data = {}) {
     // Current page number.
     if (!_.isUndefined(data.page) &amp;&amp; !_.isNumber(data.page)) {
-      throw new Error(&apos;CollectionPage requires \&apos;page\&apos; as a number.&apos;);
+      throw new Error(&quot;CollectionPage requires &apos;page&apos; as a number.&quot;);
     }
 
     // How many pages in the collection.
     if (!_.isUndefined(data.total_pages) &amp;&amp; !_.isNumber(data.total_pages)) {
-      throw new Error(&apos;CollectionPage requires \&apos;total_pages\&apos; as a number.&apos;);
+      throw new Error(&quot;CollectionPage requires &apos;total_pages&apos; as a number.&quot;);
     }
 
     // Posts displayed per page.
     if (!_.isUndefined(data.per_page) &amp;&amp; !_.isNumber(data.per_page)) {
-      throw new Error(&apos;CollectionPage requires \&apos;per_page\&apos; as a number.&apos;);
+      throw new Error(&quot;CollectionPage requires &apos;per_page&apos; as a number.&quot;);
     }
 
     // Total number of posts.
     if (!_.isUndefined(data.total) &amp;&amp; !_.isNumber(data.total)) {
-      throw new Error(&apos;CollectionPage requires \&apos;total\&apos; as a number.&apos;);
+      throw new Error(&quot;CollectionPage requires &apos;total&apos; as a number.&quot;);
     }
 
     // Update content that&apos;s accessible from template.
@@ -261,9 +261,7 @@ export default class CollectionPage {
      * Absolute destination path.
      * @type {string} destination Absolute path to file.
      */
-    this.destination = Url.makeUrlFileSystemSafe(
-      relativeDestination
-    );
+    this.destination = Url.makeUrlFileSystemSafe(relativeDestination);
 
     /**
      * The URL without the domain, but with a leading slash,
@@ -306,8 +304,7 @@ export default class CollectionPage {
   async write(globalData) {
     const checksum = this.getChecksum();
 
-    if (this._config.get(&apos;incremental&apos;) &amp;&amp;
-        cache.get(this.id) === checksum) {
+    if (this._config.get(&apos;incremental&apos;) &amp;&amp; cache.get(this.id) === checksum) {
       return;
     }
 
@@ -318,7 +315,7 @@ export default class CollectionPage {
       this.destination
     );
 
-    await Promise.fromCallback((cb) =&gt; {
+    await Promise.fromCallback(cb =&gt; {
       fs.outputFile(destinationPath, content, &apos;utf8&apos;, cb);
     });
 

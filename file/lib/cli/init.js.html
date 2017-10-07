@@ -112,13 +112,7 @@ export default async function init() {
     log.error(e);
   }
 
-  const scaffoldPath = path.join(
-    __dirname,
-    &apos;..&apos;,
-    &apos;..&apos;,
-    &apos;static&apos;,
-    &apos;scaffold&apos;
-  );
+  const scaffoldPath = path.join(__dirname, &apos;..&apos;, &apos;..&apos;, &apos;static&apos;, &apos;scaffold&apos;);
 
   // Copy scaffold files.
   try {

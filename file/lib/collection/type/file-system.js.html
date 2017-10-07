@@ -108,17 +108,23 @@ export default class FileSystemCollection extends CollectionBase {
    * @param {Object.&lt;string, CollectionBase&gt;} collections Array of Collections.
    */
   _setExcludePaths(collections) {
-    this.excludePaths = _.reduce(collections, (allPaths, collection) =&gt; {
-      // Only include a collection path if it exists and isn&apos;t the app source,
-      // and isn&apos;t this collection&apos;s path.
-      if (collection.path &amp;&amp;
+    this.excludePaths = _.reduce(
+      collections,
+      (allPaths, collection) =&gt; {
+        // Only include a collection path if it exists and isn&apos;t the app source,
+        // and isn&apos;t this collection&apos;s path.
+        if (
+          collection.path &amp;&amp;
           collection.path !== this.path &amp;&amp;
-          collection.path !== this._config.get(&apos;path.source&apos;)) {
-        allPaths.push(collection.path);
-      }
+          collection.path !== this._config.get(&apos;path.source&apos;)
+        ) {
+          allPaths.push(collection.path);
+        }
 
-      return allPaths;
-    }, []);
+        return allPaths;
+      },
+      []
+    );
   }
 
   /**
@@ -138,9 +144,11 @@ export default class FileSystemCollection extends CollectionBase {
    * @return {boolean} true if the file meets all requirements.
    */
   _isFileInCollection(file) {
-    return file.path.includes(this.path) &amp;&amp;
+    return (
+      file.path.includes(this.path) &amp;&amp;
       !this._isFileExcluded(file) &amp;&amp;
-      !this.isFiltered(file);
+      !this.isFiltered(file)
+    );
   }
 
   /**
@@ -177,7 +185,7 @@ export default class FileSystemCollection extends CollectionBase {
     // Add data to template accessible object.
     this.data.files = [];
 
-    _.each(files, (file) =&gt; {
+    _.each(files, file =&gt; {
       // Don&apos;t return value so we iterate over every file.
       this.addFile(file);
     });

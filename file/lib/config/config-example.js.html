@@ -78,8 +78,7 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/config/config-example.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
-const noopMiddleware = () =&gt; {};
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const noopMiddleware = () =&gt; {};
 
 module.exports = {
   // Site settings.
@@ -112,7 +111,7 @@ module.exports = {
     // This is used when parsing date objects.
     // This current format supports dates like 2016-2-28
     // It uses moment.js under the head and its format syntax as well:
-    // http://momentjs.com/docs////displaying/format/
+    // http://momentjs.com/docs/#/displaying/format/
     dateFormat: &apos;YYYY-M-D&apos;,
     // Apply frontmatter values to a File based upon a defined scope.
     // If the scope matches a File then the default values are applied if they
@@ -199,10 +198,7 @@ module.exports = {
       test: /\.s[ac]ss$/,
       use: {
         calculateDestination(destination) {
-          return destination.replace(
-            /\.s[ac]ss$/,
-            &apos;.css&apos;
-          );
+          return destination.replace(/\.s[ac]ss$/, &apos;.css&apos;);
         },
         render(filePath) {
           return filePath;
@@ -248,10 +244,7 @@ module.exports = {
   // What middlewares you want enabled and what configuration settings they
   // should have. Can be either a string which assumes it&apos;s an npm module or
   // a function which is the middleware itself, or an array of either.
-  middlewares: [
-    &apos;reptar-excerpt&apos;,
-    noopMiddleware,
-  ],
+  middlewares: [&apos;reptar-excerpt&apos;, noopMiddleware],
   // Lifecycle methods are called at certain points in the lifecycle of Reptar.
   // Each value can be either a string or a function or an array of either.
   lifecycle: {

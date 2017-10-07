@@ -85,9 +85,7 @@ import path from &apos;path&apos;;
 import _ from &apos;lodash&apos;;
 
 import fixture from &apos;../../fixture&apos;;
-import {
-  simpleSite,
-} from &apos;../../utils&apos;;
+import { simpleSite } from &apos;../../utils&apos;;
 
 const ConfigRewire = rewire(&apos;../../../lib/config/index.js&apos;);
 const Config = ConfigRewire.default;
@@ -130,15 +128,14 @@ describe(&apos;config/index Config&apos;, () =&gt; {
 
       assert.equal(
         instance._raw.path.source,
-        path.resolve(
-          rootPath + expectedConfig.path.source
-        )
+        path.resolve(rootPath + expectedConfig.path.source)
       );
 
       assert.equal(
         instance._raw.path.destination,
         path.resolve(
-          rootPath + expectedConfig.path.source +
+          rootPath +
+            expectedConfig.path.source +
             expectedConfig.path.destination
         )
       );
@@ -195,7 +192,7 @@ describe(&apos;config/index Config&apos;, () =&gt; {
         },
       ];
 
-      invalidConfigs.forEach((config) =&gt; {
+      invalidConfigs.forEach(config =&gt; {
         revert = ConfigRewire.__set__(
           &apos;loadConfigFile&apos;,
           sinon.stub().returns(config)
@@ -287,16 +284,10 @@ describe(&apos;config/index Config&apos;, () =&gt; {
 
           const expectedObj = _.cloneDeep(expectedFileDefaultsOrder[index]);
           if (expectedObj.scope.path != null) {
-            expectedObj.scope.path = path.resolve(
-              root,
-              expectedObj.scope.path
-            );
+            expectedObj.scope.path = path.resolve(root, expectedObj.scope.path);
           }
 
-          assert.deepEqual(
-            defaultObj,
-            expectedObj
-          );
+          assert.deepEqual(defaultObj, expectedObj);
         });
       });
     });
@@ -370,13 +361,13 @@ describe(&apos;config/index Config&apos;, () =&gt; {
       });
 
       it(&apos;coerces asset test values to functions&apos;, () =&gt; {
-        instance.get(&apos;assets&apos;).forEach((asset) =&gt; {
+        instance.get(&apos;assets&apos;).forEach(asset =&gt; {
           assert(_.isFunction(asset.test));
         });
       });
 
       it(&apos;ensures asset.use value is a function&apos;, () =&gt; {
-        instance.get(&apos;assets&apos;).forEach((asset) =&gt; {
+        instance.get(&apos;assets&apos;).forEach(asset =&gt; {
           assert(_.isObject(asset.use));
         });
       });
@@ -392,9 +383,9 @@ describe(&apos;config/index Config&apos;, () =&gt; {
           [&apos;/foo/bar.sass&apos;, true],
           [&apos;/foo/bar.css&apos;, false],
         ].forEach(([filePath, expectedValue]) =&gt; {
-          const actualValue = instance.get(&apos;assets&apos;).some(asset =&gt;
-            asset.test(filePath)
-          );
+          const actualValue = instance
+            .get(&apos;assets&apos;)
+            .some(asset =&gt; asset.test(filePath));
 
           assert.equal(
             actualValue,

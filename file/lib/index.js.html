@@ -126,7 +126,7 @@ async function wrapCommand(label, cmd) {
  */
 function processMiddlewares({ middlewares, reptar }) {
   return new Promise((resolve, reject) =&gt; {
-    ware(middlewares).run(reptar, (err) =&gt; {
+    ware(middlewares).run(reptar, err =&gt; {
       if (err) {
         reject(err);
         return;
@@ -159,9 +159,9 @@ export default class Reptar {
       showSpinner: true,
     });
 
-    this._wrapCommand = this.options.showSpinner ?
-      wrapCommand :
-      (label, fn) =&gt; fn();
+    this._wrapCommand = this.options.showSpinner
+      ? wrapCommand
+      : (label, fn) =&gt; fn();
 
     /**
      * Expose config object on instance.
@@ -210,9 +210,9 @@ export default class Reptar {
 
     // Options passed into constructor take precedence over the config value.
     // We default to loading cache, unless explicitly set to false.
-    const shouldLoadCache = !_.isNil(this.options.incremental) ?
-      this.options.incremental !== false :
-      this.config.get(&apos;incremental&apos;) !== false;
+    const shouldLoadCache = !_.isNil(this.options.incremental)
+      ? this.options.incremental !== false
+      : this.config.get(&apos;incremental&apos;) !== false;
     if (shouldLoadCache) {
       cache.load();
     }
@@ -233,7 +233,7 @@ export default class Reptar {
       );
     }
 
-    _.forEach(this.fileSystem.files, (file) =&gt; {
+    _.forEach(this.fileSystem.files, file =&gt; {
       this.destination[file.destination] = file;
     });
 
@@ -256,17 +256,14 @@ export default class Reptar {
    * @return {Promise} Promise object.
    */
   cleanDestination() {
-    return this._wrapCommand(
-      &apos;Cleaning destination.\t\t\t&apos;,
-      async () =&gt; {
-        await Promise.fromCallback((cb) =&gt; {
-          rimraf(this.config.get(&apos;path.destination&apos;), cb);
-        });
+    return this._wrapCommand(&apos;Cleaning destination.\t\t\t&apos;, async () =&gt; {
+      await Promise.fromCallback(cb =&gt; {
+        rimraf(this.config.get(&apos;path.destination&apos;), cb);
+      });
 
-        // Clear cache.
-        cache.clear();
-      }
-    );
+      // Clear cache.
+      cache.clear();
+    });
   }
 
   /**
@@ -283,12 +280,8 @@ export default class Reptar {
 
     const metadata = this.metadata.get();
 
-    await this._wrapCommand(
-      &apos;Writing destination.\t\t\t&apos;,
-      () =&gt;
-        Promise.all(
-          _.map(this.destination, file =&gt; file.write(metadata))
-        )
+    await this._wrapCommand(&apos;Writing destination.\t\t\t&apos;, () =&gt;
+      Promise.all(_.map(this.destination, file =&gt; file.write(metadata)))
     );
 
     await this._processMiddlewares({
@@ -305,9 +298,8 @@ export default class Reptar {
 
     const tabs = middlewaresKey.length &gt; 11 ? &apos;\t\t&apos; : &apos;\t\t&apos;;
 
-    await this._wrapCommand(
-      `Running &quot;${middlewaresKey}&quot;.${tabs}`,
-      () =&gt; processMiddlewares({ middlewares, reptar: this })
+    await this._wrapCommand(`Running &quot;${middlewaresKey}&quot;.${tabs}`, () =&gt;
+      processMiddlewares({ middlewares, reptar: this })
     );
   }
 
@@ -320,11 +312,13 @@ export default class Reptar {
     try {
       // eslint-disable-next-line
       packageJson = require(Url.pathFromRoot(&apos;./package.json&apos;));
-    } catch (e) { /* ignore */ }
+    } catch (e) {
+      /* ignore */
+    }
 
     return {
       version: packageJson.version,
-      time: moment((new Date()).getTime()).format(),
+      time: moment(new Date().getTime()).format(),
     };
   }
 }

@@ -87,10 +87,7 @@ import LessPluginNpmImport from &apos;less-plugin-npm-import&apos;;
 
 export default {
   calculateDestination(destination) {
-    return destination.replace(
-      /\.less$/,
-      &apos;.css&apos;
-    );
+    return destination.replace(/\.less$/, &apos;.css&apos;);
   },
 
   render(file) {
@@ -112,18 +109,22 @@ export default {
     const rawAsset = fs.readFileSync(filePath, &apos;utf8&apos;);
 
     return new Promise((resolve, reject) =&gt; {
-      less.render(rawAsset, {
-        // Specify search paths for @import directives.
-        paths: [sourcePath],
-        plugins: lessPlugins,
-      }, (e, output) =&gt; {
-        if (e) {
-          reject(e);
-          return;
-        }
+      less.render(
+        rawAsset,
+        {
+          // Specify search paths for @import directives.
+          paths: [sourcePath],
+          plugins: lessPlugins,
+        },
+        (e, output) =&gt; {
+          if (e) {
+            reject(e);
+            return;
+          }
 
-        resolve(output.css);
-      });
+          resolve(output.css);
+        }
+      );
     });
   },
 };

@@ -85,9 +85,7 @@ import sinon from &apos;sinon&apos;;
 import fs from &apos;fs-extra&apos;;
 
 import fixture from &apos;../fixture&apos;;
-import {
-  createMockConfig,
-} from &apos;../utils&apos;;
+import { createMockConfig } from &apos;../utils&apos;;
 
 import Url from &apos;../../lib/url&apos;;
 import Parse from &apos;../../lib/parse&apos;;
@@ -107,7 +105,8 @@ describe(&apos;file File&apos;, () =&gt; {
     const readFileStub = (file, opts, cb) =&gt;
       cb(null, fixture.frontmatterString);
 
-    sandbox.stub(fs, &apos;readFile&apos;)
+    sandbox
+      .stub(fs, &apos;readFile&apos;)
       .callsFake(readFileStub)
       .withArgs(filePath, &apos;utf8&apos;);
 
@@ -195,7 +194,8 @@ describe(&apos;file File&apos;, () =&gt; {
         const readFileStub = (file, opts, cb) =&gt;
           cb(null, fixture.frontmatterString);
 
-        sandbox.stub(fs, &apos;readFile&apos;)
+        sandbox
+          .stub(fs, &apos;readFile&apos;)
           .callsFake(readFileStub)
           .withArgs(filePath, &apos;utf8&apos;);
         sandbox.stub(Parse, &apos;fileHasFrontmatter&apos;).returns(true);
@@ -215,26 +215,18 @@ describe(&apos;file File&apos;, () =&gt; {
 
     it(&apos;applies default values that match&apos;, () =&gt; {
       const promises = [
-        [
-          createFile([&apos;..&apos;, &apos;test.md&apos;]),
-          {},
-        ],
+        [createFile([&apos;..&apos;, &apos;test.md&apos;]), {}],
         [
           createFile([&apos;_posts&apos;, &apos;hello-world.md&apos;], {
             draft: true,
           }),
-          _.defaults(
-            defaults[0].values
-          ),
+          _.defaults(defaults[0].values),
         ],
         [
           createFile([&apos;_posts&apos;, &apos;hello-world.md&apos;], {
             draft: false,
           }),
-          _.defaults(
-            defaults[1].values,
-            defaults[0].values
-          ),
+          _.defaults(defaults[1].values, defaults[0].values),
         ],
         [
           createFile([&apos;_posts&apos;, &apos;2016&apos;, &apos;its-me-again.md&apos;], {
@@ -255,7 +247,7 @@ describe(&apos;file File&apos;, () =&gt; {
         // Make sure that for every expected default it should at least exist
         // as a property on the data object. The value might be different
         // depending if it is over-written but it should exist.
-        Object.keys(expectedValue).forEach((expectedKey) =&gt; {
+        Object.keys(expectedValue).forEach(expectedKey =&gt; {
           assert.ok(instance.data[expectedKey] != null);
         });
       });
@@ -273,22 +265,26 @@ describe(&apos;file File&apos;, () =&gt; {
       await instance.update();
 
       // Should use filePath when no file url or permalink is et.
-      assert.equal(instance.data.url, Url.makePretty(
-        Url.makeUrlFileSystemSafe(
-          Url.replaceMarkdownExtension(
-            filePath,
-            instance._config.get(&apos;markdown.extensions&apos;)
+      assert.equal(
+        instance.data.url,
+        Url.makePretty(
+          Url.makeUrlFileSystemSafe(
+            Url.replaceMarkdownExtension(
+              filePath,
+              instance._config.get(&apos;markdown.extensions&apos;)
+            )
           )
         )
-      ));
+      );
       assert.equal(instance.url, undefined);
 
       // Should use permalink value when no url is set.
       instance.data.permalink = permalinkValue;
       instance._calculateDestination();
-      assert.equal(instance.data.url, Url.makePretty(
-        Url.makeUrlFileSystemSafe(permalinkValue)
-      ));
+      assert.equal(
+        instance.data.url,
+        Url.makePretty(Url.makeUrlFileSystemSafe(permalinkValue))
+      );
       assert.equal(instance.url, undefined);
 
       // Should use File url if set.
@@ -296,9 +292,10 @@ describe(&apos;file File&apos;, () =&gt; {
       instance.frontmatter.url = customPermalinkValue;
       instance.data.permalink = permalinkValue;
       instance._calculateDestination();
-      assert.equal(instance.data.url, Url.makePretty(
-        Url.makeUrlFileSystemSafe(customPermalinkValue)
-      ));
+      assert.equal(
+        instance.data.url,
+        Url.makePretty(Url.makeUrlFileSystemSafe(customPermalinkValue))
+      );
       assert.equal(instance.frontmatter.url, customPermalinkValue);
     });
   });
@@ -310,14 +307,17 @@ describe(&apos;file File&apos;, () =&gt; {
     await instance.update();
 
     assert.strictEqual(instance.url, undefined);
-    assert.equal(instance.data.url, Url.makePretty(
-      Url.makeUrlFileSystemSafe(
-        Url.replaceMarkdownExtension(
-          filePath,
-          instance._config.get(&apos;markdown.extensions&apos;)
+    assert.equal(
+      instance.data.url,
+      Url.makePretty(
+        Url.makeUrlFileSystemSafe(
+          Url.replaceMarkdownExtension(
+            filePath,
+            instance._config.get(&apos;markdown.extensions&apos;)
+          )
         )
       )
-    ));
+    );
 
     const permalink = &apos;whee&apos;;
     instance.data.permalink = permalink;
@@ -327,9 +327,7 @@ describe(&apos;file File&apos;, () =&gt; {
       content: fixture.frontmatterJSON.content,
       ...fixture.frontmatterJSON.data,
       permalink,
-      url: Url.makePretty(
-        Url.makeUrlFileSystemSafe(instance.data.permalink)
-      ),
+      url: Url.makePretty(Url.makeUrlFileSystemSafe(instance.data.permalink)),
     });
   });
 

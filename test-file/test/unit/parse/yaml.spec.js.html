@@ -82,8 +82,7 @@
 import * as yaml from &apos;../../../lib/parse/yaml&apos;;
 
 describe(&apos;parse/yaml&apos;, () =&gt; {
-  const yamlString =
-`
+  const yamlString = `
 foo: bar
 food:
 - pizza
@@ -92,32 +91,20 @@ food:
 
   const yamlAsObj = {
     foo: &apos;bar&apos;,
-    food: [
-      &apos;pizza&apos;,
-      &apos;bagel&apos;,
-    ],
+    food: [&apos;pizza&apos;, &apos;bagel&apos;],
   };
 
   describe(&apos;parse&apos;, () =&gt; {
     it(&apos;empty string&apos;, () =&gt; {
-      assert.deepEqual(
-        yaml.parse(&apos;&apos;),
-        undefined
-      );
+      assert.deepEqual(yaml.parse(&apos;&apos;), undefined);
     });
 
     it(&apos;undefined&apos;, () =&gt; {
-      assert.deepEqual(
-        yaml.parse(undefined),
-        &apos;undefined&apos;
-      );
+      assert.deepEqual(yaml.parse(undefined), &apos;undefined&apos;);
     });
 
     it(&apos;proper yaml string&apos;, () =&gt; {
-      assert.deepEqual(
-        yaml.parse(yamlString),
-        yamlAsObj
-      );
+      assert.deepEqual(yaml.parse(yamlString), yamlAsObj);
     });
   });
 });

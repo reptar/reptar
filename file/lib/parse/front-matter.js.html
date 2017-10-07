@@ -134,7 +134,9 @@ export function fileHasFrontmatter(filePath) {
         // which must match frontmatter delimiter.
         end: 2,
       })
-      .on(&apos;data&apos;, (chunk) =&gt; { chunks += chunk; })
+      .on(&apos;data&apos;, chunk =&gt; {
+        chunks += chunk;
+      })
       .on(&apos;close&apos;, () =&gt; {
         for (const char of chunks) {
           // If one character doesn&apos;t match then this file doesn&apos;t have

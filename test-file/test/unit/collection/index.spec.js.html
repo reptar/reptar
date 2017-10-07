@@ -80,22 +80,20 @@
 <div class="content" data-ice="content"><h1 data-ice="title">test/unit/collection/index.spec.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import assert from &apos;assert&apos;;
 
-import FileSystemCollection from
-  &apos;../../../lib/collection/type/file-system&apos;;
+import FileSystemCollection from &apos;../../../lib/collection/type/file-system&apos;;
 import MetadataCollection from &apos;../../../lib/collection/type/metadata&apos;;
-import {
-  createCollection,
-} from &apos;../../../lib/collection/index&apos;;
+import { createCollection } from &apos;../../../lib/collection/index&apos;;
 
 describe(&apos;collection/index&apos;, () =&gt; {
   describe(&apos;create&apos;, () =&gt; {
     it(&apos;creates the right Collection class&apos;, () =&gt; {
-      assert(createCollection(&apos;name&apos;, {
-      }) instanceof FileSystemCollection);
+      assert(createCollection(&apos;name&apos;, {}) instanceof FileSystemCollection);
 
-      assert(createCollection(&apos;name&apos;, {
-        metadata: &apos;whee&apos;,
-      }) instanceof MetadataCollection);
+      assert(
+        createCollection(&apos;name&apos;, {
+          metadata: &apos;whee&apos;,
+        }) instanceof MetadataCollection
+      );
     });
   });
 });

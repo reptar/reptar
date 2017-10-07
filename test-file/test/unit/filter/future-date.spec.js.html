@@ -84,43 +84,70 @@ import futureDate from &apos;../../../lib/filter/future-date&apos;;
 
 describe(&apos;filter/future-date futureDate&apos;, () =&gt; {
   it(&apos;should default to use date as key value&apos;, () =&gt; {
-    assert.equal(futureDate({
-      data: {
-        date: Date.now() - 1000,
-      },
-    }), false);
+    assert.equal(
+      futureDate({
+        data: {
+          date: Date.now() - 1000,
+        },
+      }),
+      false
+    );
 
-    assert.equal(futureDate({
-      data: {
-        date: Date.now() + 1000,
-      },
-    }), true);
+    assert.equal(
+      futureDate({
+        data: {
+          date: Date.now() + 1000,
+        },
+      }),
+      true
+    );
 
-    assert.equal(futureDate({
-      data: {
-        dateKey: Date.now() + 1000,
-      },
-    }), false);
+    assert.equal(
+      futureDate({
+        data: {
+          dateKey: Date.now() + 1000,
+        },
+      }),
+      false
+    );
   });
 
   it(&apos;should allow setting of what date key to use&apos;, () =&gt; {
-    assert.equal(futureDate({
-      data: {
-        whee: Date.now() - 1000,
-      },
-    }, { key: &apos;whee&apos; }), false);
+    assert.equal(
+      futureDate(
+        {
+          data: {
+            whee: Date.now() - 1000,
+          },
+        },
+        { key: &apos;whee&apos; }
+      ),
+      false
+    );
 
-    assert.equal(futureDate({
-      data: {
-        whee: Date.now() + 1000,
-      },
-    }, { key: &apos;whee&apos; }), true);
+    assert.equal(
+      futureDate(
+        {
+          data: {
+            whee: Date.now() + 1000,
+          },
+        },
+        { key: &apos;whee&apos; }
+      ),
+      true
+    );
 
-    assert.equal(futureDate({
-      data: {
-        date: Date.now() + 1000,
-      },
-    }, { key: &apos;whee&apos; }), false);
+    assert.equal(
+      futureDate(
+        {
+          data: {
+            date: Date.now() + 1000,
+          },
+        },
+        { key: &apos;whee&apos; }
+      ),
+      false
+    );
   });
 });
 </code></pre>

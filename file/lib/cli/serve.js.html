@@ -103,9 +103,7 @@ export default async function serve() {
     port: config.get(&apos;server.port&apos;),
   });
 
-  await server.register([
-    inert,
-  ]);
+  await server.register([inert]);
 
   server.route({
     method: &apos;GET&apos;,

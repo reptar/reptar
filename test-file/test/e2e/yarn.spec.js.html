@@ -84,10 +84,7 @@ import sinon from &apos;sinon&apos;;
 import _ from &apos;lodash&apos;;
 import fs from &apos;fs-extra&apos;;
 
-import {
-  getAllFilePaths,
-  simpleSite,
-} from &apos;../utils&apos;;
+import { getAllFilePaths, simpleSite } from &apos;../utils&apos;;
 
 import Reptar from &apos;../../lib/index&apos;;
 import cache from &apos;../../lib/cache&apos;;
@@ -145,7 +142,7 @@ describe(&apos;reptar Reptar&apos;, function test() {
   });
 
   it(&apos;has not called any lifecycle functions&apos;, () =&gt; {
-    _.forEach(instance._test.lifecycle, (val) =&gt; {
+    _.forEach(instance._test.lifecycle, val =&gt; {
       assert(_.isArray(val));
       assert.equal(val.length, 0);
     });
@@ -182,18 +179,13 @@ describe(&apos;reptar Reptar&apos;, function test() {
     });
 
     it(&apos;willUpdate is called before didUpdate&apos;, () =&gt; {
-      const {
-        willUpdate,
-        didUpdate,
-      } = instance._test.lifecycle;
+      const { willUpdate, didUpdate } = instance._test.lifecycle;
 
       assert(willUpdate[0] &lt; didUpdate[0]);
     });
 
     it(&apos;didUpdate is called before the first middleware&apos;, () =&gt; {
-      const {
-        didUpdate,
-      } = instance._test.lifecycle;
+      const { didUpdate } = instance._test.lifecycle;
 
       assert(didUpdate[0] &lt; instance._test.middlewares[0]);
     });
@@ -208,11 +200,12 @@ describe(&apos;reptar Reptar&apos;, function test() {
 
     describe(&apos;and when build is called&apos;, () =&gt; {
       function makePathsRelative(basePath) {
-        return allPaths =&gt; allPaths.reduce((acc, absPath) =&gt; {
-          const relativePath = absPath.replace(basePath, &apos;&apos;);
-          acc[relativePath] = absPath;
-          return acc;
-        }, {});
+        return allPaths =&gt;
+          allPaths.reduce((acc, absPath) =&gt; {
+            const relativePath = absPath.replace(basePath, &apos;&apos;);
+            acc[relativePath] = absPath;
+            return acc;
+          }, {});
       }
 
       let expectedFiles;
@@ -221,11 +214,13 @@ describe(&apos;reptar Reptar&apos;, function test() {
       before(async () =&gt; {
         await instance.build();
 
-        expectedFiles = await getAllFilePaths(simpleSite.expected)
-          .then(makePathsRelative(simpleSite.expected));
+        expectedFiles = await getAllFilePaths(simpleSite.expected).then(
+          makePathsRelative(simpleSite.expected)
+        );
 
-        generatedFiles = await getAllFilePaths(generatedOutputDir)
-          .then(makePathsRelative(generatedOutputDir));
+        generatedFiles = await getAllFilePaths(generatedOutputDir).then(
+          makePathsRelative(generatedOutputDir)
+        );
       });
 
       it(&apos;has the same number of files generated&apos;, () =&gt; {
@@ -252,22 +247,16 @@ describe(&apos;reptar Reptar&apos;, function test() {
       });
 
       it(&apos;last middleware is called before willBuild&apos;, () =&gt; {
-        const {
-          willBuild,
-        } = instance._test.lifecycle;
+        const { willBuild } = instance._test.lifecycle;
 
-        const lastMiddleware = instance._test.middlewares[
-          instance._test.middlewares.length - 1
-        ];
+        const lastMiddleware =
+          instance._test.middlewares[instance._test.middlewares.length - 1];
 
         assert(lastMiddleware &lt; willBuild[0]);
       });
 
       it(&apos;willBuild is called before didBuild&apos;, () =&gt; {
-        const {
-          willBuild,
-          didBuild,
-        } = instance._test.lifecycle;
+        const { willBuild, didBuild } = instance._test.lifecycle;
 
         assert(willBuild[0] &lt; didBuild[0]);
       });

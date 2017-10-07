@@ -83,15 +83,12 @@ import sinon from &apos;sinon&apos;;
 import _ from &apos;lodash&apos;;
 
 import fixture from &apos;../../../fixture&apos;;
-import {
-  createMockConfig,
-} from &apos;../../../utils&apos;;
+import { createMockConfig } from &apos;../../../utils&apos;;
 
 import CollectionPage from &apos;../../../../lib/collection/page&apos;;
 
 import CollectionBase from &apos;../../../../lib/collection/base&apos;;
-import MetadataCollection from
-  &apos;../../../../lib/collection/type/metadata&apos;;
+import MetadataCollection from &apos;../../../../lib/collection/type/metadata&apos;;
 
 describe(&apos;collection/type/metadata MetadataCollection&apos;, () =&gt; {
   const config = createMockConfig();
@@ -106,7 +103,7 @@ describe(&apos;collection/type/metadata MetadataCollection&apos;, () =&gt; {
   });
 
   describe(&apos;_isFileInCollection&apos;, () =&gt; {
-    it(&apos;is false if file does not have collection\&apos;s metadata key&apos;, () =&gt; {
+    it(&quot;is false if file does not have collection&apos;s metadata key&quot;, () =&gt; {
       const instance = new MetadataCollection(&apos;name&apos;);
       instance.metadata = &apos;soMeta&apos;;
 
@@ -121,7 +118,7 @@ describe(&apos;collection/type/metadata MetadataCollection&apos;, () =&gt; {
       assert.equal(instance._isFileInCollection(file), false);
     });
 
-    it(&apos;is true if file has collection\&apos;s metadata key&apos;, () =&gt; {
+    it(&quot;is true if file has collection&apos;s metadata key&quot;, () =&gt; {
       const instance = new MetadataCollection(&apos;name&apos;);
       instance.metadata = &apos;soMeta&apos;;
 
@@ -158,24 +155,20 @@ describe(&apos;collection/type/metadata MetadataCollection&apos;, () =&gt; {
       assert(_.isUndefined(instance.files));
       assert(typeof instance.metadataFiles === &apos;object&apos;);
 
-      assert.equal(
-        Object.keys(instance.metadataFiles).length,
-        files.length
-      );
+      assert.equal(Object.keys(instance.metadataFiles).length, files.length);
 
       assert.equal(instance.metadataFiles[&apos;norman&apos;].length, 2);
       assert.equal(instance.metadataFiles[&apos;rockwell&apos;].length, 1);
       assert.equal(instance.metadataFiles[&apos;null&apos;].length, 1);
 
-      assert(_.isEqual(
-        instance.metadataFiles[&apos;norman&apos;],
-        [files[0], files[1]]
-      ));
+      assert(_.isEqual(instance.metadataFiles[&apos;norman&apos;], [files[0], files[1]]));
 
-      assert(_.isEqual(
-        Object.keys(instance.metadataFiles),
-        Object.keys(instance.data.metadata)
-      ));
+      assert(
+        _.isEqual(
+          Object.keys(instance.metadataFiles),
+          Object.keys(instance.data.metadata)
+        )
+      );
     });
 
     it(&apos;does not add files to collection&apos;, () =&gt; {
@@ -195,18 +188,11 @@ describe(&apos;collection/type/metadata MetadataCollection&apos;, () =&gt; {
       assert(_.isUndefined(instance.files));
       assert(typeof instance.metadataFiles === &apos;object&apos;);
 
-      assert.equal(
-        Object.keys(instance.metadataFiles).length,
-        0
-      );
+      assert.equal(Object.keys(instance.metadataFiles).length, 0);
 
-      assert.equal(
-        Object.keys(instance.data.metadata).length,
-        0
-      );
+      assert.equal(Object.keys(instance.data.metadata).length, 0);
     });
   });
-
 
   describe(&apos;createCollectionPages&apos;, () =&gt; {
     it(&apos;returns early if no pagination permalinks are set&apos;, () =&gt; {
@@ -251,9 +237,8 @@ describe(&apos;collection/type/metadata MetadataCollection&apos;, () =&gt; {
         // This if statement just moves the pointer so we&apos;re interacting with
         // the right page data.
         let index = realIndex;
-        let expectedPermalink = index === 0 ?
-          instance.permalink.index :
-          instance.permalink.page;
+        let expectedPermalink =
+          index === 0 ? instance.permalink.index : instance.permalink.page;
         if (realIndex === 2) {
           index = 0;
           expectedPermalink = instance.permalink.index;

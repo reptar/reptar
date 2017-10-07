@@ -96,26 +96,25 @@ export default {
     bundle.transform(
       babelify.configure({
         presets: [
-          [require.resolve(&apos;babel-preset-env&apos;), {
-            targets: {
-              browsers: [&apos;last 2 versions&apos;],
+          [
+            require.resolve(&apos;babel-preset-env&apos;),
+            {
+              targets: {
+                browsers: [&apos;last 2 versions&apos;],
+              },
+              uglify: true,
             },
-            uglify: true,
-          }],
+          ],
         ],
       })
     );
 
-    bundle.transform(
-      uglifyify
-    );
+    bundle.transform(uglifyify);
 
     return new Promise((resolve, reject) =&gt; {
       bundle.bundle((err, buffer) =&gt; {
         if (err) {
-          const e = new Error(
-            `Unable to browserify ${filePath}.\n${err}`
-          );
+          const e = new Error(`Unable to browserify ${filePath}.\n${err}`);
           e.stack = err.stack;
           reject(e);
         } else {

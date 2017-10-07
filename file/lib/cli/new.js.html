@@ -97,24 +97,21 @@ const newTypes = {
         validate: input =&gt; !_.isNil(input),
       },
     ],
-    template: data =&gt; (
-`---
+    template: data =&gt;
+      `---
 title: ${data.title}
 date: ${data.date}
 ---
-`
-    ),
+`,
   },
 };
 
-export default async function (args) {
+export default async function(args) {
   const newTypeKey = args._[1];
   const newType = newTypes[newTypeKey];
   if (_.isNil(newType)) {
     log.error(`Unknown type: &apos;${newTypeKey}&apos;.`);
-    log.error(
-      `Types supported: ${Object.keys(newTypes).join(&apos;,&apos;)}`
-    );
+    log.error(`Types supported: ${Object.keys(newTypes).join(&apos;,&apos;)}`);
     log.error(&apos;Use via: reptar new &lt;type&gt;&apos;);
     process.exit(0);
   }

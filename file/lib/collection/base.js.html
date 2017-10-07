@@ -217,7 +217,8 @@ export default class CollectionBase {
    * @param {File} file File object.
    * @return {boolean} Whether this file should be filtered out.
    */
-  isFiltered(file) { // eslint-disable-line class-methods-use-this
+  // eslint-disable-next-line class-methods-use-this
+  isFiltered(file) {
     return file.filtered === true;
   }
 
@@ -228,7 +229,8 @@ export default class CollectionBase {
    *   collections.
    * @return {CollectionBase}
    */
-  populate(files = {}, collections = {}) { // eslint-disable-line no-unused-vars
+  // eslint-disable-next-line no-unused-vars
+  populate(files = {}, collections = {}) {
     return this;
   }
 
@@ -250,9 +252,7 @@ export default class CollectionBase {
       renderer: this._renderer,
     });
 
-    page.permalink = index === 0 ?
-      this.permalink.index :
-      this.permalink.page;
+    page.permalink = index === 0 ? this.permalink.index : this.permalink.page;
 
     // Give each CollectionPage what template it should use.
     page.data.template = this.template;
@@ -302,7 +302,6 @@ export default class CollectionBase {
     return Promise.all(pagePromises);
   }
 
-
   /**
    * Sorts files according to a sort config object.
    * @param {Array.&lt;File&gt;} files Array of File objects.
@@ -317,7 +316,7 @@ export default class CollectionBase {
     if (validSortConfig &amp;&amp; hasFiles) {
       // Convert a File&apos;s date value to a time stamp for sorting.
       const getFileDateTime = file =&gt;
-         moment(file.data[sortConfig.key], dateFormat)
+        moment(file.data[sortConfig.key], dateFormat)
           .toDate()
           .getTime();
 
@@ -325,9 +324,9 @@ export default class CollectionBase {
       const sortIsDate = getFileDateTime(files[0]) &gt; 0;
 
       // eslint-disable-next-line no-param-reassign
-      files = _.sortBy(files, sortIsDate ?
-        getFileDateTime :
-        `data[${sortConfig.key}]`
+      files = _.sortBy(
+        files,
+        sortIsDate ? getFileDateTime : `data[${sortConfig.key}]`
       );
 
       if (sortConfig.order === &apos;descending&apos;) {

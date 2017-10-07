@@ -115,7 +115,7 @@ const cache = {
 
     try {
       data = JSON.parse(fs.readFileSync(filename));
-    } catch (err) { }
+    } catch (err) {}
   },
 
   save() {
@@ -129,7 +129,7 @@ const cache = {
       content = JSON.stringify(data, null, &apos;  &apos;);
     } catch (err) {
       if (err.message === &apos;Invalid string length&apos;) {
-        err.message = &apos;Cache too large so it\&apos;s been cleared.&apos;;
+        err.message = &quot;Cache too large so it&apos;s been cleared.&quot;;
         log.error(err.stack);
       } else {
         throw err;

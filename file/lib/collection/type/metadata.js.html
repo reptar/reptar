@@ -129,7 +129,7 @@ export default class MetadataCollection extends CollectionBase {
       metadataValues = [metadataValues];
     }
 
-    metadataValues.forEach((rawValue) =&gt; {
+    metadataValues.forEach(rawValue =&gt; {
       // Slugify each value to make sure there&apos;s no collisions when we write
       // CollectionPages to disk. This prevents `open source` and `open-source`
       // from being in two different keys but both writing to the same
@@ -159,7 +159,7 @@ export default class MetadataCollection extends CollectionBase {
     this.data.metadata = {};
 
     // Store files that are in our collection.
-    _.each(files, (file) =&gt; {
+    _.each(files, file =&gt; {
       // Don&apos;t return value so we iterate over every file.
       this.addFile(file);
     });
@@ -222,7 +222,7 @@ export default class MetadataCollection extends CollectionBase {
 
           // Create a map of the metadataKey to its full URL on the file object.
           // Useful when rendering and wanting to link out to the metadata page.
-          pageFiles.forEach((file) =&gt; {
+          pageFiles.forEach(file =&gt; {
             file.data.metadataUrls = file.data.metadataUrls || {};
             file.data.metadataUrls[metadataKey] = collectionPage.data.url;
           });
@@ -235,23 +235,23 @@ export default class MetadataCollection extends CollectionBase {
 
     this._linkPages(
       // ShouldLinkPrevious
-      (previous, collectionPage) =&gt; (
+      (previous, collectionPage) =&gt;
         // With metadata collections all pages aren&apos;t made in the same context.
         // i.e. for a tag metadata collection you&apos;ll have 3 pages with metadata
         // value of &apos;review&apos;, and 2 pages of value &apos;tutorial&apos;. These different
         // metadata values should not be linked.
-        previous &amp;&amp; this.metadataFiles &amp;&amp;
-          previous.data.metadata === collectionPage.data.metadata
-      ),
+        previous &amp;&amp;
+        this.metadataFiles &amp;&amp;
+        previous.data.metadata === collectionPage.data.metadata,
       // ShouldLinkNext
-      (next, collectionPage) =&gt; (
+      (next, collectionPage) =&gt;
         // With metadata collections all pages aren&apos;t made in the same context.
         // i.e. for a tag metadata collection you&apos;ll have 3 pages with metadata
         // value of &apos;review&apos;, and 2 pages of value &apos;tutorial&apos;. These different
         // metadata values should not be linked.
-        next &amp;&amp; this.metadataFiles &amp;&amp;
-          next.data.metadata === collectionPage.data.metadata
-      )
+        next &amp;&amp;
+        this.metadataFiles &amp;&amp;
+        next.data.metadata === collectionPage.data.metadata
     );
 
     return true;

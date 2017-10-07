@@ -93,13 +93,17 @@ import Parse from &apos;./parse&apos;;
  */
 export async function readDataFiles(dataPath = &apos;&apos;) {
   // Read all files from disk and get their file paths.
-  const filePaths = await Promise.fromCallback((cb) =&gt; {
-    glob(`${dataPath}/**/*.{json,yml,yaml}`, {
-      // Do not match directories, only files.
-      nodir: true,
-      // Follow symlinks.
-      follow: true,
-    }, cb);
+  const filePaths = await Promise.fromCallback(cb =&gt; {
+    glob(
+      `${dataPath}/**/*.{json,yml,yaml}`,
+      {
+        // Do not match directories, only files.
+        nodir: true,
+        // Follow symlinks.
+        follow: true,
+      },
+      cb
+    );
   }).map(filePath =&gt;
     // Correct the filePath created by glob to be compatible with Windows.
     // Known issue in node-glob https://github.com/isaacs/node-glob/pull/263.
@@ -117,18 +121,21 @@ export async function readDataFiles(dataPath = &apos;&apos;) {
     // into
     // [&apos;friends&apos;, &apos;angelica&apos;]
     // So we can use it with _.set.
-    dataPath: path.relative(
-      dataPath,
-      path.join(
-        path.dirname(filePath),
-        path.basename(filePath, path.extname(filePath))
+    dataPath: path
+      .relative(
+        dataPath,
+        path.join(
+          path.dirname(filePath),
+          path.basename(filePath, path.extname(filePath))
+        )
       )
-    ).split(path.sep),
+      .split(path.sep),
   }));
 
-  return files.reduce((acc, file) =&gt;
-    // Set file&apos;s contents on the corresponding path.
-    _.set(acc, file.dataPath, file.content),
+  return files.reduce(
+    (acc, file) =&gt;
+      // Set file&apos;s contents on the corresponding path.
+      _.set(acc, file.dataPath, file.content),
     {}
   );
 }

@@ -78,8 +78,7 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/filter/future-date.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
-/**
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
  * Future date filter. Checks if a file&apos;s date occurs in the future.
  * @param {File} file File we&apos;re checking.
  * @param {Object} filterConfig Filter config object.
@@ -90,7 +89,7 @@ export default function futureDatesFilter(file, filterConfig = {}) {
   const fileDate = new Date(file.data[dateKey]).getTime();
 
   // If the date is in the future we have a positive number.
-  return (fileDate - Date.now()) &gt; 0;
+  return fileDate - Date.now() &gt; 0;
 }
 </code></pre>
 

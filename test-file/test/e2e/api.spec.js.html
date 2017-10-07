@@ -83,9 +83,7 @@ import assert from &apos;assert&apos;;
 import sinon from &apos;sinon&apos;;
 import fs from &apos;fs-extra&apos;;
 
-import {
-  simpleSite,
-} from &apos;../utils&apos;;
+import { simpleSite } from &apos;../utils&apos;;
 
 import Reptar from &apos;../../lib/index&apos;;
 import { ApiService } from &apos;../../lib/server/api&apos;;
@@ -144,9 +142,7 @@ describe(&apos;api&apos;, function test() {
   });
 
   describe(&apos;config handlers&apos;, () =&gt; {
-    beforeEach(() =&gt;
-      apiService.config.get(request, reply)
-    );
+    beforeEach(() =&gt; apiService.config.get(request, reply));
 
     it(&apos;returns the config object&apos;, () =&gt; {
       assert(reply.firstCall.calledWith(instance.config.get()));
@@ -156,9 +152,7 @@ describe(&apos;api&apos;, function test() {
   describe(&apos;files.get handler&apos;, () =&gt; {
     let response;
 
-    function commonAssertions({
-      expectedLength,
-    }) {
+    function commonAssertions({ expectedLength }) {
       it(&apos;returns an array&apos;, () =&gt; {
         assert.equal(typeof response.length, &apos;number&apos;);
       });
@@ -179,7 +173,7 @@ describe(&apos;api&apos;, function test() {
       });
 
       commonAssertions({
-        expectedLength: 14,
+        expectedLength: 15,
       });
     });
 
@@ -199,9 +193,7 @@ describe(&apos;api&apos;, function test() {
       });
 
       it(&apos;every item is filtered&apos;, () =&gt; {
-        response.forEach(file =&gt;
-          assert.equal(file.filtered, true)
-        );
+        response.forEach(file =&gt; assert.equal(file.filtered, true));
       });
     });
 
@@ -217,13 +209,11 @@ describe(&apos;api&apos;, function test() {
       });
 
       commonAssertions({
-        expectedLength: 13,
+        expectedLength: 14,
       });
 
       it(&apos;every item is not filtered&apos;, () =&gt; {
-        response.forEach(file =&gt;
-          assert.equal(file.filtered, false)
-        );
+        response.forEach(file =&gt; assert.equal(file.filtered, false));
       });
     });
 
@@ -239,13 +229,11 @@ describe(&apos;api&apos;, function test() {
       });
 
       commonAssertions({
-        expectedLength: 6,
+        expectedLength: 7,
       });
 
       it(&apos;every item is skipProcessing&apos;, () =&gt; {
-        response.forEach(file =&gt;
-          assert.equal(file.skipProcessing, true)
-        );
+        response.forEach(file =&gt; assert.equal(file.skipProcessing, true));
       });
     });
 
@@ -265,9 +253,7 @@ describe(&apos;api&apos;, function test() {
       });
 
       it(&apos;every item is skipProcessing&apos;, () =&gt; {
-        response.forEach(file =&gt;
-          assert.equal(file.skipProcessing, false)
-        );
+        response.forEach(file =&gt; assert.equal(file.skipProcessing, false));
       });
     });
 
@@ -287,9 +273,7 @@ describe(&apos;api&apos;, function test() {
       });
 
       it(&apos;every item is assetProcessor&apos;, () =&gt; {
-        response.forEach(file =&gt;
-          assert(file.assetProcessor)
-        );
+        response.forEach(file =&gt; assert(file.assetProcessor));
       });
     });
 
@@ -305,13 +289,11 @@ describe(&apos;api&apos;, function test() {
       });
 
       commonAssertions({
-        expectedLength: 9,
+        expectedLength: 10,
       });
 
       it(&apos;every item is assetProcessor&apos;, () =&gt; {
-        response.forEach(file =&gt;
-          assert.equal(file.assetProcessor, null)
-        );
+        response.forEach(file =&gt; assert.equal(file.assetProcessor, null));
       });
     });
 
@@ -446,9 +428,7 @@ describe(&apos;api&apos;, function test() {
   describe(&apos;collections.get handler&apos;, () =&gt; {
     let response;
 
-    function commonAssertions({
-      expectedLength,
-    }) {
+    function commonAssertions({ expectedLength }) {
       it(&apos;returns an array&apos;, () =&gt; {
         assert.equal(typeof response.length, &apos;number&apos;);
       });
@@ -499,11 +479,7 @@ describe(&apos;api&apos;, function test() {
       commonOneCollection({ id });
 
       it(&apos;the object does not have properties that excluded by default&apos;, () =&gt; {
-        [
-          &apos;pages&apos;,
-          &apos;files&apos;,
-          &apos;data&apos;,
-        ].forEach(prop =&gt;
+        [&apos;pages&apos;, &apos;files&apos;, &apos;data&apos;].forEach(prop =&gt;
           assert.equal(typeof response[prop], &apos;undefined&apos;)
         );
       });
@@ -530,18 +506,14 @@ describe(&apos;api&apos;, function test() {
       });
 
       it(&apos;the object does not have properties that excluded by default&apos;, () =&gt; {
-        [
-          &apos;files&apos;,
-          &apos;data&apos;,
-        ].forEach(prop =&gt;
+        [&apos;files&apos;, &apos;data&apos;].forEach(prop =&gt;
           assert.equal(typeof response[prop], &apos;undefined&apos;)
         );
       });
     });
 
-    describe(
-      &apos;when requesting one collection with multiple include values&apos;,
-    () =&gt; {
+    // eslint-disable-next-line max-len
+    describe(&apos;when requesting one collection with multiple include values&apos;, () =&gt; {
       const id = &apos;post&apos;;
 
       beforeEach(async () =&gt; {
@@ -570,9 +542,7 @@ describe(&apos;api&apos;, function test() {
       });
 
       it(&apos;the object does not have properties that excluded by default&apos;, () =&gt; {
-        [
-          &apos;data&apos;,
-        ].forEach(prop =&gt;
+        [&apos;data&apos;].forEach(prop =&gt;
           assert.equal(typeof response[prop], &apos;undefined&apos;)
         );
       });

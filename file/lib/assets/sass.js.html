@@ -82,26 +82,26 @@
 
 export default {
   calculateDestination(destination) {
-    return destination.replace(
-      /\.s[ac]ss$/,
-      &apos;.css&apos;
-    );
+    return destination.replace(/\.s[ac]ss$/, &apos;.css&apos;);
   },
 
   render(file) {
     const { path: filePath } = file;
 
     return new Promise((resolve, reject) =&gt; {
-      sass.render({
-        file: filePath,
-      }, (e, result) =&gt; {
-        if (e) {
-          reject(e);
-          return;
-        }
+      sass.render(
+        {
+          file: filePath,
+        },
+        (e, result) =&gt; {
+          if (e) {
+            reject(e);
+            return;
+          }
 
-        resolve(result.css);
-      });
+          resolve(result.css);
+        }
+      );
     });
   },
 };

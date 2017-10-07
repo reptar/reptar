@@ -78,10 +78,7 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">lib/renderer/renderer.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {
-  renderMarkdown,
-  createMarkdownEngine,
-} from &apos;./markdown&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { renderMarkdown, createMarkdownEngine } from &apos;./markdown&apos;;
 import {
   renderTemplate,
   renderTemplateString,
@@ -111,12 +108,15 @@ export default class Renderer {
       noCache: noTemplateCache,
     });
 
-    this.renderTemplate = renderTemplate
-      .bind(undefined, this._nunjucksEnv);
-    this.renderTemplateString = renderTemplateString
-      .bind(undefined, this._nunjucksEnv);
-    this.addTemplateFilter = addTemplateFilter
-      .bind(undefined, this._nunjucksEnv);
+    this.renderTemplate = renderTemplate.bind(undefined, this._nunjucksEnv);
+    this.renderTemplateString = renderTemplateString.bind(
+      undefined,
+      this._nunjucksEnv
+    );
+    this.addTemplateFilter = addTemplateFilter.bind(
+      undefined,
+      this._nunjucksEnv
+    );
   }
 
   getMarkdownEngine() {

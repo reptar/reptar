@@ -90,12 +90,16 @@ export default function prunePrivateProperties(
   obj,
   isPrivate = (val, key) =&gt; key[0] === &apos;_&apos;
 ) {
-  return _.reduce(obj, (acc, val, key) =&gt; {
-    if (!isPrivate(val, key)) {
-      acc[key] = val;
-    }
-    return acc;
-  }, {});
+  return _.reduce(
+    obj,
+    (acc, val, key) =&gt; {
+      if (!isPrivate(val, key)) {
+        acc[key] = val;
+      }
+      return acc;
+    },
+    {}
+  );
 }
 </code></pre>
 

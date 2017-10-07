@@ -80,38 +80,34 @@
 <div class="content" data-ice="content"><h1 data-ice="title">lib/config/config-schema.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Joi from &apos;joi&apos;;
 
-const middlewareOrLifecycleSchema = Joi.alternatives().try(
-  Joi.string(),
-  Joi.func(),
-  Joi.array().items(Joi.string(), Joi.func())
-).default([]);
+const middlewareOrLifecycleSchema = Joi.alternatives()
+  .try(Joi.string(), Joi.func(), Joi.array().items(Joi.string(), Joi.func()))
+  .default([]);
 
 const regExpSchema = Joi.object().type(RegExp);
 
 export default Joi.object({
   site: Joi.object().default(),
   path: Joi.object({
-    source: Joi.string()
-      .default(&apos;./&apos;),
-    destination: Joi.string()
-      .default(&apos;./_site&apos;),
-    templates: Joi.string()
-      .default(&apos;./_templates&apos;),
-    data: Joi.string()
-      .default(&apos;./_data&apos;),
+    source: Joi.string().default(&apos;./&apos;),
+    destination: Joi.string().default(&apos;./_site&apos;),
+    templates: Joi.string().default(&apos;./_templates&apos;),
+    data: Joi.string().default(&apos;./_data&apos;),
   }).default(),
   file: Joi.object({
     urlKey: Joi.string().default(&apos;url&apos;),
     dateFormat: Joi.string().default(&apos;YYYY-M-D&apos;),
-    defaults: Joi.array().items(
-      Joi.object({
-        scope: Joi.object({
-          path: Joi.string().allow(&apos;&apos;),
-          metadata: Joi.object(),
-        }),
-        values: Joi.object(),
-      })
-    ).default([]),
+    defaults: Joi.array()
+      .items(
+        Joi.object({
+          scope: Joi.object({
+            path: Joi.string().allow(&apos;&apos;),
+            metadata: Joi.object(),
+          }),
+          values: Joi.object(),
+        })
+      )
+      .default([]),
     filters: Joi.object({
       metadata: Joi.object(),
       futureDate: Joi.object({
@@ -119,40 +115,41 @@ export default Joi.object({
       }),
     }).default({}),
   }).default(),
-  collections: Joi.object().pattern(/\w/, Joi.object({
-    path: Joi.string(),
-    metadata: Joi.string(),
-    template: Joi.string().default(&apos;index&apos;),
-    pageSize: Joi.number().default(6),
-    sort: Joi.object({
-      key: Joi.string().default(&apos;date&apos;),
-      order: Joi.string().default(&apos;descending&apos;),
-    }),
-    permalink: Joi.object({
-      index: Joi.string().default(&apos;/&apos;),
-      page: Joi.string().default(&apos;/page/:page/&apos;),
-    }),
-  }).without(&apos;path&apos;, &apos;metadata&apos;)),
-  assets: Joi.array().items(
+  collections: Joi.object().pattern(
+    /\w/,
     Joi.object({
-      test: Joi.alternatives().try(
-        Joi.string(),
-        Joi.func(),
-        regExpSchema
-      ),
-      use: Joi.alternatives().try(
-        Joi.string(),
-        Joi.object({
-          calculateDestination: Joi.func().required(),
-          render: Joi.func().required(),
-        })
-      ),
-    })
-  ).default([
-    { test: /\.less$/, use: &apos;less&apos; },
-    { test: /\.js$/, use: &apos;browserify&apos; },
-    { test: /\.s[ac]ss$/, use: &apos;sass&apos; },
-  ]),
+      path: Joi.string(),
+      metadata: Joi.string(),
+      template: Joi.string().default(&apos;index&apos;),
+      pageSize: Joi.number().default(6),
+      sort: Joi.object({
+        key: Joi.string().default(&apos;date&apos;),
+        order: Joi.string().default(&apos;descending&apos;),
+      }),
+      permalink: Joi.object({
+        index: Joi.string().default(&apos;/&apos;),
+        page: Joi.string().default(&apos;/page/:page/&apos;),
+      }),
+    }).without(&apos;path&apos;, &apos;metadata&apos;)
+  ),
+  assets: Joi.array()
+    .items(
+      Joi.object({
+        test: Joi.alternatives().try(Joi.string(), Joi.func(), regExpSchema),
+        use: Joi.alternatives().try(
+          Joi.string(),
+          Joi.object({
+            calculateDestination: Joi.func().required(),
+            render: Joi.func().required(),
+          })
+        ),
+      })
+    )
+    .default([
+      { test: /\.less$/, use: &apos;less&apos; },
+      { test: /\.js$/, use: &apos;browserify&apos; },
+      { test: /\.s[ac]ss$/, use: &apos;sass&apos; },
+    ]),
   cleanDestination: Joi.boolean().default(false),
   slug: Joi.object({
     lower: Joi.boolean().default(true),
@@ -167,27 +164,27 @@ export default Joi.object({
     ]),
     options: Joi.object({
       preset: Joi.string().default(&apos;commonmark&apos;),
-      highlight: Joi.any().valid(
-        &apos;prism&apos;,
-        &apos;highlightjs&apos;,
-        true,
-        false
-      ).default(true),
-    }).unknown(true).default(),
+      highlight: Joi.any()
+        .valid(&apos;prism&apos;, &apos;highlightjs&apos;, true, false)
+        .default(true),
+    })
+      .unknown(true)
+      .default(),
   }).default(),
   server: Joi.object({
     port: Joi.number().default(8080),
     host: Joi.string().default(&apos;127.0.0.1&apos;),
-    baseurl: Joi.string().allow(&apos;&apos;).default(&apos;&apos;),
+    baseurl: Joi.string()
+      .allow(&apos;&apos;)
+      .default(&apos;&apos;),
   }).default(),
-  ignore: Joi.array().items(
-    Joi.string(),
-    Joi.func(),
-    regExpSchema
-  ).default([]),
+  ignore: Joi.array()
+    .items(Joi.string(), Joi.func(), regExpSchema)
+    .default([]),
   incremental: Joi.boolean().default(true),
-  newFilePermalink: Joi.string()
-    .default(&apos;/_posts/:date|YYYY-:date|MM-:date|D-:title.md&apos;),
+  newFilePermalink: Joi.string().default(
+    &apos;/_posts/:date|YYYY-:date|MM-:date|D-:title.md&apos;
+  ),
   middlewares: middlewareOrLifecycleSchema,
   lifecycle: Joi.object({
     willUpdate: middlewareOrLifecycleSchema,
