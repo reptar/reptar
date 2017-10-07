@@ -93,7 +93,7 @@ describe('api', function test() {
       });
 
       commonAssertions({
-        expectedLength: 14,
+        expectedLength: 15,
       });
     });
 
@@ -129,7 +129,7 @@ describe('api', function test() {
       });
 
       commonAssertions({
-        expectedLength: 13,
+        expectedLength: 14,
       });
 
       it('every item is not filtered', () => {
@@ -149,7 +149,7 @@ describe('api', function test() {
       });
 
       commonAssertions({
-        expectedLength: 6,
+        expectedLength: 7,
       });
 
       it('every item is skipProcessing', () => {
@@ -209,7 +209,7 @@ describe('api', function test() {
       });
 
       commonAssertions({
-        expectedLength: 9,
+        expectedLength: 10,
       });
 
       it('every item is assetProcessor', () => {
