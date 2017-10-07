@@ -65,6 +65,44 @@ describe('url Url', () => {
     });
   });
 
+  describe('pathHasMarkdownExtension', () => {
+    it('matches known extensions', () => {
+      const markdownExtensions = ['md', 'markdown'];
+
+      assert.equal(
+        Url.pathHasMarkdownExtension(
+          '/_posts/hello-world.md',
+          markdownExtensions
+        ),
+        true
+      );
+
+      assert.equal(
+        Url.pathHasMarkdownExtension(
+          '/_posts/hello-world.markdown',
+          markdownExtensions
+        ),
+        true
+      );
+
+      assert.equal(
+        Url.pathHasMarkdownExtension(
+          '/_posts/hello-world.mkdown',
+          markdownExtensions
+        ),
+        false
+      );
+
+      assert.equal(
+        Url.pathHasMarkdownExtension(
+          '/_posts/hello-world.html',
+          markdownExtensions
+        ),
+        false
+      );
+    });
+  });
+
   describe('replaceMarkdownExtension', () => {
     it('replaces known markdown extensions', () => {
       const markdownExtensions = ['md', 'markdown'];
@@ -157,6 +195,9 @@ describe('url Url', () => {
       assert.equal(Url.makePretty(url), url);
 
       url = '/images/index.gif';
+      assert.equal(Url.makePretty(url), url);
+
+      url = '/CNAME';
       assert.equal(Url.makePretty(url), url);
     });
   });
